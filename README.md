@@ -46,6 +46,115 @@ We do include organziation and projects IDs after regestering with the DataSnap.
 
 ```
 
+## Example events to fill Daatasnap.io Default Dashboard
+
+Please review this seciton of the documentation and each section below for example code to use to properly populate the core widget in the dashboard.
+
+http://datasnap-io.github.io/pages/apis/#sendingevents
+
+## Global Distinct ID
+
+Global Distinct ID is an important Id that uniquoly identifies a user. also note that you can also send addiitonal IDs to use in mapping to other third party systems.
+
+http://docs.datasnapio.apiary.io/#introduction/event-properties/property:-user
+
+## Required fields
+
+See: http://datasnap-io.github.io/pages/apis/#required
+
+## Autopopulate Beacons/Campaigns
+
+See: http://datasnap-io.github.io/pages/apis/#sendingdata
+
+Typically this means that if you want us to autogetnerate the entities for you also include the name property for each entity.
+
+Example:
+```objective-C
+
+
+    NSDictionary *beaconData = @{@"event_type" : @"beacon_sighting",
+                                 @"beacon" : @{@"identifier": @"3333333",
+                                               @"name": @"Entrance Beacon"},
+                                 @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
+                                 @"datasnap": @{@"created": currentDate()}};
+    
+    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)beaconData];
+
+```
+
+
+### Beacon Widget and Beacon Heat Mapping
+
+Events:  beacon_sighting, beacon_depart, beacon_arrive 
+
+```objective-C
+
+
+    NSDictionary *beaconData = @{@"event_type" : @"beacon_sighting",
+                                 @"beacon" : @{@"identifier": @"3333333"},
+                                 @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
+                                 @"datasnap": @{@"created": currentDate()}};
+    
+    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)beaconData];
+
+```
+
+### Place Pathing
+
+Events:  beacon_sighting, beacon_depart, beacon_arrive 
+
+If you send Beacon events above there is nothing you need ot do here is you have used our Entity API to add places and beacons or you have autoupdate turned on.  See: http://docs.datasnapioentityapi.apiary.io/#
+
+### Campaign Reporting
+
+events: ds_communication_sent ds_communication_open 
+
+```objective-C
+
+
+    NSDictionary *beaconData = @{@"event_type" : @"ds_communication_sent",
+                                 @"campaign" : @{@"identifier": @"3333333"},
+                                 @"communication" : @{@"identifier": @"3333333"},
+                                 @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
+                                 @"datasnap": @{@"created": currentDate()}};
+    
+    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)beaconData];
+
+```
+
+### Geofence Reporting
+
+events: geofence_depart  
+
+```objective-C
+
+
+    NSDictionary *beaconData = @{@"event_type" : @"geofence_depart",
+                                 @"geofence" : @{@"identifier": @"3333333"},
+                                 @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
+                                 @"datasnap": @{@"created": currentDate()}};
+    
+    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)beaconData];
+
+```
+
+### GPS Reporting Widget
+
+events: geofence_depart  
+
+```objective-C
+
+
+   NSDictionary *beaconData = @{@"event_type" : @"global_position_sighting",
+                                 @"location" : @{@"coordinates" : @[@"32.89545949009762, -117.19463284827117"]},
+                                 @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
+                                 @"datasnap": @{@"created": currentDate()}};
+    
+    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)beaconData];
+
+```
+
+
 ## Datasnap.io Backend Status Page
 
 We offer the ability to check on our server status at anytime. Also if you are a client and we have issued you an API key then that means that
