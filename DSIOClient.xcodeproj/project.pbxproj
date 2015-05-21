@@ -6,10 +6,31 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		3970FDBB1B0BD11F00E69031 /* DSIOClient-Universal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 3970FDBC1B0BD11F00E69031 /* Build configuration list for PBXAggregateTarget "DSIOClient-Universal" */;
+			buildPhases = (
+				3970FDBF1B0BD14100E69031 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "DSIOClient-Universal";
+			productName = "DSIOClient-Universal";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		3970FD851B0BBA8B00E69031 /* DSIOClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 3970FD841B0BBA8B00E69031 /* DSIOClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3970FD8B1B0BBA8B00E69031 /* DSIOClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3970FD7F1B0BBA8B00E69031 /* DSIOClient.framework */; };
 		3970FD921B0BBA8B00E69031 /* DSIOClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3970FD911B0BBA8B00E69031 /* DSIOClientTests.m */; };
+		3970FE021B0D364C00E69031 /* DSIOClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 3970FDF91B0D364C00E69031 /* DSIOClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3970FE031B0D364C00E69031 /* DSIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3970FDFA1B0D364C00E69031 /* DSIOClient.m */; };
+		3970FE041B0D364C00E69031 /* DSIOConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 3970FDFB1B0D364C00E69031 /* DSIOConfig.h */; };
+		3970FE051B0D364C00E69031 /* DSIOConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3970FDFC1B0D364C00E69031 /* DSIOConfig.m */; };
+		3970FE061B0D364C00E69031 /* DSIOEventQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 3970FDFD1B0D364C00E69031 /* DSIOEventQueue.h */; };
+		3970FE071B0D364C00E69031 /* DSIOEventQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3970FDFE1B0D364C00E69031 /* DSIOEventQueue.m */; };
+		3970FE091B0D364C00E69031 /* DSIORequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3970FE001B0D364C00E69031 /* DSIORequest.h */; };
+		3970FE0A1B0D364C00E69031 /* DSIORequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3970FE011B0D364C00E69031 /* DSIORequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,10 +46,17 @@
 /* Begin PBXFileReference section */
 		3970FD7F1B0BBA8B00E69031 /* DSIOClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DSIOClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3970FD831B0BBA8B00E69031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3970FD841B0BBA8B00E69031 /* DSIOClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSIOClient.h; sourceTree = "<group>"; };
 		3970FD8A1B0BBA8B00E69031 /* DSIOClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSIOClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3970FD901B0BBA8B00E69031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3970FD911B0BBA8B00E69031 /* DSIOClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSIOClientTests.m; sourceTree = "<group>"; };
+		3970FDF91B0D364C00E69031 /* DSIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOClient.h; sourceTree = "<group>"; };
+		3970FDFA1B0D364C00E69031 /* DSIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOClient.m; sourceTree = "<group>"; };
+		3970FDFB1B0D364C00E69031 /* DSIOConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOConfig.h; sourceTree = "<group>"; };
+		3970FDFC1B0D364C00E69031 /* DSIOConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOConfig.m; sourceTree = "<group>"; };
+		3970FDFD1B0D364C00E69031 /* DSIOEventQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOEventQueue.h; sourceTree = "<group>"; };
+		3970FDFE1B0D364C00E69031 /* DSIOEventQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOEventQueue.m; sourceTree = "<group>"; };
+		3970FE001B0D364C00E69031 /* DSIORequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIORequest.h; sourceTree = "<group>"; };
+		3970FE011B0D364C00E69031 /* DSIORequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIORequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +99,14 @@
 		3970FD811B0BBA8B00E69031 /* DSIOClient */ = {
 			isa = PBXGroup;
 			children = (
-				3970FD841B0BBA8B00E69031 /* DSIOClient.h */,
+				3970FDF91B0D364C00E69031 /* DSIOClient.h */,
+				3970FDFA1B0D364C00E69031 /* DSIOClient.m */,
+				3970FDFB1B0D364C00E69031 /* DSIOConfig.h */,
+				3970FDFC1B0D364C00E69031 /* DSIOConfig.m */,
+				3970FDFD1B0D364C00E69031 /* DSIOEventQueue.h */,
+				3970FDFE1B0D364C00E69031 /* DSIOEventQueue.m */,
+				3970FE001B0D364C00E69031 /* DSIORequest.h */,
+				3970FE011B0D364C00E69031 /* DSIORequest.m */,
 				3970FD821B0BBA8B00E69031 /* Supporting Files */,
 			);
 			path = DSIOClient;
@@ -109,7 +144,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3970FD851B0BBA8B00E69031 /* DSIOClient.h in Headers */,
+				3970FE021B0D364C00E69031 /* DSIOClient.h in Headers */,
+				3970FE061B0D364C00E69031 /* DSIOEventQueue.h in Headers */,
+				3970FE041B0D364C00E69031 /* DSIOConfig.h in Headers */,
+				3970FE091B0D364C00E69031 /* DSIORequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +205,9 @@
 					3970FD891B0BBA8B00E69031 = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
+					3970FDBB1B0BD11F00E69031 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
 				};
 			};
 			buildConfigurationList = 3970FD791B0BBA8B00E69031 /* Build configuration list for PBXProject "DSIOClient" */;
@@ -183,6 +224,7 @@
 			targets = (
 				3970FD7E1B0BBA8B00E69031 /* DSIOClient */,
 				3970FD891B0BBA8B00E69031 /* DSIOClientTests */,
+				3970FDBB1B0BD11F00E69031 /* DSIOClient-Universal */,
 			);
 		};
 /* End PBXProject section */
@@ -204,11 +246,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3970FDBF1B0BD14100E69031 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "REVEAL_ARCHIVE_IN_FINDER=true\n\nFRAMEWORK_NAME=\"${PROJECT_NAME}\"\n\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${FRAMEWORK_NAME}.framework\"\n\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${FRAMEWORK_NAME}.framework\"\n\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\n\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${FRAMEWORK_NAME}.framework\"\n\n######################\n# Build Frameworks\n######################\n\necho \"about to buid with configuration: \\\"${CONFIGURATION}\\\"\nxcodebuild -project ${PROJECT_NAME}.xcodeproj \\\n    -scheme ${PROJECT_NAME} \\\n    -sdk iphonesimulator \\\n    -configuration ${CONFIGURATION} \\\n    clean \\\n    build \\\n    ONLY_ACTIVE_ARCH=NO \\\n    ARCHS='i386 x86_64' \\\n    VALID_ARCHS='i386 x86_64' \\\n    CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphonesimulator \\\n    2>&1\n\necho \"about to buid with configuration: \\\"${CONFIGURATION}\\\"\nxcodebuild -project ${PROJECT_NAME}.xcodeproj \\\n    -scheme ${PROJECT_NAME} \\\n    -sdk iphoneos \\\n    -configuration ${CONFIGURATION} \\\n    clean \\\n    build \\\n    ONLY_ACTIVE_ARCH=NO \\\n    ARCHS='armv7 armv7s arm64' \\\n    VALID_ARCHS='armv7 armv7s arm64' \\\n    CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphoneos \\\n    2>&1\n\n######################\n# Create directory for universal\n######################\n\nrm -rf \"${UNIVERSAL_LIBRARY_DIR}\"\n\nmkdir \"${UNIVERSAL_LIBRARY_DIR}\"\n\nmkdir \"${FRAMEWORK}\"\n\n######################\n# Copy files Framework\n######################\n\ncp -r \"${DEVICE_LIBRARY_PATH}/.\" \"${FRAMEWORK}\"\n\n######################\n# Make an universal binary\n######################\n\n#lipo \"${SIMULATOR_LIBRARY_PATH}/${FRAMEWORK_NAME}\" \"${DEVICE_LIBRARY_PATH}/${FRAMEWORK_NAME}\" -create -output \"${FRAMEWORK}/${FRAMEWORK_NAME}\" | echo\n                                                                      \n######################\n# On Release, copy the result to release directory\n######################\n#OUTPUT_DIR=\"${PROJECT_DIR}/Output/${FRAMEWORK_NAME}-${CONFIGURATION}-iphoneuniversal/\"\n\n#rm -rf \"$OUTPUT_DIR\"\n#mkdir -p \"$OUTPUT_DIR\"\n\n#cp -r \"${FRAMEWORK}\" \"$OUTPUT_DIR\"\n\n#if [ ${REVEAL_ARCHIVE_IN_FINDER} = true ]; then\n#    open \"${OUTPUT_DIR}/\"\n#fi\n\n######################\n# Copy frameworks output directory\n######################\n\nOUTPUT_DIR=\"${PROJECT_DIR}/Output/${FRAMEWORK_NAME}-${CONFIGURATION}/\"\n\nrm -rf \"$OUTPUT_DIR\"\nmkdir -p \"$OUTPUT_DIR\"\nmkdir -p \"$OUTPUT_DIR/simulator\"\nmkdir -p \"$OUTPUT_DIR/device\"\n\ncp -r \"${SIMULATOR_LIBRARY_PATH}\" \"$OUTPUT_DIR/simulator\"\ncp -r \"${DEVICE_LIBRARY_PATH}\" \"$OUTPUT_DIR/device\"\n\nif [ ${REVEAL_ARCHIVE_IN_FINDER} = true ]; then\n    open \"${OUTPUT_DIR}/\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3970FD7A1B0BBA8B00E69031 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3970FE051B0D364C00E69031 /* DSIOConfig.m in Sources */,
+				3970FE031B0D364C00E69031 /* DSIOClient.m in Sources */,
+				3970FE071B0D364C00E69031 /* DSIOEventQueue.m in Sources */,
+				3970FE0A1B0D364C00E69031 /* DSIORequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +384,7 @@
 		3970FD961B0BBA8B00E69031 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -329,6 +392,7 @@
 				INFOPLIST_FILE = DSIOClient/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -337,6 +401,7 @@
 		3970FD971B0BBA8B00E69031 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COPY_PHASE_STRIP = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -344,6 +409,7 @@
 				INFOPLIST_FILE = DSIOClient/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -379,6 +445,20 @@
 			};
 			name = Release;
 		};
+		3970FDBD1B0BD11F00E69031 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3970FDBE1B0BD11F00E69031 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -398,6 +478,7 @@
 				3970FD971B0BBA8B00E69031 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3970FD981B0BBA8B00E69031 /* Build configuration list for PBXNativeTarget "DSIOClientTests" */ = {
 			isa = XCConfigurationList;
@@ -406,6 +487,16 @@
 				3970FD9A1B0BBA8B00E69031 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3970FDBC1B0BD11F00E69031 /* Build configuration list for PBXAggregateTarget "DSIOClient-Universal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3970FDBD1B0BD11F00E69031 /* Debug */,
+				3970FDBE1B0BD11F00E69031 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

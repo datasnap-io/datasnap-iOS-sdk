@@ -1,19 +1,25 @@
 //
-//  DSIOClient.h
-//  DSIOClient
-//
-//  Created by Mark Watson on 5/19/15.
-//  Copyright (c) 2015 DataSnap. All rights reserved.
+// Copyright (c) 2015 Datasnapio. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-//! Project version number for DSIOClient.
-FOUNDATION_EXPORT double DSIOClientVersionNumber;
+@interface DSIOClient : NSObject
 
-//! Project version string for DSIOClient.
-FOUNDATION_EXPORT const unsigned char DSIOClientVersionString[];
++ (void)setupWithOrgID:(NSString *)organizationID projectId:(NSString *)projectID APIKey:(NSString *)APIKey
+             APISecret:(NSString *)APISecret logging:(BOOL)logging eventNum:(int)eventNum;
 
-// In this header, you should import all the public headers of your framework using statements like #import <DSIOClient/PublicHeader.h>
+/**
+Event Handlers
+ */
+- (void)flushEvents;
+- (void)genericEvent:(NSMutableDictionary *)eventDetails;
 
+/**
+ Enable Logging
+ */
++ (void)debug:(BOOL)showDebugLogs;
 
++ (id)sharedClient;
+
+@end
