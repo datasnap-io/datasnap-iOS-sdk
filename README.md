@@ -24,7 +24,7 @@ Integrating Datasnap.io with an iOS application? Check out the [Datasnap.io iOS 
 
 ## Example:
 
-You will notice that our SDK is pretty dumb and does NOT try to itself pull information about the device withour SDK.
+You will notice that our SDK is pretty dumb and does NOT try to itself pull information about the device with our SDK.
 
 We do include organziation and projects IDs after regestering with the DataSnap.io client
 
