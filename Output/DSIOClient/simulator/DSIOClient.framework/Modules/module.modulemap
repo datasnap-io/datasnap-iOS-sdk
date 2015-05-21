@@ -1,0 +1,6 @@
+framework module DSIOClient {
+  umbrella header "DSIOClient.h"
+
+  export *
+  module * { export * }
+}
