@@ -113,12 +113,22 @@ events: ds_communication_sent ds_communication_open
 
 
     NSDictionary *beaconData = @{@"event_type" : @"ds_communication_sent",
-                                 @"campaign" : @{@"identifier": @"3333333"},
+                                 @"campaign" : @{@"identifier": @"3333333",
+                                                @"status": @"foreground"},
                                  @"communication" : @{@"identifier": @"3333333"},
                                  @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
                                  @"datasnap": @{@"created": currentDate()}};
     
     [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)beaconData];
+
+```
+#### Campaign Status
+
+Not the status field to determine if the notification was sent when the app wa sin the foreground or the background.
+
+```
+ @"campaign" : @{@"identifier": @"3333333",
+                 @"status": @"foreground"},
 
 ```
 
