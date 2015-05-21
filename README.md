@@ -1,32 +1,33 @@
 ## Datasnap iOS SDK
-====================
 * Includes a sample app that shows sending proximity events
 * See details about event types here: http://docs.datasnapio.apiary.io/
 * The SDK stores events in memory before flushing to the Datasnap server
 
 ## Current Version
-==================
 
-Version 1.0.1
+Version 1.0.2
 
-[Version 1.0.1](releases/DSIOClient-1.0.1.zip)
+[Version 1.0.2](releases/DSIOClient-1.0.2.zip)
 
 ## Setup
-=====
 In order to integrate the Datasnap SDK with your application
-* Drag and drop the DSClient framework into your XCode project
-* Ensure DSIOClient.framework is included in your Target -> General -> Linked Frameworks and Libraries
-* Ensure DSIOClient.framework is included in your Target -> General -> Embedded Binaries
+* Download the latest binary and public headers [here](releases/DSIOClient-1.0.2.zip)
+* Uncompress DSIOClient-*.zip. It should contain: DSIOClient.h and libdatasnap-ios-sdk-Aggregate
+* Drag and drop the DSIOClient-* folder into your XCode project
+* Ensure libdatasnap-ios-sdk-Aggregate.a is included in your Target -> General -> Linked Frameworks and Libraries
 
 ## iOS Quick Start
 
 Integrating Datasnap.io with an iOS application? Check out the [Datasnap.io iOS Sample App](https://github.com/datasnap-io/datasnap-ios-generic-sample) to get started, then check back here for more detailed documentation.
 
-## Example:
+### Include the DataSnap.io Client header
 
-You will notice that our SDK is pretty dumb and does NOT try to itself pull information about the device with our SDK.
+Include the public header
+```objective-C
+#import "DSIOClient.h"
+```
 
-We do include organziation and projects IDs after regestering with the DataSnap.io client
+Then instantiate a client and use the created sharedClient throughout your application.
 
 ```objective-C
 
@@ -171,4 +172,3 @@ We offer the ability to check on our server status at anytime. Also if you are a
 we will email you of any downtime as soon as it occurs:
 
 http://status.datasnap.io/
-

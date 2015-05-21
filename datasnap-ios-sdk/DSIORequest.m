@@ -36,7 +36,7 @@
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:self.queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
     {
         NSInteger responseCode = [(NSHTTPURLResponse *)response statusCode];
-        if ([data length] > 0 && error == nil)
+        if (responseCode && responseCode == 201)
             DSIOLog(@"Request successfully sent to %@.\nStatus code: %d.\nData Sent: %@.\n", urlRequest.URL, (int) responseCode, json);
         else if ([data length] == 0 && error == nil)
             DSIOLog(@"Please check network connection on the device and that the datasnap api keys have been entered correctly");
