@@ -3,8 +3,8 @@
 //
 #import "DSIOClient.h"
 #import "DSIOEventQueue.h"
-#import "DSIORequest.h"
 #import "DSIOConfig.h"
+#import "DSIOAPI.h"
 
 static DSIOClient *sharedInstance = nil;
 static int eventQueueSize = 20;
@@ -23,10 +23,10 @@ static NSString *__projectID;
 
 @interface DSIOClient ()
 
-@property DSIOEventQueue *eventQueue;
-@property DSIORequest *requestHandler;
-@property NSString *organizationID;
-@property NSString *projectID;
+@property (nonatomic, strong) DSIOEventQueue *eventQueue;
+@property (nonatomic, strong) NSString *organizationID;
+@property (nonatomic, strong) NSString *projectID;
+@property (nonatomic, strong) DSIOAPI *api;
 
 - (void)checkQueue;
 
@@ -50,10 +50,9 @@ static NSString *__projectID;
         __organizationID = organizationID;
         __projectID = projectID;
         eventQueueSize = eventNum;
-        NSData *authData = [[NSString stringWithFormat:@"%@:%@", APIKey, APISecret] dataUsingEncoding:NSUTF8StringEncoding];
-        NSString *authString = [authData base64EncodedStringWithOptions:0];
         self.eventQueue = [[DSIOEventQueue alloc] initWithSize:eventQueueSize];
-        self.requestHandler = [[DSIORequest alloc] initWithURL:@"https://api-events.datasnap.io/v1.0/events" authString:authString];
+        self.api = [[DSIOAPI alloc] initWithKey:APIKey secret:APISecret];
+
     }
     return self;
 }
@@ -82,7 +81,7 @@ static NSString *__projectID;
 - (void)checkQueue {
     if (self.eventQueue.numberOfQueuedEvents >= self.eventQueue.queueLength) {
         DSIOLog(@"Queue is full. %d will be sent to service and flushed.", (int) self.eventQueue.numberOfQueuedEvents);
-        [self.requestHandler sendEvents:self.eventQueue.getEvents];
+        [self.api sendEvents:self.eventQueue.getEvents];
         [self flushEvents];
     }
 }

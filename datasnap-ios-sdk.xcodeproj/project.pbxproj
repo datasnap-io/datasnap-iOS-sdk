@@ -7,53 +7,41 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		3921B4531B0E944500E976C0 /* datasanp-ios-sdk-Aggregate */ = {
+		3921B4531B0E944500E976C0 /* Universal Framework */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 3921B4541B0E944500E976C0 /* Build configuration list for PBXAggregateTarget "datasanp-ios-sdk-Aggregate" */;
+			buildConfigurationList = 3921B4541B0E944500E976C0 /* Build configuration list for PBXAggregateTarget "Universal Framework" */;
 			buildPhases = (
 				3921B45B1B0E949600E976C0 /* ShellScript */,
 			);
 			dependencies = (
-				3921B45A1B0E949400E976C0 /* PBXTargetDependency */,
-				3921B4581B0E949200E976C0 /* PBXTargetDependency */,
+				154824FF1B19910A004E5CBF /* PBXTargetDependency */,
 			);
-			name = "datasanp-ios-sdk-Aggregate";
+			name = "Universal Framework";
 			productName = "datasanp-ios-sdk-Aggregate";
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		3921B3F81B0E921F00E976C0 /* libdatasnap-ios-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3921B3EC1B0E921E00E976C0 /* libdatasnap-ios-sdk.a */; };
+		154824F81B18CF93004E5CBF /* DSIOAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 154824F61B18CF93004E5CBF /* DSIOAPI.h */; };
+		154824F91B18CF93004E5CBF /* DSIOAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 154824F71B18CF93004E5CBF /* DSIOAPI.m */; };
+		3921B3F81B0E921F00E976C0 /* libDatasnap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3921B3EC1B0E921E00E976C0 /* libDatasnap.a */; };
 		3921B40E1B0E926C00E976C0 /* DSIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921B4071B0E926C00E976C0 /* DSIOClient.m */; };
 		3921B40F1B0E926C00E976C0 /* DSIOConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921B4091B0E926C00E976C0 /* DSIOConfig.m */; };
 		3921B4101B0E926C00E976C0 /* DSIOEventQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921B40B1B0E926C00E976C0 /* DSIOEventQueue.m */; };
-		3921B4111B0E926C00E976C0 /* DSIORequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921B40D1B0E926C00E976C0 /* DSIORequest.m */; };
 		3921B42B1B0E92D200E976C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3921B42A1B0E92D200E976C0 /* Foundation.framework */; };
 		3921B42D1B0E92E500E976C0 /* DSIOClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B4061B0E926C00E976C0 /* DSIOClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3921B42E1B0E92E500E976C0 /* DSIOConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B4081B0E926C00E976C0 /* DSIOConfig.h */; };
 		3921B42F1B0E92E500E976C0 /* DSIOEventQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B40A1B0E926C00E976C0 /* DSIOEventQueue.h */; };
-		3921B4301B0E92E500E976C0 /* DSIORequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B40C1B0E926C00E976C0 /* DSIORequest.h */; };
-		3921B4331B0E92F500E976C0 /* DSIORequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921B40D1B0E926C00E976C0 /* DSIORequest.m */; };
-		3921B4341B0E92F500E976C0 /* DSIOConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921B4091B0E926C00E976C0 /* DSIOConfig.m */; };
-		3921B4351B0E92F500E976C0 /* DSIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921B4071B0E926C00E976C0 /* DSIOClient.m */; };
-		3921B4361B0E92F500E976C0 /* DSIOEventQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921B40B1B0E926C00E976C0 /* DSIOEventQueue.m */; };
-		3921B4381B0E92F500E976C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3921B42A1B0E92D200E976C0 /* Foundation.framework */; };
-		3921B43A1B0E92F500E976C0 /* DSIOClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B4061B0E926C00E976C0 /* DSIOClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3921B43B1B0E92F500E976C0 /* DSIOConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B4081B0E926C00E976C0 /* DSIOConfig.h */; };
-		3921B43C1B0E92F500E976C0 /* DSIOEventQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B40A1B0E926C00E976C0 /* DSIOEventQueue.h */; };
-		3921B43D1B0E92F500E976C0 /* DSIORequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B40C1B0E926C00E976C0 /* DSIORequest.h */; };
-		3921B4441B0E92FF00E976C0 /* DSIORequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921B40D1B0E926C00E976C0 /* DSIORequest.m */; };
-		3921B4451B0E92FF00E976C0 /* DSIOConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921B4091B0E926C00E976C0 /* DSIOConfig.m */; };
-		3921B4461B0E92FF00E976C0 /* DSIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921B4071B0E926C00E976C0 /* DSIOClient.m */; };
-		3921B4471B0E92FF00E976C0 /* DSIOEventQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921B40B1B0E926C00E976C0 /* DSIOEventQueue.m */; };
-		3921B4491B0E92FF00E976C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3921B42A1B0E92D200E976C0 /* Foundation.framework */; };
-		3921B44B1B0E92FF00E976C0 /* DSIOClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B4061B0E926C00E976C0 /* DSIOClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3921B44C1B0E92FF00E976C0 /* DSIOConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B4081B0E926C00E976C0 /* DSIOConfig.h */; };
-		3921B44D1B0E92FF00E976C0 /* DSIOEventQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B40A1B0E926C00E976C0 /* DSIOEventQueue.h */; };
-		3921B44E1B0E92FF00E976C0 /* DSIORequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B40C1B0E926C00E976C0 /* DSIORequest.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		154824FE1B19910A004E5CBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3921B3E41B0E921E00E976C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3921B3EB1B0E921E00E976C0;
+			remoteInfo = "datasnap-ios-sdk";
+		};
 		3921B3F91B0E921F00E976C0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3921B3E41B0E921E00E976C0 /* Project object */;
@@ -61,24 +49,12 @@
 			remoteGlobalIDString = 3921B3EB1B0E921E00E976C0;
 			remoteInfo = "datasnap-ios-sdk";
 		};
-		3921B4571B0E949200E976C0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3921B3E41B0E921E00E976C0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3921B4311B0E92F500E976C0;
-			remoteInfo = "datasnap-ios-sdk-Device";
-		};
-		3921B4591B0E949400E976C0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3921B3E41B0E921E00E976C0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3921B4421B0E92FF00E976C0;
-			remoteInfo = "datasnap-ios-sdk-Simulator";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3921B3EC1B0E921E00E976C0 /* libdatasnap-ios-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libdatasnap-ios-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		154824F61B18CF93004E5CBF /* DSIOAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOAPI.h; sourceTree = "<group>"; };
+		154824F71B18CF93004E5CBF /* DSIOAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOAPI.m; sourceTree = "<group>"; };
+		3921B3EC1B0E921E00E976C0 /* libDatasnap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDatasnap.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3921B3F71B0E921F00E976C0 /* datasnap-ios-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "datasnap-ios-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3921B3FD1B0E921F00E976C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3921B4061B0E926C00E976C0 /* DSIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOClient.h; sourceTree = "<group>"; };
@@ -87,11 +63,7 @@
 		3921B4091B0E926C00E976C0 /* DSIOConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOConfig.m; sourceTree = "<group>"; };
 		3921B40A1B0E926C00E976C0 /* DSIOEventQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOEventQueue.h; sourceTree = "<group>"; };
 		3921B40B1B0E926C00E976C0 /* DSIOEventQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOEventQueue.m; sourceTree = "<group>"; };
-		3921B40C1B0E926C00E976C0 /* DSIORequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIORequest.h; sourceTree = "<group>"; };
-		3921B40D1B0E926C00E976C0 /* DSIORequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIORequest.m; sourceTree = "<group>"; };
 		3921B42A1B0E92D200E976C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		3921B4411B0E92F500E976C0 /* libdatasnap-ios-sdk-Device.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libdatasnap-ios-sdk-Device.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3921B4521B0E92FF00E976C0 /* libdatasnap-ios-sdk-Simulator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libdatasnap-ios-sdk-Simulator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,23 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3921B3F81B0E921F00E976C0 /* libdatasnap-ios-sdk.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3921B4371B0E92F500E976C0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3921B4381B0E92F500E976C0 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3921B4481B0E92FF00E976C0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3921B4491B0E92FF00E976C0 /* Foundation.framework in Frameworks */,
+				3921B3F81B0E921F00E976C0 /* libDatasnap.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +89,6 @@
 		3921B3E31B0E921E00E976C0 = {
 			isa = PBXGroup;
 			children = (
-				3921B42A1B0E92D200E976C0 /* Foundation.framework */,
 				3921B3EE1B0E921E00E976C0 /* datasnap-ios-sdk */,
 				3921B3FB1B0E921F00E976C0 /* datasnap-ios-sdkTests */,
 				3921B3ED1B0E921E00E976C0 /* Products */,
@@ -143,10 +98,8 @@
 		3921B3ED1B0E921E00E976C0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3921B3EC1B0E921E00E976C0 /* libdatasnap-ios-sdk.a */,
+				3921B3EC1B0E921E00E976C0 /* libDatasnap.a */,
 				3921B3F71B0E921F00E976C0 /* datasnap-ios-sdkTests.xctest */,
-				3921B4411B0E92F500E976C0 /* libdatasnap-ios-sdk-Device.a */,
-				3921B4521B0E92FF00E976C0 /* libdatasnap-ios-sdk-Simulator.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,14 +107,14 @@
 		3921B3EE1B0E921E00E976C0 /* datasnap-ios-sdk */ = {
 			isa = PBXGroup;
 			children = (
+				154824F61B18CF93004E5CBF /* DSIOAPI.h */,
+				154824F71B18CF93004E5CBF /* DSIOAPI.m */,
 				3921B4061B0E926C00E976C0 /* DSIOClient.h */,
 				3921B4071B0E926C00E976C0 /* DSIOClient.m */,
 				3921B4081B0E926C00E976C0 /* DSIOConfig.h */,
 				3921B4091B0E926C00E976C0 /* DSIOConfig.m */,
 				3921B40A1B0E926C00E976C0 /* DSIOEventQueue.h */,
 				3921B40B1B0E926C00E976C0 /* DSIOEventQueue.m */,
-				3921B40C1B0E926C00E976C0 /* DSIORequest.h */,
-				3921B40D1B0E926C00E976C0 /* DSIORequest.m */,
 			);
 			path = "datasnap-ios-sdk";
 			sourceTree = "<group>";
@@ -169,6 +122,7 @@
 		3921B3FB1B0E921F00E976C0 /* datasnap-ios-sdkTests */ = {
 			isa = PBXGroup;
 			children = (
+				3921B42A1B0E92D200E976C0 /* Foundation.framework */,
 				3921B3FC1B0E921F00E976C0 /* Supporting Files */,
 			);
 			path = "datasnap-ios-sdkTests";
@@ -191,30 +145,8 @@
 			files = (
 				3921B42D1B0E92E500E976C0 /* DSIOClient.h in Headers */,
 				3921B42E1B0E92E500E976C0 /* DSIOConfig.h in Headers */,
+				154824F81B18CF93004E5CBF /* DSIOAPI.h in Headers */,
 				3921B42F1B0E92E500E976C0 /* DSIOEventQueue.h in Headers */,
-				3921B4301B0E92E500E976C0 /* DSIORequest.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3921B4391B0E92F500E976C0 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3921B43A1B0E92F500E976C0 /* DSIOClient.h in Headers */,
-				3921B43B1B0E92F500E976C0 /* DSIOConfig.h in Headers */,
-				3921B43C1B0E92F500E976C0 /* DSIOEventQueue.h in Headers */,
-				3921B43D1B0E92F500E976C0 /* DSIORequest.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3921B44A1B0E92FF00E976C0 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3921B44B1B0E92FF00E976C0 /* DSIOClient.h in Headers */,
-				3921B44C1B0E92FF00E976C0 /* DSIOConfig.h in Headers */,
-				3921B44D1B0E92FF00E976C0 /* DSIOEventQueue.h in Headers */,
-				3921B44E1B0E92FF00E976C0 /* DSIORequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +160,7 @@
 				3921B3E81B0E921E00E976C0 /* Sources */,
 				3921B3E91B0E921E00E976C0 /* Frameworks */,
 				3921B42C1B0E92DE00E976C0 /* Headers */,
+				154824FD1B198B42004E5CBF /* Build framework */,
 			);
 			buildRules = (
 			);
@@ -235,7 +168,7 @@
 			);
 			name = "datasnap-ios-sdk";
 			productName = "datasnap-ios-sdk";
-			productReference = 3921B3EC1B0E921E00E976C0 /* libdatasnap-ios-sdk.a */;
+			productReference = 3921B3EC1B0E921E00E976C0 /* libDatasnap.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		3921B3F61B0E921F00E976C0 /* datasnap-ios-sdkTests */ = {
@@ -255,40 +188,6 @@
 			productName = "datasnap-ios-sdkTests";
 			productReference = 3921B3F71B0E921F00E976C0 /* datasnap-ios-sdkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		3921B4311B0E92F500E976C0 /* datasnap-ios-sdk-Device */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3921B43E1B0E92F500E976C0 /* Build configuration list for PBXNativeTarget "datasnap-ios-sdk-Device" */;
-			buildPhases = (
-				3921B4321B0E92F500E976C0 /* Sources */,
-				3921B4371B0E92F500E976C0 /* Frameworks */,
-				3921B4391B0E92F500E976C0 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "datasnap-ios-sdk-Device";
-			productName = "datasnap-ios-sdk";
-			productReference = 3921B4411B0E92F500E976C0 /* libdatasnap-ios-sdk-Device.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		3921B4421B0E92FF00E976C0 /* datasnap-ios-sdk-Simulator */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3921B44F1B0E92FF00E976C0 /* Build configuration list for PBXNativeTarget "datasnap-ios-sdk-Simulator" */;
-			buildPhases = (
-				3921B4431B0E92FF00E976C0 /* Sources */,
-				3921B4481B0E92FF00E976C0 /* Frameworks */,
-				3921B44A1B0E92FF00E976C0 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "datasnap-ios-sdk-Simulator";
-			productName = "datasnap-ios-sdk";
-			productReference = 3921B4521B0E92FF00E976C0 /* libdatasnap-ios-sdk-Simulator.a */;
-			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -324,9 +223,7 @@
 			targets = (
 				3921B3EB1B0E921E00E976C0 /* datasnap-ios-sdk */,
 				3921B3F61B0E921F00E976C0 /* datasnap-ios-sdkTests */,
-				3921B4311B0E92F500E976C0 /* datasnap-ios-sdk-Device */,
-				3921B4421B0E92FF00E976C0 /* datasnap-ios-sdk-Simulator */,
-				3921B4531B0E944500E976C0 /* datasanp-ios-sdk-Aggregate */,
+				3921B4531B0E944500E976C0 /* Universal Framework */,
 			);
 		};
 /* End PBXProject section */
@@ -342,6 +239,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		154824FD1B198B42004E5CBF /* Build framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build framework";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport FRAMEWORK_LOCN=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework\"\n\n/bin/rm -fr \"${FRAMEWORK_LOCN}\"\n\n# Create the path to the real Headers dir\nmkdir -p \"${FRAMEWORK_LOCN}/Versions/A/Headers\"\n\n/bin/cp \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_NAME}\" \\\n\"${FRAMEWORK_LOCN}/Versions/A/${PRODUCT_NAME}\"\n\n# Create the required symlinks\n/bin/ln -sfh A \"${FRAMEWORK_LOCN}/Versions/Current\"\n/bin/ln -sfh Versions/Current/Headers \"${FRAMEWORK_LOCN}/Headers\"\n/bin/ln -sfh \"Versions/Current/${PRODUCT_NAME}\" \\\n\"${FRAMEWORK_LOCN}/${PRODUCT_NAME}\"\n\n# Copy the public headers into the framework\n/bin/cp -a \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\" \\\n\"${FRAMEWORK_LOCN}/Versions/A/Headers\"\n\n/bin/rm -fr \"${BUILT_PRODUCTS_DIR}/../${PRODUCT_NAME}.framework\"\n\n# Copy the public headers into the framework\n/bin/cp -a \"${FRAMEWORK_LOCN}\" \\\n\"${BUILT_PRODUCTS_DIR}/../${PRODUCT_NAME}.framework\"\n";
+		};
 		3921B45B1B0E949600E976C0 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -353,7 +264,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export TMP_DIR=/tmp/datasnapios\n\nrm -rf ${TMP_DIR}\nrm -rf ${BUILT_PRODUCTS_DIR}/libKeenClient-Aggregate.a\nrm -rf ${BUILT_PRODUCTS_DIR}/KeenClient.zip\n\nlipo -create \"${BUILT_PRODUCTS_DIR}/../${CONFIGURATION}-iphonesimulator/libdatasnap-ios-sdk-Simulator.a\" \"${BUILT_PRODUCTS_DIR}/../${CONFIGURATION}-iphoneos/libdatasnap-ios-sdk-Device.a\" -output \"${BUILT_PRODUCTS_DIR}/libdatasnap-ios-sdk-Aggregate.a\"\n\nmkdir -p ${TMP_DIR}\n\ncp -r \"${BUILT_PRODUCTS_DIR}/libdatasnap-ios-sdk-Aggregate.a\" \"${BUILT_PRODUCTS_DIR}/usr/local/include/DSIOClient.h\"  ${TMP_DIR}/.\n\ncd ${TMP_DIR}\nzip -r \"${BUILT_PRODUCTS_DIR}/datasnap-ios-sdk.zip\" *\n";
+			shellScript = "set -e\n\n# If we're already inside this script then die\nif [ -n \"$RW_MULTIPLATFORM_BUILD_IN_PROGRESS\" ]; then\nexit 0\nfi\nexport RW_MULTIPLATFORM_BUILD_IN_PROGRESS=1\n\nRW_FRAMEWORK_NAME=Datasnap\nRW_INPUT_STATIC_LIB=\"lib${RW_FRAMEWORK_NAME}.a\"\nRW_FRAMEWORK_LOCATION=\"${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework\"\n\nfunction build_static_library {\n    # Will rebuild the static library as specified\n    #     build_static_library sdk\n    xcrun xcodebuild -project \"${PROJECT_FILE_PATH}\" \\\n    -target \"${TARGET_NAME}\" \\\n    -configuration \"${CONFIGURATION}\" \\\n    -sdk \"${1}\" \\\n    ONLY_ACTIVE_ARCH=NO \\\n    BUILD_DIR=\"${BUILD_DIR}\" \\\n    OBJROOT=\"${OBJROOT}\" \\\n    BUILD_ROOT=\"${BUILD_ROOT}\" \\\n    SYMROOT=\"${SYMROOT}\" $ACTION\n}\n\nfunction make_fat_library {\n    # Will smash 2 static libs together\n    #     make_fat_library in1 in2 out\n    xcrun lipo -create \"${1}\" \"${2}\" -output \"${3}\"\n}\n\n# Extract the platform (iphoneos/iphonesimulator) from the SDK name\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]; then\nRW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# Extract the version from the SDK\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]; then\nRW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# Determine the other platform\nif [ \"$RW_SDK_PLATFORM\" == \"iphoneos\" ]; then\nRW_OTHER_PLATFORM=iphonesimulator\nelse\nRW_OTHER_PLATFORM=iphoneos\nfi\n\n# Find the build directory\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$RW_SDK_PLATFORM$ ]]; then\nRW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${RW_OTHER_PLATFORM}\"\nelse\necho \"Could not find other platform build directory.\"\nexit 1\nfi\n\n\n# Build the other platform.\nbuild_static_library \"${RW_OTHER_PLATFORM}${RW_SDK_VERSION}\"\n\n# If we're currently building for iphonesimulator, then need to rebuild\n#   to ensure that we get both i386 and x86_64\nif [ \"$RW_SDK_PLATFORM\" == \"iphonesimulator\" ]; then\nbuild_static_library \"${SDK_NAME}\"\nfi\n\n# Join the 2 static libs into 1 and push into the .framework\nmake_fat_library \"${BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n\n# Ensure that the framework is present in both platorm's build directories\ncp -a \"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Copy the framework to the user's desktop\nditto \"${RW_FRAMEWORK_LOCATION}\" \"${HOME}/Desktop/${RW_FRAMEWORK_NAME}.framework\"\n\n# Copy the resources bundle to the user's desktop\n#ditto \"${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.bundle\" \\\n#\"${HOME}/Desktop/${RW_FRAMEWORK_NAME}.bundle\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -362,8 +273,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3921B4111B0E926C00E976C0 /* DSIORequest.m in Sources */,
 				3921B40F1B0E926C00E976C0 /* DSIOConfig.m in Sources */,
+				154824F91B18CF93004E5CBF /* DSIOAPI.m in Sources */,
 				3921B40E1B0E926C00E976C0 /* DSIOClient.m in Sources */,
 				3921B4101B0E926C00E976C0 /* DSIOEventQueue.m in Sources */,
 			);
@@ -376,45 +287,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3921B4321B0E92F500E976C0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3921B4331B0E92F500E976C0 /* DSIORequest.m in Sources */,
-				3921B4341B0E92F500E976C0 /* DSIOConfig.m in Sources */,
-				3921B4351B0E92F500E976C0 /* DSIOClient.m in Sources */,
-				3921B4361B0E92F500E976C0 /* DSIOEventQueue.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3921B4431B0E92FF00E976C0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3921B4441B0E92FF00E976C0 /* DSIORequest.m in Sources */,
-				3921B4451B0E92FF00E976C0 /* DSIOConfig.m in Sources */,
-				3921B4461B0E92FF00E976C0 /* DSIOClient.m in Sources */,
-				3921B4471B0E92FF00E976C0 /* DSIOEventQueue.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		154824FF1B19910A004E5CBF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3921B3EB1B0E921E00E976C0 /* datasnap-ios-sdk */;
+			targetProxy = 154824FE1B19910A004E5CBF /* PBXContainerItemProxy */;
+		};
 		3921B3FA1B0E921F00E976C0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3921B3EB1B0E921E00E976C0 /* datasnap-ios-sdk */;
 			targetProxy = 3921B3F91B0E921F00E976C0 /* PBXContainerItemProxy */;
-		};
-		3921B4581B0E949200E976C0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3921B4311B0E92F500E976C0 /* datasnap-ios-sdk-Device */;
-			targetProxy = 3921B4571B0E949200E976C0 /* PBXContainerItemProxy */;
-		};
-		3921B45A1B0E949400E976C0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3921B4421B0E92FF00E976C0 /* datasnap-ios-sdk-Simulator */;
-			targetProxy = 3921B4591B0E949400E976C0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -454,7 +338,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -490,7 +374,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -500,8 +384,10 @@
 		3921B4011B0E921F00E976C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Datasnap;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -509,8 +395,9 @@
 		3921B4021B0E921F00E976C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Datasnap;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -547,64 +434,10 @@
 			};
 			name = Release;
 		};
-		3921B43F1B0E92F500E976C0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "datasnap-ios-sdk-Device";
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = iphoneos;
-				VALID_ARCHS = "armv7 armv7s arm64";
-			};
-			name = Debug;
-		};
-		3921B4401B0E92F500E976C0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				COPY_PHASE_STRIP = YES;
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "datasnap-ios-sdk-Device";
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = iphoneos;
-				VALID_ARCHS = "armv7 armv7s arm64";
-			};
-			name = Release;
-		};
-		3921B4501B0E92FF00E976C0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUSING_64_BIT)";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "datasnap-ios-sdk-Simulator";
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = iphonesimulator;
-				VALID_ARCHS = "armv6 armv7 arm64";
-			};
-			name = Debug;
-		};
-		3921B4511B0E92FF00E976C0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUSING_64_BIT)";
-				COPY_PHASE_STRIP = YES;
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "datasnap-ios-sdk-Simulator";
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = iphonesimulator;
-				VALID_ARCHS = "armv6 armv7 arm64";
-			};
-			name = Release;
-		};
 		3921B4551B0E944500E976C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -613,7 +446,7 @@
 		3921B4561B0E944500E976C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -638,6 +471,7 @@
 				3921B4021B0E921F00E976C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3921B4031B0E921F00E976C0 /* Build configuration list for PBXNativeTarget "datasnap-ios-sdkTests" */ = {
 			isa = XCConfigurationList;
@@ -646,32 +480,16 @@
 				3921B4051B0E921F00E976C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		3921B43E1B0E92F500E976C0 /* Build configuration list for PBXNativeTarget "datasnap-ios-sdk-Device" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3921B43F1B0E92F500E976C0 /* Debug */,
-				3921B4401B0E92F500E976C0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3921B44F1B0E92FF00E976C0 /* Build configuration list for PBXNativeTarget "datasnap-ios-sdk-Simulator" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3921B4501B0E92FF00E976C0 /* Debug */,
-				3921B4511B0E92FF00E976C0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3921B4541B0E944500E976C0 /* Build configuration list for PBXAggregateTarget "datasanp-ios-sdk-Aggregate" */ = {
+		3921B4541B0E944500E976C0 /* Build configuration list for PBXAggregateTarget "Universal Framework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3921B4551B0E944500E976C0 /* Debug */,
 				3921B4561B0E944500E976C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
