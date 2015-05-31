@@ -10,6 +10,7 @@ static DSIOClient *sharedInstance = nil;
 static int eventQueueSize = 20;
 static NSString *__organizationID;
 static NSString *__projectID;
+static NSString *__version = @"1.0.3";
 
 @implementation NSMutableDictionary (AddNotNil)
 
@@ -33,7 +34,9 @@ static NSString *__projectID;
 @end
 
 @implementation DSIOClient
-
++ (NSString *) version {
+    return __version;
+}
 #pragma mark - Init the SDK with org id, project id, apikey and apisecret
 
 + (void) setupWithOrgID:(NSString *)organizationID projectId:(NSString *)projectID APIKey:(NSString *)APIKey

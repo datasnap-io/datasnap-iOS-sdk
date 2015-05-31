@@ -22,4 +22,5 @@ Event Handlers
 
 + (id)sharedClient;
 
++ (NSString *) version;
 @end
