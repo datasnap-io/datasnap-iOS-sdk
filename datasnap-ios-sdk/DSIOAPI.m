@@ -80,9 +80,12 @@ static NSString *const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v
 
 - (void) performAuthenticatedRequest: (NSURLRequest *) request onCompletion: (DataSnapAPIRequestCompleted) completitionHandler
 {
+    NSMutableURLRequest *req = [request mutableCopy];
+    [req addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     [sessionConfig setHTTPAdditionalHeaders: @{
-                                               @"Accept": @"application/json",
+                                               @"Content-Type": @"application/json",
                                                @"Authorization" : [self __authorizationHeader]
                                                }];
     
@@ -90,7 +93,7 @@ static NSString *const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v
     
     
     
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:req
                                             completionHandler:
                                   ^(NSData *data, NSURLResponse *response, NSError *error) {
                                       if(completitionHandler) {
