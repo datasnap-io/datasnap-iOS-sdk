@@ -45,7 +45,7 @@ Then instantiate a client and use the created sharedClient throughout your appli
 
 ```
 
-## Example events to fill Daatasnap.io Default Dashboard
+## Example events to fill Datasnap.io Default Dashboard
 
 Please review this seciton of the documentation and each section below for example code to use to properly populate the core widget in the dashboard.
 
@@ -149,7 +149,7 @@ events: geofence_depart
 
 ### GPS Reporting Widget
 
-events: geofence_depart  
+events: global_position_sighting  
 
 ```objective-C
 
