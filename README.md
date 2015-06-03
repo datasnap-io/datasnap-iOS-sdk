@@ -144,11 +144,25 @@ events: ds_communication_sent ds_communication_open
 ```
 #### Campaign Status
 
-Not the status field to determine if the notification was sent when the app wa sin the foreground or the background.
+Note the status field to determine if the notification was sent when the app wa sin the foreground or the background.
 
 ```
  @"campaign" : @{@"identifier": @"3333333",
                  @"status": @"foreground"},
+
+```
+
+#### Urban Airship Note
+
+If using Urban Airship not that Campaigns and Communications are basically the same so please just include the same identifier for both campaign and communication properties.
+
+#### Campaign AutoPopulate
+
+Note that if we autopopulate campaigns for you you must pass in the communication_ids that are assotiated with campaigns.
+
+```
+ @"campaign" : @{@"identifier": @"3333333",
+                 @"communication_ids": @[@"1234"]},
 
 ```
 
