@@ -36,12 +36,12 @@ Then instantiate a client and use the created sharedClient throughout your appli
                        logging:true
                       eventNum:15];
 
-    NSDictionary *beaconData = @{@"event_type" : @"beacon_sighting",
+    NSDictionary *event = @{@"event_type" : @"beacon_sighting",
                                  @"beacon" : @{@"identifier": @"3333333"},
                                  @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
                                  @"datasnap": @{@"created": currentDate()}};
     
-    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)beaconData];
+    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
 
 ```
 
@@ -71,13 +71,13 @@ Example:
 ```objective-C
 
 
-    NSDictionary *beaconData = @{@"event_type" : @"beacon_sighting",
+    NSDictionary *event = @{@"event_type" : @"beacon_sighting",
                                  @"beacon" : @{@"identifier": @"3333333",
                                                @"name": @"Entrance Beacon"},
                                  @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
                                  @"datasnap": @{@"created": currentDate()}};
     
-    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)beaconData];
+    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
 
 ```
 
@@ -89,12 +89,12 @@ Events:  beacon_sighting, beacon_depart, beacon_arrive
 ```objective-C
 
 
-    NSDictionary *beaconData = @{@"event_type" : @"beacon_sighting",
+    NSDictionary *event = @{@"event_type" : @"beacon_sighting",
                                  @"beacon" : @{@"identifier": @"3333333"},
                                  @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
                                  @"datasnap": @{@"created": currentDate()}};
     
-    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)beaconData];
+    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
 
 ```
 
@@ -104,6 +104,25 @@ Events:  beacon_sighting, beacon_depart, beacon_arrive
 
 If you send Beacon events above there is nothing you need ot do here is you have used our Entity API to add places and beacons or you have autoupdate turned on.  See: http://docs.datasnapioentityapi.apiary.io/#
 
+### Place events
+
+Events:  place_depart, place_arrive 
+
+These are currently not used for any particular widget in the default dashboard
+
+```objective-C
+
+
+    NSDictionary *event = @{@"event_type" : @"place_arrive",
+                                 @"place" : @{@"id": @"3333333",
+                                               @"name": @"Entrance Beacon"},
+                                 @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
+                                 @"datasnap": @{@"created": currentDate()}};
+    
+    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
+
+```
+
 ### Campaign Reporting
 
 events: ds_communication_sent ds_communication_open 
@@ -111,14 +130,14 @@ events: ds_communication_sent ds_communication_open
 ```objective-C
 
 
-    NSDictionary *beaconData = @{@"event_type" : @"ds_communication_sent",
+    NSDictionary *event = @{@"event_type" : @"ds_communication_sent",
                                  @"campaign" : @{@"identifier": @"3333333",
                                                 @"status": @"foreground"},
                                  @"communication" : @{@"identifier": @"3333333"},
                                  @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
                                  @"datasnap": @{@"created": currentDate()}};
     
-    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)beaconData];
+    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
 
 ```
 #### Campaign Status
@@ -138,12 +157,12 @@ events: geofence_depart
 ```objective-C
 
 
-    NSDictionary *beaconData = @{@"event_type" : @"geofence_depart",
+    NSDictionary *event = @{@"event_type" : @"geofence_depart",
                                  @"geofence" : @{@"identifier": @"3333333"},
                                  @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
                                  @"datasnap": @{@"created": currentDate()}};
     
-    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)beaconData];
+    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
 
 ```
 
@@ -154,12 +173,12 @@ events: global_position_sighting
 ```objective-C
 
 
-   NSDictionary *beaconData = @{@"event_type" : @"global_position_sighting",
+   NSDictionary *event = @{@"event_type" : @"global_position_sighting",
                                  @"location" : @{@"coordinates" : @[@"32.89545949009762, -117.19463284827117"]},
                                  @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
                                  @"datasnap": @{@"created": currentDate()}};
     
-    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)beaconData];
+    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
 
 ```
 
