@@ -108,14 +108,16 @@ If you send Beacon events above there is nothing you need ot do here is you have
 
 Events:  place_depart, place_arrive 
 
-These are currently not used for any particular widget in the default dashboard
+These are currently not used for any particular widget in the default dashboard.
+
+NOTE: Name is technically not required just the identifier if autopopulate is off.
 
 ```objective-C
 
 
     NSDictionary *event = @{@"event_type" : @"place_arrive",
                                  @"place" : @{@"id": @"3333333",
-                                               @"name": @"Entrance Beacon"},
+                                               @"name": @"Entrance Place"},
                                  @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
                                  @"datasnap": @{@"created": currentDate()}};
     
