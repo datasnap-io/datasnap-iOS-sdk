@@ -5,11 +5,11 @@
 
 ## Current Version
 
-[Version 1.0.2](https://github.com/datasnap-io/datasnap-ios-sdk/blob/master/releases/DSIOClient-1.0.2.zip)
+[Version 1.0.4](https://github.com/datasnap-io/datasnap-ios-sdk/releases/download/1.0.4/Datasnap.framework-1.0.4.zip)
 
 ## Setup
 In order to integrate the Datasnap SDK with your application
-* Download the latest binary and public headers [here](https://github.com/datasnap-io/datasnap-ios-sdk/releases/download/1.0.3/Datasnap.framework-1.0.3.zip)
+* Download the latest binary and public headers [here](https://github.com/datasnap-io/datasnap-ios-sdk/releases/download/1.0.4/Datasnap.framework-1.0.4.zip)
 * Uncompress Datasnap.framework-*.zip. It should contain: Datasnap.framework
 * Drag and drop Datasnap.framework into your XCode project
 * Ensure Datasnap.framework is included in your Target -> General -> Linked Frameworks and Libraries
