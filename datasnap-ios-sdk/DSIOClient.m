@@ -10,7 +10,7 @@ static DSIOClient *sharedInstance = nil;
 static int eventQueueSize = 20;
 static NSString *__organizationID;
 static NSString *__projectID;
-static NSString *__version = @"1.0.3";
+static NSString *__version = @"1.0.4";
 
 @implementation NSMutableDictionary (AddNotNil)
 
