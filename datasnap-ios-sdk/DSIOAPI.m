@@ -3,6 +3,7 @@
 //
 
 #import "DSIOAPI.h"
+#import "DSIOConfig.h"
 
 static NSString *const URLReservedChars     = @"￼=,!$&'()*+;@?\r\n\"<>#\t :/";
 static NSString *const kQuerySeparator  = @"&";
@@ -37,13 +38,15 @@ static NSString *const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v
     
     NSError *error;
     NSData *json = [NSJSONSerialization dataWithJSONObject:events
-                                                   options:0
+                                                   options:NSJSONWritingPrettyPrinted
                                                      error:&error];
     if(error)
     {
         json = [NSData new];
     }
     
+    
+    __block NSString *jsonStr = [NSJSONSerialization JSONObjectWithData:json options:0 error:nil];
     NSURL *url = [NSURL URLWithString:kDataSnapEventAPIURL];
     
     [self performAuthenticatedPOSTRequestWithURL:url
@@ -51,8 +54,28 @@ static NSString *const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v
                                     onCompletion:^(NSData *data, NSURLResponse *response, NSError *error) {
                                         if(error)
                                         {
-                                            NSLog(@"An error occured sending DataSnap events");
+                                            DSIOLog(@"Error sending request to %@.\n", url);
+                                            DSIOLog(@"%@",jsonStr);
+                                            DSIOLog(@"%@\n", error.description);
                                         }
+                                        else if (response && [response isKindOfClass:[NSHTTPURLResponse class]])
+                                        {
+                                            NSHTTPURLResponse *resp = (NSHTTPURLResponse *)response;
+                                            if (resp.statusCode == 401) {
+                                                DSIOLog(@"Datasnap Error: Please check network connection on the device and that the datasnap api keys have been entered correctly");
+
+                                            }
+                                            else if (resp.statusCode > 204)
+                                            {
+                                                DSIOLog(@"Something went wrong with the request. Status Code %d", resp.statusCode);
+                                            }
+                                            else
+                                            {
+                                                DSIOLog(@"Request successfully sent to %@.\nStatus code: %d.\nData Sent: %@.\n", url, resp.statusCode, jsonStr);
+
+                                            }
+                                        }
+                                        
                                     }];
 }
 
@@ -82,7 +105,7 @@ static NSString *const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v
 {
     NSMutableURLRequest *req = [request mutableCopy];
     [req addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
+
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     [sessionConfig setHTTPAdditionalHeaders: @{
                                                @"Content-Type": @"application/json",
