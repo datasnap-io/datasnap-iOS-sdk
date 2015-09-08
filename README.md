@@ -160,10 +160,14 @@ If using Urban Airship not that Campaigns and Communications are basically the s
 
 Note that if we autopopulate campaigns for you you must pass in the communication_ids that are assotiated with campaigns.
 
+They must also have a name assotiated with them.
+
 ```
  @"campaign" : @{@"identifier": @"3333333",
-                 @"communication_ids": @[@"1234"]},
-
+                 @"name": @"TheCampaign",
+                 @"communication_ids": @[@"3333333"]},
+ @"communication" : @{@"identifier": @"3333333",
+                      @"name": @"TheCommunication"},
 ```
 
 ### Geofence Reporting
