@@ -134,8 +134,10 @@ events: ds_communication_sent ds_communication_open
 
     NSDictionary *event = @{@"event_type" : @"ds_communication_sent",
                                  @"campaign" : @{@"identifier": @"3333333",
-                                                @"status": @"foreground"},
-                                 @"communication" : @{@"identifier": @"3333333"},
+                                                 @"advertiser_org_id": @"advorgid",
+                                                 @"status": @"foreground"},
+                                 @"communication" : @{@"identifier": @"3333333",
+                                                      @"advertiser_org_id": @"advorgid"},
                                  @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
                                  @"datasnap": @{@"created": currentDate()}};
     
@@ -165,8 +167,10 @@ They must also have a name assotiated with them.
 ```
  @"campaign" : @{@"identifier": @"3333333",
                  @"name": @"TheCampaign",
+                 @"advertiser_org_id": @"advorgid",
                  @"communication_ids": @[@"3333333"]},
  @"communication" : @{@"identifier": @"3333333",
+                      @"advertiser_org_id": @"advorgid",
                       @"name": @"TheCommunication"},
 ```
 
