@@ -37,9 +37,10 @@ Then instantiate a client and use the created sharedClient throughout your appli
                       eventNum:15];
 
     NSDictionary *event = @{@"event_type" : @"beacon_sighting",
-                                 @"beacon" : @{@"identifier": @"3333333"},
-                                 @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
-                                 @"datasnap": @{@"created": currentDate()}};
+                            @"beacon" : @{@"identifier": @"3333333"},
+                            @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
+                            @"datasnap": @{@"created": currentDate()},
+                            @"venue_org_id": @"MarksSuperCoolVenueID"};
     
     [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
 
@@ -72,10 +73,11 @@ Example:
 
 
     NSDictionary *event = @{@"event_type" : @"beacon_sighting",
-                                 @"beacon" : @{@"identifier": @"3333333",
-                                               @"name": @"Entrance Beacon"},
-                                 @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
-                                 @"datasnap": @{@"created": currentDate()}};
+                            @"beacon" : @{@"identifier": @"3333333",
+                                          @"name": @"Entrance Beacon"},
+                            @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
+                            @"datasnap": @{@"created": currentDate()},
+                            @"venue_org_id": @"MarksSuperCoolVenueID"};
     
     [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
 
@@ -90,9 +92,10 @@ Events:  beacon_sighting, beacon_depart, beacon_arrive
 
 
     NSDictionary *event = @{@"event_type" : @"beacon_sighting",
-                                 @"beacon" : @{@"identifier": @"3333333"},
-                                 @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
-                                 @"datasnap": @{@"created": currentDate()}};
+                            @"beacon" : @{@"identifier": @"3333333"},
+                            @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
+                            @"datasnap": @{@"created": currentDate()},
+                            @"venue_org_id": @"MarksSuperCoolVenueID"};
     
     [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
 
@@ -116,10 +119,11 @@ NOTE: Name is technically not required just the identifier if autopopulate is of
 
 
     NSDictionary *event = @{@"event_type" : @"place_arrive",
-                                 @"place" : @{@"id": @"3333333",
-                                               @"name": @"Entrance Place"},
-                                 @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
-                                 @"datasnap": @{@"created": currentDate()}};
+                            @"place" : @{@"id": @"3333333",
+                                        @"name": @"Entrance Place"},
+                            @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
+                            @"datasnap": @{@"created": currentDate()},
+                            @"venue_org_id": @"MarksSuperCoolVenueID"};
     
     [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
 
@@ -133,13 +137,13 @@ events: ds_communication_sent ds_communication_open
 
 
     NSDictionary *event = @{@"event_type" : @"ds_communication_sent",
-                                 @"campaign" : @{@"identifier": @"3333333",
-                                                 @"advertiser_org_id": @"advorgid",
-                                                 @"status": @"foreground"},
-                                 @"communication" : @{@"identifier": @"3333333",
-                                                      @"advertiser_org_id": @"advorgid"},
-                                 @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
-                                 @"datasnap": @{@"created": currentDate()}};
+                            @"campaign" : @{@"identifier": @"3333333",
+                                            @"advertiser_org_id": @"advorgid",
+                                            @"status": @"foreground"},
+                            @"communication" : @{@"identifier": @"3333333",
+                                                 @"advertiser_org_id": @"advorgid"},
+                            @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
+                            @"datasnap": @{@"created": currentDate()}};
     
     [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
 
@@ -182,9 +186,9 @@ events: geofence_depart
 
 
     NSDictionary *event = @{@"event_type" : @"geofence_depart",
-                                 @"geofence" : @{@"identifier": @"3333333"},
-                                 @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
-                                 @"datasnap": @{@"created": currentDate()}};
+                            @"geofence" : @{@"identifier": @"3333333"},
+                            @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
+                            @"datasnap": @{@"created": currentDate()}};
     
     [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
 
