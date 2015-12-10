@@ -7,9 +7,6 @@
 #import "DSIOAPI.h"
 
 static DSIOClient *sharedInstance = nil;
-static int eventQueueSize = 20;
-static NSString *__organizationID;
-static NSString *__projectID;
 static NSString *__version = @"1.0.4";
 
 @implementation NSMutableDictionary (AddNotNil)
@@ -41,6 +38,7 @@ static NSString *__version = @"1.0.4";
 
 + (void) setupWithOrgID:(NSString *)organizationID projectId:(NSString *)projectID APIKey:(NSString *)APIKey
               APISecret:(NSString *)APISecret logging:(BOOL)logging eventNum:(int)eventNum {
+    NSLog(@"%@",organizationID);
     [self debug:logging];
     static dispatch_once_t onceToken = 0;
     dispatch_once(&onceToken, ^{
@@ -50,10 +48,9 @@ static NSString *__version = @"1.0.4";
 
 - (id)initWithOrgID:(NSString *)organizationID projectId:(NSString *)projectID APIKey:(NSString *)APIKey APISecret:(NSString *)APISecret eventNum:(int)eventNum {
     if (self = [self init]) {
-        __organizationID = organizationID;
-        __projectID = projectID;
-        eventQueueSize = eventNum;
-        self.eventQueue = [[DSIOEventQueue alloc] initWithSize:eventQueueSize];
+        self.organizationID = organizationID;
+        self.projectID = projectID;
+        self.eventQueue = [[DSIOEventQueue alloc] initWithSize:eventNum];
         self.api = [[DSIOAPI alloc] initWithKey:APIKey secret:APISecret];
 
     }
@@ -72,7 +69,7 @@ static NSString *__version = @"1.0.4";
 
 - (void)eventHandler:(NSMutableDictionary *)eventDetails {
     NSMutableDictionary *eventDetailsCopy = [eventDetails mutableCopy];
-    [eventDetailsCopy addEntriesFromDictionary:@{@"organization_ids" : @[__organizationID], @"project_ids" : @[__projectID]}];
+    [eventDetailsCopy addEntriesFromDictionary:@{@"organization_ids" : @[self.organizationID], @"project_ids" : @[self.projectID]}];
     [self.eventQueue recordEvent:eventDetailsCopy];
     [self checkQueue];
 }
