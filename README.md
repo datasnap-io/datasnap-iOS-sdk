@@ -71,7 +71,7 @@ Events are proximity-triggered actions like departing a beacon or sending a camp
 
 ### Required Fields
 
-Include these *[Required Event Fields](http://docs.datasnapio.apiary.io/#introduction/sending-events/required-event-fields)* to successfully post events.
+Include these [Required Event Fields](http://docs.datasnapio.apiary.io/#introduction/sending-events/required-event-fields) to successfully post events.
 
 
 
@@ -102,7 +102,7 @@ For more examples, please see the [Event API Documentation](http://docs.datasnap
 
 To provide better insights, include additional User attributes and IDs, some which map to third-party systems.
 
-Please see [Event API: USER Properties](http://docs.datasnapio.apiary.io/#introduction/event-properties/property:-user) for more details.
+Please see [Event API: User Properties](http://docs.datasnapio.apiary.io/#introduction/event-properties/property:-user) for more details.
 
 
 
