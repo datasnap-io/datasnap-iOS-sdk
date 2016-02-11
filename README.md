@@ -88,7 +88,7 @@ For more examples, please see the [Event API Documentation](http://docs.datasnap
 - (void)exampleBeaconArrive {
     NSDictionary *beaconData = @{@"event_type" : @"beacon_arrive",
                                  @"beacon" : @{@"identifier": @"3333333",
-                                                @"rssi": 0.528},
+                                                @"rssi": -20},
                                  @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
                                  @"datasnap": @{@"created": currentDate()}};
     
