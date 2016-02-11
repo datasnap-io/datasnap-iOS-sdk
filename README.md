@@ -1,22 +1,39 @@
-## Datasnap iOS SDK
-* Includes a sample app that shows sending proximity events
-* See details about event types here: http://docs.datasnapio.apiary.io/
-* The SDK stores events in memory before flushing to the Datasnap server
+## datasnap.io iOS SDK
+
+This guide covers
+* Where to download the SDK
+* How to install the SDK
+
+After completing these steps, please see the **[datasnap.io API Documentation](http://docs.datasnapio.apiary.io/)** for examples showing you how to use the SDK within your iOS app.
+
+
 
 ## Current Version
 
 [Version 1.0.4](https://github.com/datasnap-io/datasnap-ios-sdk/releases/download/1.0.4/Datasnap.framework-1.0.4.zip)
 
+## Example iOS App
+
+[Datasnap.io iOS Sample App](https://github.com/datasnap-io/datasnap-ios-generic-sample)
+
+
 ## Setup
-In order to integrate the Datasnap SDK with your application
-* Download the latest binary and public headers [here](https://github.com/datasnap-io/datasnap-ios-sdk/releases/download/1.0.4/Datasnap.framework-1.0.4.zip)
-* Uncompress Datasnap.framework-*.zip. It should contain: Datasnap.framework
-* Drag and drop Datasnap.framework into your XCode project
+* Download the latest SDK release [here](https://github.com/datasnap-io/datasnap-ios-sdk/releases/download/1.0.4/Datasnap.framework-1.0.4.zip)
+* Uncompress Datasnap.framework-*.zip wherever you like to keep libraries
+* Drag the Datasnap.framework file into your Xcode project file.
 * Ensure Datasnap.framework is included in your Target -> General -> Linked Frameworks and Libraries
+** If it is not, delete the Datasnap.framework file from the Xcode project and use the + sign under Linked Frameworks and Libraries to add the Datasnap.framework file directly
+![Add a framework from the General menu in Xcode 7.2.1](https://github.com/datasnap-io/datasnap-ios-sdk/readme_images/addFramework.png "Adding a framework in Xcode 7.2.1")
+** Choose 'Add Other...' and select Datasnap.framework
+![Choose Add Other from the Linked Framework Pop Up in Xcode 7.2.1](https://github.com/datasnap-io/datasnap-ios-sdk/readme_images/linkedFramework.png "Adding a framework in Xcode 7.2.1")
+
+
+## Configure App Capabilities
+datasnap.io requires Location and Bluetooth capabilities. From Target -> Capabilitites -> Background Modes, turn on 'Location Updates' and 'Uses Bluetooth LE accessories'
+![Use the background mode menu item in Xcode 7.2. to set bluetooth and location capabilities](https://github.com/datasnap-io/datasnap-ios-sdk/readme_images/backgroundModes.png "Configuring datasnap.io background capabilities in Xcode 7.2.1")
+
 
 ## iOS Quick Start
-
-Integrating Datasnap.io with an iOS application? Check out the [Datasnap.io iOS Sample App](https://github.com/datasnap-io/datasnap-ios-generic-sample) to get started, then check back here for more detailed documentation.
 
 ### Include the DataSnap.io Client header
 
@@ -46,11 +63,14 @@ Then instantiate a client and use the created sharedClient throughout your appli
 
 ```
 
+
 ## Example events to fill Datasnap.io Default Dashboard
 
 Please review this seciton of the documentation and each section below for example code to use to properly populate the core widget in the dashboard.
 
 http://datasnap-io.github.io/pages/apis/#sendingevents
+
+
 
 ## Global Distinct ID
 
@@ -58,157 +78,12 @@ Global Distinct ID is an important Id that uniquoly identifies a user. also note
 
 http://docs.datasnapio.apiary.io/#introduction/event-properties/property:-user
 
+
+
 ## Required fields
 
 See: http://datasnap-io.github.io/pages/apis/#required
 
-## Autopopulate Beacons/Campaigns
-
-See: http://datasnap-io.github.io/pages/apis/#sendingdata
-
-Typically this means that if you want us to autogetnerate the entities for you also include the name property for each entity.
-
-Example:
-```objective-C
-
-
-    NSDictionary *event = @{@"event_type" : @"beacon_sighting",
-                            @"beacon" : @{@"identifier": @"3333333",
-                                          @"name": @"Entrance Beacon"},
-                            @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
-                            @"datasnap": @{@"created": currentDate()},
-                            @"venue_org_id": @"MarksSuperCoolVenueID"};
-    
-    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
-
-```
-
-
-### Beacon Widget and Beacon Heat Mapping
-
-Events:  beacon_sighting, beacon_depart, beacon_arrive 
-
-```objective-C
-
-
-    NSDictionary *event = @{@"event_type" : @"beacon_sighting",
-                            @"beacon" : @{@"identifier": @"3333333"},
-                            @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
-                            @"datasnap": @{@"created": currentDate()},
-                            @"venue_org_id": @"MarksSuperCoolVenueID"};
-    
-    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
-
-```
-
-### Place Pathing
-
-Events:  beacon_sighting, beacon_depart, beacon_arrive 
-
-If you send Beacon events above there is nothing you need ot do here is you have used our Entity API to add places and beacons or you have autoupdate turned on.  See: http://docs.datasnapioentityapi.apiary.io/#
-
-### Place events
-
-Events:  place_depart, place_arrive 
-
-These are currently not used for any particular widget in the default dashboard.
-
-NOTE: Name is technically not required just the identifier if autopopulate is off.
-
-```objective-C
-
-
-    NSDictionary *event = @{@"event_type" : @"place_arrive",
-                            @"place" : @{@"id": @"3333333",
-                                        @"name": @"Entrance Place"},
-                            @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
-                            @"datasnap": @{@"created": currentDate()},
-                            @"venue_org_id": @"MarksSuperCoolVenueID"};
-    
-    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
-
-```
-
-### Campaign Reporting
-
-events: ds_communication_sent ds_communication_open 
-
-```objective-C
-
-
-    NSDictionary *event = @{@"event_type" : @"ds_communication_sent",
-                            @"campaign" : @{@"identifier": @"3333333",
-                                            @"advertiser_org_id": @"advorgid",
-                                            @"status": @"foreground"},
-                            @"communication" : @{@"identifier": @"3333333",
-                                                 @"advertiser_org_id": @"advorgid"},
-                            @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
-                            @"datasnap": @{@"created": currentDate()}};
-    
-    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
-
-```
-#### Campaign Status
-
-Note the status field to determine if the notification was sent when the app wa sin the foreground or the background.
-
-```
- @"campaign" : @{@"identifier": @"3333333",
-                 @"status": @"foreground"},
-
-```
-
-#### Urban Airship Note
-
-If using Urban Airship not that Campaigns and Communications are basically the same so please just include the same identifier for both campaign and communication properties.
-
-#### Campaign AutoPopulate
-
-Note that if we autopopulate campaigns for you you must pass in the communication_ids that are assotiated with campaigns.
-
-They must also have a name assotiated with them.
-
-```
- @"campaign" : @{@"identifier": @"3333333",
-                 @"name": @"TheCampaign",
-                 @"advertiser_org_id": @"advorgid",
-                 @"communication_ids": @[@"3333333"]},
- @"communication" : @{@"identifier": @"3333333",
-                      @"advertiser_org_id": @"advorgid",
-                      @"name": @"TheCommunication"},
-```
-
-### Geofence Reporting
-
-events: geofence_depart  
-
-```objective-C
-
-
-    NSDictionary *event = @{@"event_type" : @"geofence_depart",
-                            @"geofence" : @{@"identifier": @"3333333"},
-                            @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
-                            @"datasnap": @{@"created": currentDate()}};
-    
-    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
-
-```
-
-### GPS Reporting Widget
-
-events: global_position_sighting  
-
-```objective-C
-
-
-   NSDictionary *event = @{@"event_type" : @"global_position_sighting",
-                                 @"location" : @{@"coordinates" : @[@"32.89545949009762, -117.19463284827117"]},
-                                 @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
-                                 @"datasnap": @{@"created": currentDate()}};
-    
-    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
-
-```
 
 
 ## Datasnap.io Backend Status Page
