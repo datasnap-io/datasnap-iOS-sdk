@@ -1,10 +1,13 @@
 ## datasnap.io iOS SDK
 
-This guide covers
+This guide covers:
 * Where to download the SDK
 * How to install the SDK
+* Getting started sending Events
 
 After completing these steps, please see the [datasnap.io API Documentation](http://docs.datasnapio.apiary.io/) for examples showing you how to use the SDK within your iOS app.
+
+After building your app, test and validate the datasnap.io SDK using these test tools.
 
 
 ### Current Version
@@ -13,7 +16,7 @@ After completing these steps, please see the [datasnap.io API Documentation](htt
 
 ### Example iOS App
 
-[Datasnap.io iOS Sample App](https://github.com/datasnap-io/datasnap-ios-generic-sample)
+[datasnap.io iOS Sample App](https://github.com/datasnap-io/datasnap-ios-generic-sample)
 
 
 
@@ -41,7 +44,7 @@ datasnap.io requires Location and Bluetooth capabilities. From Target -> Capabil
 
 ### Include the DataSnap.io Client header
 
-Add this header to whichever source files (.c, .swift) use the datasnap.io SDK. In the [Datasnap.io iOS Sample App](https://github.com/datasnap-io/datasnap-ios-generic-sample), this is contained in the [AppDelegate file](https://github.com/datasnap-io/datasnap-ios-generic-sample/blob/master/dataSnapSample/AppDelegate.m).
+Add this header to whichever source files (.c, .swift) use the datasnap.io SDK. In the [datasnap.io iOS Sample App](https://github.com/datasnap-io/datasnap-ios-generic-sample), this is contained in the [AppDelegate file](https://github.com/datasnap-io/datasnap-ios-generic-sample/blob/master/dataSnapSample/AppDelegate.m).
 
 Include the public header:
 ```objective-C
@@ -105,7 +108,7 @@ Please see [Event API: USER Properties](http://docs.datasnapio.apiary.io/#introd
 
 
 
-## Datasnap.io Backend Status Page
+## datasnap.io Backend Status Page
 
 To check on the server status anytime, visit [status.datasnap.io](http://status.datasnap.io/).  We offer the ability to check on our server status at anytime.
 
