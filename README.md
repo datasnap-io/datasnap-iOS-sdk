@@ -7,14 +7,14 @@ This guide covers
 After completing these steps, please see the **[datasnap.io API Documentation](http://docs.datasnapio.apiary.io/)** for examples showing you how to use the SDK within your iOS app.
 
 
-
-## Current Version
+### Current Version
 
 [Version 1.0.4](https://github.com/datasnap-io/datasnap-ios-sdk/releases/download/1.0.4/Datasnap.framework-1.0.4.zip)
 
-## Example iOS App
+### Example iOS App
 
 [Datasnap.io iOS Sample App](https://github.com/datasnap-io/datasnap-ios-generic-sample)
+
 
 
 ## Setup
@@ -23,19 +23,25 @@ After completing these steps, please see the **[datasnap.io API Documentation](h
 * Drag the Datasnap.framework file into your Xcode project file.
 * Ensure Datasnap.framework is included in your Target -> General -> Linked Frameworks and Libraries
 ** If it is not, delete the Datasnap.framework file from the Xcode project and use the + sign under Linked Frameworks and Libraries to add the Datasnap.framework file directly
-![Add a framework from the General menu in Xcode 7.2.1](https://github.com/datasnap-io/datasnap-ios-sdk/readme_images/addFramework.png "Adding a framework in Xcode 7.2.1")
+
+![Add a framework from the General menu in Xcode 7.2.1](https://github.com/datasnap-io/datasnap-ios-sdk/blob/readme/readme_images/addFramework.png "Adding a framework in Xcode 7.2.1")
+
 ** Choose 'Add Other...' and select Datasnap.framework
+
 ![Choose Add Other from the Linked Framework Pop Up in Xcode 7.2.1](https://github.com/datasnap-io/datasnap-ios-sdk/readme_images/linkedFramework.png "Adding a framework in Xcode 7.2.1")
 
 
-## Configure App Capabilities
+
+### Configure App Capabilities
 datasnap.io requires Location and Bluetooth capabilities. From Target -> Capabilitites -> Background Modes, turn on 'Location Updates' and 'Uses Bluetooth LE accessories'
+
 ![Use the background mode menu item in Xcode 7.2. to set bluetooth and location capabilities](https://github.com/datasnap-io/datasnap-ios-sdk/readme_images/backgroundModes.png "Configuring datasnap.io background capabilities in Xcode 7.2.1")
 
 
-## iOS Quick Start
 
 ### Include the DataSnap.io Client header
+
+Add this header to whichever source files (.c, .swift) use the datasnap.io SDK. In the [Datasnap.io iOS Sample App](https://github.com/datasnap-io/datasnap-ios-generic-sample), this is contained in the AppDelegate file.
 
 Include the public header
 ```objective-C
@@ -52,7 +58,7 @@ Then instantiate a client and use the created sharedClient throughout your appli
                      APISecret:@"api-secret-provided-by-datasnap"
                        logging:true
                       eventNum:15];
-
+<!-- 
     NSDictionary *event = @{@"event_type" : @"beacon_sighting",
                             @"beacon" : @{@"identifier": @"3333333"},
                             @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
@@ -60,35 +66,56 @@ Then instantiate a client and use the created sharedClient throughout your appli
                             @"venue_org_id": @"MarksSuperCoolVenueID"};
     
     [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
-
+ -->
 ```
 
 
-## Example events to fill Datasnap.io Default Dashboard
+## Creating Events
 
-Please review this seciton of the documentation and each section below for example code to use to properly populate the core widget in the dashboard.
-
-http://datasnap-io.github.io/pages/apis/#sendingevents
+Events are proximity-triggered actions like departing a beacon or sending a campaign. Add methods for reporting events in your iOS application. Events are used for reporting and measurement in the datasnap.io Dashboard.
 
 
+### Required Fields
 
-## Global Distinct ID
-
-Global Distinct ID is an important Id that uniquoly identifies a user. also note that you can also send addiitonal IDs to use in mapping to other third party systems.
-
-http://docs.datasnapio.apiary.io/#introduction/event-properties/property:-user
+Include these *[Required Event Fields](http://docs.datasnapio.apiary.io/#introduction/sending-events/required-event-fields)* to successfully post events.
 
 
 
-## Required fields
+### Example Events
 
-See: http://datasnap-io.github.io/pages/apis/#required
+In the [Datasnap.io iOS Sample App](https://github.com/datasnap-io/datasnap-ios-generic-sample), this is contained in the [ViewController file](https://github.com/datasnap-io/datasnap-ios-generic-sample/blob/master/dataSnapSample/ViewController.m).
+
+For more examples, please see the *[Event API Documentation](http://docs.datasnapio.apiary.io/#reference/0/example-events)*.
+
+``` objective-C
+/**
+ * Example of a beacon arrival
+ */
+- (void)exampleBeaconArrive {
+    NSDictionary *beaconData = @{@"event_type" : @"beacon_arrive",
+                                 @"beacon" : @{@"identifier": @"3333333"},
+                                 @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
+                                 @"datasnap": @{@"created": currentDate()}};
+    
+    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)beaconData];
+    [self logToDeviceAndConsole:@"Datasnap Example Beacon Arrival Event"];
+}
+```
+
+
+
+### Including User Information
+
+To provide better insights, include additional User attributes and IDs, some which map to third-party systems.
+
+Please see [EVENT API: Properties: USER](http://docs.datasnapio.apiary.io/#introduction/event-properties/property:-user) for more details.
+
+
 
 
 
 ## Datasnap.io Backend Status Page
 
-We offer the ability to check on our server status at anytime. Also if you are a client and we have issued you an API key then that means that
-we will email you of any downtime as soon as it occurs:
+To check on the server status anytime, visit [status.datasnap.io](http://status.datasnap.io/)We offer the ability to check on our server status at anytime.
 
-http://status.datasnap.io/
+Clients who have an API key issued will automatically receive emails anytime downtime occurs.
