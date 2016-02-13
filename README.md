@@ -7,8 +7,6 @@ This guide covers:
 
 After completing these steps, please see the [datasnap.io API Documentation](http://docs.datasnapio.apiary.io/) for examples showing you how to use the SDK within your iOS app.
 
-After building your app, test and validate the datasnap.io SDK using these test tools.
-
 
 ### Current Version
 
