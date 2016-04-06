@@ -110,16 +110,21 @@ For more information on event types, please see the [Event API Documentation](ht
 Event types: ds_communication_sent, ds_communication_open
 Use the `status` field to determine if the notification was sent when the app was running in the foreground or background.
 ```objective-C
+- (void)exampleCampaignEvent {
     NSDictionary *event = @{@"event_type" : @"ds_communication_sent",
                             @"campaign" : @{@"identifier": @"3333333",
                                             @"advertiser_org_id": @"advorgid",
-                                            @"status": @"foreground"},
+                                            @"status": @"background",
+                                            @"project_id":@"projectId"},
                             @"communication" : @{@"identifier": @"3333333",
                                                  @"advertiser_org_id": @"advorgid"},
-                            @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
+                            @"user": @{@"id": @{@"global_distinct_id": global_distinct_id,
+                                                @"mobile_device_ios_idfa": mobile_device_ios_idfa}
+                                       },
                             @"datasnap": @{@"created": currentDate()}};
     
     [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
+}
 ```
 #### Urban Airship Note
 Campaigns and Communications are basically the same in Urban Airship, so please use the same `identifier` for both campaign and communication properties.
