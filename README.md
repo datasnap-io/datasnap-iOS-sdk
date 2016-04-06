@@ -66,7 +66,6 @@ Then instantiate a client and use the created sharedClient throughout your appli
 
 Events are proximity-triggered actions like departing a beacon or sending a campaign. Add methods for reporting events in your iOS application. Events are used for reporting and measurement in the datasnap.io Dashboard.
 
-
 ### Required Fields
 
 Include these [Required Event Fields](http://docs.datasnapio.apiary.io/#introduction/sending-events/required-event-fields) to successfully post events.
@@ -77,15 +76,14 @@ Include these [Required Event Fields](http://docs.datasnapio.apiary.io/#introduc
 
 In the [Datasnap.io iOS Sample App](https://github.com/datasnap-io/datasnap-ios-generic-sample), this is contained in the [ViewController file](https://github.com/datasnap-io/datasnap-ios-generic-sample/blob/master/dataSnapSample/ViewController.m).
 
-For more examples, please see the [Event API Documentation](http://docs.datasnapio.apiary.io/#reference/0/example-events).
+For more information on event types, please see the [Event API Documentation](http://docs.datasnapio.apiary.io/#reference/0/example-events).
 
+#### Example: Beacon Arrival Event
 ``` objective-C
-/**
- * Example of a beacon arrival
- */
 - (void)exampleBeaconArrive {
     NSDictionary *beaconData = @{@"event_type" : @"beacon_arrive",
                                  @"beacon" : @{@"identifier": @"3333333",
+                                               @"name": @"Entrance Beacon",
                                                 @"rssi": -20},
                                  @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
                                  @"datasnap": @{@"created": currentDate()}};
@@ -94,7 +92,50 @@ For more examples, please see the [Event API Documentation](http://docs.datasnap
     [self logToDeviceAndConsole:@"Datasnap Example Beacon Arrival Event"];
 }
 ```
+#### Example: Beacon Sighting Event
+ ```objective-C
+- (void)exampleBeaconSighting {
+     NSDictionary *event = @{@"event_type" : @"beacon_sighting",
+                             @"beacon" : @{@"identifier": @"3333333",
+                                           @"name": @"Entrance Beacon",
+                                           @"rssi": -20},
+                             @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
+                             @"datasnap": @{@"created": currentDate()},
+                             @"venue_org_id": @"MarksSuperCoolVenueID"};
+     
+     [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
+ }
+ ```
+#### Example: Campaign Reporting
+Event types: ds_communication_sent, ds_communication_open
+Use the `status` field to determine if the notification was sent when the app was running in the foreground or background.
+```objective-C
+    NSDictionary *event = @{@"event_type" : @"ds_communication_sent",
+                            @"campaign" : @{@"identifier": @"3333333",
+                                            @"advertiser_org_id": @"advorgid",
+                                            @"status": @"foreground"},
+                            @"communication" : @{@"identifier": @"3333333",
+                                                 @"advertiser_org_id": @"advorgid"},
+                            @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
+                            @"datasnap": @{@"created": currentDate()}};
+    
+    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
+```
+#### Urban Airship Note
+Campaigns and Communications are basically the same in Urban Airship, so please use the same `identifier` for both campaign and communication properties.
 
+#### Campaign AutoPopulate
+Campaigns must pass in `communication_id` and `name`.
+
+```
+ @"campaign" : @{@"identifier": @"3333333",
+                 @"name": @"TheCampaign",
+                 @"advertiser_org_id": @"advorgid",
+                 @"communication_ids": @[@"3333333"]},
+ @"communication" : @{@"identifier": @"3333333",
+                      @"advertiser_org_id": @"advorgid",
+                      @"name": @"TheCommunication"},
+```
 
 
 ### Including User Information
