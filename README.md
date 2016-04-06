@@ -84,8 +84,11 @@ For more information on event types, please see the [Event API Documentation](ht
     NSDictionary *beaconData = @{@"event_type" : @"beacon_arrive",
                                  @"beacon" : @{@"identifier": @"3333333",
                                                @"name": @"Entrance Beacon",
-                                                @"rssi": -20},
-                                 @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
+                                                @"rssi": @-20},
+                                 @"user": @{@"id": @{@"global_distinct_id": global_distinct_id,
+                                                    @"mobile_device_ios_idfa": mobile_device_ios_idfa
+                                                    }
+                                           },
                                  @"datasnap": @{@"created": currentDate()}};
     
     [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)beaconData];
@@ -98,8 +101,11 @@ For more information on event types, please see the [Event API Documentation](ht
      NSDictionary *event = @{@"event_type" : @"beacon_sighting",
                              @"beacon" : @{@"identifier": @"3333333",
                                            @"name": @"Entrance Beacon",
-                                           @"rssi": -20},
-                             @"user": @{@"id": @{@"global_distinct_id": global_distinct_id}},
+                                           @"rssi": @-20},
+                             @"user": @{@"id": @{@"global_distinct_id": global_distinct_id,
+                                                @"mobile_device_ios_idfa": mobile_device_ios_idfa
+                                                }
+                                       },
                              @"datasnap": @{@"created": currentDate()},
                              @"venue_org_id": @"MarksSuperCoolVenueID"};
      
