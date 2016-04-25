@@ -24,25 +24,21 @@ After completing these steps, please see the [datasnap.io API Documentation](htt
 * Drag the Datasnap.framework file into your Xcode project file.
 * Ensure Datasnap.framework is included in your Target -> General -> Linked Frameworks and Libraries
   * If it is not included, delete the Datasnap.framework file from the Xcode project and use the + sign under Linked Frameworks and Libraries to add the Datasnap.framework file directly
-
-![Add a framework from the General menu in Xcode 7.2.1](https://github.com/datasnap-io/datasnap-ios-sdk/blob/readme/readme_images/linkedFramework.png "Adding a framework in Xcode 7.2.1")
-
   * Choose 'Add Other...' and select Datasnap.framework
-
-![Choose Add Other from the Linked Framework Pop Up in Xcode 7.2.1](https://github.com/datasnap-io/datasnap-ios-sdk/blob/readme/readme_images/addFramework.png "Adding a framework in Xcode 7.2.1")
+  * ![Add a framework from the General menu in Xcode 7.2.1](https://github.com/datasnap-io/datasnap-ios-sdk/raw/master/readme_images/linkedFramework.png "Adding a framework in Xcode 7.2.1")
 
 
 
 ### Configure App Capabilities
 datasnap.io requires Location and Bluetooth capabilities. From Target -> Capabilitites -> Background Modes, turn on 'Location Updates' and 'Uses Bluetooth LE accessories'
 
-![Use the background mode menu item in Xcode 7.2. to set bluetooth and location capabilities](https://github.com/datasnap-io/datasnap-ios-sdk/blob/readme/readme_images/backgroundModes.png "Configuring datasnap.io background capabilities in Xcode 7.2.1")
+![Use the background mode menu item in Xcode 7.2. to set bluetooth and location capabilities](https://github.com/datasnap-io/datasnap-ios-sdk/raw/master/readme_images/backgroundModes.png "Configuring datasnap.io background capabilities in Xcode 7.2.1")
 
 
 
 ### Include the DataSnap.io Client header
 
-Add this header to whichever source files (.c, .swift) use the datasnap.io SDK. In the [datasnap.io iOS Sample App](https://github.com/datasnap-io/datasnap-ios-generic-sample), this is contained in the [AppDelegate file](https://github.com/datasnap-io/datasnap-ios-generic-sample/blob/master/dataSnapSample/AppDelegate.m).
+Add this header to whichever source files (.c, .swift) use the datasnap.io SDK. In the [datasnap.io iOS Sample App](https://github.com/datasnap-io/datasnap-ios-generic-sample), this is contained in the [AppDelegate file](https://github.com/datasnap-io/datasnap-ios-generic-sample/raw/master/dataSnapSample/AppDelegate.m).
 
 Include the public header:
 ```objective-C
