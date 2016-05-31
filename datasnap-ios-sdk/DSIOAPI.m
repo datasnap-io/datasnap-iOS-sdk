@@ -5,26 +5,24 @@
 #import "DSIOAPI.h"
 #import "DSIOConfig.h"
 
-static NSString *const URLReservedChars     = @"￼=,!$&'()*+;@?\r\n\"<>#\t :/";
-static NSString *const kQuerySeparator  = @"&";
-static NSString *const kQueryDivider    = @"=";
-static NSString *const kQueryBegin      = @"?";
-static NSString *const kFragmentBegin   = @"#";
+static NSString* const URLReservedChars = @"￼=,!$&'()*+;@?\r\n\"<>#\t :/";
+static NSString* const kQuerySeparator = @"&";
+static NSString* const kQueryDivider = @"=";
+static NSString* const kQueryBegin = @"?";
+static NSString* const kFragmentBegin = @"#";
 
-
-static NSString *const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v1.0/events";
-
+static NSString* const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v1.0/events";
 
 @interface DSIOAPI () <NSURLSessionDataDelegate, NSURLSessionDelegate, NSURLSessionTaskDelegate>
 
-@property (nonatomic, strong) NSString *key;
-@property (nonatomic, strong) NSString *secret;
+@property (nonatomic, strong) NSString* key;
+@property (nonatomic, strong) NSString* secret;
 
 @end
 
 @implementation DSIOAPI
 
-- (instancetype)initWithKey: (NSString *) apiKey secret: (NSString *) apiSecret
+- (instancetype)initWithKey:(NSString*)apiKey secret:(NSString*)apiSecret
 {
     self = [super init];
     if (self) {
@@ -34,143 +32,129 @@ static NSString *const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v
     return self;
 }
 
-- (void)sendEvents:(NSObject *)events {
-    
-    NSError *error;
-    NSData *json = [NSJSONSerialization dataWithJSONObject:events
+- (void)sendEvents:(NSObject*)events
+{
+
+    NSError* error;
+    NSData* json = [NSJSONSerialization dataWithJSONObject:events
                                                    options:NSJSONWritingPrettyPrinted
                                                      error:&error];
-    if(error)
-    {
+    if (error) {
         json = [NSData new];
     }
-    
-    
-    __block NSString *jsonStr = [NSJSONSerialization JSONObjectWithData:json options:0 error:nil];
-    NSURL *url = [NSURL URLWithString:kDataSnapEventAPIURL];
-    
+
+    __block NSString* jsonStr = [NSJSONSerialization JSONObjectWithData:json options:0 error:nil];
+    NSURL* url = [NSURL URLWithString:kDataSnapEventAPIURL];
+
     [self performAuthenticatedPOSTRequestWithURL:url
                                             body:json
-                                    onCompletion:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                        if(error)
-                                        {
+                                    onCompletion:^(NSData* data, NSURLResponse* response, NSError* error) {
+                                        if (error) {
                                             DSIOLog(@"Error sending request to %@.\n", url);
-                                            DSIOLog(@"%@",jsonStr);
+                                            DSIOLog(@"%@", jsonStr);
                                             DSIOLog(@"%@\n", error.description);
                                         }
-                                        else if (response && [response isKindOfClass:[NSHTTPURLResponse class]])
-                                        {
-                                            NSHTTPURLResponse *resp = (NSHTTPURLResponse *)response;
+                                        else if (response && [response isKindOfClass:[NSHTTPURLResponse class]]) {
+                                            NSHTTPURLResponse* resp = (NSHTTPURLResponse*)response;
                                             if (resp.statusCode == 401) {
                                                 DSIOLog(@"Datasnap Error: Please check network connection on the device and that the datasnap api keys have been entered correctly");
-
                                             }
-                                            else if (resp.statusCode > 204)
-                                            {
+                                            else if (resp.statusCode > 204) {
                                                 DSIOLog(@"Something went wrong with the request. Status Code %d", resp.statusCode);
                                             }
-                                            else
-                                            {
+                                            else {
                                                 DSIOLog(@"Request successfully sent to %@.\nStatus code: %d.\nData Sent: %@.\n", url, resp.statusCode, jsonStr);
-
                                             }
                                         }
-                                        
+
                                     }];
 }
 
-- (void) performAuthenticatedPOSTRequestWithURL: (NSURL *) requestURL body: (NSData *) data onCompletion: (DataSnapAPIRequestCompleted) completitionHandler
+- (void)performAuthenticatedPOSTRequestWithURL:(NSURL*)requestURL body:(NSData*)data onCompletion:(DataSnapAPIRequestCompleted)completitionHandler
 {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestURL];
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:data];
-    
+
     [self performAuthenticatedRequest:request onCompletion:completitionHandler];
 }
 
-
-- (void) performAuthenticatedGETRequestWithURL: (NSURL *) requestURL parameters: (NSDictionary *) params onCompletion: (DataSnapAPIRequestCompleted) completitionHandler
+- (void)performAuthenticatedGETRequestWithURL:(NSURL*)requestURL parameters:(NSDictionary*)params onCompletion:(DataSnapAPIRequestCompleted)completitionHandler
 {
-    NSURL *newURL = [self urlWithURL:requestURL withQueryDictionary:params sortKeys:YES];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:newURL];
+    NSURL* newURL = [self urlWithURL:requestURL withQueryDictionary:params sortKeys:YES];
+
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:newURL];
     [request setHTTPMethod:@"GET"];
-    
+
     [self performAuthenticatedRequest:request onCompletion:completitionHandler];
 }
 
-
-
-- (void) performAuthenticatedRequest: (NSURLRequest *) request onCompletion: (DataSnapAPIRequestCompleted) completitionHandler
+- (void)performAuthenticatedRequest:(NSURLRequest*)request onCompletion:(DataSnapAPIRequestCompleted)completitionHandler
 {
-    NSMutableURLRequest *req = [request mutableCopy];
+    NSMutableURLRequest* req = [request mutableCopy];
     [req addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 
-    NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
-    [sessionConfig setHTTPAdditionalHeaders: @{
-                                               @"Content-Type": @"application/json",
-                                               @"Authorization" : [self __authorizationHeader]
-                                               }];
-    
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:nil];
-    
-    
-    
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:req
+    NSURLSessionConfiguration* sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+    [sessionConfig setHTTPAdditionalHeaders:@{
+        @"Content-Type" : @"application/json",
+        @"Authorization" : [self __authorizationHeader]
+    }];
+
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:nil];
+
+    NSURLSessionDataTask* task = [session dataTaskWithRequest:req
                                             completionHandler:
-                                  ^(NSData *data, NSURLResponse *response, NSError *error) {
-                                      if(completitionHandler) {
-                                          completitionHandler(data, response, error);
-                                      }
-                                  }];
-    
+                                                ^(NSData* data, NSURLResponse* response, NSError* error) {
+                                                    if (completitionHandler) {
+                                                        completitionHandler(data, response, error);
+                                                    }
+                                                }];
+
     [task resume];
 }
 
-
-
 #pragma mark - Private Methods
 
-- (NSString *) __authorizationHeader
+- (NSString*)__authorizationHeader
 {
-    NSData *authData = [[NSString stringWithFormat:@"%@:%@", self.key, self.secret] dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *authString = [authData base64EncodedStringWithOptions:0];
-    return [NSString stringWithFormat: @"Basic %@", authString];
+    NSData* authData = [[NSString stringWithFormat:@"%@:%@", self.key, self.secret] dataUsingEncoding:NSUTF8StringEncoding];
+    NSString* authString = [authData base64EncodedStringWithOptions:0];
+    return [NSString stringWithFormat:@"Basic %@", authString];
 }
 
-- (NSURL *) urlWithURL: (NSURL *) url withQueryDictionary: (NSDictionary *) queryDictionary sortKeys: (BOOL) sortedKeys
+- (NSURL*)urlWithURL:(NSURL*)url withQueryDictionary:(NSDictionary*)queryDictionary sortKeys:(BOOL)sortedKeys
 {
-    NSMutableArray *queries = [url.query length] > 0 ? @[url.query].mutableCopy : @[].mutableCopy;
-    NSString *dictionaryQuery = [self queryStringWithDictionary:queryDictionary sortedKeys:sortedKeys escape:YES];
+    NSMutableArray* queries = [url.query length] > 0 ? @[ url.query ].mutableCopy : @[].mutableCopy;
+    NSString* dictionaryQuery = [self queryStringWithDictionary:queryDictionary sortedKeys:sortedKeys escape:YES];
     if (dictionaryQuery) {
         [queries addObject:dictionaryQuery];
     }
-    NSString *newQuery = [queries componentsJoinedByString:kQuerySeparator];
-    
+    NSString* newQuery = [queries componentsJoinedByString:kQuerySeparator];
+
     if (newQuery.length) {
-        NSArray *queryComponents = [url.absoluteString componentsSeparatedByString:kQueryBegin];
+        NSArray* queryComponents = [url.absoluteString componentsSeparatedByString:kQueryBegin];
         if (queryComponents.count) {
             return [NSURL URLWithString:
-                    [NSString stringWithFormat:@"%@%@%@%@%@",
-                     queryComponents[0],                      // existing url
-                     kQueryBegin,
-                     newQuery,
-                     url.fragment.length ? kFragmentBegin : @"",
-                     url.fragment.length ? url.fragment : @""]];
+                              [NSString stringWithFormat:@"%@%@%@%@%@",
+                                        queryComponents[0], // existing url
+                                        kQueryBegin,
+                                        newQuery,
+                                        url.fragment.length ? kFragmentBegin : @"",
+                                        url.fragment.length ? url.fragment : @""]];
         }
     }
     return url;
 }
-- (NSString *) queryStringWithDictionary: (NSDictionary *) dict sortedKeys: (BOOL) sortedKeys escape: (BOOL) escape
+- (NSString*)queryStringWithDictionary:(NSDictionary*)dict sortedKeys:(BOOL)sortedKeys escape:(BOOL)escape
 {
-    NSMutableString *queryString = @"".mutableCopy;
-    NSArray *keys = sortedKeys ? [dict.allKeys sortedArrayUsingSelector:@selector(compare:)] : dict.allKeys;
-    for (NSString *key in keys) {
+    NSMutableString* queryString = @"".mutableCopy;
+    NSArray* keys = sortedKeys ? [dict.allKeys sortedArrayUsingSelector:@selector(compare:)] : dict.allKeys;
+    for (NSString* key in keys) {
         id rawValue = dict[key];
-        NSString *value = nil;
+        NSString* value = nil;
         // beware of empty or null
         if (!(rawValue == [NSNull null] || ![rawValue description].length)) {
-            if(escape) {
+            if (escape) {
                 value = URLEscape([dict[key] description]);
             }
             else {
@@ -178,22 +162,22 @@ static NSString *const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v
             }
         }
         [queryString appendFormat:@"%@%@%@%@",
-         queryString.length ? kQuerySeparator : @"",    // appending?
-         escape ? URLEscape(key) : key,
-         value ? kQueryDivider : @"",
-         value ? value : @""];
+                     queryString.length ? kQuerySeparator : @"", // appending?
+                     escape ? URLEscape(key) : key,
+                     value ? kQueryDivider : @"",
+                     value ? value : @""];
     }
     return queryString.length ? queryString.copy : nil;
 }
 
-static inline NSString *URLEscape(NSString *string) {
-    return ((__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(
-                                                                                  NULL,
-                                                                                  (__bridge CFStringRef)string,
-                                                                                  NULL,
-                                                                                  (__bridge CFStringRef)URLReservedChars,
-                                                                                  kCFStringEncodingUTF8));
+static inline NSString* URLEscape(NSString* string)
+{
+    return ((__bridge_transfer NSString*)CFURLCreateStringByAddingPercentEscapes(
+        NULL,
+        (__bridge CFStringRef)string,
+        NULL,
+        (__bridge CFStringRef)URLReservedChars,
+        kCFStringEncodingUTF8));
 }
-
 
 @end
