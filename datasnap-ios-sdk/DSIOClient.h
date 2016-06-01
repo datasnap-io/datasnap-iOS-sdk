@@ -3,17 +3,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface DSIOClient : NSObject
 
-+ (void)setupWithOrgID:(NSString *)organizationID projectId:(NSString *)projectID APIKey:(NSString *)APIKey
-             APISecret:(NSString *)APISecret logging:(BOOL)logging eventNum:(int)eventNum;
++ (void)setupWithOrgID:(NSString*)organizationID projectId:(NSString*)projectID APIKey:(NSString*)APIKey
+             APISecret:(NSString*)APISecret
+               logging:(BOOL)logging
+              eventNum:(int)eventNum;
 
 /**
-Event Handlers
+ Event Handlers
  */
 - (void)flushEvents;
-- (void)genericEvent:(NSMutableDictionary *)eventDetails;
+- (void)genericEvent:(NSMutableDictionary*)eventDetails;
 
 /**
  Enable Logging
@@ -22,5 +25,5 @@ Event Handlers
 
 + (id)sharedClient;
 
-+ (NSString *) version;
++ (NSString*)version;
 @end
