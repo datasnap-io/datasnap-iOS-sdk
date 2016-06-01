@@ -81,7 +81,8 @@ static NSString* __version = @"1.0.4";
 {
     NSMutableDictionary* eventDetailsCopy = [eventDetails mutableCopy];
     [eventDetailsCopy addEntriesFromDictionary:@{ @"organization_ids" : @[ __organizationID ],
-        @"project_ids" : @[ __projectID ] }];
+        @"project_ids" : @[ __projectID ],
+        @"sdk_version" : @[ __version ] }];
     [self.eventQueue recordEvent:eventDetailsCopy];
     [self checkQueue];
 }
