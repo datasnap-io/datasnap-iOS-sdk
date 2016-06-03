@@ -32,6 +32,9 @@
 		3921B42D1B0E92E500E976C0 /* DSIOClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B4061B0E926C00E976C0 /* DSIOClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3921B42E1B0E92E500E976C0 /* DSIOConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B4081B0E926C00E976C0 /* DSIOConfig.h */; };
 		3921B42F1B0E92E500E976C0 /* DSIOEventQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B40A1B0E926C00E976C0 /* DSIOEventQueue.h */; };
+		B24C19FF1D02327100580365 /* DSIOGimbalClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B24C19FD1D02327100580365 /* DSIOGimbalClient.h */; };
+		B24C1A001D02327100580365 /* DSIOGimbalClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B24C19FE1D02327100580365 /* DSIOGimbalClient.m */; };
+		B24C1A021D02330400580365 /* Gimbal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B24C1A011D02330400580365 /* Gimbal.framework */; };
 		B259B6F51CFE589300C79ABF /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B259B6F31CFE589300C79ABF /* Model.xcdatamodeld */; };
 		B259B6F91CFE58E600C79ABF /* CoreDataHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = B259B6F71CFE58E600C79ABF /* CoreDataHelper.h */; };
 		B259B6FA1CFE58E600C79ABF /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B259B6F81CFE58E600C79ABF /* CoreDataHelper.m */; };
@@ -73,6 +76,9 @@
 		3921B40A1B0E926C00E976C0 /* DSIOEventQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOEventQueue.h; sourceTree = "<group>"; };
 		3921B40B1B0E926C00E976C0 /* DSIOEventQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOEventQueue.m; sourceTree = "<group>"; };
 		3921B42A1B0E92D200E976C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B24C19FD1D02327100580365 /* DSIOGimbalClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOGimbalClient.h; sourceTree = "<group>"; };
+		B24C19FE1D02327100580365 /* DSIOGimbalClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOGimbalClient.m; sourceTree = "<group>"; };
+		B24C1A011D02330400580365 /* Gimbal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gimbal.framework; sourceTree = "<group>"; };
 		B259B6F41CFE589300C79ABF /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B259B6F71CFE58E600C79ABF /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
 		B259B6F81CFE58E600C79ABF /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
@@ -97,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B24C1A021D02330400580365 /* Gimbal.framework in Frameworks */,
 				3921B3F81B0E921F00E976C0 /* libDatasnap.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,6 +141,8 @@
 				3921B40B1B0E926C00E976C0 /* DSIOEventQueue.m */,
 				154824F61B18CF93004E5CBF /* DSIOAPI.h */,
 				154824F71B18CF93004E5CBF /* DSIOAPI.m */,
+				B24C19FD1D02327100580365 /* DSIOGimbalClient.h */,
+				B24C19FE1D02327100580365 /* DSIOGimbalClient.m */,
 			);
 			path = "datasnap-ios-sdk";
 			sourceTree = "<group>";
@@ -141,6 +150,7 @@
 		3921B3FB1B0E921F00E976C0 /* datasnap-ios-sdkTests */ = {
 			isa = PBXGroup;
 			children = (
+				B24C1A011D02330400580365 /* Gimbal.framework */,
 				3921B42A1B0E92D200E976C0 /* Foundation.framework */,
 				3921B3FC1B0E921F00E976C0 /* Supporting Files */,
 			);
@@ -186,6 +196,7 @@
 				B259B6F91CFE58E600C79ABF /* CoreDataHelper.h in Headers */,
 				B259B7011CFE591300C79ABF /* Event.h in Headers */,
 				3921B42F1B0E92E500E976C0 /* DSIOEventQueue.h in Headers */,
+				B24C19FF1D02327100580365 /* DSIOGimbalClient.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +328,7 @@
 				154824F91B18CF93004E5CBF /* DSIOAPI.m in Sources */,
 				B259B7061CFE592700C79ABF /* Event+Management.m in Sources */,
 				B259B7001CFE591300C79ABF /* Event+CoreDataProperties.m in Sources */,
+				B24C1A001D02327100580365 /* DSIOGimbalClient.m in Sources */,
 				B259B7021CFE591300C79ABF /* Event.m in Sources */,
 				B259B6F51CFE589300C79ABF /* Model.xcdatamodeld in Sources */,
 				3921B40E1B0E926C00E976C0 /* DSIOClient.m in Sources */,
@@ -428,6 +440,10 @@
 		3921B4011B0E921F00E976C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/datasnap-ios-sdkTests",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
@@ -439,6 +455,10 @@
 		3921B4021B0E921F00E976C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/datasnap-ios-sdkTests",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Datasnap;
@@ -453,6 +473,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/datasnap-ios-sdkTests",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -471,6 +492,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/datasnap-ios-sdkTests",
 				);
 				INFOPLIST_FILE = "datasnap-ios-sdkTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

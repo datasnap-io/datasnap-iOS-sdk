@@ -26,9 +26,6 @@ static NSString* __platform;
 
 @interface DSIOClient ()
 
-@property (nonatomic, strong) DSIOEventQueue* eventQueue;
-@property (nonatomic, strong) NSString* organizationID;
-@property (nonatomic, strong) NSString* projectID;
 @property (nonatomic, strong) DSIOAPI* api;
 
 - (void)checkQueue;
