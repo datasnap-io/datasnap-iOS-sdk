@@ -5,6 +5,8 @@
 //  Created by Alyssa McIntyre on 6/1/16.
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
+#import "Campaign.h"
+#import "Communication.h"
 #import "DSIOAPI.h"
 #import "DSIOClient.h"
 #import "DSIOEventQueue.h"

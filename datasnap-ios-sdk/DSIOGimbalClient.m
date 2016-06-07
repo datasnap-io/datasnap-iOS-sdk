@@ -47,14 +47,69 @@ static DSIOClient* sharedInstance = nil;
 - (id)initWithOrgID:(NSString*)organizationID projectId:(NSString*)projectID APIKey:(NSString*)APIKey APISecret:(NSString*)APISecret eventNum:(int)eventNum id:(NSString*)global_distinct_id mobileId:(NSString*)mobile_device_ios_idfa
 {
     if (self = [self init]) {
-        self.client.organizationID = organizationID;
-        self.client.projectID = projectID;
+        self.organizationID = organizationID;
+        self.projectID = projectID;
         self.global_distinct_id = global_distinct_id;
         self.mobile_device_ios_idfa = mobile_device_ios_idfa;
-        self.client.eventQueue = [[DSIOEventQueue alloc] initWithSize:eventNum];
         self.api = [[DSIOAPI alloc] initWithKey:APIKey secret:APISecret];
     }
     return self;
+}
+- (NSArray*)communicationManager:(GMBLCommunicationManager*)manager
+    presentLocalNotificationsForCommunications:(NSArray*)communications
+                                      forVisit:(GMBLVisit*)visit
+{
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
+    for (Communication* communication in communications) {
+        Campaign* campaign = [[Campaign alloc] init];
+        campaign.title = self.projectID;
+        campaign.identifier = communication.identifier;
+        NSDictionary* beaconData = @{ @"event_type" : @"ds_communication_sent",
+            @"datasnap" : @{ @"created" : [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:visit.arrivalDate]] },
+            @"communication" : @{ @"identifier" : communication.identifier,
+                @"name" : communication.title,
+                @"description" : communication.description },
+            @"campaign" : @{ @"name" : campaign.title,
+                @"identifier" : campaign.identifier },
+            @"user" : @{
+                @"id" : @{
+                    @"global_distinct_id" : self.global_distinct_id,
+                    @"mobile_device_ios_idfa" : self.mobile_device_ios_idfa
+                }
+            }
+        };
+        [[DSIOClient sharedClient] genericEvent:[beaconData mutableCopy]];
+    }
+    return communications;
+}
+
+- (UILocalNotification*)communicationManager:(GMBLCommunicationManager*)manager
+               prepareNotificationForDisplay:(UILocalNotification*)notification
+                            forCommunication:(GMBLCommunication*)communication
+
+{
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
+    Campaign* campaign = [[Campaign alloc] init];
+    campaign.title = self.projectID;
+    campaign.identifier = communication.identifier;
+    NSDictionary* beaconData = @{ @"event_type" : @"ds_communication_sent",
+        @"datasnap" : @{ @"created" : [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:communication.deliveryDate]] },
+        @"communication" : @{ @"identifier" : communication.identifier,
+            @"name" : communication.title,
+            @"description" : communication.description },
+        @"campaign" : @{ @"name" : campaign.title,
+            @"identifier" : campaign.identifier },
+        @"user" : @{
+            @"id" : @{
+                @"global_distinct_id" : self.global_distinct_id,
+                @"mobile_device_ios_idfa" : self.mobile_device_ios_idfa
+            }
+        }
+    };
+    [[DSIOClient sharedClient] genericEvent:[beaconData mutableCopy]];
+    return notification;
 }
 + (id)sharedClient
 {

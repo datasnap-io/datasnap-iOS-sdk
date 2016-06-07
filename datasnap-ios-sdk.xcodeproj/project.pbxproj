@@ -44,6 +44,10 @@
 		B259B7021CFE591300C79ABF /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B259B6FE1CFE591300C79ABF /* Event.m */; };
 		B259B7051CFE592700C79ABF /* Event+Management.h in Headers */ = {isa = PBXBuildFile; fileRef = B259B7031CFE592700C79ABF /* Event+Management.h */; };
 		B259B7061CFE592700C79ABF /* Event+Management.m in Sources */ = {isa = PBXBuildFile; fileRef = B259B7041CFE592700C79ABF /* Event+Management.m */; };
+		B25B32FA1D072E8900DF9773 /* Communication.h in Headers */ = {isa = PBXBuildFile; fileRef = B25B32F61D072E8900DF9773 /* Communication.h */; };
+		B25B32FB1D072E8900DF9773 /* Communication.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B32F71D072E8900DF9773 /* Communication.m */; };
+		B25B32FC1D072E8900DF9773 /* Campaign.h in Headers */ = {isa = PBXBuildFile; fileRef = B25B32F81D072E8900DF9773 /* Campaign.h */; };
+		B25B32FD1D072E8900DF9773 /* Campaign.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B32F91D072E8900DF9773 /* Campaign.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +92,10 @@
 		B259B6FE1CFE591300C79ABF /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		B259B7031CFE592700C79ABF /* Event+Management.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Management.h"; sourceTree = "<group>"; };
 		B259B7041CFE592700C79ABF /* Event+Management.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+Management.m"; sourceTree = "<group>"; };
+		B25B32F61D072E8900DF9773 /* Communication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Communication.h; path = ../Communication.h; sourceTree = "<group>"; };
+		B25B32F71D072E8900DF9773 /* Communication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Communication.m; path = ../Communication.m; sourceTree = "<group>"; };
+		B25B32F81D072E8900DF9773 /* Campaign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Campaign.h; path = ../Campaign.h; sourceTree = "<group>"; };
+		B25B32F91D072E8900DF9773 /* Campaign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Campaign.m; path = ../Campaign.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,7 @@
 		3921B3E31B0E921E00E976C0 = {
 			isa = PBXGroup;
 			children = (
+				B25B32FE1D072E8E00DF9773 /* Event Properties */,
 				B259B6F61CFE58A000C79ABF /* Model */,
 				3921B3EE1B0E921E00E976C0 /* datasnap-ios-sdk */,
 				3921B3FB1B0E921F00E976C0 /* datasnap-ios-sdkTests */,
@@ -181,6 +190,18 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		B25B32FE1D072E8E00DF9773 /* Event Properties */ = {
+			isa = PBXGroup;
+			children = (
+				B25B32F61D072E8900DF9773 /* Communication.h */,
+				B25B32F71D072E8900DF9773 /* Communication.m */,
+				B25B32F81D072E8900DF9773 /* Campaign.h */,
+				B25B32F91D072E8900DF9773 /* Campaign.m */,
+			);
+			name = "Event Properties";
+			path = "datasnap-ios-sdk";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -189,9 +210,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3921B42D1B0E92E500E976C0 /* DSIOClient.h in Headers */,
+				B25B32FA1D072E8900DF9773 /* Communication.h in Headers */,
 				B259B6FF1CFE591300C79ABF /* Event+CoreDataProperties.h in Headers */,
 				B259B7051CFE592700C79ABF /* Event+Management.h in Headers */,
 				3921B42E1B0E92E500E976C0 /* DSIOConfig.h in Headers */,
+				B25B32FC1D072E8900DF9773 /* Campaign.h in Headers */,
 				154824F81B18CF93004E5CBF /* DSIOAPI.h in Headers */,
 				B259B6F91CFE58E600C79ABF /* CoreDataHelper.h in Headers */,
 				B259B7011CFE591300C79ABF /* Event.h in Headers */,
@@ -324,7 +347,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B259B6FA1CFE58E600C79ABF /* CoreDataHelper.m in Sources */,
+				B25B32FD1D072E8900DF9773 /* Campaign.m in Sources */,
 				3921B40F1B0E926C00E976C0 /* DSIOConfig.m in Sources */,
+				B25B32FB1D072E8900DF9773 /* Communication.m in Sources */,
 				154824F91B18CF93004E5CBF /* DSIOAPI.m in Sources */,
 				B259B7061CFE592700C79ABF /* Event+Management.m in Sources */,
 				B259B7001CFE591300C79ABF /* Event+CoreDataProperties.m in Sources */,
