@@ -32,9 +32,9 @@ static NSString* const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v
     return self;
 }
 
-- (void)sendEvents:(NSObject*)events
+- (BOOL)sendEvents:(NSObject*)events
 {
-
+    __block BOOL success;
     NSError* error;
     NSData* json = [NSJSONSerialization dataWithJSONObject:events
                                                    options:NSJSONWritingPrettyPrinted
@@ -53,21 +53,28 @@ static NSString* const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v
                                             DSIOLog(@"Error sending request to %@.\n", url);
                                             DSIOLog(@"%@", jsonStr);
                                             DSIOLog(@"%@\n", error.description);
+                                            success = NO;
                                         }
                                         else if (response && [response isKindOfClass:[NSHTTPURLResponse class]]) {
                                             NSHTTPURLResponse* resp = (NSHTTPURLResponse*)response;
                                             if (resp.statusCode == 401) {
                                                 DSIOLog(@"Datasnap Error: Please check network connection on the device and that the datasnap api keys have been entered correctly");
+                                                success = NO;
                                             }
                                             else if (resp.statusCode > 204) {
                                                 DSIOLog(@"Something went wrong with the request. Status Code %d", resp.statusCode);
+                                                DSIOLog(@"%@", response);
+                                                DSIOLog(@"%@", jsonStr);
+                                                success = NO;
                                             }
                                             else {
                                                 DSIOLog(@"Request successfully sent to %@.\nStatus code: %d.\nData Sent: %@.\n", url, resp.statusCode, jsonStr);
+                                                success = YES;
                                             }
                                         }
 
                                     }];
+    return success;
 }
 
 - (void)performAuthenticatedPOSTRequestWithURL:(NSURL*)requestURL body:(NSData*)data onCompletion:(DataSnapAPIRequestCompleted)completitionHandler

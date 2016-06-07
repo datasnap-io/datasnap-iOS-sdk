@@ -110,9 +110,10 @@ static NSString* __platform;
 - (void)checkQueue
 {
     if (self.eventQueue.numberOfQueuedEvents >= self.eventQueue.queueLength) {
-        DSIOLog(@"Queue is full. %d will be sent to service and flushed.", (int)self.eventQueue.numberOfQueuedEvents);
-        [self.api sendEvents:self.eventQueue.getEvents];
-        [self flushEvents];
+        if ([self.api sendEvents:self.eventQueue.getEvents]) {
+            DSIOLog(@"Queue is full. %d will be sent to service and flushed.", (int)self.eventQueue.numberOfQueuedEvents);
+            [self flushEvents];
+        }
     }
 }
 
