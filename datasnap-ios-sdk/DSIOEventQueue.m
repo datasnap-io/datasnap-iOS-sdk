@@ -2,21 +2,17 @@
 // Copyright (c) 2015 Datasnapio. All rights reserved.
 //
 
-//
-// Copyright (c) 2015 Datasnapio. All rights reserved.
-//
-
 #import "DSIOEventQueue.h"
 
 @interface DSIOEventQueue ()
 
 @property NSMutableArray* eventQueue;
-@property Event* event;
+@property EventEntity* event;
 
 @end
 
 @implementation DSIOEventQueue
-
+//TODO: add timer
 - (id)initWithSize:(NSInteger)queueLength
 {
     if (self = [self init]) {
@@ -38,15 +34,15 @@
     NSError* err;
     NSData* jsonData = [NSJSONSerialization dataWithJSONObject:details options:0 error:&err];
     NSString* myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    self.event = [Event createEventEntity];
+    self.event = [EventEntity createEventEntity];
     self.event.json = myString;
 }
 
 - (NSArray*)getEvents
 {
     NSMutableArray* eventJsonArray = [[NSMutableArray alloc] init];
-    NSArray* eventsArray = [Event returnAllEvents];
-    for (Event* event in eventsArray) {
+    NSArray* eventsArray = [EventEntity returnAllEvents];
+    for (EventEntity* event in eventsArray) {
         NSError* err;
         NSData* data = [event.json dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary* response;
@@ -60,13 +56,13 @@
 
 - (void)flushQueue
 {
-    NSMutableArray* eventsArray = [Event returnAllEvents];
-    [Event deleteAllEvents:eventsArray];
+    NSMutableArray* eventsArray = [EventEntity returnAllEvents];
+    [EventEntity deleteAllEvents:eventsArray];
 }
 
 - (NSInteger)numberOfQueuedEvents
 {
-    return [Event returnAllEvents].count;
+    return [EventEntity returnAllEvents].count;
 }
 
 @end

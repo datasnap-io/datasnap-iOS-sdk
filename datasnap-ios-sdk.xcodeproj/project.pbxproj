@@ -25,29 +25,81 @@
 		154824F81B18CF93004E5CBF /* DSIOAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 154824F61B18CF93004E5CBF /* DSIOAPI.h */; };
 		154824F91B18CF93004E5CBF /* DSIOAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 154824F71B18CF93004E5CBF /* DSIOAPI.m */; };
 		3921B3F81B0E921F00E976C0 /* libDatasnap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3921B3EC1B0E921E00E976C0 /* libDatasnap.a */; };
-		3921B40E1B0E926C00E976C0 /* DSIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921B4071B0E926C00E976C0 /* DSIOClient.m */; };
 		3921B40F1B0E926C00E976C0 /* DSIOConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921B4091B0E926C00E976C0 /* DSIOConfig.m */; };
-		3921B4101B0E926C00E976C0 /* DSIOEventQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921B40B1B0E926C00E976C0 /* DSIOEventQueue.m */; };
 		3921B42B1B0E92D200E976C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3921B42A1B0E92D200E976C0 /* Foundation.framework */; };
-		3921B42D1B0E92E500E976C0 /* DSIOClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B4061B0E926C00E976C0 /* DSIOClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3921B42E1B0E92E500E976C0 /* DSIOConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B4081B0E926C00E976C0 /* DSIOConfig.h */; };
-		3921B42F1B0E92E500E976C0 /* DSIOEventQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B40A1B0E926C00E976C0 /* DSIOEventQueue.h */; };
-		B24C19FF1D02327100580365 /* DSIOGimbalClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B24C19FD1D02327100580365 /* DSIOGimbalClient.h */; };
-		B24C1A001D02327100580365 /* DSIOGimbalClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B24C19FE1D02327100580365 /* DSIOGimbalClient.m */; };
 		B24C1A021D02330400580365 /* Gimbal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B24C1A011D02330400580365 /* Gimbal.framework */; };
 		B259B6F51CFE589300C79ABF /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B259B6F31CFE589300C79ABF /* Model.xcdatamodeld */; };
-		B259B6F91CFE58E600C79ABF /* CoreDataHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = B259B6F71CFE58E600C79ABF /* CoreDataHelper.h */; };
 		B259B6FA1CFE58E600C79ABF /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B259B6F81CFE58E600C79ABF /* CoreDataHelper.m */; };
-		B259B6FF1CFE591300C79ABF /* Event+CoreDataProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B259B6FB1CFE591300C79ABF /* Event+CoreDataProperties.h */; };
-		B259B7001CFE591300C79ABF /* Event+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B259B6FC1CFE591300C79ABF /* Event+CoreDataProperties.m */; };
-		B259B7011CFE591300C79ABF /* Event.h in Headers */ = {isa = PBXBuildFile; fileRef = B259B6FD1CFE591300C79ABF /* Event.h */; };
-		B259B7021CFE591300C79ABF /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B259B6FE1CFE591300C79ABF /* Event.m */; };
-		B259B7051CFE592700C79ABF /* Event+Management.h in Headers */ = {isa = PBXBuildFile; fileRef = B259B7031CFE592700C79ABF /* Event+Management.h */; };
-		B259B7061CFE592700C79ABF /* Event+Management.m in Sources */ = {isa = PBXBuildFile; fileRef = B259B7041CFE592700C79ABF /* Event+Management.m */; };
-		B25B32FA1D072E8900DF9773 /* Communication.h in Headers */ = {isa = PBXBuildFile; fileRef = B25B32F61D072E8900DF9773 /* Communication.h */; };
-		B25B32FB1D072E8900DF9773 /* Communication.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B32F71D072E8900DF9773 /* Communication.m */; };
-		B25B32FC1D072E8900DF9773 /* Campaign.h in Headers */ = {isa = PBXBuildFile; fileRef = B25B32F81D072E8900DF9773 /* Campaign.h */; };
-		B25B32FD1D072E8900DF9773 /* Campaign.m in Sources */ = {isa = PBXBuildFile; fileRef = B25B32F91D072E8900DF9773 /* Campaign.m */; };
+		B26EA7EB1D12021A0065AFD3 /* CoreDataHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA7EA1D12021A0065AFD3 /* CoreDataHelper.h */; };
+		B26EA7F01D12022A0065AFD3 /* VendorProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA7EC1D12022A0065AFD3 /* VendorProperties.m */; };
+		B26EA7F11D12022A0065AFD3 /* VendorProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA7ED1D12022A0065AFD3 /* VendorProperties.h */; };
+		B26EA7F21D12022A0065AFD3 /* DataSnap.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA7EE1D12022A0065AFD3 /* DataSnap.h */; };
+		B26EA7F31D12022A0065AFD3 /* DataSnap.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA7EF1D12022A0065AFD3 /* DataSnap.m */; };
+		B26EA8031D1202490065AFD3 /* BeaconEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA7F51D1202490065AFD3 /* BeaconEvent.h */; };
+		B26EA8041D1202490065AFD3 /* BeaconEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA7F61D1202490065AFD3 /* BeaconEvent.m */; };
+		B26EA8051D1202490065AFD3 /* CommunicationEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA7F71D1202490065AFD3 /* CommunicationEvent.h */; };
+		B26EA8061D1202490065AFD3 /* CommunicationEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA7F81D1202490065AFD3 /* CommunicationEvent.m */; };
+		B26EA8071D1202490065AFD3 /* GeoFenceEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA7F91D1202490065AFD3 /* GeoFenceEvent.h */; };
+		B26EA8081D1202490065AFD3 /* GeoFenceEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA7FA1D1202490065AFD3 /* GeoFenceEvent.m */; };
+		B26EA8091D1202490065AFD3 /* GlobalPositionEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA7FB1D1202490065AFD3 /* GlobalPositionEvent.h */; };
+		B26EA80A1D1202490065AFD3 /* GlobalPositionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA7FC1D1202490065AFD3 /* GlobalPositionEvent.m */; };
+		B26EA80B1D1202490065AFD3 /* InteractionEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA7FD1D1202490065AFD3 /* InteractionEvent.h */; };
+		B26EA80C1D1202490065AFD3 /* InteractionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA7FE1D1202490065AFD3 /* InteractionEvent.m */; };
+		B26EA80D1D1202490065AFD3 /* UpdateEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA7FF1D1202490065AFD3 /* UpdateEvent.h */; };
+		B26EA80E1D1202490065AFD3 /* UpdateEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8001D1202490065AFD3 /* UpdateEvent.m */; };
+		B26EA80F1D1202490065AFD3 /* BaseEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8011D1202490065AFD3 /* BaseEvent.h */; };
+		B26EA8101D1202490065AFD3 /* BaseEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8021D1202490065AFD3 /* BaseEvent.m */; };
+		B26EA8371D1202670065AFD3 /* Audience.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8111D1202670065AFD3 /* Audience.h */; };
+		B26EA8381D1202670065AFD3 /* Audience.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8121D1202670065AFD3 /* Audience.m */; };
+		B26EA8391D1202670065AFD3 /* Beacon.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8131D1202670065AFD3 /* Beacon.h */; };
+		B26EA83A1D1202670065AFD3 /* Beacon.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8141D1202670065AFD3 /* Beacon.m */; };
+		B26EA83B1D1202670065AFD3 /* Campaign.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8151D1202670065AFD3 /* Campaign.h */; };
+		B26EA83C1D1202670065AFD3 /* Campaign.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8161D1202670065AFD3 /* Campaign.m */; };
+		B26EA83D1D1202670065AFD3 /* Communication.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8171D1202670065AFD3 /* Communication.h */; };
+		B26EA83E1D1202670065AFD3 /* Communication.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8181D1202670065AFD3 /* Communication.m */; };
+		B26EA83F1D1202670065AFD3 /* Content.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8191D1202670065AFD3 /* Content.h */; };
+		B26EA8401D1202670065AFD3 /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA81A1D1202670065AFD3 /* Content.m */; };
+		B26EA8411D1202670065AFD3 /* DefaultProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA81B1D1202670065AFD3 /* DefaultProperties.h */; };
+		B26EA8421D1202670065AFD3 /* DefaultProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA81C1D1202670065AFD3 /* DefaultProperties.m */; };
+		B26EA8431D1202670065AFD3 /* Device.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA81D1D1202670065AFD3 /* Device.h */; };
+		B26EA8441D1202670065AFD3 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA81E1D1202670065AFD3 /* Device.m */; };
+		B26EA8451D1202670065AFD3 /* DeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA81F1D1202670065AFD3 /* DeviceInfo.h */; };
+		B26EA8461D1202670065AFD3 /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8201D1202670065AFD3 /* DeviceInfo.m */; };
+		B26EA8471D1202670065AFD3 /* EventProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8211D1202670065AFD3 /* EventProperty.h */; };
+		B26EA8481D1202670065AFD3 /* EventProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8221D1202670065AFD3 /* EventProperty.m */; };
+		B26EA8491D1202670065AFD3 /* Geofence.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8231D1202670065AFD3 /* Geofence.h */; };
+		B26EA84A1D1202670065AFD3 /* Geofence.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8241D1202670065AFD3 /* Geofence.m */; };
+		B26EA84B1D1202670065AFD3 /* GeofenceCircle.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8251D1202670065AFD3 /* GeofenceCircle.h */; };
+		B26EA84C1D1202670065AFD3 /* GeofenceCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8261D1202670065AFD3 /* GeofenceCircle.m */; };
+		B26EA84D1D1202670065AFD3 /* GlobalPosition.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8271D1202670065AFD3 /* GlobalPosition.h */; };
+		B26EA84E1D1202670065AFD3 /* GlobalPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8281D1202670065AFD3 /* GlobalPosition.m */; };
+		B26EA84F1D1202670065AFD3 /* Identifier.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8291D1202670065AFD3 /* Identifier.h */; };
+		B26EA8501D1202670065AFD3 /* Identifier.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA82A1D1202670065AFD3 /* Identifier.m */; };
+		B26EA8511D1202670065AFD3 /* Location.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA82B1D1202670065AFD3 /* Location.h */; };
+		B26EA8521D1202670065AFD3 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA82C1D1202670065AFD3 /* Location.m */; };
+		B26EA8531D1202670065AFD3 /* Place.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA82D1D1202670065AFD3 /* Place.h */; };
+		B26EA8541D1202670065AFD3 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA82E1D1202670065AFD3 /* Place.m */; };
+		B26EA8551D1202670065AFD3 /* Tags.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA82F1D1202670065AFD3 /* Tags.h */; };
+		B26EA8561D1202670065AFD3 /* Tags.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8301D1202670065AFD3 /* Tags.m */; };
+		B26EA8571D1202670065AFD3 /* Types.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8311D1202670065AFD3 /* Types.h */; };
+		B26EA8581D1202670065AFD3 /* Types.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8321D1202670065AFD3 /* Types.m */; };
+		B26EA8591D1202670065AFD3 /* User.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8331D1202670065AFD3 /* User.h */; };
+		B26EA85A1D1202670065AFD3 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8341D1202670065AFD3 /* User.m */; };
+		B26EA85B1D1202670065AFD3 /* UserProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8351D1202670065AFD3 /* UserProperties.h */; };
+		B26EA85C1D1202670065AFD3 /* UserProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8361D1202670065AFD3 /* UserProperties.m */; };
+		B26EA8611D12027F0065AFD3 /* EventEntity+CoreDataProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA85D1D12027F0065AFD3 /* EventEntity+CoreDataProperties.h */; };
+		B26EA8621D12027F0065AFD3 /* EventEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA85E1D12027F0065AFD3 /* EventEntity+CoreDataProperties.m */; };
+		B26EA8631D12027F0065AFD3 /* EventEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA85F1D12027F0065AFD3 /* EventEntity.h */; };
+		B26EA8641D12027F0065AFD3 /* EventEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8601D12027F0065AFD3 /* EventEntity.m */; };
+		B26EA8671D1202940065AFD3 /* DSIOBaseClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8651D1202940065AFD3 /* DSIOBaseClient.h */; };
+		B26EA8681D1202940065AFD3 /* DSIOBaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8661D1202940065AFD3 /* DSIOBaseClient.m */; };
+		B26EA86B1D1202F10065AFD3 /* Event+Management.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8691D1202F10065AFD3 /* Event+Management.h */; };
+		B26EA86C1D1202F10065AFD3 /* Event+Management.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA86A1D1202F10065AFD3 /* Event+Management.m */; };
+		B26EA86F1D1203100065AFD3 /* DSIOGimbalClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA86D1D1203100065AFD3 /* DSIOGimbalClient.h */; };
+		B26EA8701D1203100065AFD3 /* DSIOGimbalClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA86E1D1203100065AFD3 /* DSIOGimbalClient.m */; };
+		B26EA8731D1203260065AFD3 /* DSIOEventQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8711D1203260065AFD3 /* DSIOEventQueue.h */; };
+		B26EA8741D1203260065AFD3 /* DSIOEventQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8721D1203260065AFD3 /* DSIOEventQueue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,29 +125,81 @@
 		3921B3EC1B0E921E00E976C0 /* libDatasnap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDatasnap.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3921B3F71B0E921F00E976C0 /* datasnap-ios-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "datasnap-ios-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3921B3FD1B0E921F00E976C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3921B4061B0E926C00E976C0 /* DSIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOClient.h; sourceTree = "<group>"; };
-		3921B4071B0E926C00E976C0 /* DSIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOClient.m; sourceTree = "<group>"; };
 		3921B4081B0E926C00E976C0 /* DSIOConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOConfig.h; sourceTree = "<group>"; };
 		3921B4091B0E926C00E976C0 /* DSIOConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOConfig.m; sourceTree = "<group>"; };
-		3921B40A1B0E926C00E976C0 /* DSIOEventQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOEventQueue.h; sourceTree = "<group>"; };
-		3921B40B1B0E926C00E976C0 /* DSIOEventQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOEventQueue.m; sourceTree = "<group>"; };
 		3921B42A1B0E92D200E976C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B24C19FD1D02327100580365 /* DSIOGimbalClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOGimbalClient.h; sourceTree = "<group>"; };
-		B24C19FE1D02327100580365 /* DSIOGimbalClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOGimbalClient.m; sourceTree = "<group>"; };
 		B24C1A011D02330400580365 /* Gimbal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gimbal.framework; sourceTree = "<group>"; };
 		B259B6F41CFE589300C79ABF /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		B259B6F71CFE58E600C79ABF /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
 		B259B6F81CFE58E600C79ABF /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
-		B259B6FB1CFE591300C79ABF /* Event+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+CoreDataProperties.h"; sourceTree = "<group>"; };
-		B259B6FC1CFE591300C79ABF /* Event+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+CoreDataProperties.m"; sourceTree = "<group>"; };
-		B259B6FD1CFE591300C79ABF /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		B259B6FE1CFE591300C79ABF /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		B259B7031CFE592700C79ABF /* Event+Management.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Management.h"; sourceTree = "<group>"; };
-		B259B7041CFE592700C79ABF /* Event+Management.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+Management.m"; sourceTree = "<group>"; };
-		B25B32F61D072E8900DF9773 /* Communication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Communication.h; path = ../Communication.h; sourceTree = "<group>"; };
-		B25B32F71D072E8900DF9773 /* Communication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Communication.m; path = ../Communication.m; sourceTree = "<group>"; };
-		B25B32F81D072E8900DF9773 /* Campaign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Campaign.h; path = ../Campaign.h; sourceTree = "<group>"; };
-		B25B32F91D072E8900DF9773 /* Campaign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Campaign.m; path = ../Campaign.m; sourceTree = "<group>"; };
+		B26EA7EA1D12021A0065AFD3 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		B26EA7EC1D12022A0065AFD3 /* VendorProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorProperties.m; sourceTree = "<group>"; };
+		B26EA7ED1D12022A0065AFD3 /* VendorProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorProperties.h; sourceTree = "<group>"; };
+		B26EA7EE1D12022A0065AFD3 /* DataSnap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSnap.h; sourceTree = "<group>"; };
+		B26EA7EF1D12022A0065AFD3 /* DataSnap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSnap.m; sourceTree = "<group>"; };
+		B26EA7F51D1202490065AFD3 /* BeaconEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconEvent.h; sourceTree = "<group>"; };
+		B26EA7F61D1202490065AFD3 /* BeaconEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconEvent.m; sourceTree = "<group>"; };
+		B26EA7F71D1202490065AFD3 /* CommunicationEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunicationEvent.h; sourceTree = "<group>"; };
+		B26EA7F81D1202490065AFD3 /* CommunicationEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunicationEvent.m; sourceTree = "<group>"; };
+		B26EA7F91D1202490065AFD3 /* GeoFenceEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoFenceEvent.h; sourceTree = "<group>"; };
+		B26EA7FA1D1202490065AFD3 /* GeoFenceEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoFenceEvent.m; sourceTree = "<group>"; };
+		B26EA7FB1D1202490065AFD3 /* GlobalPositionEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalPositionEvent.h; sourceTree = "<group>"; };
+		B26EA7FC1D1202490065AFD3 /* GlobalPositionEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalPositionEvent.m; sourceTree = "<group>"; };
+		B26EA7FD1D1202490065AFD3 /* InteractionEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractionEvent.h; sourceTree = "<group>"; };
+		B26EA7FE1D1202490065AFD3 /* InteractionEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InteractionEvent.m; sourceTree = "<group>"; };
+		B26EA7FF1D1202490065AFD3 /* UpdateEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateEvent.h; sourceTree = "<group>"; };
+		B26EA8001D1202490065AFD3 /* UpdateEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateEvent.m; sourceTree = "<group>"; };
+		B26EA8011D1202490065AFD3 /* BaseEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseEvent.h; sourceTree = "<group>"; };
+		B26EA8021D1202490065AFD3 /* BaseEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseEvent.m; sourceTree = "<group>"; };
+		B26EA8111D1202670065AFD3 /* Audience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audience.h; sourceTree = "<group>"; };
+		B26EA8121D1202670065AFD3 /* Audience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Audience.m; sourceTree = "<group>"; };
+		B26EA8131D1202670065AFD3 /* Beacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beacon.h; sourceTree = "<group>"; };
+		B26EA8141D1202670065AFD3 /* Beacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beacon.m; sourceTree = "<group>"; };
+		B26EA8151D1202670065AFD3 /* Campaign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Campaign.h; sourceTree = "<group>"; };
+		B26EA8161D1202670065AFD3 /* Campaign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Campaign.m; sourceTree = "<group>"; };
+		B26EA8171D1202670065AFD3 /* Communication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Communication.h; sourceTree = "<group>"; };
+		B26EA8181D1202670065AFD3 /* Communication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Communication.m; sourceTree = "<group>"; };
+		B26EA8191D1202670065AFD3 /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Content.h; sourceTree = "<group>"; };
+		B26EA81A1D1202670065AFD3 /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
+		B26EA81B1D1202670065AFD3 /* DefaultProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultProperties.h; sourceTree = "<group>"; };
+		B26EA81C1D1202670065AFD3 /* DefaultProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultProperties.m; sourceTree = "<group>"; };
+		B26EA81D1D1202670065AFD3 /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
+		B26EA81E1D1202670065AFD3 /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
+		B26EA81F1D1202670065AFD3 /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
+		B26EA8201D1202670065AFD3 /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
+		B26EA8211D1202670065AFD3 /* EventProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventProperty.h; sourceTree = "<group>"; };
+		B26EA8221D1202670065AFD3 /* EventProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventProperty.m; sourceTree = "<group>"; };
+		B26EA8231D1202670065AFD3 /* Geofence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geofence.h; sourceTree = "<group>"; };
+		B26EA8241D1202670065AFD3 /* Geofence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geofence.m; sourceTree = "<group>"; };
+		B26EA8251D1202670065AFD3 /* GeofenceCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeofenceCircle.h; sourceTree = "<group>"; };
+		B26EA8261D1202670065AFD3 /* GeofenceCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeofenceCircle.m; sourceTree = "<group>"; };
+		B26EA8271D1202670065AFD3 /* GlobalPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalPosition.h; sourceTree = "<group>"; };
+		B26EA8281D1202670065AFD3 /* GlobalPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalPosition.m; sourceTree = "<group>"; };
+		B26EA8291D1202670065AFD3 /* Identifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Identifier.h; sourceTree = "<group>"; };
+		B26EA82A1D1202670065AFD3 /* Identifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Identifier.m; sourceTree = "<group>"; };
+		B26EA82B1D1202670065AFD3 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		B26EA82C1D1202670065AFD3 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		B26EA82D1D1202670065AFD3 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
+		B26EA82E1D1202670065AFD3 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
+		B26EA82F1D1202670065AFD3 /* Tags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tags.h; sourceTree = "<group>"; };
+		B26EA8301D1202670065AFD3 /* Tags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tags.m; sourceTree = "<group>"; };
+		B26EA8311D1202670065AFD3 /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
+		B26EA8321D1202670065AFD3 /* Types.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Types.m; sourceTree = "<group>"; };
+		B26EA8331D1202670065AFD3 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		B26EA8341D1202670065AFD3 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		B26EA8351D1202670065AFD3 /* UserProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProperties.h; sourceTree = "<group>"; };
+		B26EA8361D1202670065AFD3 /* UserProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProperties.m; sourceTree = "<group>"; };
+		B26EA85D1D12027F0065AFD3 /* EventEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		B26EA85E1D12027F0065AFD3 /* EventEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EventEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		B26EA85F1D12027F0065AFD3 /* EventEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventEntity.h; sourceTree = "<group>"; };
+		B26EA8601D12027F0065AFD3 /* EventEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventEntity.m; sourceTree = "<group>"; };
+		B26EA8651D1202940065AFD3 /* DSIOBaseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOBaseClient.h; sourceTree = "<group>"; };
+		B26EA8661D1202940065AFD3 /* DSIOBaseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOBaseClient.m; sourceTree = "<group>"; };
+		B26EA8691D1202F10065AFD3 /* Event+Management.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Management.h"; sourceTree = "<group>"; };
+		B26EA86A1D1202F10065AFD3 /* Event+Management.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+Management.m"; sourceTree = "<group>"; };
+		B26EA86D1D1203100065AFD3 /* DSIOGimbalClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOGimbalClient.h; sourceTree = "<group>"; };
+		B26EA86E1D1203100065AFD3 /* DSIOGimbalClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOGimbalClient.m; sourceTree = "<group>"; };
+		B26EA8711D1203260065AFD3 /* DSIOEventQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOEventQueue.h; sourceTree = "<group>"; };
+		B26EA8721D1203260065AFD3 /* DSIOEventQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOEventQueue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +226,8 @@
 		3921B3E31B0E921E00E976C0 = {
 			isa = PBXGroup;
 			children = (
+				B26EA7F41D12023B0065AFD3 /* Events */,
+				B26EA7E51D1201440065AFD3 /* Utilities */,
 				B25B32FE1D072E8E00DF9773 /* Event Properties */,
 				B259B6F61CFE58A000C79ABF /* Model */,
 				3921B3EE1B0E921E00E976C0 /* datasnap-ios-sdk */,
@@ -142,16 +248,16 @@
 		3921B3EE1B0E921E00E976C0 /* datasnap-ios-sdk */ = {
 			isa = PBXGroup;
 			children = (
-				3921B4061B0E926C00E976C0 /* DSIOClient.h */,
-				3921B4071B0E926C00E976C0 /* DSIOClient.m */,
 				3921B4081B0E926C00E976C0 /* DSIOConfig.h */,
 				3921B4091B0E926C00E976C0 /* DSIOConfig.m */,
-				3921B40A1B0E926C00E976C0 /* DSIOEventQueue.h */,
-				3921B40B1B0E926C00E976C0 /* DSIOEventQueue.m */,
 				154824F61B18CF93004E5CBF /* DSIOAPI.h */,
 				154824F71B18CF93004E5CBF /* DSIOAPI.m */,
-				B24C19FD1D02327100580365 /* DSIOGimbalClient.h */,
-				B24C19FE1D02327100580365 /* DSIOGimbalClient.m */,
+				B26EA8711D1203260065AFD3 /* DSIOEventQueue.h */,
+				B26EA8721D1203260065AFD3 /* DSIOEventQueue.m */,
+				B26EA8651D1202940065AFD3 /* DSIOBaseClient.h */,
+				B26EA8661D1202940065AFD3 /* DSIOBaseClient.m */,
+				B26EA86D1D1203100065AFD3 /* DSIOGimbalClient.h */,
+				B26EA86E1D1203100065AFD3 /* DSIOGimbalClient.m */,
 			);
 			path = "datasnap-ios-sdk";
 			sourceTree = "<group>";
@@ -177,14 +283,14 @@
 		B259B6F61CFE58A000C79ABF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B259B6FB1CFE591300C79ABF /* Event+CoreDataProperties.h */,
-				B259B6FC1CFE591300C79ABF /* Event+CoreDataProperties.m */,
-				B259B6FD1CFE591300C79ABF /* Event.h */,
-				B259B6FE1CFE591300C79ABF /* Event.m */,
-				B259B7031CFE592700C79ABF /* Event+Management.h */,
-				B259B7041CFE592700C79ABF /* Event+Management.m */,
+				B26EA8691D1202F10065AFD3 /* Event+Management.h */,
+				B26EA86A1D1202F10065AFD3 /* Event+Management.m */,
+				B26EA85D1D12027F0065AFD3 /* EventEntity+CoreDataProperties.h */,
+				B26EA85E1D12027F0065AFD3 /* EventEntity+CoreDataProperties.m */,
+				B26EA85F1D12027F0065AFD3 /* EventEntity.h */,
+				B26EA8601D12027F0065AFD3 /* EventEntity.m */,
 				B259B6F31CFE589300C79ABF /* Model.xcdatamodeld */,
-				B259B6F71CFE58E600C79ABF /* CoreDataHelper.h */,
+				B26EA7EA1D12021A0065AFD3 /* CoreDataHelper.h */,
 				B259B6F81CFE58E600C79ABF /* CoreDataHelper.m */,
 			);
 			name = Model;
@@ -193,13 +299,80 @@
 		B25B32FE1D072E8E00DF9773 /* Event Properties */ = {
 			isa = PBXGroup;
 			children = (
-				B25B32F61D072E8900DF9773 /* Communication.h */,
-				B25B32F71D072E8900DF9773 /* Communication.m */,
-				B25B32F81D072E8900DF9773 /* Campaign.h */,
-				B25B32F91D072E8900DF9773 /* Campaign.m */,
+				B26EA8111D1202670065AFD3 /* Audience.h */,
+				B26EA8121D1202670065AFD3 /* Audience.m */,
+				B26EA8131D1202670065AFD3 /* Beacon.h */,
+				B26EA8141D1202670065AFD3 /* Beacon.m */,
+				B26EA8151D1202670065AFD3 /* Campaign.h */,
+				B26EA8161D1202670065AFD3 /* Campaign.m */,
+				B26EA8171D1202670065AFD3 /* Communication.h */,
+				B26EA8181D1202670065AFD3 /* Communication.m */,
+				B26EA8191D1202670065AFD3 /* Content.h */,
+				B26EA81A1D1202670065AFD3 /* Content.m */,
+				B26EA81B1D1202670065AFD3 /* DefaultProperties.h */,
+				B26EA81C1D1202670065AFD3 /* DefaultProperties.m */,
+				B26EA81D1D1202670065AFD3 /* Device.h */,
+				B26EA81E1D1202670065AFD3 /* Device.m */,
+				B26EA81F1D1202670065AFD3 /* DeviceInfo.h */,
+				B26EA8201D1202670065AFD3 /* DeviceInfo.m */,
+				B26EA8211D1202670065AFD3 /* EventProperty.h */,
+				B26EA8221D1202670065AFD3 /* EventProperty.m */,
+				B26EA8231D1202670065AFD3 /* Geofence.h */,
+				B26EA8241D1202670065AFD3 /* Geofence.m */,
+				B26EA8251D1202670065AFD3 /* GeofenceCircle.h */,
+				B26EA8261D1202670065AFD3 /* GeofenceCircle.m */,
+				B26EA8271D1202670065AFD3 /* GlobalPosition.h */,
+				B26EA8281D1202670065AFD3 /* GlobalPosition.m */,
+				B26EA8291D1202670065AFD3 /* Identifier.h */,
+				B26EA82A1D1202670065AFD3 /* Identifier.m */,
+				B26EA82B1D1202670065AFD3 /* Location.h */,
+				B26EA82C1D1202670065AFD3 /* Location.m */,
+				B26EA82D1D1202670065AFD3 /* Place.h */,
+				B26EA82E1D1202670065AFD3 /* Place.m */,
+				B26EA82F1D1202670065AFD3 /* Tags.h */,
+				B26EA8301D1202670065AFD3 /* Tags.m */,
+				B26EA8311D1202670065AFD3 /* Types.h */,
+				B26EA8321D1202670065AFD3 /* Types.m */,
+				B26EA8331D1202670065AFD3 /* User.h */,
+				B26EA8341D1202670065AFD3 /* User.m */,
+				B26EA8351D1202670065AFD3 /* UserProperties.h */,
+				B26EA8361D1202670065AFD3 /* UserProperties.m */,
 			);
 			name = "Event Properties";
 			path = "datasnap-ios-sdk";
+			sourceTree = "<group>";
+		};
+		B26EA7E51D1201440065AFD3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B26EA7EC1D12022A0065AFD3 /* VendorProperties.m */,
+				B26EA7ED1D12022A0065AFD3 /* VendorProperties.h */,
+				B26EA7EE1D12022A0065AFD3 /* DataSnap.h */,
+				B26EA7EF1D12022A0065AFD3 /* DataSnap.m */,
+			);
+			name = Utilities;
+			path = "datasnap-ios-sdk";
+			sourceTree = "<group>";
+		};
+		B26EA7F41D12023B0065AFD3 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				B26EA7F51D1202490065AFD3 /* BeaconEvent.h */,
+				B26EA7F61D1202490065AFD3 /* BeaconEvent.m */,
+				B26EA7F71D1202490065AFD3 /* CommunicationEvent.h */,
+				B26EA7F81D1202490065AFD3 /* CommunicationEvent.m */,
+				B26EA7F91D1202490065AFD3 /* GeoFenceEvent.h */,
+				B26EA7FA1D1202490065AFD3 /* GeoFenceEvent.m */,
+				B26EA7FB1D1202490065AFD3 /* GlobalPositionEvent.h */,
+				B26EA7FC1D1202490065AFD3 /* GlobalPositionEvent.m */,
+				B26EA7FD1D1202490065AFD3 /* InteractionEvent.h */,
+				B26EA7FE1D1202490065AFD3 /* InteractionEvent.m */,
+				B26EA7FF1D1202490065AFD3 /* UpdateEvent.h */,
+				B26EA8001D1202490065AFD3 /* UpdateEvent.m */,
+				B26EA8011D1202490065AFD3 /* BaseEvent.h */,
+				B26EA8021D1202490065AFD3 /* BaseEvent.m */,
+			);
+			name = Events;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,17 +382,43 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3921B42D1B0E92E500E976C0 /* DSIOClient.h in Headers */,
-				B25B32FA1D072E8900DF9773 /* Communication.h in Headers */,
-				B259B6FF1CFE591300C79ABF /* Event+CoreDataProperties.h in Headers */,
-				B259B7051CFE592700C79ABF /* Event+Management.h in Headers */,
+				B26EA8551D1202670065AFD3 /* Tags.h in Headers */,
+				B26EA7F21D12022A0065AFD3 /* DataSnap.h in Headers */,
+				B26EA8471D1202670065AFD3 /* EventProperty.h in Headers */,
+				B26EA8731D1203260065AFD3 /* DSIOEventQueue.h in Headers */,
+				B26EA8391D1202670065AFD3 /* Beacon.h in Headers */,
+				B26EA7EB1D12021A0065AFD3 /* CoreDataHelper.h in Headers */,
+				B26EA8451D1202670065AFD3 /* DeviceInfo.h in Headers */,
+				B26EA85B1D1202670065AFD3 /* UserProperties.h in Headers */,
+				B26EA8611D12027F0065AFD3 /* EventEntity+CoreDataProperties.h in Headers */,
+				B26EA7F11D12022A0065AFD3 /* VendorProperties.h in Headers */,
+				B26EA83F1D1202670065AFD3 /* Content.h in Headers */,
+				B26EA80F1D1202490065AFD3 /* BaseEvent.h in Headers */,
+				B26EA8531D1202670065AFD3 /* Place.h in Headers */,
+				B26EA8571D1202670065AFD3 /* Types.h in Headers */,
+				B26EA8671D1202940065AFD3 /* DSIOBaseClient.h in Headers */,
+				B26EA86F1D1203100065AFD3 /* DSIOGimbalClient.h in Headers */,
+				B26EA8051D1202490065AFD3 /* CommunicationEvent.h in Headers */,
+				B26EA8031D1202490065AFD3 /* BeaconEvent.h in Headers */,
+				B26EA8411D1202670065AFD3 /* DefaultProperties.h in Headers */,
 				3921B42E1B0E92E500E976C0 /* DSIOConfig.h in Headers */,
-				B25B32FC1D072E8900DF9773 /* Campaign.h in Headers */,
 				154824F81B18CF93004E5CBF /* DSIOAPI.h in Headers */,
-				B259B6F91CFE58E600C79ABF /* CoreDataHelper.h in Headers */,
-				B259B7011CFE591300C79ABF /* Event.h in Headers */,
-				3921B42F1B0E92E500E976C0 /* DSIOEventQueue.h in Headers */,
-				B24C19FF1D02327100580365 /* DSIOGimbalClient.h in Headers */,
+				B26EA8591D1202670065AFD3 /* User.h in Headers */,
+				B26EA80B1D1202490065AFD3 /* InteractionEvent.h in Headers */,
+				B26EA84B1D1202670065AFD3 /* GeofenceCircle.h in Headers */,
+				B26EA83D1D1202670065AFD3 /* Communication.h in Headers */,
+				B26EA86B1D1202F10065AFD3 /* Event+Management.h in Headers */,
+				B26EA8491D1202670065AFD3 /* Geofence.h in Headers */,
+				B26EA83B1D1202670065AFD3 /* Campaign.h in Headers */,
+				B26EA80D1D1202490065AFD3 /* UpdateEvent.h in Headers */,
+				B26EA8511D1202670065AFD3 /* Location.h in Headers */,
+				B26EA8371D1202670065AFD3 /* Audience.h in Headers */,
+				B26EA8631D12027F0065AFD3 /* EventEntity.h in Headers */,
+				B26EA84D1D1202670065AFD3 /* GlobalPosition.h in Headers */,
+				B26EA84F1D1202670065AFD3 /* Identifier.h in Headers */,
+				B26EA8091D1202490065AFD3 /* GlobalPositionEvent.h in Headers */,
+				B26EA8431D1202670065AFD3 /* Device.h in Headers */,
+				B26EA8071D1202490065AFD3 /* GeoFenceEvent.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,18 +545,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B26EA85A1D1202670065AFD3 /* User.m in Sources */,
+				B26EA8741D1203260065AFD3 /* DSIOEventQueue.m in Sources */,
 				B259B6FA1CFE58E600C79ABF /* CoreDataHelper.m in Sources */,
-				B25B32FD1D072E8900DF9773 /* Campaign.m in Sources */,
+				B26EA8101D1202490065AFD3 /* BaseEvent.m in Sources */,
 				3921B40F1B0E926C00E976C0 /* DSIOConfig.m in Sources */,
-				B25B32FB1D072E8900DF9773 /* Communication.m in Sources */,
 				154824F91B18CF93004E5CBF /* DSIOAPI.m in Sources */,
-				B259B7061CFE592700C79ABF /* Event+Management.m in Sources */,
-				B259B7001CFE591300C79ABF /* Event+CoreDataProperties.m in Sources */,
-				B24C1A001D02327100580365 /* DSIOGimbalClient.m in Sources */,
-				B259B7021CFE591300C79ABF /* Event.m in Sources */,
+				B26EA8521D1202670065AFD3 /* Location.m in Sources */,
+				B26EA7F31D12022A0065AFD3 /* DataSnap.m in Sources */,
+				B26EA86C1D1202F10065AFD3 /* Event+Management.m in Sources */,
+				B26EA8461D1202670065AFD3 /* DeviceInfo.m in Sources */,
+				B26EA7F01D12022A0065AFD3 /* VendorProperties.m in Sources */,
+				B26EA8541D1202670065AFD3 /* Place.m in Sources */,
+				B26EA8401D1202670065AFD3 /* Content.m in Sources */,
+				B26EA8501D1202670065AFD3 /* Identifier.m in Sources */,
+				B26EA8701D1203100065AFD3 /* DSIOGimbalClient.m in Sources */,
+				B26EA8421D1202670065AFD3 /* DefaultProperties.m in Sources */,
+				B26EA8581D1202670065AFD3 /* Types.m in Sources */,
+				B26EA80A1D1202490065AFD3 /* GlobalPositionEvent.m in Sources */,
+				B26EA8381D1202670065AFD3 /* Audience.m in Sources */,
 				B259B6F51CFE589300C79ABF /* Model.xcdatamodeld in Sources */,
-				3921B40E1B0E926C00E976C0 /* DSIOClient.m in Sources */,
-				3921B4101B0E926C00E976C0 /* DSIOEventQueue.m in Sources */,
+				B26EA8081D1202490065AFD3 /* GeoFenceEvent.m in Sources */,
+				B26EA8621D12027F0065AFD3 /* EventEntity+CoreDataProperties.m in Sources */,
+				B26EA8481D1202670065AFD3 /* EventProperty.m in Sources */,
+				B26EA8041D1202490065AFD3 /* BeaconEvent.m in Sources */,
+				B26EA8641D12027F0065AFD3 /* EventEntity.m in Sources */,
+				B26EA84C1D1202670065AFD3 /* GeofenceCircle.m in Sources */,
+				B26EA83C1D1202670065AFD3 /* Campaign.m in Sources */,
+				B26EA8561D1202670065AFD3 /* Tags.m in Sources */,
+				B26EA80C1D1202490065AFD3 /* InteractionEvent.m in Sources */,
+				B26EA83A1D1202670065AFD3 /* Beacon.m in Sources */,
+				B26EA8681D1202940065AFD3 /* DSIOBaseClient.m in Sources */,
+				B26EA85C1D1202670065AFD3 /* UserProperties.m in Sources */,
+				B26EA83E1D1202670065AFD3 /* Communication.m in Sources */,
+				B26EA84A1D1202670065AFD3 /* Geofence.m in Sources */,
+				B26EA8441D1202670065AFD3 /* Device.m in Sources */,
+				B26EA84E1D1202670065AFD3 /* GlobalPosition.m in Sources */,
+				B26EA8061D1202490065AFD3 /* CommunicationEvent.m in Sources */,
+				B26EA80E1D1202490065AFD3 /* UpdateEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

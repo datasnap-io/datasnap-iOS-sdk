@@ -1,11 +1,10 @@
 //
 //  CoreDataHelper.h
-//  datasnap-ios-sdk
+//  dataSnapSample
 //
 //  Created by Alyssa McIntyre on 5/31/16.
-//  Copyright © 2016 DataSnap. All rights reserved.
+//  Copyright © 2016 Datasnapio. All rights reserved.
 //
-
 #import <CoreData/CoreData.h>
 #import <Foundation/Foundation.h>
 

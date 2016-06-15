@@ -1,23 +1,23 @@
 //
 //  Event+Management.m
-//  datasnap-ios-sdk
+//  dataSnapSample
 //
 //  Created by Alyssa McIntyre on 5/31/16.
-//  Copyright © 2016 DataSnap. All rights reserved.
+//  Copyright © 2016 Datasnapio. All rights reserved.
 //
 
 #import "Event+Management.h"
 
-@implementation Event (Management)
-+ (Event*)createEventEntityInContext:(NSManagedObjectContext*)context
+@implementation EventEntity (Management)
++ (EventEntity*)createEventEntityInContext:(NSManagedObjectContext*)context
 {
-    Event* event = [NSEntityDescription insertNewObjectForEntityForName:@"Event"
+    EventEntity* event = [NSEntityDescription insertNewObjectForEntityForName:@"EventEntity"
                                                  inManagedObjectContext:context];
     CoreDataHelper* coreDataHelper = [CoreDataHelper sharedManager];
     [coreDataHelper saveInContext:coreDataHelper.context];
     return event;
 }
-+ (Event*)createEventEntity
++ (EventEntity*)createEventEntity
 {
     CoreDataHelper* coreDataHelper = [CoreDataHelper sharedManager];
     return [self createEventEntityInContext:coreDataHelper.context];
@@ -25,7 +25,7 @@
 + (NSMutableArray*)returnAllEventsInContext:(NSManagedObjectContext*)context
 {
     NSMutableArray* eventsArray;
-    NSEntityDescription* entity = [NSEntityDescription entityForName:@"Event"
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"EventEntity"
                                               inManagedObjectContext:context];
 
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
