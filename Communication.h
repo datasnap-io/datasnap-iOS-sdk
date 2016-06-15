@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Communication : NSObject
-@property (nonatomic) NSString *description;
-@property (nonatomic) NSString *identifier;
-@property (nonatomic) NSString *title;
+@property (nonatomic) NSString* description;
+@property (nonatomic) NSString* identifier;
+@property (nonatomic) NSString* title;
 @end
