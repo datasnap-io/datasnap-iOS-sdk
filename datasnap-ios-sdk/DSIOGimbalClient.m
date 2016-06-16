@@ -23,11 +23,6 @@
 {
     [Gimbal setAPIKey:self.gimbalApiKey options:nil];
     [Gimbal start];
-    UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
-    UIUserNotificationSettings* mySettings =
-        [UIUserNotificationSettings settingsForTypes:types categories:nil];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
-    [[UIApplication sharedApplication] registerForRemoteNotifications];
     self.beaconManager = [GMBLBeaconManager new];
     self.beaconManager.delegate = self;
     [self.beaconManager startListening];
