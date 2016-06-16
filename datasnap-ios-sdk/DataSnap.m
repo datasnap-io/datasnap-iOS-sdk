@@ -9,6 +9,7 @@
 #import "DataSnap.h"
 
 static DataSnap* sharedInstance = nil;
+static NSString* appInstalledEventType = @"app_installed";
 @implementation DataSnap
 - (Device*)setDeviceAndReturn:(Device*)device
 {
@@ -79,8 +80,6 @@ static DataSnap* sharedInstance = nil;
                  eventQueueSize:(NSInteger)eventNum
             andVendorProperties:(VendorProperties*)vendorProperties
 {
-
-    // [self debug:logging];
     static dispatch_once_t onceToken = 0;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] initWithApiKey:apiKey
@@ -120,15 +119,15 @@ static DataSnap* sharedInstance = nil;
 
 - (void)initializeData
 {
-    self.device = [[Device alloc]init];
+    self.device = [[Device alloc] init];
     [self setDeviceAndReturn:self.device];
-    self.deviceInfo = [[DeviceInfo alloc]init];
+    self.deviceInfo = [[DeviceInfo alloc] init];
     self.deviceInfo.device = self.device;
     self.baseClient.deviceInfo = self.deviceInfo;
-    self.user = [[User alloc]init];
+    self.user = [[User alloc] init];
     [self.user initializeUser:self.user];
     self.baseClient.user = self.user;
-    self.identifier = [[Identifier alloc]init];
+    self.identifier = [[Identifier alloc] init];
     if ([[NSBundle mainBundle] objectForInfoDictionaryKey:@"SEND_ADVERTISER_ID"]) {
         NSString* mobile_device_ios_idfa = [self identifierForAdvertising];
         self.identifier.mobileDeviceIosIdfa = mobile_device_ios_idfa;
@@ -169,7 +168,7 @@ static DataSnap* sharedInstance = nil;
     else {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isAppAlreadyLaunchedOnce"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        NSString* eventType = @"app_installed";
+        NSString* eventType = appInstalledEventType;
         BaseEvent* event = [[BaseEvent alloc] init];
         event.eventType = eventType;
         [event.organizationIds addObject:self.organizationId];
@@ -186,10 +185,9 @@ static DataSnap* sharedInstance = nil;
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
     event.created = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]];
     event.deviceInfo = self.deviceInfo;
-    //event.deviceInfo.device = self.device;
     event.user = self.user;
-    event.organizationIds = [[NSMutableArray alloc]init];
-    event.projectIds = [[NSMutableArray alloc]init];
+    event.organizationIds = [[NSMutableArray alloc] init];
+    event.projectIds = [[NSMutableArray alloc] init];
     [event.organizationIds addObject:self.organizationId];
     [event.projectIds addObject:self.projectId];
     if (![event validate]) {
@@ -222,34 +220,34 @@ static DataSnap* sharedInstance = nil;
 
 - (void)genericEvent:(NSMutableDictionary*)eventDetails
 {
-[self eventHandler:eventDetails];
+    [self eventHandler:eventDetails];
 }
 
 - (void)eventHandler:(NSMutableDictionary*)eventDetails
 {
-NSMutableDictionary* eventDetailsCopy = [eventDetails mutableCopy];
-NSDictionary* deviceInfo = [self deviceInfoDictionary];
-[eventDetailsCopy addEntriesFromDictionary:@{ @"organization_ids" : @[ self.organizationId ],
-@"project_ids" : @[ self.projectId ],
-@"sdk_version" : @"1.0.4",
-@"device_info" : @{
-@"platform" : [deviceInfo objectForKey:@"platform"],
-@"system_name" : [deviceInfo objectForKey:@"system_name"],
-@"system_version" : [deviceInfo objectForKey:@"system_version"]
-}
-}];
-[self.eventQueue recordEvent:eventDetailsCopy];
-[self checkQueue];
+    NSMutableDictionary* eventDetailsCopy = [eventDetails mutableCopy];
+    NSDictionary* deviceInfo = [self deviceInfoDictionary];
+    [eventDetailsCopy addEntriesFromDictionary:@{ @"organization_ids" : @[ self.organizationId ],
+        @"project_ids" : @[ self.projectId ],
+        @"sdk_version" : @"1.0.4",
+        @"device_info" : @{
+            @"platform" : [deviceInfo objectForKey:@"platform"],
+            @"system_name" : [deviceInfo objectForKey:@"system_name"],
+            @"system_version" : [deviceInfo objectForKey:@"system_version"]
+        }
+    }];
+    [self.eventQueue recordEvent:eventDetailsCopy];
+    [self checkQueue];
 }
 
 - (NSDictionary*)deviceInfoDictionary
 {
-NSMutableDictionary* info = [[NSMutableDictionary alloc] init];
-[info setObject:[UIDevice currentDevice].model forKey:@"platform"];
-[info setObject:[UIDevice currentDevice].systemName forKey:@"system_name"];
-[info setObject:[UIDevice currentDevice].systemVersion forKey:@"system_version"];
-[info setObject:[UIDevice currentDevice].name forKey:@"device_name"];
-return info;
+    NSMutableDictionary* info = [[NSMutableDictionary alloc] init];
+    [info setObject:[UIDevice currentDevice].model forKey:@"platform"];
+    [info setObject:[UIDevice currentDevice].systemName forKey:@"system_name"];
+    [info setObject:[UIDevice currentDevice].systemVersion forKey:@"system_version"];
+    [info setObject:[UIDevice currentDevice].name forKey:@"device_name"];
+    return info;
 }
 
 @end

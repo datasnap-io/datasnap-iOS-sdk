@@ -17,6 +17,9 @@
 #import "Location.h"
 #import "Place.h"
 #import "User.h"
+static NSString* beaconSightingEventType = @"beacon_sighting";
+static NSString* communicationSentEventType = @"ds_communication_sent";
+static NSString* communicationOpenEventType = @"ds_communication_open";
 @implementation DSIOGimbalClient
 
 - (void)startGimbal
@@ -35,7 +38,7 @@
 }
 - (void)beaconManager:(GMBLBeaconManager*)manager didReceiveBeaconSighting:(GMBLBeaconSighting*)sighting
 {
-    NSString* eventType = @"beacon_sighting";
+    NSString* eventType = beaconSightingEventType;
     Beacon* beacon = [[Beacon alloc] init];
     beacon.identifier = sighting.beacon.identifier;
     beacon.rssi = sighting.beacon.uuid;
@@ -75,7 +78,7 @@
         self.user.identifier.globalDistinctId = self.global_distinct_id;
         self.user.identifier.mobileDeviceIosIdfa = self.mobile_device_ios_idfa;
         CommunicationEvent* event = [[CommunicationEvent alloc] init];
-        event.eventType = @"ds_communication_sent";
+        event.eventType = communicationSentEventType;
         [event.organizationIds addObject:self.organizationId];
         [event.projectIds addObject:self.projectId];
         event.venueOrgId = venueId;
@@ -104,7 +107,7 @@
     self.user.identifier.globalDistinctId = self.global_distinct_id;
     self.user.identifier.mobileDeviceIosIdfa = self.mobile_device_ios_idfa;
     CommunicationEvent* event = [[CommunicationEvent alloc] init];
-    event.eventType = @"ds_communication_sent";
+    event.eventType = communicationSentEventType;
     [event.organizationIds addObject:self.organizationId];
     [event.projectIds addObject:self.projectId];
     event.user = self.user;
