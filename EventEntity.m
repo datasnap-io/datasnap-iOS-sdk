@@ -1,9 +1,9 @@
 //
 //  Event.m
-//  dataSnapSample
+//  datasnap-ios-sdk
 //
-//  Created by Alyssa McIntyre on 6/8/16.
-//  Copyright © 2016 Datasnapio. All rights reserved.
+//  Created by Alyssa McIntyre on 6/22/16.
+//  Copyright © 2016 DataSnap. All rights reserved.
 //
 
 #import "EventEntity.h"
