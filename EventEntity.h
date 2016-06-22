@@ -1,13 +1,13 @@
 //
 //  Event.h
-//  dataSnapSample
+//  datasnap-ios-sdk
 //
-//  Created by Alyssa McIntyre on 6/8/16.
-//  Copyright © 2016 Datasnapio. All rights reserved.
+//  Created by Alyssa McIntyre on 6/22/16.
+//  Copyright © 2016 DataSnap. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,4 +19,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#import "EventEntity+CoreDataProperties.h"
+#import "Event+CoreDataProperties.h"
