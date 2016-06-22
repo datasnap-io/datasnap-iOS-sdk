@@ -4,6 +4,7 @@
 
 #import "DSIOAPI.h"
 #import "DSIOConfig.h"
+#import "GZip.h"
 
 static NSString* const URLReservedChars = @"￼=,!$&'()*+;@?\r\n\"<>#\t :/";
 static NSString* const kQuerySeparator = @"&";
@@ -39,11 +40,12 @@ static NSString* const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v
     NSData* json = [NSJSONSerialization dataWithJSONObject:events
                                                    options:NSJSONWritingPrettyPrinted
                                                      error:&error];
+    NSData *compressedJson = [GZip gzipData:json];
     if (error) {
         json = [NSData new];
     }
 
-    __block NSString* jsonStr = [NSJSONSerialization JSONObjectWithData:json options:0 error:nil];
+    __block NSString* jsonStr = [NSJSONSerialization JSONObjectWithData:compressedJson options:0 error:nil];
     NSURL* url = [NSURL URLWithString:kDataSnapEventAPIURL];
 
     [self performAuthenticatedPOSTRequestWithURL:url

@@ -29,7 +29,6 @@
 		3921B42B1B0E92D200E976C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3921B42A1B0E92D200E976C0 /* Foundation.framework */; };
 		3921B42E1B0E92E500E976C0 /* DSIOConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B4081B0E926C00E976C0 /* DSIOConfig.h */; };
 		B24C1A021D02330400580365 /* Gimbal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B24C1A011D02330400580365 /* Gimbal.framework */; };
-		B259B6F51CFE589300C79ABF /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B259B6F31CFE589300C79ABF /* Model.xcdatamodeld */; };
 		B259B6FA1CFE58E600C79ABF /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B259B6F81CFE58E600C79ABF /* CoreDataHelper.m */; };
 		B26EA7EB1D12021A0065AFD3 /* CoreDataHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA7EA1D12021A0065AFD3 /* CoreDataHelper.h */; };
 		B26EA7F01D12022A0065AFD3 /* VendorProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA7EC1D12022A0065AFD3 /* VendorProperties.m */; };
@@ -88,10 +87,6 @@
 		B26EA85A1D1202670065AFD3 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8341D1202670065AFD3 /* User.m */; };
 		B26EA85B1D1202670065AFD3 /* UserProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8351D1202670065AFD3 /* UserProperties.h */; };
 		B26EA85C1D1202670065AFD3 /* UserProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8361D1202670065AFD3 /* UserProperties.m */; };
-		B26EA8611D12027F0065AFD3 /* EventEntity+CoreDataProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA85D1D12027F0065AFD3 /* EventEntity+CoreDataProperties.h */; };
-		B26EA8621D12027F0065AFD3 /* EventEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA85E1D12027F0065AFD3 /* EventEntity+CoreDataProperties.m */; };
-		B26EA8631D12027F0065AFD3 /* EventEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA85F1D12027F0065AFD3 /* EventEntity.h */; };
-		B26EA8641D12027F0065AFD3 /* EventEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8601D12027F0065AFD3 /* EventEntity.m */; };
 		B26EA8671D1202940065AFD3 /* DSIOBaseClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8651D1202940065AFD3 /* DSIOBaseClient.h */; };
 		B26EA8681D1202940065AFD3 /* DSIOBaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8661D1202940065AFD3 /* DSIOBaseClient.m */; };
 		B26EA86B1D1202F10065AFD3 /* Event+Management.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8691D1202F10065AFD3 /* Event+Management.h */; };
@@ -100,6 +95,30 @@
 		B26EA8701D1203100065AFD3 /* DSIOGimbalClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA86E1D1203100065AFD3 /* DSIOGimbalClient.m */; };
 		B26EA8731D1203260065AFD3 /* DSIOEventQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8711D1203260065AFD3 /* DSIOEventQueue.h */; };
 		B26EA8741D1203260065AFD3 /* DSIOEventQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8721D1203260065AFD3 /* DSIOEventQueue.m */; };
+		B28206F71D14793500F8CBB1 /* EventEntitySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B28206F61D14793500F8CBB1 /* EventEntitySpec.m */; };
+		B28206F91D1479A200F8CBB1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B28206F81D1479A200F8CBB1 /* libz.tbd */; };
+		B28206FE1D147B6400F8CBB1 /* Gimbal.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B24C1A011D02330400580365 /* Gimbal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B28207101D1480C300F8CBB1 /* Kiwi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B282070F1D1480C300F8CBB1 /* Kiwi.framework */; };
+		B28207131D14811700F8CBB1 /* MagicalRecord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28207121D14811700F8CBB1 /* MagicalRecord.framework */; };
+		B28207141D14839600F8CBB1 /* MagicalRecord.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B28207121D14811700F8CBB1 /* MagicalRecord.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B28207151D14839B00F8CBB1 /* Kiwi.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B282070F1D1480C300F8CBB1 /* Kiwi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B28207271D14908300F8CBB1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28207261D14908300F8CBB1 /* CoreData.framework */; };
+		B28207281D1490A100F8CBB1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28207261D14908300F8CBB1 /* CoreData.framework */; };
+		B282072B1D14915000F8CBB1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B28207291D14915000F8CBB1 /* Model.xcdatamodeld */; };
+		B282073A1D14919F00F8CBB1 /* Event+CoreDataProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B28207361D14919F00F8CBB1 /* Event+CoreDataProperties.h */; };
+		B282073B1D14919F00F8CBB1 /* Event+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B28207371D14919F00F8CBB1 /* Event+CoreDataProperties.m */; };
+		B282073D1D14919F00F8CBB1 /* Event.h in Headers */ = {isa = PBXBuildFile; fileRef = B28207381D14919F00F8CBB1 /* Event.h */; };
+		B282073E1D14919F00F8CBB1 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B28207391D14919F00F8CBB1 /* Event.m */; };
+		B2A813621D19D4B500DB0259 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A813611D19D4B500DB0259 /* SystemConfiguration.framework */; };
+		B2A813631D19D4D000DB0259 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A813611D19D4B500DB0259 /* SystemConfiguration.framework */; };
+		B2A813711D19E63E00DB0259 /* Event+Management.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA86A1D1202F10065AFD3 /* Event+Management.m */; };
+		B2A8139C1D1A027200DB0259 /* Event+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B28207371D14919F00F8CBB1 /* Event+CoreDataProperties.m */; };
+		B2A8139E1D1A027200DB0259 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B28207391D14919F00F8CBB1 /* Event.m */; };
+		B2A813A11D1A027200DB0259 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B259B6F81CFE58E600C79ABF /* CoreDataHelper.m */; };
+		B2A813A21D1A027200DB0259 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B28207291D14915000F8CBB1 /* Model.xcdatamodeld */; };
+		B2D72C3B1D1855D9007D839D /* DatasnapSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D72C3A1D1855D9007D839D /* DatasnapSpec.m */; };
+		B2FA33301D1B333300185AE5 /* GZip.h in Headers */ = {isa = PBXBuildFile; fileRef = B2FA332E1D1B333300185AE5 /* GZip.h */; };
+		B2FA33311D1B333300185AE5 /* GZip.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FA332F1D1B333300185AE5 /* GZip.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +138,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B28206FC1D147B4500F8CBB1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B28207151D14839B00F8CBB1 /* Kiwi.framework in CopyFiles */,
+				B28207141D14839600F8CBB1 /* MagicalRecord.framework in CopyFiles */,
+				B28206FE1D147B6400F8CBB1 /* Gimbal.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		154824F61B18CF93004E5CBF /* DSIOAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOAPI.h; sourceTree = "<group>"; };
 		154824F71B18CF93004E5CBF /* DSIOAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOAPI.m; sourceTree = "<group>"; };
@@ -129,7 +163,6 @@
 		3921B4091B0E926C00E976C0 /* DSIOConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOConfig.m; sourceTree = "<group>"; };
 		3921B42A1B0E92D200E976C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B24C1A011D02330400580365 /* Gimbal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gimbal.framework; sourceTree = "<group>"; };
-		B259B6F41CFE589300C79ABF /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B259B6F81CFE58E600C79ABF /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
 		B26EA7EA1D12021A0065AFD3 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
 		B26EA7EC1D12022A0065AFD3 /* VendorProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorProperties.m; sourceTree = "<group>"; };
@@ -188,10 +221,6 @@
 		B26EA8341D1202670065AFD3 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		B26EA8351D1202670065AFD3 /* UserProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProperties.h; sourceTree = "<group>"; };
 		B26EA8361D1202670065AFD3 /* UserProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProperties.m; sourceTree = "<group>"; };
-		B26EA85D1D12027F0065AFD3 /* EventEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
-		B26EA85E1D12027F0065AFD3 /* EventEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EventEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
-		B26EA85F1D12027F0065AFD3 /* EventEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventEntity.h; sourceTree = "<group>"; };
-		B26EA8601D12027F0065AFD3 /* EventEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventEntity.m; sourceTree = "<group>"; };
 		B26EA8651D1202940065AFD3 /* DSIOBaseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOBaseClient.h; sourceTree = "<group>"; };
 		B26EA8661D1202940065AFD3 /* DSIOBaseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOBaseClient.m; sourceTree = "<group>"; };
 		B26EA8691D1202F10065AFD3 /* Event+Management.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Management.h"; sourceTree = "<group>"; };
@@ -200,6 +229,20 @@
 		B26EA86E1D1203100065AFD3 /* DSIOGimbalClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOGimbalClient.m; sourceTree = "<group>"; };
 		B26EA8711D1203260065AFD3 /* DSIOEventQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOEventQueue.h; sourceTree = "<group>"; };
 		B26EA8721D1203260065AFD3 /* DSIOEventQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOEventQueue.m; sourceTree = "<group>"; };
+		B28206F61D14793500F8CBB1 /* EventEntitySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventEntitySpec.m; sourceTree = "<group>"; };
+		B28206F81D1479A200F8CBB1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		B282070F1D1480C300F8CBB1 /* Kiwi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kiwi.framework; sourceTree = "<group>"; };
+		B28207121D14811700F8CBB1 /* MagicalRecord.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MagicalRecord.framework; sourceTree = "<group>"; };
+		B28207261D14908300F8CBB1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B282072A1D14915000F8CBB1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		B28207361D14919F00F8CBB1 /* Event+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+CoreDataProperties.h"; sourceTree = "<group>"; };
+		B28207371D14919F00F8CBB1 /* Event+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+CoreDataProperties.m"; sourceTree = "<group>"; };
+		B28207381D14919F00F8CBB1 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		B28207391D14919F00F8CBB1 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		B2A813611D19D4B500DB0259 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B2D72C3A1D1855D9007D839D /* DatasnapSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatasnapSpec.m; sourceTree = "<group>"; };
+		B2FA332E1D1B333300185AE5 /* GZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZip.h; sourceTree = "<group>"; };
+		B2FA332F1D1B333300185AE5 /* GZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZip.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +250,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2A813631D19D4D000DB0259 /* SystemConfiguration.framework in Frameworks */,
+				B28207281D1490A100F8CBB1 /* CoreData.framework in Frameworks */,
 				3921B42B1B0E92D200E976C0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,7 +260,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2A813621D19D4B500DB0259 /* SystemConfiguration.framework in Frameworks */,
+				B28207271D14908300F8CBB1 /* CoreData.framework in Frameworks */,
+				B28207131D14811700F8CBB1 /* MagicalRecord.framework in Frameworks */,
+				B28206F91D1479A200F8CBB1 /* libz.tbd in Frameworks */,
 				B24C1A021D02330400580365 /* Gimbal.framework in Frameworks */,
+				B28207101D1480C300F8CBB1 /* Kiwi.framework in Frameworks */,
 				3921B3F81B0E921F00E976C0 /* libDatasnap.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +315,13 @@
 		3921B3FB1B0E921F00E976C0 /* datasnap-ios-sdkTests */ = {
 			isa = PBXGroup;
 			children = (
+				B2A813611D19D4B500DB0259 /* SystemConfiguration.framework */,
+				B28206F61D14793500F8CBB1 /* EventEntitySpec.m */,
+				B2D72C3A1D1855D9007D839D /* DatasnapSpec.m */,
+				B28207261D14908300F8CBB1 /* CoreData.framework */,
+				B28207121D14811700F8CBB1 /* MagicalRecord.framework */,
+				B282070F1D1480C300F8CBB1 /* Kiwi.framework */,
+				B28206F81D1479A200F8CBB1 /* libz.tbd */,
 				B24C1A011D02330400580365 /* Gimbal.framework */,
 				3921B42A1B0E92D200E976C0 /* Foundation.framework */,
 				3921B3FC1B0E921F00E976C0 /* Supporting Files */,
@@ -283,15 +340,15 @@
 		B259B6F61CFE58A000C79ABF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B28207361D14919F00F8CBB1 /* Event+CoreDataProperties.h */,
+				B28207371D14919F00F8CBB1 /* Event+CoreDataProperties.m */,
+				B28207381D14919F00F8CBB1 /* Event.h */,
+				B28207391D14919F00F8CBB1 /* Event.m */,
 				B26EA8691D1202F10065AFD3 /* Event+Management.h */,
 				B26EA86A1D1202F10065AFD3 /* Event+Management.m */,
-				B26EA85D1D12027F0065AFD3 /* EventEntity+CoreDataProperties.h */,
-				B26EA85E1D12027F0065AFD3 /* EventEntity+CoreDataProperties.m */,
-				B26EA85F1D12027F0065AFD3 /* EventEntity.h */,
-				B26EA8601D12027F0065AFD3 /* EventEntity.m */,
-				B259B6F31CFE589300C79ABF /* Model.xcdatamodeld */,
 				B26EA7EA1D12021A0065AFD3 /* CoreDataHelper.h */,
 				B259B6F81CFE58E600C79ABF /* CoreDataHelper.m */,
+				B28207291D14915000F8CBB1 /* Model.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -349,6 +406,8 @@
 				B26EA7ED1D12022A0065AFD3 /* VendorProperties.h */,
 				B26EA7EE1D12022A0065AFD3 /* DataSnap.h */,
 				B26EA7EF1D12022A0065AFD3 /* DataSnap.m */,
+				B2FA332E1D1B333300185AE5 /* GZip.h */,
+				B2FA332F1D1B333300185AE5 /* GZip.m */,
 			);
 			name = Utilities;
 			path = "datasnap-ios-sdk";
@@ -390,14 +449,15 @@
 				B26EA7EB1D12021A0065AFD3 /* CoreDataHelper.h in Headers */,
 				B26EA8451D1202670065AFD3 /* DeviceInfo.h in Headers */,
 				B26EA85B1D1202670065AFD3 /* UserProperties.h in Headers */,
-				B26EA8611D12027F0065AFD3 /* EventEntity+CoreDataProperties.h in Headers */,
 				B26EA7F11D12022A0065AFD3 /* VendorProperties.h in Headers */,
 				B26EA83F1D1202670065AFD3 /* Content.h in Headers */,
 				B26EA80F1D1202490065AFD3 /* BaseEvent.h in Headers */,
 				B26EA8531D1202670065AFD3 /* Place.h in Headers */,
 				B26EA8571D1202670065AFD3 /* Types.h in Headers */,
+				B282073A1D14919F00F8CBB1 /* Event+CoreDataProperties.h in Headers */,
 				B26EA8671D1202940065AFD3 /* DSIOBaseClient.h in Headers */,
 				B26EA86F1D1203100065AFD3 /* DSIOGimbalClient.h in Headers */,
+				B2FA33301D1B333300185AE5 /* GZip.h in Headers */,
 				B26EA8051D1202490065AFD3 /* CommunicationEvent.h in Headers */,
 				B26EA8031D1202490065AFD3 /* BeaconEvent.h in Headers */,
 				B26EA8411D1202670065AFD3 /* DefaultProperties.h in Headers */,
@@ -411,9 +471,9 @@
 				B26EA8491D1202670065AFD3 /* Geofence.h in Headers */,
 				B26EA83B1D1202670065AFD3 /* Campaign.h in Headers */,
 				B26EA80D1D1202490065AFD3 /* UpdateEvent.h in Headers */,
+				B282073D1D14919F00F8CBB1 /* Event.h in Headers */,
 				B26EA8511D1202670065AFD3 /* Location.h in Headers */,
 				B26EA8371D1202670065AFD3 /* Audience.h in Headers */,
-				B26EA8631D12027F0065AFD3 /* EventEntity.h in Headers */,
 				B26EA84D1D1202670065AFD3 /* GlobalPosition.h in Headers */,
 				B26EA84F1D1202670065AFD3 /* Identifier.h in Headers */,
 				B26EA8091D1202490065AFD3 /* GlobalPositionEvent.h in Headers */,
@@ -450,6 +510,7 @@
 				3921B3F31B0E921F00E976C0 /* Sources */,
 				3921B3F41B0E921F00E976C0 /* Frameworks */,
 				3921B3F51B0E921F00E976C0 /* Resources */,
+				B28206FC1D147B4500F8CBB1 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -467,7 +528,7 @@
 		3921B3E41B0E921E00E976C0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = DataSnap;
 				TargetAttributes = {
 					3921B3EB1B0E921E00E976C0 = {
@@ -551,12 +612,14 @@
 				B26EA8101D1202490065AFD3 /* BaseEvent.m in Sources */,
 				3921B40F1B0E926C00E976C0 /* DSIOConfig.m in Sources */,
 				154824F91B18CF93004E5CBF /* DSIOAPI.m in Sources */,
+				B282073E1D14919F00F8CBB1 /* Event.m in Sources */,
 				B26EA8521D1202670065AFD3 /* Location.m in Sources */,
 				B26EA7F31D12022A0065AFD3 /* DataSnap.m in Sources */,
 				B26EA86C1D1202F10065AFD3 /* Event+Management.m in Sources */,
 				B26EA8461D1202670065AFD3 /* DeviceInfo.m in Sources */,
 				B26EA7F01D12022A0065AFD3 /* VendorProperties.m in Sources */,
 				B26EA8541D1202670065AFD3 /* Place.m in Sources */,
+				B2FA33311D1B333300185AE5 /* GZip.m in Sources */,
 				B26EA8401D1202670065AFD3 /* Content.m in Sources */,
 				B26EA8501D1202670065AFD3 /* Identifier.m in Sources */,
 				B26EA8701D1203100065AFD3 /* DSIOGimbalClient.m in Sources */,
@@ -564,13 +627,11 @@
 				B26EA8581D1202670065AFD3 /* Types.m in Sources */,
 				B26EA80A1D1202490065AFD3 /* GlobalPositionEvent.m in Sources */,
 				B26EA8381D1202670065AFD3 /* Audience.m in Sources */,
-				B259B6F51CFE589300C79ABF /* Model.xcdatamodeld in Sources */,
 				B26EA8081D1202490065AFD3 /* GeoFenceEvent.m in Sources */,
-				B26EA8621D12027F0065AFD3 /* EventEntity+CoreDataProperties.m in Sources */,
 				B26EA8481D1202670065AFD3 /* EventProperty.m in Sources */,
 				B26EA8041D1202490065AFD3 /* BeaconEvent.m in Sources */,
-				B26EA8641D12027F0065AFD3 /* EventEntity.m in Sources */,
 				B26EA84C1D1202670065AFD3 /* GeofenceCircle.m in Sources */,
+				B282072B1D14915000F8CBB1 /* Model.xcdatamodeld in Sources */,
 				B26EA83C1D1202670065AFD3 /* Campaign.m in Sources */,
 				B26EA8561D1202670065AFD3 /* Tags.m in Sources */,
 				B26EA80C1D1202490065AFD3 /* InteractionEvent.m in Sources */,
@@ -579,6 +640,7 @@
 				B26EA85C1D1202670065AFD3 /* UserProperties.m in Sources */,
 				B26EA83E1D1202670065AFD3 /* Communication.m in Sources */,
 				B26EA84A1D1202670065AFD3 /* Geofence.m in Sources */,
+				B282073B1D14919F00F8CBB1 /* Event+CoreDataProperties.m in Sources */,
 				B26EA8441D1202670065AFD3 /* Device.m in Sources */,
 				B26EA84E1D1202670065AFD3 /* GlobalPosition.m in Sources */,
 				B26EA8061D1202490065AFD3 /* CommunicationEvent.m in Sources */,
@@ -590,6 +652,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2A8139C1D1A027200DB0259 /* Event+CoreDataProperties.m in Sources */,
+				B2A8139E1D1A027200DB0259 /* Event.m in Sources */,
+				B2A813A11D1A027200DB0259 /* CoreDataHelper.m in Sources */,
+				B2A813A21D1A027200DB0259 /* Model.xcdatamodeld in Sources */,
+				B2A813711D19E63E00DB0259 /* Event+Management.m in Sources */,
+				B2D72C3B1D1855D9007D839D /* DatasnapSpec.m in Sources */,
+				B28206F71D14793500F8CBB1 /* EventEntitySpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,6 +698,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -644,7 +714,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -680,7 +751,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -690,12 +762,13 @@
 		3921B4011B0E921F00E976C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/datasnap-ios-sdkTests",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Datasnap;
 				SKIP_INSTALL = YES;
@@ -705,11 +778,13 @@
 		3921B4021B0E921F00E976C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/datasnap-ios-sdkTests",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Datasnap;
 				SKIP_INSTALL = YES;
@@ -721,7 +796,6 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)/datasnap-ios-sdkTests",
 				);
@@ -731,6 +805,8 @@
 				);
 				INFOPLIST_FILE = "datasnap-ios-sdkTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "DataSnap.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -740,12 +816,13 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)/datasnap-ios-sdkTests",
 				);
 				INFOPLIST_FILE = "datasnap-ios-sdkTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "DataSnap.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -753,7 +830,6 @@
 		3921B4551B0E944500E976C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -762,7 +838,6 @@
 		3921B4561B0E944500E976C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -810,14 +885,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B259B6F31CFE589300C79ABF /* Model.xcdatamodeld */ = {
+		B28207291D14915000F8CBB1 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B259B6F41CFE589300C79ABF /* Model.xcdatamodel */,
+				B282072A1D14915000F8CBB1 /* Model.xcdatamodel */,
 			);
-			currentVersion = B259B6F41CFE589300C79ABF /* Model.xcdatamodel */;
-			name = Model.xcdatamodeld;
-			path = "datasnap-ios-sdk/Model.xcdatamodeld";
+			currentVersion = B282072A1D14915000F8CBB1 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
