@@ -29,13 +29,12 @@
 		3921B42B1B0E92D200E976C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3921B42A1B0E92D200E976C0 /* Foundation.framework */; };
 		3921B42E1B0E92E500E976C0 /* DSIOConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 3921B4081B0E926C00E976C0 /* DSIOConfig.h */; };
 		B24C1A021D02330400580365 /* Gimbal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B24C1A011D02330400580365 /* Gimbal.framework */; };
-		B259B6F51CFE589300C79ABF /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B259B6F31CFE589300C79ABF /* Model.xcdatamodeld */; };
-		B259B6FA1CFE58E600C79ABF /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B259B6F81CFE58E600C79ABF /* CoreDataHelper.m */; };
-		B26EA7EB1D12021A0065AFD3 /* CoreDataHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA7EA1D12021A0065AFD3 /* CoreDataHelper.h */; };
-		B26EA7F01D12022A0065AFD3 /* VendorProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA7EC1D12022A0065AFD3 /* VendorProperties.m */; };
-		B26EA7F11D12022A0065AFD3 /* VendorProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA7ED1D12022A0065AFD3 /* VendorProperties.h */; };
-		B26EA7F21D12022A0065AFD3 /* DataSnap.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA7EE1D12022A0065AFD3 /* DataSnap.h */; };
-		B26EA7F31D12022A0065AFD3 /* DataSnap.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA7EF1D12022A0065AFD3 /* DataSnap.m */; };
+		B259B6FA1CFE58E600C79ABF /* DSIOCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B259B6F81CFE58E600C79ABF /* DSIOCoreDataHelper.m */; };
+		B26EA7EB1D12021A0065AFD3 /* DSIOCoreDataHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA7EA1D12021A0065AFD3 /* DSIOCoreDataHelper.h */; };
+		B26EA7F01D12022A0065AFD3 /* DSIOVendorProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA7EC1D12022A0065AFD3 /* DSIOVendorProperties.m */; };
+		B26EA7F11D12022A0065AFD3 /* DSIOVendorProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA7ED1D12022A0065AFD3 /* DSIOVendorProperties.h */; };
+		B26EA7F21D12022A0065AFD3 /* DSIODatasnap.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA7EE1D12022A0065AFD3 /* DSIODatasnap.h */; };
+		B26EA7F31D12022A0065AFD3 /* DSIODatasnap.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA7EF1D12022A0065AFD3 /* DSIODatasnap.m */; };
 		B26EA8031D1202490065AFD3 /* BeaconEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA7F51D1202490065AFD3 /* BeaconEvent.h */; };
 		B26EA8041D1202490065AFD3 /* BeaconEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA7F61D1202490065AFD3 /* BeaconEvent.m */; };
 		B26EA8051D1202490065AFD3 /* CommunicationEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA7F71D1202490065AFD3 /* CommunicationEvent.h */; };
@@ -50,56 +49,73 @@
 		B26EA80E1D1202490065AFD3 /* UpdateEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8001D1202490065AFD3 /* UpdateEvent.m */; };
 		B26EA80F1D1202490065AFD3 /* BaseEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8011D1202490065AFD3 /* BaseEvent.h */; };
 		B26EA8101D1202490065AFD3 /* BaseEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8021D1202490065AFD3 /* BaseEvent.m */; };
-		B26EA8371D1202670065AFD3 /* Audience.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8111D1202670065AFD3 /* Audience.h */; };
-		B26EA8381D1202670065AFD3 /* Audience.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8121D1202670065AFD3 /* Audience.m */; };
-		B26EA8391D1202670065AFD3 /* Beacon.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8131D1202670065AFD3 /* Beacon.h */; };
-		B26EA83A1D1202670065AFD3 /* Beacon.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8141D1202670065AFD3 /* Beacon.m */; };
-		B26EA83B1D1202670065AFD3 /* Campaign.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8151D1202670065AFD3 /* Campaign.h */; };
-		B26EA83C1D1202670065AFD3 /* Campaign.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8161D1202670065AFD3 /* Campaign.m */; };
-		B26EA83D1D1202670065AFD3 /* Communication.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8171D1202670065AFD3 /* Communication.h */; };
-		B26EA83E1D1202670065AFD3 /* Communication.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8181D1202670065AFD3 /* Communication.m */; };
-		B26EA83F1D1202670065AFD3 /* Content.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8191D1202670065AFD3 /* Content.h */; };
-		B26EA8401D1202670065AFD3 /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA81A1D1202670065AFD3 /* Content.m */; };
-		B26EA8411D1202670065AFD3 /* DefaultProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA81B1D1202670065AFD3 /* DefaultProperties.h */; };
-		B26EA8421D1202670065AFD3 /* DefaultProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA81C1D1202670065AFD3 /* DefaultProperties.m */; };
-		B26EA8431D1202670065AFD3 /* Device.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA81D1D1202670065AFD3 /* Device.h */; };
-		B26EA8441D1202670065AFD3 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA81E1D1202670065AFD3 /* Device.m */; };
-		B26EA8451D1202670065AFD3 /* DeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA81F1D1202670065AFD3 /* DeviceInfo.h */; };
-		B26EA8461D1202670065AFD3 /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8201D1202670065AFD3 /* DeviceInfo.m */; };
-		B26EA8471D1202670065AFD3 /* EventProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8211D1202670065AFD3 /* EventProperty.h */; };
-		B26EA8481D1202670065AFD3 /* EventProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8221D1202670065AFD3 /* EventProperty.m */; };
-		B26EA8491D1202670065AFD3 /* Geofence.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8231D1202670065AFD3 /* Geofence.h */; };
-		B26EA84A1D1202670065AFD3 /* Geofence.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8241D1202670065AFD3 /* Geofence.m */; };
-		B26EA84B1D1202670065AFD3 /* GeofenceCircle.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8251D1202670065AFD3 /* GeofenceCircle.h */; };
-		B26EA84C1D1202670065AFD3 /* GeofenceCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8261D1202670065AFD3 /* GeofenceCircle.m */; };
-		B26EA84D1D1202670065AFD3 /* GlobalPosition.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8271D1202670065AFD3 /* GlobalPosition.h */; };
-		B26EA84E1D1202670065AFD3 /* GlobalPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8281D1202670065AFD3 /* GlobalPosition.m */; };
-		B26EA84F1D1202670065AFD3 /* Identifier.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8291D1202670065AFD3 /* Identifier.h */; };
-		B26EA8501D1202670065AFD3 /* Identifier.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA82A1D1202670065AFD3 /* Identifier.m */; };
-		B26EA8511D1202670065AFD3 /* Location.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA82B1D1202670065AFD3 /* Location.h */; };
-		B26EA8521D1202670065AFD3 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA82C1D1202670065AFD3 /* Location.m */; };
-		B26EA8531D1202670065AFD3 /* Place.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA82D1D1202670065AFD3 /* Place.h */; };
-		B26EA8541D1202670065AFD3 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA82E1D1202670065AFD3 /* Place.m */; };
-		B26EA8551D1202670065AFD3 /* Tags.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA82F1D1202670065AFD3 /* Tags.h */; };
-		B26EA8561D1202670065AFD3 /* Tags.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8301D1202670065AFD3 /* Tags.m */; };
-		B26EA8571D1202670065AFD3 /* Types.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8311D1202670065AFD3 /* Types.h */; };
-		B26EA8581D1202670065AFD3 /* Types.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8321D1202670065AFD3 /* Types.m */; };
-		B26EA8591D1202670065AFD3 /* User.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8331D1202670065AFD3 /* User.h */; };
-		B26EA85A1D1202670065AFD3 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8341D1202670065AFD3 /* User.m */; };
-		B26EA85B1D1202670065AFD3 /* UserProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8351D1202670065AFD3 /* UserProperties.h */; };
-		B26EA85C1D1202670065AFD3 /* UserProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8361D1202670065AFD3 /* UserProperties.m */; };
-		B26EA8611D12027F0065AFD3 /* EventEntity+CoreDataProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA85D1D12027F0065AFD3 /* EventEntity+CoreDataProperties.h */; };
-		B26EA8621D12027F0065AFD3 /* EventEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA85E1D12027F0065AFD3 /* EventEntity+CoreDataProperties.m */; };
-		B26EA8631D12027F0065AFD3 /* EventEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA85F1D12027F0065AFD3 /* EventEntity.h */; };
-		B26EA8641D12027F0065AFD3 /* EventEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8601D12027F0065AFD3 /* EventEntity.m */; };
+		B26EA8371D1202670065AFD3 /* DSIOAudience.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8111D1202670065AFD3 /* DSIOAudience.h */; };
+		B26EA8381D1202670065AFD3 /* DSIOAudience.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8121D1202670065AFD3 /* DSIOAudience.m */; };
+		B26EA8391D1202670065AFD3 /* DSIOBeacon.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8131D1202670065AFD3 /* DSIOBeacon.h */; };
+		B26EA83A1D1202670065AFD3 /* DSIOBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8141D1202670065AFD3 /* DSIOBeacon.m */; };
+		B26EA83B1D1202670065AFD3 /* DSIOCampaign.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8151D1202670065AFD3 /* DSIOCampaign.h */; };
+		B26EA83C1D1202670065AFD3 /* DSIOCampaign.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8161D1202670065AFD3 /* DSIOCampaign.m */; };
+		B26EA83D1D1202670065AFD3 /* DSIOCommunication.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8171D1202670065AFD3 /* DSIOCommunication.h */; };
+		B26EA83E1D1202670065AFD3 /* DSIOCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8181D1202670065AFD3 /* DSIOCommunication.m */; };
+		B26EA83F1D1202670065AFD3 /* DSIOContent.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8191D1202670065AFD3 /* DSIOContent.h */; };
+		B26EA8401D1202670065AFD3 /* DSIOContent.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA81A1D1202670065AFD3 /* DSIOContent.m */; };
+		B26EA8411D1202670065AFD3 /* DSIODefaultProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA81B1D1202670065AFD3 /* DSIODefaultProperties.h */; };
+		B26EA8421D1202670065AFD3 /* DSIODefaultProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA81C1D1202670065AFD3 /* DSIODefaultProperties.m */; };
+		B26EA8431D1202670065AFD3 /* DSIODevice.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA81D1D1202670065AFD3 /* DSIODevice.h */; };
+		B26EA8441D1202670065AFD3 /* DSIODevice.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA81E1D1202670065AFD3 /* DSIODevice.m */; };
+		B26EA8451D1202670065AFD3 /* DSIODeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA81F1D1202670065AFD3 /* DSIODeviceInfo.h */; };
+		B26EA8461D1202670065AFD3 /* DSIODeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8201D1202670065AFD3 /* DSIODeviceInfo.m */; };
+		B26EA8471D1202670065AFD3 /* DSIOEventProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8211D1202670065AFD3 /* DSIOEventProperty.h */; };
+		B26EA8481D1202670065AFD3 /* DSIOEventProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8221D1202670065AFD3 /* DSIOEventProperty.m */; };
+		B26EA8491D1202670065AFD3 /* DSIOGeofence.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8231D1202670065AFD3 /* DSIOGeofence.h */; };
+		B26EA84A1D1202670065AFD3 /* DSIOGeofence.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8241D1202670065AFD3 /* DSIOGeofence.m */; };
+		B26EA84B1D1202670065AFD3 /* DSIOGeofenceCircle.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8251D1202670065AFD3 /* DSIOGeofenceCircle.h */; };
+		B26EA84C1D1202670065AFD3 /* DSIOGeofenceCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8261D1202670065AFD3 /* DSIOGeofenceCircle.m */; };
+		B26EA84D1D1202670065AFD3 /* DSIOGlobalPosition.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8271D1202670065AFD3 /* DSIOGlobalPosition.h */; };
+		B26EA84E1D1202670065AFD3 /* DSIOGlobalPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8281D1202670065AFD3 /* DSIOGlobalPosition.m */; };
+		B26EA84F1D1202670065AFD3 /* DSIOIdentifier.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8291D1202670065AFD3 /* DSIOIdentifier.h */; };
+		B26EA8501D1202670065AFD3 /* DSIOIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA82A1D1202670065AFD3 /* DSIOIdentifier.m */; };
+		B26EA8511D1202670065AFD3 /* DSIOLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA82B1D1202670065AFD3 /* DSIOLocation.h */; };
+		B26EA8521D1202670065AFD3 /* DSIOLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA82C1D1202670065AFD3 /* DSIOLocation.m */; };
+		B26EA8531D1202670065AFD3 /* DSIOPlace.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA82D1D1202670065AFD3 /* DSIOPlace.h */; };
+		B26EA8541D1202670065AFD3 /* DSIOPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA82E1D1202670065AFD3 /* DSIOPlace.m */; };
+		B26EA8551D1202670065AFD3 /* DSIOTags.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA82F1D1202670065AFD3 /* DSIOTags.h */; };
+		B26EA8561D1202670065AFD3 /* DSIOTags.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8301D1202670065AFD3 /* DSIOTags.m */; };
+		B26EA8571D1202670065AFD3 /* DSIOTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8311D1202670065AFD3 /* DSIOTypes.h */; };
+		B26EA8581D1202670065AFD3 /* DSIOTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8321D1202670065AFD3 /* DSIOTypes.m */; };
+		B26EA8591D1202670065AFD3 /* DSIOUser.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8331D1202670065AFD3 /* DSIOUser.h */; };
+		B26EA85A1D1202670065AFD3 /* DSIOUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8341D1202670065AFD3 /* DSIOUser.m */; };
+		B26EA85B1D1202670065AFD3 /* DSIOUserProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8351D1202670065AFD3 /* DSIOUserProperties.h */; };
+		B26EA85C1D1202670065AFD3 /* DSIOUserProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8361D1202670065AFD3 /* DSIOUserProperties.m */; };
 		B26EA8671D1202940065AFD3 /* DSIOBaseClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8651D1202940065AFD3 /* DSIOBaseClient.h */; };
 		B26EA8681D1202940065AFD3 /* DSIOBaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8661D1202940065AFD3 /* DSIOBaseClient.m */; };
-		B26EA86B1D1202F10065AFD3 /* Event+Management.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8691D1202F10065AFD3 /* Event+Management.h */; };
-		B26EA86C1D1202F10065AFD3 /* Event+Management.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA86A1D1202F10065AFD3 /* Event+Management.m */; };
+		B26EA86B1D1202F10065AFD3 /* DSIOEvent+Management.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8691D1202F10065AFD3 /* DSIOEvent+Management.h */; };
+		B26EA86C1D1202F10065AFD3 /* DSIOEvent+Management.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA86A1D1202F10065AFD3 /* DSIOEvent+Management.m */; };
 		B26EA86F1D1203100065AFD3 /* DSIOGimbalClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA86D1D1203100065AFD3 /* DSIOGimbalClient.h */; };
 		B26EA8701D1203100065AFD3 /* DSIOGimbalClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA86E1D1203100065AFD3 /* DSIOGimbalClient.m */; };
 		B26EA8731D1203260065AFD3 /* DSIOEventQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = B26EA8711D1203260065AFD3 /* DSIOEventQueue.h */; };
 		B26EA8741D1203260065AFD3 /* DSIOEventQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA8721D1203260065AFD3 /* DSIOEventQueue.m */; };
+		B28206F71D14793500F8CBB1 /* EventEntitySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B28206F61D14793500F8CBB1 /* EventEntitySpec.m */; };
+		B28206F91D1479A200F8CBB1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B28206F81D1479A200F8CBB1 /* libz.tbd */; };
+		B28206FE1D147B6400F8CBB1 /* Gimbal.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B24C1A011D02330400580365 /* Gimbal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B28207101D1480C300F8CBB1 /* Kiwi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B282070F1D1480C300F8CBB1 /* Kiwi.framework */; };
+		B28207131D14811700F8CBB1 /* MagicalRecord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28207121D14811700F8CBB1 /* MagicalRecord.framework */; };
+		B28207141D14839600F8CBB1 /* MagicalRecord.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B28207121D14811700F8CBB1 /* MagicalRecord.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B28207151D14839B00F8CBB1 /* Kiwi.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B282070F1D1480C300F8CBB1 /* Kiwi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B28207271D14908300F8CBB1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28207261D14908300F8CBB1 /* CoreData.framework */; };
+		B28207281D1490A100F8CBB1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28207261D14908300F8CBB1 /* CoreData.framework */; };
+		B2A813621D19D4B500DB0259 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A813611D19D4B500DB0259 /* SystemConfiguration.framework */; };
+		B2A813631D19D4D000DB0259 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A813611D19D4B500DB0259 /* SystemConfiguration.framework */; };
+		B2A813711D19E63E00DB0259 /* DSIOEvent+Management.m in Sources */ = {isa = PBXBuildFile; fileRef = B26EA86A1D1202F10065AFD3 /* DSIOEvent+Management.m */; };
+		B2A813A11D1A027200DB0259 /* DSIOCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B259B6F81CFE58E600C79ABF /* DSIOCoreDataHelper.m */; };
+		B2D72C3B1D1855D9007D839D /* DatasnapSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D72C3A1D1855D9007D839D /* DatasnapSpec.m */; };
+		B2FA33301D1B333300185AE5 /* DSIOGZip.h in Headers */ = {isa = PBXBuildFile; fileRef = B2FA332E1D1B333300185AE5 /* DSIOGZip.h */; };
+		B2FA33311D1B333300185AE5 /* DSIOGZip.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FA332F1D1B333300185AE5 /* DSIOGZip.m */; };
+		B2FA333F1D1B392E00185AE5 /* DSIOModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2FA333D1D1B392E00185AE5 /* DSIOModel.xcdatamodeld */; };
+		B2FA33441D1B394F00185AE5 /* DSIOEvent+CoreDataProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B2FA33401D1B394F00185AE5 /* DSIOEvent+CoreDataProperties.h */; };
+		B2FA33451D1B394F00185AE5 /* DSIOEvent+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FA33411D1B394F00185AE5 /* DSIOEvent+CoreDataProperties.m */; };
+		B2FA33461D1B394F00185AE5 /* DSIOEventEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = B2FA33421D1B394F00185AE5 /* DSIOEventEntity.h */; };
+		B2FA33471D1B394F00185AE5 /* DSIOEventEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FA33431D1B394F00185AE5 /* DSIOEventEntity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +135,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B28206FC1D147B4500F8CBB1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B28207151D14839B00F8CBB1 /* Kiwi.framework in CopyFiles */,
+				B28207141D14839600F8CBB1 /* MagicalRecord.framework in CopyFiles */,
+				B28206FE1D147B6400F8CBB1 /* Gimbal.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		154824F61B18CF93004E5CBF /* DSIOAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOAPI.h; sourceTree = "<group>"; };
 		154824F71B18CF93004E5CBF /* DSIOAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOAPI.m; sourceTree = "<group>"; };
@@ -129,13 +160,12 @@
 		3921B4091B0E926C00E976C0 /* DSIOConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOConfig.m; sourceTree = "<group>"; };
 		3921B42A1B0E92D200E976C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B24C1A011D02330400580365 /* Gimbal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gimbal.framework; sourceTree = "<group>"; };
-		B259B6F41CFE589300C79ABF /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		B259B6F81CFE58E600C79ABF /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
-		B26EA7EA1D12021A0065AFD3 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
-		B26EA7EC1D12022A0065AFD3 /* VendorProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorProperties.m; sourceTree = "<group>"; };
-		B26EA7ED1D12022A0065AFD3 /* VendorProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorProperties.h; sourceTree = "<group>"; };
-		B26EA7EE1D12022A0065AFD3 /* DataSnap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSnap.h; sourceTree = "<group>"; };
-		B26EA7EF1D12022A0065AFD3 /* DataSnap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSnap.m; sourceTree = "<group>"; };
+		B259B6F81CFE58E600C79ABF /* DSIOCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOCoreDataHelper.m; sourceTree = "<group>"; };
+		B26EA7EA1D12021A0065AFD3 /* DSIOCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOCoreDataHelper.h; sourceTree = "<group>"; };
+		B26EA7EC1D12022A0065AFD3 /* DSIOVendorProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOVendorProperties.m; sourceTree = "<group>"; };
+		B26EA7ED1D12022A0065AFD3 /* DSIOVendorProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOVendorProperties.h; sourceTree = "<group>"; };
+		B26EA7EE1D12022A0065AFD3 /* DSIODatasnap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIODatasnap.h; sourceTree = "<group>"; };
+		B26EA7EF1D12022A0065AFD3 /* DSIODatasnap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIODatasnap.m; sourceTree = "<group>"; };
 		B26EA7F51D1202490065AFD3 /* BeaconEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconEvent.h; sourceTree = "<group>"; };
 		B26EA7F61D1202490065AFD3 /* BeaconEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconEvent.m; sourceTree = "<group>"; };
 		B26EA7F71D1202490065AFD3 /* CommunicationEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunicationEvent.h; sourceTree = "<group>"; };
@@ -150,56 +180,66 @@
 		B26EA8001D1202490065AFD3 /* UpdateEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateEvent.m; sourceTree = "<group>"; };
 		B26EA8011D1202490065AFD3 /* BaseEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseEvent.h; sourceTree = "<group>"; };
 		B26EA8021D1202490065AFD3 /* BaseEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseEvent.m; sourceTree = "<group>"; };
-		B26EA8111D1202670065AFD3 /* Audience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audience.h; sourceTree = "<group>"; };
-		B26EA8121D1202670065AFD3 /* Audience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Audience.m; sourceTree = "<group>"; };
-		B26EA8131D1202670065AFD3 /* Beacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beacon.h; sourceTree = "<group>"; };
-		B26EA8141D1202670065AFD3 /* Beacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beacon.m; sourceTree = "<group>"; };
-		B26EA8151D1202670065AFD3 /* Campaign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Campaign.h; sourceTree = "<group>"; };
-		B26EA8161D1202670065AFD3 /* Campaign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Campaign.m; sourceTree = "<group>"; };
-		B26EA8171D1202670065AFD3 /* Communication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Communication.h; sourceTree = "<group>"; };
-		B26EA8181D1202670065AFD3 /* Communication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Communication.m; sourceTree = "<group>"; };
-		B26EA8191D1202670065AFD3 /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Content.h; sourceTree = "<group>"; };
-		B26EA81A1D1202670065AFD3 /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
-		B26EA81B1D1202670065AFD3 /* DefaultProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultProperties.h; sourceTree = "<group>"; };
-		B26EA81C1D1202670065AFD3 /* DefaultProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultProperties.m; sourceTree = "<group>"; };
-		B26EA81D1D1202670065AFD3 /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
-		B26EA81E1D1202670065AFD3 /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
-		B26EA81F1D1202670065AFD3 /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
-		B26EA8201D1202670065AFD3 /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
-		B26EA8211D1202670065AFD3 /* EventProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventProperty.h; sourceTree = "<group>"; };
-		B26EA8221D1202670065AFD3 /* EventProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventProperty.m; sourceTree = "<group>"; };
-		B26EA8231D1202670065AFD3 /* Geofence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geofence.h; sourceTree = "<group>"; };
-		B26EA8241D1202670065AFD3 /* Geofence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geofence.m; sourceTree = "<group>"; };
-		B26EA8251D1202670065AFD3 /* GeofenceCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeofenceCircle.h; sourceTree = "<group>"; };
-		B26EA8261D1202670065AFD3 /* GeofenceCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeofenceCircle.m; sourceTree = "<group>"; };
-		B26EA8271D1202670065AFD3 /* GlobalPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalPosition.h; sourceTree = "<group>"; };
-		B26EA8281D1202670065AFD3 /* GlobalPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalPosition.m; sourceTree = "<group>"; };
-		B26EA8291D1202670065AFD3 /* Identifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Identifier.h; sourceTree = "<group>"; };
-		B26EA82A1D1202670065AFD3 /* Identifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Identifier.m; sourceTree = "<group>"; };
-		B26EA82B1D1202670065AFD3 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
-		B26EA82C1D1202670065AFD3 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
-		B26EA82D1D1202670065AFD3 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
-		B26EA82E1D1202670065AFD3 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
-		B26EA82F1D1202670065AFD3 /* Tags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tags.h; sourceTree = "<group>"; };
-		B26EA8301D1202670065AFD3 /* Tags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tags.m; sourceTree = "<group>"; };
-		B26EA8311D1202670065AFD3 /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
-		B26EA8321D1202670065AFD3 /* Types.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Types.m; sourceTree = "<group>"; };
-		B26EA8331D1202670065AFD3 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		B26EA8341D1202670065AFD3 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		B26EA8351D1202670065AFD3 /* UserProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProperties.h; sourceTree = "<group>"; };
-		B26EA8361D1202670065AFD3 /* UserProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProperties.m; sourceTree = "<group>"; };
-		B26EA85D1D12027F0065AFD3 /* EventEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
-		B26EA85E1D12027F0065AFD3 /* EventEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EventEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
-		B26EA85F1D12027F0065AFD3 /* EventEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventEntity.h; sourceTree = "<group>"; };
-		B26EA8601D12027F0065AFD3 /* EventEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventEntity.m; sourceTree = "<group>"; };
+		B26EA8111D1202670065AFD3 /* DSIOAudience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOAudience.h; sourceTree = "<group>"; };
+		B26EA8121D1202670065AFD3 /* DSIOAudience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOAudience.m; sourceTree = "<group>"; };
+		B26EA8131D1202670065AFD3 /* DSIOBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOBeacon.h; sourceTree = "<group>"; };
+		B26EA8141D1202670065AFD3 /* DSIOBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOBeacon.m; sourceTree = "<group>"; };
+		B26EA8151D1202670065AFD3 /* DSIOCampaign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOCampaign.h; sourceTree = "<group>"; };
+		B26EA8161D1202670065AFD3 /* DSIOCampaign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOCampaign.m; sourceTree = "<group>"; };
+		B26EA8171D1202670065AFD3 /* DSIOCommunication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOCommunication.h; sourceTree = "<group>"; };
+		B26EA8181D1202670065AFD3 /* DSIOCommunication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOCommunication.m; sourceTree = "<group>"; };
+		B26EA8191D1202670065AFD3 /* DSIOContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOContent.h; sourceTree = "<group>"; };
+		B26EA81A1D1202670065AFD3 /* DSIOContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOContent.m; sourceTree = "<group>"; };
+		B26EA81B1D1202670065AFD3 /* DSIODefaultProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIODefaultProperties.h; sourceTree = "<group>"; };
+		B26EA81C1D1202670065AFD3 /* DSIODefaultProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIODefaultProperties.m; sourceTree = "<group>"; };
+		B26EA81D1D1202670065AFD3 /* DSIODevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIODevice.h; sourceTree = "<group>"; };
+		B26EA81E1D1202670065AFD3 /* DSIODevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIODevice.m; sourceTree = "<group>"; };
+		B26EA81F1D1202670065AFD3 /* DSIODeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIODeviceInfo.h; sourceTree = "<group>"; };
+		B26EA8201D1202670065AFD3 /* DSIODeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIODeviceInfo.m; sourceTree = "<group>"; };
+		B26EA8211D1202670065AFD3 /* DSIOEventProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOEventProperty.h; sourceTree = "<group>"; };
+		B26EA8221D1202670065AFD3 /* DSIOEventProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOEventProperty.m; sourceTree = "<group>"; };
+		B26EA8231D1202670065AFD3 /* DSIOGeofence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOGeofence.h; sourceTree = "<group>"; };
+		B26EA8241D1202670065AFD3 /* DSIOGeofence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOGeofence.m; sourceTree = "<group>"; };
+		B26EA8251D1202670065AFD3 /* DSIOGeofenceCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOGeofenceCircle.h; sourceTree = "<group>"; };
+		B26EA8261D1202670065AFD3 /* DSIOGeofenceCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOGeofenceCircle.m; sourceTree = "<group>"; };
+		B26EA8271D1202670065AFD3 /* DSIOGlobalPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOGlobalPosition.h; sourceTree = "<group>"; };
+		B26EA8281D1202670065AFD3 /* DSIOGlobalPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOGlobalPosition.m; sourceTree = "<group>"; };
+		B26EA8291D1202670065AFD3 /* DSIOIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOIdentifier.h; sourceTree = "<group>"; };
+		B26EA82A1D1202670065AFD3 /* DSIOIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOIdentifier.m; sourceTree = "<group>"; };
+		B26EA82B1D1202670065AFD3 /* DSIOLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOLocation.h; sourceTree = "<group>"; };
+		B26EA82C1D1202670065AFD3 /* DSIOLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOLocation.m; sourceTree = "<group>"; };
+		B26EA82D1D1202670065AFD3 /* DSIOPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOPlace.h; sourceTree = "<group>"; };
+		B26EA82E1D1202670065AFD3 /* DSIOPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOPlace.m; sourceTree = "<group>"; };
+		B26EA82F1D1202670065AFD3 /* DSIOTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOTags.h; sourceTree = "<group>"; };
+		B26EA8301D1202670065AFD3 /* DSIOTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOTags.m; sourceTree = "<group>"; };
+		B26EA8311D1202670065AFD3 /* DSIOTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOTypes.h; sourceTree = "<group>"; };
+		B26EA8321D1202670065AFD3 /* DSIOTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOTypes.m; sourceTree = "<group>"; };
+		B26EA8331D1202670065AFD3 /* DSIOUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOUser.h; sourceTree = "<group>"; };
+		B26EA8341D1202670065AFD3 /* DSIOUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOUser.m; sourceTree = "<group>"; };
+		B26EA8351D1202670065AFD3 /* DSIOUserProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOUserProperties.h; sourceTree = "<group>"; };
+		B26EA8361D1202670065AFD3 /* DSIOUserProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOUserProperties.m; sourceTree = "<group>"; };
 		B26EA8651D1202940065AFD3 /* DSIOBaseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOBaseClient.h; sourceTree = "<group>"; };
 		B26EA8661D1202940065AFD3 /* DSIOBaseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOBaseClient.m; sourceTree = "<group>"; };
-		B26EA8691D1202F10065AFD3 /* Event+Management.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Management.h"; sourceTree = "<group>"; };
-		B26EA86A1D1202F10065AFD3 /* Event+Management.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+Management.m"; sourceTree = "<group>"; };
+		B26EA8691D1202F10065AFD3 /* DSIOEvent+Management.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DSIOEvent+Management.h"; sourceTree = "<group>"; };
+		B26EA86A1D1202F10065AFD3 /* DSIOEvent+Management.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DSIOEvent+Management.m"; sourceTree = "<group>"; };
 		B26EA86D1D1203100065AFD3 /* DSIOGimbalClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOGimbalClient.h; sourceTree = "<group>"; };
 		B26EA86E1D1203100065AFD3 /* DSIOGimbalClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOGimbalClient.m; sourceTree = "<group>"; };
 		B26EA8711D1203260065AFD3 /* DSIOEventQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOEventQueue.h; sourceTree = "<group>"; };
 		B26EA8721D1203260065AFD3 /* DSIOEventQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOEventQueue.m; sourceTree = "<group>"; };
+		B28206F61D14793500F8CBB1 /* EventEntitySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventEntitySpec.m; sourceTree = "<group>"; };
+		B28206F81D1479A200F8CBB1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		B282070F1D1480C300F8CBB1 /* Kiwi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kiwi.framework; sourceTree = "<group>"; };
+		B28207121D14811700F8CBB1 /* MagicalRecord.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MagicalRecord.framework; sourceTree = "<group>"; };
+		B28207261D14908300F8CBB1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B2A813611D19D4B500DB0259 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B2D72C3A1D1855D9007D839D /* DatasnapSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatasnapSpec.m; sourceTree = "<group>"; };
+		B2FA332E1D1B333300185AE5 /* DSIOGZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOGZip.h; sourceTree = "<group>"; };
+		B2FA332F1D1B333300185AE5 /* DSIOGZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOGZip.m; sourceTree = "<group>"; };
+		B2FA333E1D1B392E00185AE5 /* DSIOModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DSIOModel.xcdatamodel; sourceTree = "<group>"; };
+		B2FA33401D1B394F00185AE5 /* DSIOEvent+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DSIOEvent+CoreDataProperties.h"; sourceTree = "<group>"; };
+		B2FA33411D1B394F00185AE5 /* DSIOEvent+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DSIOEvent+CoreDataProperties.m"; sourceTree = "<group>"; };
+		B2FA33421D1B394F00185AE5 /* DSIOEventEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOEventEntity.h; sourceTree = "<group>"; };
+		B2FA33431D1B394F00185AE5 /* DSIOEventEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOEventEntity.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +247,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2A813631D19D4D000DB0259 /* SystemConfiguration.framework in Frameworks */,
+				B28207281D1490A100F8CBB1 /* CoreData.framework in Frameworks */,
 				3921B42B1B0E92D200E976C0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,7 +257,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2A813621D19D4B500DB0259 /* SystemConfiguration.framework in Frameworks */,
+				B28207271D14908300F8CBB1 /* CoreData.framework in Frameworks */,
+				B28207131D14811700F8CBB1 /* MagicalRecord.framework in Frameworks */,
+				B28206F91D1479A200F8CBB1 /* libz.tbd in Frameworks */,
 				B24C1A021D02330400580365 /* Gimbal.framework in Frameworks */,
+				B28207101D1480C300F8CBB1 /* Kiwi.framework in Frameworks */,
 				3921B3F81B0E921F00E976C0 /* libDatasnap.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +312,13 @@
 		3921B3FB1B0E921F00E976C0 /* datasnap-ios-sdkTests */ = {
 			isa = PBXGroup;
 			children = (
+				B2A813611D19D4B500DB0259 /* SystemConfiguration.framework */,
+				B28206F61D14793500F8CBB1 /* EventEntitySpec.m */,
+				B2D72C3A1D1855D9007D839D /* DatasnapSpec.m */,
+				B28207261D14908300F8CBB1 /* CoreData.framework */,
+				B28207121D14811700F8CBB1 /* MagicalRecord.framework */,
+				B282070F1D1480C300F8CBB1 /* Kiwi.framework */,
+				B28206F81D1479A200F8CBB1 /* libz.tbd */,
 				B24C1A011D02330400580365 /* Gimbal.framework */,
 				3921B42A1B0E92D200E976C0 /* Foundation.framework */,
 				3921B3FC1B0E921F00E976C0 /* Supporting Files */,
@@ -283,15 +337,15 @@
 		B259B6F61CFE58A000C79ABF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B26EA8691D1202F10065AFD3 /* Event+Management.h */,
-				B26EA86A1D1202F10065AFD3 /* Event+Management.m */,
-				B26EA85D1D12027F0065AFD3 /* EventEntity+CoreDataProperties.h */,
-				B26EA85E1D12027F0065AFD3 /* EventEntity+CoreDataProperties.m */,
-				B26EA85F1D12027F0065AFD3 /* EventEntity.h */,
-				B26EA8601D12027F0065AFD3 /* EventEntity.m */,
-				B259B6F31CFE589300C79ABF /* Model.xcdatamodeld */,
-				B26EA7EA1D12021A0065AFD3 /* CoreDataHelper.h */,
-				B259B6F81CFE58E600C79ABF /* CoreDataHelper.m */,
+				B2FA33401D1B394F00185AE5 /* DSIOEvent+CoreDataProperties.h */,
+				B2FA33411D1B394F00185AE5 /* DSIOEvent+CoreDataProperties.m */,
+				B2FA33421D1B394F00185AE5 /* DSIOEventEntity.h */,
+				B2FA33431D1B394F00185AE5 /* DSIOEventEntity.m */,
+				B2FA333D1D1B392E00185AE5 /* DSIOModel.xcdatamodeld */,
+				B26EA8691D1202F10065AFD3 /* DSIOEvent+Management.h */,
+				B26EA86A1D1202F10065AFD3 /* DSIOEvent+Management.m */,
+				B26EA7EA1D12021A0065AFD3 /* DSIOCoreDataHelper.h */,
+				B259B6F81CFE58E600C79ABF /* DSIOCoreDataHelper.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -299,44 +353,44 @@
 		B25B32FE1D072E8E00DF9773 /* Event Properties */ = {
 			isa = PBXGroup;
 			children = (
-				B26EA8111D1202670065AFD3 /* Audience.h */,
-				B26EA8121D1202670065AFD3 /* Audience.m */,
-				B26EA8131D1202670065AFD3 /* Beacon.h */,
-				B26EA8141D1202670065AFD3 /* Beacon.m */,
-				B26EA8151D1202670065AFD3 /* Campaign.h */,
-				B26EA8161D1202670065AFD3 /* Campaign.m */,
-				B26EA8171D1202670065AFD3 /* Communication.h */,
-				B26EA8181D1202670065AFD3 /* Communication.m */,
-				B26EA8191D1202670065AFD3 /* Content.h */,
-				B26EA81A1D1202670065AFD3 /* Content.m */,
-				B26EA81B1D1202670065AFD3 /* DefaultProperties.h */,
-				B26EA81C1D1202670065AFD3 /* DefaultProperties.m */,
-				B26EA81D1D1202670065AFD3 /* Device.h */,
-				B26EA81E1D1202670065AFD3 /* Device.m */,
-				B26EA81F1D1202670065AFD3 /* DeviceInfo.h */,
-				B26EA8201D1202670065AFD3 /* DeviceInfo.m */,
-				B26EA8211D1202670065AFD3 /* EventProperty.h */,
-				B26EA8221D1202670065AFD3 /* EventProperty.m */,
-				B26EA8231D1202670065AFD3 /* Geofence.h */,
-				B26EA8241D1202670065AFD3 /* Geofence.m */,
-				B26EA8251D1202670065AFD3 /* GeofenceCircle.h */,
-				B26EA8261D1202670065AFD3 /* GeofenceCircle.m */,
-				B26EA8271D1202670065AFD3 /* GlobalPosition.h */,
-				B26EA8281D1202670065AFD3 /* GlobalPosition.m */,
-				B26EA8291D1202670065AFD3 /* Identifier.h */,
-				B26EA82A1D1202670065AFD3 /* Identifier.m */,
-				B26EA82B1D1202670065AFD3 /* Location.h */,
-				B26EA82C1D1202670065AFD3 /* Location.m */,
-				B26EA82D1D1202670065AFD3 /* Place.h */,
-				B26EA82E1D1202670065AFD3 /* Place.m */,
-				B26EA82F1D1202670065AFD3 /* Tags.h */,
-				B26EA8301D1202670065AFD3 /* Tags.m */,
-				B26EA8311D1202670065AFD3 /* Types.h */,
-				B26EA8321D1202670065AFD3 /* Types.m */,
-				B26EA8331D1202670065AFD3 /* User.h */,
-				B26EA8341D1202670065AFD3 /* User.m */,
-				B26EA8351D1202670065AFD3 /* UserProperties.h */,
-				B26EA8361D1202670065AFD3 /* UserProperties.m */,
+				B26EA8111D1202670065AFD3 /* DSIOAudience.h */,
+				B26EA8121D1202670065AFD3 /* DSIOAudience.m */,
+				B26EA8131D1202670065AFD3 /* DSIOBeacon.h */,
+				B26EA8141D1202670065AFD3 /* DSIOBeacon.m */,
+				B26EA8151D1202670065AFD3 /* DSIOCampaign.h */,
+				B26EA8161D1202670065AFD3 /* DSIOCampaign.m */,
+				B26EA8171D1202670065AFD3 /* DSIOCommunication.h */,
+				B26EA8181D1202670065AFD3 /* DSIOCommunication.m */,
+				B26EA8191D1202670065AFD3 /* DSIOContent.h */,
+				B26EA81A1D1202670065AFD3 /* DSIOContent.m */,
+				B26EA81B1D1202670065AFD3 /* DSIODefaultProperties.h */,
+				B26EA81C1D1202670065AFD3 /* DSIODefaultProperties.m */,
+				B26EA81D1D1202670065AFD3 /* DSIODevice.h */,
+				B26EA81E1D1202670065AFD3 /* DSIODevice.m */,
+				B26EA81F1D1202670065AFD3 /* DSIODeviceInfo.h */,
+				B26EA8201D1202670065AFD3 /* DSIODeviceInfo.m */,
+				B26EA8211D1202670065AFD3 /* DSIOEventProperty.h */,
+				B26EA8221D1202670065AFD3 /* DSIOEventProperty.m */,
+				B26EA8231D1202670065AFD3 /* DSIOGeofence.h */,
+				B26EA8241D1202670065AFD3 /* DSIOGeofence.m */,
+				B26EA8251D1202670065AFD3 /* DSIOGeofenceCircle.h */,
+				B26EA8261D1202670065AFD3 /* DSIOGeofenceCircle.m */,
+				B26EA8271D1202670065AFD3 /* DSIOGlobalPosition.h */,
+				B26EA8281D1202670065AFD3 /* DSIOGlobalPosition.m */,
+				B26EA8291D1202670065AFD3 /* DSIOIdentifier.h */,
+				B26EA82A1D1202670065AFD3 /* DSIOIdentifier.m */,
+				B26EA82B1D1202670065AFD3 /* DSIOLocation.h */,
+				B26EA82C1D1202670065AFD3 /* DSIOLocation.m */,
+				B26EA82D1D1202670065AFD3 /* DSIOPlace.h */,
+				B26EA82E1D1202670065AFD3 /* DSIOPlace.m */,
+				B26EA82F1D1202670065AFD3 /* DSIOTags.h */,
+				B26EA8301D1202670065AFD3 /* DSIOTags.m */,
+				B26EA8311D1202670065AFD3 /* DSIOTypes.h */,
+				B26EA8321D1202670065AFD3 /* DSIOTypes.m */,
+				B26EA8331D1202670065AFD3 /* DSIOUser.h */,
+				B26EA8341D1202670065AFD3 /* DSIOUser.m */,
+				B26EA8351D1202670065AFD3 /* DSIOUserProperties.h */,
+				B26EA8361D1202670065AFD3 /* DSIOUserProperties.m */,
 			);
 			name = "Event Properties";
 			path = "datasnap-ios-sdk";
@@ -345,10 +399,12 @@
 		B26EA7E51D1201440065AFD3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				B26EA7EC1D12022A0065AFD3 /* VendorProperties.m */,
-				B26EA7ED1D12022A0065AFD3 /* VendorProperties.h */,
-				B26EA7EE1D12022A0065AFD3 /* DataSnap.h */,
-				B26EA7EF1D12022A0065AFD3 /* DataSnap.m */,
+				B26EA7EC1D12022A0065AFD3 /* DSIOVendorProperties.m */,
+				B26EA7ED1D12022A0065AFD3 /* DSIOVendorProperties.h */,
+				B26EA7EE1D12022A0065AFD3 /* DSIODatasnap.h */,
+				B26EA7EF1D12022A0065AFD3 /* DSIODatasnap.m */,
+				B2FA332E1D1B333300185AE5 /* DSIOGZip.h */,
+				B2FA332F1D1B333300185AE5 /* DSIOGZip.m */,
 			);
 			name = Utilities;
 			path = "datasnap-ios-sdk";
@@ -382,42 +438,43 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B26EA8551D1202670065AFD3 /* Tags.h in Headers */,
-				B26EA7F21D12022A0065AFD3 /* DataSnap.h in Headers */,
-				B26EA8471D1202670065AFD3 /* EventProperty.h in Headers */,
+				B26EA8551D1202670065AFD3 /* DSIOTags.h in Headers */,
+				B26EA7F21D12022A0065AFD3 /* DSIODatasnap.h in Headers */,
+				B26EA8471D1202670065AFD3 /* DSIOEventProperty.h in Headers */,
 				B26EA8731D1203260065AFD3 /* DSIOEventQueue.h in Headers */,
-				B26EA8391D1202670065AFD3 /* Beacon.h in Headers */,
-				B26EA7EB1D12021A0065AFD3 /* CoreDataHelper.h in Headers */,
-				B26EA8451D1202670065AFD3 /* DeviceInfo.h in Headers */,
-				B26EA85B1D1202670065AFD3 /* UserProperties.h in Headers */,
-				B26EA8611D12027F0065AFD3 /* EventEntity+CoreDataProperties.h in Headers */,
-				B26EA7F11D12022A0065AFD3 /* VendorProperties.h in Headers */,
-				B26EA83F1D1202670065AFD3 /* Content.h in Headers */,
+				B26EA8391D1202670065AFD3 /* DSIOBeacon.h in Headers */,
+				B26EA7EB1D12021A0065AFD3 /* DSIOCoreDataHelper.h in Headers */,
+				B26EA8451D1202670065AFD3 /* DSIODeviceInfo.h in Headers */,
+				B2FA33461D1B394F00185AE5 /* DSIOEventEntity.h in Headers */,
+				B26EA85B1D1202670065AFD3 /* DSIOUserProperties.h in Headers */,
+				B26EA7F11D12022A0065AFD3 /* DSIOVendorProperties.h in Headers */,
+				B26EA83F1D1202670065AFD3 /* DSIOContent.h in Headers */,
 				B26EA80F1D1202490065AFD3 /* BaseEvent.h in Headers */,
-				B26EA8531D1202670065AFD3 /* Place.h in Headers */,
-				B26EA8571D1202670065AFD3 /* Types.h in Headers */,
+				B26EA8531D1202670065AFD3 /* DSIOPlace.h in Headers */,
+				B2FA33441D1B394F00185AE5 /* DSIOEvent+CoreDataProperties.h in Headers */,
+				B26EA8571D1202670065AFD3 /* DSIOTypes.h in Headers */,
 				B26EA8671D1202940065AFD3 /* DSIOBaseClient.h in Headers */,
 				B26EA86F1D1203100065AFD3 /* DSIOGimbalClient.h in Headers */,
+				B2FA33301D1B333300185AE5 /* DSIOGZip.h in Headers */,
 				B26EA8051D1202490065AFD3 /* CommunicationEvent.h in Headers */,
 				B26EA8031D1202490065AFD3 /* BeaconEvent.h in Headers */,
-				B26EA8411D1202670065AFD3 /* DefaultProperties.h in Headers */,
+				B26EA8411D1202670065AFD3 /* DSIODefaultProperties.h in Headers */,
 				3921B42E1B0E92E500E976C0 /* DSIOConfig.h in Headers */,
 				154824F81B18CF93004E5CBF /* DSIOAPI.h in Headers */,
-				B26EA8591D1202670065AFD3 /* User.h in Headers */,
+				B26EA8591D1202670065AFD3 /* DSIOUser.h in Headers */,
 				B26EA80B1D1202490065AFD3 /* InteractionEvent.h in Headers */,
-				B26EA84B1D1202670065AFD3 /* GeofenceCircle.h in Headers */,
-				B26EA83D1D1202670065AFD3 /* Communication.h in Headers */,
-				B26EA86B1D1202F10065AFD3 /* Event+Management.h in Headers */,
-				B26EA8491D1202670065AFD3 /* Geofence.h in Headers */,
-				B26EA83B1D1202670065AFD3 /* Campaign.h in Headers */,
+				B26EA84B1D1202670065AFD3 /* DSIOGeofenceCircle.h in Headers */,
+				B26EA83D1D1202670065AFD3 /* DSIOCommunication.h in Headers */,
+				B26EA86B1D1202F10065AFD3 /* DSIOEvent+Management.h in Headers */,
+				B26EA8491D1202670065AFD3 /* DSIOGeofence.h in Headers */,
+				B26EA83B1D1202670065AFD3 /* DSIOCampaign.h in Headers */,
 				B26EA80D1D1202490065AFD3 /* UpdateEvent.h in Headers */,
-				B26EA8511D1202670065AFD3 /* Location.h in Headers */,
-				B26EA8371D1202670065AFD3 /* Audience.h in Headers */,
-				B26EA8631D12027F0065AFD3 /* EventEntity.h in Headers */,
-				B26EA84D1D1202670065AFD3 /* GlobalPosition.h in Headers */,
-				B26EA84F1D1202670065AFD3 /* Identifier.h in Headers */,
+				B26EA8511D1202670065AFD3 /* DSIOLocation.h in Headers */,
+				B26EA8371D1202670065AFD3 /* DSIOAudience.h in Headers */,
+				B26EA84D1D1202670065AFD3 /* DSIOGlobalPosition.h in Headers */,
+				B26EA84F1D1202670065AFD3 /* DSIOIdentifier.h in Headers */,
 				B26EA8091D1202490065AFD3 /* GlobalPositionEvent.h in Headers */,
-				B26EA8431D1202670065AFD3 /* Device.h in Headers */,
+				B26EA8431D1202670065AFD3 /* DSIODevice.h in Headers */,
 				B26EA8071D1202490065AFD3 /* GeoFenceEvent.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +507,7 @@
 				3921B3F31B0E921F00E976C0 /* Sources */,
 				3921B3F41B0E921F00E976C0 /* Frameworks */,
 				3921B3F51B0E921F00E976C0 /* Resources */,
+				B28206FC1D147B4500F8CBB1 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -467,7 +525,7 @@
 		3921B3E41B0E921E00E976C0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = DataSnap;
 				TargetAttributes = {
 					3921B3EB1B0E921E00E976C0 = {
@@ -545,42 +603,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B26EA85A1D1202670065AFD3 /* User.m in Sources */,
+				B26EA85A1D1202670065AFD3 /* DSIOUser.m in Sources */,
 				B26EA8741D1203260065AFD3 /* DSIOEventQueue.m in Sources */,
-				B259B6FA1CFE58E600C79ABF /* CoreDataHelper.m in Sources */,
+				B259B6FA1CFE58E600C79ABF /* DSIOCoreDataHelper.m in Sources */,
+				B2FA33471D1B394F00185AE5 /* DSIOEventEntity.m in Sources */,
 				B26EA8101D1202490065AFD3 /* BaseEvent.m in Sources */,
 				3921B40F1B0E926C00E976C0 /* DSIOConfig.m in Sources */,
 				154824F91B18CF93004E5CBF /* DSIOAPI.m in Sources */,
-				B26EA8521D1202670065AFD3 /* Location.m in Sources */,
-				B26EA7F31D12022A0065AFD3 /* DataSnap.m in Sources */,
-				B26EA86C1D1202F10065AFD3 /* Event+Management.m in Sources */,
-				B26EA8461D1202670065AFD3 /* DeviceInfo.m in Sources */,
-				B26EA7F01D12022A0065AFD3 /* VendorProperties.m in Sources */,
-				B26EA8541D1202670065AFD3 /* Place.m in Sources */,
-				B26EA8401D1202670065AFD3 /* Content.m in Sources */,
-				B26EA8501D1202670065AFD3 /* Identifier.m in Sources */,
+				B2FA33451D1B394F00185AE5 /* DSIOEvent+CoreDataProperties.m in Sources */,
+				B26EA8521D1202670065AFD3 /* DSIOLocation.m in Sources */,
+				B26EA7F31D12022A0065AFD3 /* DSIODatasnap.m in Sources */,
+				B26EA86C1D1202F10065AFD3 /* DSIOEvent+Management.m in Sources */,
+				B26EA8461D1202670065AFD3 /* DSIODeviceInfo.m in Sources */,
+				B26EA7F01D12022A0065AFD3 /* DSIOVendorProperties.m in Sources */,
+				B26EA8541D1202670065AFD3 /* DSIOPlace.m in Sources */,
+				B2FA33311D1B333300185AE5 /* DSIOGZip.m in Sources */,
+				B26EA8401D1202670065AFD3 /* DSIOContent.m in Sources */,
+				B26EA8501D1202670065AFD3 /* DSIOIdentifier.m in Sources */,
 				B26EA8701D1203100065AFD3 /* DSIOGimbalClient.m in Sources */,
-				B26EA8421D1202670065AFD3 /* DefaultProperties.m in Sources */,
-				B26EA8581D1202670065AFD3 /* Types.m in Sources */,
+				B26EA8421D1202670065AFD3 /* DSIODefaultProperties.m in Sources */,
+				B26EA8581D1202670065AFD3 /* DSIOTypes.m in Sources */,
 				B26EA80A1D1202490065AFD3 /* GlobalPositionEvent.m in Sources */,
-				B26EA8381D1202670065AFD3 /* Audience.m in Sources */,
-				B259B6F51CFE589300C79ABF /* Model.xcdatamodeld in Sources */,
+				B2FA333F1D1B392E00185AE5 /* DSIOModel.xcdatamodeld in Sources */,
+				B26EA8381D1202670065AFD3 /* DSIOAudience.m in Sources */,
 				B26EA8081D1202490065AFD3 /* GeoFenceEvent.m in Sources */,
-				B26EA8621D12027F0065AFD3 /* EventEntity+CoreDataProperties.m in Sources */,
-				B26EA8481D1202670065AFD3 /* EventProperty.m in Sources */,
+				B26EA8481D1202670065AFD3 /* DSIOEventProperty.m in Sources */,
 				B26EA8041D1202490065AFD3 /* BeaconEvent.m in Sources */,
-				B26EA8641D12027F0065AFD3 /* EventEntity.m in Sources */,
-				B26EA84C1D1202670065AFD3 /* GeofenceCircle.m in Sources */,
-				B26EA83C1D1202670065AFD3 /* Campaign.m in Sources */,
-				B26EA8561D1202670065AFD3 /* Tags.m in Sources */,
+				B26EA84C1D1202670065AFD3 /* DSIOGeofenceCircle.m in Sources */,
+				B26EA83C1D1202670065AFD3 /* DSIOCampaign.m in Sources */,
+				B26EA8561D1202670065AFD3 /* DSIOTags.m in Sources */,
 				B26EA80C1D1202490065AFD3 /* InteractionEvent.m in Sources */,
-				B26EA83A1D1202670065AFD3 /* Beacon.m in Sources */,
+				B26EA83A1D1202670065AFD3 /* DSIOBeacon.m in Sources */,
 				B26EA8681D1202940065AFD3 /* DSIOBaseClient.m in Sources */,
-				B26EA85C1D1202670065AFD3 /* UserProperties.m in Sources */,
-				B26EA83E1D1202670065AFD3 /* Communication.m in Sources */,
-				B26EA84A1D1202670065AFD3 /* Geofence.m in Sources */,
-				B26EA8441D1202670065AFD3 /* Device.m in Sources */,
-				B26EA84E1D1202670065AFD3 /* GlobalPosition.m in Sources */,
+				B26EA85C1D1202670065AFD3 /* DSIOUserProperties.m in Sources */,
+				B26EA83E1D1202670065AFD3 /* DSIOCommunication.m in Sources */,
+				B26EA84A1D1202670065AFD3 /* DSIOGeofence.m in Sources */,
+				B26EA8441D1202670065AFD3 /* DSIODevice.m in Sources */,
+				B26EA84E1D1202670065AFD3 /* DSIOGlobalPosition.m in Sources */,
 				B26EA8061D1202490065AFD3 /* CommunicationEvent.m in Sources */,
 				B26EA80E1D1202490065AFD3 /* UpdateEvent.m in Sources */,
 			);
@@ -590,6 +649,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2A813A11D1A027200DB0259 /* DSIOCoreDataHelper.m in Sources */,
+				B2A813711D19E63E00DB0259 /* DSIOEvent+Management.m in Sources */,
+				B2D72C3B1D1855D9007D839D /* DatasnapSpec.m in Sources */,
+				B28206F71D14793500F8CBB1 /* EventEntitySpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,6 +692,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -644,7 +708,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -680,7 +745,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -690,12 +756,13 @@
 		3921B4011B0E921F00E976C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/datasnap-ios-sdkTests",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Datasnap;
 				SKIP_INSTALL = YES;
@@ -705,11 +772,13 @@
 		3921B4021B0E921F00E976C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/datasnap-ios-sdkTests",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Datasnap;
 				SKIP_INSTALL = YES;
@@ -721,7 +790,6 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)/datasnap-ios-sdkTests",
 				);
@@ -731,6 +799,8 @@
 				);
 				INFOPLIST_FILE = "datasnap-ios-sdkTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "DataSnap.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -740,12 +810,13 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)/datasnap-ios-sdkTests",
 				);
 				INFOPLIST_FILE = "datasnap-ios-sdkTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "DataSnap.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -753,7 +824,6 @@
 		3921B4551B0E944500E976C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -762,7 +832,6 @@
 		3921B4561B0E944500E976C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -810,14 +879,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B259B6F31CFE589300C79ABF /* Model.xcdatamodeld */ = {
+		B2FA333D1D1B392E00185AE5 /* DSIOModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B259B6F41CFE589300C79ABF /* Model.xcdatamodel */,
+				B2FA333E1D1B392E00185AE5 /* DSIOModel.xcdatamodel */,
 			);
-			currentVersion = B259B6F41CFE589300C79ABF /* Model.xcdatamodel */;
-			name = Model.xcdatamodeld;
-			path = "datasnap-ios-sdk/Model.xcdatamodeld";
+			currentVersion = B2FA333E1D1B392E00185AE5 /* DSIOModel.xcdatamodel */;
+			path = DSIOModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

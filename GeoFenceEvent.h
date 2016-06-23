@@ -6,11 +6,11 @@
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
 #import "BaseEvent.h"
-#import "Geofence.h"
-#import "Place.h"
+#import "DSIOGeofence.h"
+#import "DSIOPlace.h"
 #import <Foundation/Foundation.h>
 
 @interface GeoFenceEvent : BaseEvent
-@property Geofence* geofence;
-@property Location* location;
+@property DSIOGeofence* geofence;
+@property DSIOLocation* location;
 @end

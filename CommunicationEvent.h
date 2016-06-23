@@ -6,14 +6,14 @@
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
 #import "BaseEvent.h"
-#import "Campaign.h"
-#import "Communication.h"
-#import "DeviceInfo.h"
-#import "Place.h"
-#import "User.h"
+#import "DSIOCampaign.h"
+#import "DSIOCommunication.h"
+#import "DSIODeviceInfo.h"
+#import "DSIOPlace.h"
+#import "DSIOUser.h"
 #import <Foundation/Foundation.h>
 
 @interface CommunicationEvent : BaseEvent
-@property Communication* communication;
-@property Campaign* campaign;
+@property DSIOCommunication* communication;
+@property DSIOCampaign* campaign;
 @end

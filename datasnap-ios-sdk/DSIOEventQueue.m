@@ -7,7 +7,7 @@
 @interface DSIOEventQueue ()
 
 @property NSMutableArray* eventQueue;
-@property EventEntity* event;
+@property DSIOEventEntity* event;
 
 @end
 
@@ -34,15 +34,15 @@
     NSError* err;
     NSData* jsonData = [NSJSONSerialization dataWithJSONObject:details options:0 error:&err];
     NSString* myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    self.event = [EventEntity createEventEntity];
+    self.event = [DSIOEventEntity createEventEntity];
     self.event.json = myString;
 }
 
 - (NSArray*)getEvents
 {
     NSMutableArray* eventJsonArray = [[NSMutableArray alloc] init];
-    NSArray* eventsArray = [EventEntity returnAllEvents];
-    for (EventEntity* event in eventsArray) {
+    NSArray* eventsArray = [DSIOEventEntity returnAllEvents];
+    for (DSIOEventEntity* event in eventsArray) {
         NSError* err;
         NSData* data = [event.json dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary* response;
@@ -56,13 +56,13 @@
 
 - (void)flushQueue
 {
-    NSMutableArray* eventsArray = [EventEntity returnAllEvents];
-    [EventEntity deleteAllEvents:eventsArray];
+    NSMutableArray* eventsArray = [DSIOEventEntity returnAllEvents];
+    [DSIOEventEntity deleteAllEvents:eventsArray];
 }
 
 - (NSInteger)numberOfQueuedEvents
 {
-    return [EventEntity returnAllEvents].count;
+    return [DSIOEventEntity returnAllEvents].count;
 }
 
 @end

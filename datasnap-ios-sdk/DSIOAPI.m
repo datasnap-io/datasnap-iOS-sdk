@@ -1,9 +1,10 @@
 //
-//  Copyright (c) 2015 Datasnap.io. All rights reserved.
+//  Copyright (c) 2015 DSIODatasnap.io. All rights reserved.
 //
 
 #import "DSIOAPI.h"
 #import "DSIOConfig.h"
+#import "DSIOGZip.h"
 
 static NSString* const URLReservedChars = @"￼=,!$&'()*+;@?\r\n\"<>#\t :/";
 static NSString* const kQuerySeparator = @"&";
@@ -11,7 +12,7 @@ static NSString* const kQueryDivider = @"=";
 static NSString* const kQueryBegin = @"?";
 static NSString* const kFragmentBegin = @"#";
 
-static NSString* const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v1.0/events";
+static NSString* const kDataSnapEventAPIURL = @"https://api-events.DSIODatasnap.io/v1.0/events";
 
 @interface DSIOAPI () <NSURLSessionDataDelegate, NSURLSessionDelegate, NSURLSessionTaskDelegate>
 
@@ -39,11 +40,12 @@ static NSString* const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v
     NSData* json = [NSJSONSerialization dataWithJSONObject:events
                                                    options:NSJSONWritingPrettyPrinted
                                                      error:&error];
+    NSData *compressedJson = [DSIOGZip gzipData:json];
     if (error) {
         json = [NSData new];
     }
 
-    __block NSString* jsonStr = [NSJSONSerialization JSONObjectWithData:json options:0 error:nil];
+    __block NSString* jsonStr = [NSJSONSerialization JSONObjectWithData:compressedJson options:0 error:nil];
     NSURL* url = [NSURL URLWithString:kDataSnapEventAPIURL];
 
     [self performAuthenticatedPOSTRequestWithURL:url
@@ -58,7 +60,7 @@ static NSString* const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v
                                         else if (response && [response isKindOfClass:[NSHTTPURLResponse class]]) {
                                             NSHTTPURLResponse* resp = (NSHTTPURLResponse*)response;
                                             if (resp.statusCode == 401) {
-                                                DSIOLog(@"Datasnap Error: Please check network connection on the device and that the datasnap api keys have been entered correctly");
+                                                DSIOLog(@"DSIODatasnap Error: Please check network connection on the device and that the DSIODatasnap api keys have been entered correctly");
                                                 success = NO;
                                             }
                                             else if (resp.statusCode > 204) {
@@ -99,11 +101,11 @@ static NSString* const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v
 - (void)performAuthenticatedRequest:(NSURLRequest*)request onCompletion:(DataSnapAPIRequestCompleted)completitionHandler
 {
     NSMutableURLRequest* req = [request mutableCopy];
-    [req addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [req addValue:@"application/json" forHTTPHeaderField:@"DSIOContent-Type"];
 
     NSURLSessionConfiguration* sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     [sessionConfig setHTTPAdditionalHeaders:@{
-        @"Content-Type" : @"application/json",
+        @"DSIOContent-Type" : @"application/json",
         @"Authorization" : [self __authorizationHeader]
     }];
 

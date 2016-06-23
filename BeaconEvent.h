@@ -6,14 +6,14 @@
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
 #import "BaseEvent.h"
-#import "Beacon.h"
-#import "DeviceInfo.h"
-#import "EventEntity.h"
-#import "Place.h"
-#import "User.h"
+#import "DSIOBeacon.h"
+#import "DSIODeviceInfo.h"
+#import "DSIOEventEntity.h"
+#import "DSIOPlace.h"
+#import "DSIOUser.h"
 #import <Foundation/Foundation.h>
 
 @interface BeaconEvent : BaseEvent
-@property Place* place;
-@property Beacon* beacon;
+@property DSIOPlace* place;
+@property DSIOBeacon* beacon;
 @end

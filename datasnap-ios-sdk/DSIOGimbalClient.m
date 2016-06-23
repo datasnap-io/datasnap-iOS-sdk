@@ -6,17 +6,17 @@
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
 #import "BaseEvent.h"
-#import "Beacon.h"
-#import "Campaign.h"
-#import "Communication.h"
+#import "DSIOBeacon.h"
+#import "DSIOCampaign.h"
+#import "DSIOCommunication.h"
+#import "DSIODatasnap.h"
+#import "DSIODevice.h"
+#import "DSIODeviceInfo.h"
+#import "DSIOEventEntity.h"
 #import "DSIOGimbalClient.h"
-#import "DataSnap.h"
-#import "Device.h"
-#import "DeviceInfo.h"
-#import "EventEntity.h"
-#import "Location.h"
-#import "Place.h"
-#import "User.h"
+#import "DSIOLocation.h"
+#import "DSIOPlace.h"
+#import "DSIOUser.h"
 static NSString* beaconSightingEventType = @"beacon_sighting";
 static NSString* communicationSentEventType = @"ds_communication_sent";
 static NSString* communicationOpenEventType = @"ds_communication_open";
@@ -39,7 +39,7 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
 - (void)beaconManager:(GMBLBeaconManager*)manager didReceiveBeaconSighting:(GMBLBeaconSighting*)sighting
 {
     NSString* eventType = beaconSightingEventType;
-    Beacon* beacon = [[Beacon alloc] init];
+    DSIOBeacon* beacon = [[DSIOBeacon alloc] init];
     beacon.identifier = sighting.beacon.identifier;
     beacon.rssi = sighting.beacon.uuid;
     beacon.batteryLevel = [NSString stringWithFormat:@"%ld", (long)sighting.beacon.batteryLevel];
@@ -54,9 +54,9 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
     event.beacon = beacon;
     event.user = self.user;
     event.deviceInfo = self.deviceInfo;
-    NSLog(@"Beacon sighting");
+    NSLog(@"DSIOBeacon sighting");
     NSLog(@"%@", sighting.beacon.identifier);
-    DataSnap* datasnap = [DataSnap sharedClient];
+    DSIODatasnap* datasnap = [DSIODatasnap sharedClient];
     [datasnap trackEvent:event];
 }
 
@@ -66,12 +66,12 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
 {
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
-    for (Communication* communication in communications) {
-        Communication* dataSnapCommunication = [[Communication alloc] init];
+    for (DSIOCommunication* communication in communications) {
+        DSIOCommunication* dataSnapCommunication = [[DSIOCommunication alloc] init];
         dataSnapCommunication.identifier = communication.identifier;
         dataSnapCommunication.title = communication.title;
         dataSnapCommunication.description = communication.description;
-        Campaign* campaign = [[Campaign alloc] init];
+        DSIOCampaign* campaign = [[DSIOCampaign alloc] init];
         campaign.identifier = self.projectId;
         campaign.communicationIds = communication.identifier;
         NSString* venueId = visit.visitID;
@@ -86,7 +86,7 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
         event.user = self.user;
         event.communication = dataSnapCommunication;
         event.campaign = campaign;
-        DataSnap* datasnap = [DataSnap sharedClient];
+        DSIODatasnap* datasnap = [DSIODatasnap sharedClient];
         [datasnap trackEvent:event];
     }
     return communications;
@@ -97,11 +97,11 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
                             forCommunication:(GMBLCommunication*)communication
 
 {
-    Communication* dataSnapCommunication = [[Communication alloc] init];
+    DSIOCommunication* dataSnapCommunication = [[DSIOCommunication alloc] init];
     dataSnapCommunication.identifier = communication.identifier;
     dataSnapCommunication.title = communication.title;
     dataSnapCommunication.description = communication.description;
-    Campaign* campaign = [[Campaign alloc] init];
+    DSIOCampaign* campaign = [[DSIOCampaign alloc] init];
     campaign.identifier = self.projectId;
     campaign.communicationIds = communication.identifier;
     self.user.identifier.globalDistinctId = self.global_distinct_id;
@@ -113,7 +113,7 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
     event.user = self.user;
     event.communication = dataSnapCommunication;
     event.campaign = campaign;
-    DataSnap* datasnap = [DataSnap sharedClient];
+    DSIODatasnap* datasnap = [DSIODatasnap sharedClient];
     [datasnap trackEvent:event];
     return notification;
 }

@@ -1,7 +1,7 @@
 //
 // Copyright (c) 2015 Datasnapio. All rights reserved.
 //
-#import "Event+Management.h"
+#import "DSIOEvent+Management.h"
 #import <Foundation/Foundation.h>
 
 @interface DSIOEventQueue : NSObject

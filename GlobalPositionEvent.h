@@ -6,9 +6,9 @@
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
 #import "BaseEvent.h"
-#import "GlobalPosition.h"
+#import "DSIOGlobalPosition.h"
 #import <Foundation/Foundation.h>
 
 @interface GlobalPositionEvent : BaseEvent
-@property GlobalPosition* globalPosition;
+@property DSIOGlobalPosition* globalPosition;
 @end

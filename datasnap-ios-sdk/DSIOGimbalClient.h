@@ -6,8 +6,8 @@
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
 #import "BeaconEvent.h"
-#import "Campaign.h"
-#import "Communication.h"
+#import "DSIOCampaign.h"
+#import "DSIOCommunication.h"
 #import "CommunicationEvent.h"
 #import "DSIOAPI.h"
 #import "DSIOBaseClient.h"

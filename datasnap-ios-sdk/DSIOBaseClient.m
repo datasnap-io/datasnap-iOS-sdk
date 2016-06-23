@@ -6,14 +6,14 @@
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
 #import "DSIOBaseClient.h"
-#import "DataSnap.h"
+#import "DSIODatasnap.h"
 
 @implementation DSIOBaseClient
 - (void)dsioBaseClient
 {
     self.user = [self.user getInstance];
     self.deviceInfo = [self.deviceInfo getInstance];
-    DataSnap* datasnap = [DataSnap sharedClient];
+    DSIODatasnap* datasnap = [DSIODatasnap sharedClient];
     self.organizationId = datasnap.organizationId;
     self.projectId = datasnap.projectId;
 }
