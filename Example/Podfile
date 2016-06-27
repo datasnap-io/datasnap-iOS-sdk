@@ -1,0 +1,12 @@
+
+
+target 'Datasnap_Example' do
+    pod 'Datasnap', :path => '../'
+    
+    target 'Datasnap_Tests' do
+        inherit! :search_paths
+        
+        pod 'Kiwi'
+        pod 'Gimbal'
+    end
+end

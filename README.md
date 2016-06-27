@@ -1,162 +1,29 @@
-## datasnap.io iOS SDK
+# Datasnap
 
-This guide covers:
-* Where to download the SDK
-* How to install the SDK
-* Getting started sending Events
+[![CI Status](http://img.shields.io/travis/Layne McIntyre/Datasnap.svg?style=flat)](https://travis-ci.org/Layne McIntyre/Datasnap)
+[![Version](https://img.shields.io/cocoapods/v/Datasnap.svg?style=flat)](http://cocoapods.org/pods/Datasnap)
+[![License](https://img.shields.io/cocoapods/l/Datasnap.svg?style=flat)](http://cocoapods.org/pods/Datasnap)
+[![Platform](https://img.shields.io/cocoapods/p/Datasnap.svg?style=flat)](http://cocoapods.org/pods/Datasnap)
 
-After completing these steps, please see the [datasnap.io API Documentation](http://docs.datasnapio.apiary.io/) for examples showing you how to use the SDK within your iOS app.
+## Example
 
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-### Current Version
+## Requirements
 
-[Version 1.0.4](https://github.com/datasnap-io/datasnap-ios-sdk/releases/download/1.0.4/Datasnap.framework-1.0.4.zip)
+## Installation
 
-### Example iOS App
+Datasnap is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
 
-[datasnap.io iOS Sample App](https://github.com/datasnap-io/datasnap-ios-generic-sample)
-
-
-
-## Setup
-* Download the latest SDK release [here](https://github.com/datasnap-io/datasnap-ios-sdk/releases/download/1.0.4/Datasnap.framework-1.0.4.zip)
-* Uncompress Datasnap.framework-*.zip wherever you like to keep libraries
-* Drag the Datasnap.framework file into your Xcode project file.
-* Ensure Datasnap.framework is included in your Target -> General -> Linked Frameworks and Libraries
-  * If it is not included, delete the Datasnap.framework file from the Xcode project and use the + sign under Linked Frameworks and Libraries to add the Datasnap.framework file directly
-  * Choose 'Add Other...' and select Datasnap.framework
-  * ![Add a framework from the General menu in Xcode 7.2.1](https://github.com/datasnap-io/datasnap-ios-sdk/raw/master/readme_images/linkedFramework.png "Adding a framework in Xcode 7.2.1")
-
-
-
-### Configure App Capabilities
-datasnap.io requires Location and Bluetooth capabilities. From Target -> Capabilitites -> Background Modes, turn on 'Location Updates' and 'Uses Bluetooth LE accessories'
-
-![Use the background mode menu item in Xcode 7.2. to set bluetooth and location capabilities](https://github.com/datasnap-io/datasnap-ios-sdk/raw/master/readme_images/backgroundModes.png "Configuring datasnap.io background capabilities in Xcode 7.2.1")
-
-
-
-### Include the DataSnap.io Client header
-
-Add this header to whichever source files (.c, .swift) use the datasnap.io SDK. In the [datasnap.io iOS Sample App](https://github.com/datasnap-io/datasnap-ios-generic-sample), this is contained in the [AppDelegate file](https://github.com/datasnap-io/datasnap-ios-generic-sample/raw/master/dataSnapSample/AppDelegate.m).
-
-Include the public header:
-```objective-C
-#import <Datasnap/DSIOClient.h>
+```ruby
+pod "Datasnap"
 ```
 
-Then instantiate a client and use the created sharedClient throughout your application.
+## Author
 
-```objective-C
+Layne McIntyre, amcintyre@grio.com
 
-    [DSIOClient setupWithOrgID:@"org-id-provided-by-datasnap"
-                     projectId:@"YourTestApplication"
-                        APIKey:@"api-key-provided-by-datasnap"
-                     APISecret:@"api-secret-provided-by-datasnap"
-                       logging:true
-                      eventNum:15];
-```
+## License
 
-
-## Creating Events
-
-Events are proximity-triggered actions like departing a beacon or sending a campaign. Add methods for reporting events in your iOS application. Events are used for reporting and measurement in the datasnap.io Dashboard.
-
-### Required Fields
-
-Include these [Required Event Fields](http://docs.datasnapio.apiary.io/#introduction/sending-events/required-event-fields) to successfully post events.
-
-
-
-### Example Events
-
-In the [Datasnap.io iOS Sample App](https://github.com/datasnap-io/datasnap-ios-generic-sample), this is contained in the [ViewController file](https://github.com/datasnap-io/datasnap-ios-generic-sample/blob/master/dataSnapSample/ViewController.m).
-
-For more information on event types, please see the [Event API Documentation](http://docs.datasnapio.apiary.io/#reference/0/example-events).
-
-#### Example: Beacon Arrival Event
-``` objective-C
-- (void)exampleBeaconArrive {
-    NSDictionary *beaconData = @{@"event_type" : @"beacon_arrive",
-                                 @"beacon" : @{@"identifier": @"3333333",
-                                               @"name": @"Entrance Beacon",
-                                                @"rssi": @-20},
-                                 @"user": @{@"id": @{@"global_distinct_id": global_distinct_id,
-                                                    @"mobile_device_ios_idfa": mobile_device_ios_idfa
-                                                    }
-                                           },
-                                 @"datasnap": @{@"created": currentDate()}};
-    
-    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)beaconData];
-    [self logToDeviceAndConsole:@"Datasnap Example Beacon Arrival Event"];
-}
-```
-#### Example: Beacon Sighting Event
- ```objective-C
-- (void)exampleBeaconSighting {
-     NSDictionary *event = @{@"event_type" : @"beacon_sighting",
-                             @"beacon" : @{@"identifier": @"3333333",
-                                           @"name": @"Entrance Beacon",
-                                           @"rssi": @-20},
-                             @"user": @{@"id": @{@"global_distinct_id": global_distinct_id,
-                                                @"mobile_device_ios_idfa": mobile_device_ios_idfa
-                                                }
-                                       },
-                             @"datasnap": @{@"created": currentDate()},
-                             @"venue_org_id": @"MarksSuperCoolVenueID"};
-     
-     [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
- }
- ```
-#### Example: Campaign Reporting
-Event types: ds_communication_sent, ds_communication_open
-Use the `status` field to determine if the notification was sent when the app was running in the foreground or background.
-```objective-C
-- (void)exampleCampaignEvent {
-    NSDictionary *event = @{@"event_type" : @"ds_communication_sent",
-                            @"campaign" : @{@"identifier": @"3333333",
-                                            @"advertiser_org_id": @"advorgid",
-                                            @"status": @"background",
-                                            @"project_id":@"projectId"},
-                            @"communication" : @{@"identifier": @"3333333",
-                                                 @"advertiser_org_id": @"advorgid"},
-                            @"user": @{@"id": @{@"global_distinct_id": global_distinct_id,
-                                                @"mobile_device_ios_idfa": mobile_device_ios_idfa}
-                                       },
-                            @"datasnap": @{@"created": currentDate()}};
-    
-    [[DSIOClient sharedClient] genericEvent:(NSMutableDictionary *)event];
-}
-```
-#### Urban Airship Note
-Campaigns and Communications are basically the same in Urban Airship, so please use the same `identifier` for both campaign and communication properties.
-
-#### Campaign AutoPopulate
-Campaigns must pass in `communication_id` and `name`.
-
-```
- @"campaign" : @{@"identifier": @"3333333",
-                 @"name": @"TheCampaign",
-                 @"advertiser_org_id": @"advorgid",
-                 @"communication_ids": @[@"3333333"]},
- @"communication" : @{@"identifier": @"3333333",
-                      @"advertiser_org_id": @"advorgid",
-                      @"name": @"TheCommunication"},
-```
-
-
-### Including User Information
-
-To provide better insights, include additional User attributes and IDs, some which map to third-party systems.
-
-Please see [Event API: User Properties](http://docs.datasnapio.apiary.io/#introduction/event-properties/property:-user) for more details.
-
-
-
-
-
-## datasnap.io Backend Status Page
-
-To check on the server status anytime, visit [status.datasnap.io](http://status.datasnap.io/).  We offer the ability to check on our server status at anytime.
-
-Clients who have an API key issued will automatically receive emails anytime downtime occurs.
+Datasnap is available under the MIT license. See the LICENSE file for more info.
