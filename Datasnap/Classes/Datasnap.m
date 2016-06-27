@@ -80,11 +80,6 @@ static NSString* appInstalledEventType = @"app_installed";
       eventQueueSize:(NSInteger)eventNum
  andVendorProperties:(VendorProperties*)vendorProperties
 {
-    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        NSLog(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));
-    }];
-
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     self.vendorProperties = vendorProperties;
     if (self = [self init]) {
         self.organizationId = organizationId;
@@ -130,6 +125,10 @@ static NSString* appInstalledEventType = @"app_installed";
     }
     self.identifier.globalDistinctId = [[NSUUID UUID] UUIDString];
     self.user.identifier = self.identifier;
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        [self checkQueue];
+    }];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     [self onDataInitialized];
 }
 - (NSString*)identifierForAdvertising
