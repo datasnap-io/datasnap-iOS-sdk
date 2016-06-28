@@ -14,5 +14,4 @@
 @synthesize retries;
 @synthesize backoff;
 @synthesize batchIncrement;
-
 @end

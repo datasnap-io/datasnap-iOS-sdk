@@ -14,9 +14,13 @@
 @implementation EventQueue
 //TODO: add timer
 - (id)initWithSize:(NSInteger)queueLength
+           andTime:(NSInteger)queueTime
 {
     if (self = [self init]) {
         self.queueLength = queueLength;
+        self.queueTime = queueTime;
+        //stop accepting events after queue reaches this size
+        self.maxQueueLength = 10000;
     }
     return self;
 }
@@ -40,7 +44,7 @@
 
 - (NSArray*)getEvents
 {
-    NSMutableArray* eventJsonArray = [[NSMutableArray alloc] init];
+    NSMutableArray* eventJsonArray = [NSMutableArray new];
     NSArray* eventsArray = [EventEntity returnAllEvents];
     for (EventEntity* event in eventsArray) {
         NSError* err;
@@ -48,8 +52,8 @@
         NSDictionary* response;
         if (data != nil) {
             response = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
+            [eventJsonArray addObject:response];
         }
-        [eventJsonArray addObject:response];
     }
     return eventJsonArray;
 }

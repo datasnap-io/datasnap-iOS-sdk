@@ -33,13 +33,13 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
     self.communicationManager.delegate = self;
     [GMBLPlaceManager startMonitoring];
     [GMBLCommunicationManager startReceivingCommunications];
-    BaseClient* baseClient = [[BaseClient alloc] init];
+    BaseClient* baseClient = [BaseClient new];
     [baseClient dsioBaseClient];
 }
 - (void)beaconManager:(GMBLBeaconManager*)manager didReceiveBeaconSighting:(GMBLBeaconSighting*)sighting
 {
     NSString* eventType = beaconSightingEventType;
-    Beacon* beacon = [[Beacon alloc] init];
+    Beacon* beacon = [Beacon new];
     beacon.identifier = sighting.beacon.identifier;
     beacon.rssi = sighting.beacon.uuid;
     beacon.batteryLevel = [NSString stringWithFormat:@"%ld", (long)sighting.beacon.batteryLevel];
@@ -47,16 +47,16 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
     beacon.bleVendorId = @"Gimbal";
     self.user.identifier.globalDistinctId = self.global_distinct_id;
     self.user.identifier.mobileDeviceIosIdfa = self.mobile_device_ios_idfa;
-    BeaconEvent* event = [[BeaconEvent alloc] init];
+    BeaconEvent* event = [BeaconEvent new];
     event.eventType = eventType;
-    [event.organizationIds addObject:self.organizationId];
-    [event.projectIds addObject:self.projectId];
+    Datasnap *datasnap = [Datasnap sharedClient];
+    event.organizationIds = @[ datasnap.organizationId ];
+    event.projectIds = @[ datasnap.projectId ];
     event.beacon = beacon;
     event.user = self.user;
     event.deviceInfo = self.deviceInfo;
     NSLog(@"Beacon sighting");
     NSLog(@"%@", sighting.beacon.identifier);
-    Datasnap* datasnap = [Datasnap sharedClient];
     [datasnap trackEvent:event];
 }
 
@@ -64,29 +64,29 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
     presentLocalNotificationsForCommunications:(NSArray*)communications
                                       forVisit:(GMBLVisit*)visit
 {
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter* dateFormatter = [NSDateFormatter new];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
     for (Communication* communication in communications) {
-        Communication* dataSnapCommunication = [[Communication alloc] init];
+        Communication* dataSnapCommunication = [Communication new];
         dataSnapCommunication.identifier = communication.identifier;
         dataSnapCommunication.title = communication.title;
         dataSnapCommunication.description = communication.description;
-        Campaign* campaign = [[Campaign alloc] init];
+        Campaign* campaign = [Campaign new];
         campaign.identifier = self.projectId;
         campaign.communicationIds = communication.identifier;
         NSString* venueId = visit.visitID;
         self.user.identifier.globalDistinctId = self.global_distinct_id;
         self.user.identifier.mobileDeviceIosIdfa = self.mobile_device_ios_idfa;
-        CommunicationEvent* event = [[CommunicationEvent alloc] init];
+        CommunicationEvent* event = [CommunicationEvent new];
         event.eventType = communicationSentEventType;
-        [event.organizationIds addObject:self.organizationId];
-        [event.projectIds addObject:self.projectId];
+        Datasnap *datasnap = [Datasnap sharedClient];
+        event.organizationIds = @[ datasnap.organizationId ];
+        event.projectIds = @[ datasnap.projectId ];
         event.venueOrgId = venueId;
         event.customerVenueOrgId = venueId;
         event.user = self.user;
         event.communication = dataSnapCommunication;
         event.campaign = campaign;
-        Datasnap* datasnap = [Datasnap sharedClient];
         [datasnap trackEvent:event];
     }
     return communications;
@@ -97,23 +97,23 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
                             forCommunication:(GMBLCommunication*)communication
 
 {
-    Communication* dataSnapCommunication = [[Communication alloc] init];
+    Communication* dataSnapCommunication = [Communication new];
     dataSnapCommunication.identifier = communication.identifier;
     dataSnapCommunication.title = communication.title;
     dataSnapCommunication.description = communication.description;
-    Campaign* campaign = [[Campaign alloc] init];
+    Campaign* campaign = [Campaign new];
     campaign.identifier = self.projectId;
     campaign.communicationIds = communication.identifier;
     self.user.identifier.globalDistinctId = self.global_distinct_id;
     self.user.identifier.mobileDeviceIosIdfa = self.mobile_device_ios_idfa;
-    CommunicationEvent* event = [[CommunicationEvent alloc] init];
+    CommunicationEvent* event = [CommunicationEvent new];
     event.eventType = communicationSentEventType;
-    [event.organizationIds addObject:self.organizationId];
-    [event.projectIds addObject:self.projectId];
+    Datasnap *datasnap = [Datasnap sharedClient];
+    event.organizationIds = @[ datasnap.organizationId ];
+    event.projectIds = @[ datasnap.projectId ];
     event.user = self.user;
     event.communication = dataSnapCommunication;
     event.campaign = campaign;
-    Datasnap* datasnap = [Datasnap sharedClient];
     [datasnap trackEvent:event];
     return notification;
 }

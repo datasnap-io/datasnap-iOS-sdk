@@ -28,7 +28,7 @@
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"EventEntity"
                                               inManagedObjectContext:context];
 
-    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    NSFetchRequest* request = [NSFetchRequest new];
     [request setEntity:entity];
     NSError* error;
     eventsArray = [[context executeFetchRequest:request error:&error] mutableCopy];
