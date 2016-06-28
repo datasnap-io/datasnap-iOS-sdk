@@ -48,7 +48,7 @@ static NSString* const kDataSnapEventAPIURL = @"https://api-events-staging.datas
     NSURL* url = [NSURL URLWithString:kDataSnapEventAPIURL];
 
     [self performAuthenticatedPOSTRequestWithURL:url
-                                            body:json
+                                            body:compressedJson
                                     onCompletion:^(NSData* data, NSURLResponse* response, NSError* error) {
                                         if (error) {
                                             DSIOLog(@"Error sending request to %@.\n", url);
@@ -105,7 +105,8 @@ static NSString* const kDataSnapEventAPIURL = @"https://api-events-staging.datas
     NSURLSessionConfiguration* sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     [sessionConfig setHTTPAdditionalHeaders:@{
         @"Content-Type" : @"application/json",
-        @"Authorization" : [self __authorizationHeader]
+        @"Authorization" : [self __authorizationHeader],
+        @"Content-Encoding" : @"gzip"
     }];
 
     NSURLSession* session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:nil];
