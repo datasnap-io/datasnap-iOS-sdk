@@ -36,6 +36,9 @@
 @property (nonatomic) EventQueue* eventQueue;
 @property (nonatomic) GMBLBeaconManager* beaconManager;
 @property (nonatomic) BaseClient* baseClient;
+@property (nonatomic) NSTimer* timer;
+@property (nonatomic) bool optIn;
+@property (nonatomic) NSString* email;
 - (void)trackEvent:(BaseEvent*)event;
 + (id)sharedClient;
 - (void)genericEvent:(NSDictionary*)eventDetails;
@@ -43,6 +46,9 @@
         apiKeySecret:(NSString*)apiKeySecret
       organizationId:(NSString*)organizationId
            projectId:(NSString*)projectId
-      eventQueueSize:(NSInteger)eventNum
+           idfaOptIn:(bool)optIn
+               email:(NSString*)email
  andVendorProperties:(VendorProperties*)vendorProperties;
+- (void)setFlushParamsWithDuration:(NSInteger)durationInMillis
+                   withMaxElements:(NSInteger)maxElements;
 @end

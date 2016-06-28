@@ -13,8 +13,8 @@
 @property NSString* created;
 @property NSString* dataSnapVersion;
 @property NSString* eventType;
-@property NSMutableArray* organizationIds;
-@property NSMutableArray* projectIds;
+@property NSArray* organizationIds;
+@property NSArray* projectIds;
 @property NSString* customerOrgId;
 @property NSString* customerVenueOrgId;
 @property NSString* venueOrgId;

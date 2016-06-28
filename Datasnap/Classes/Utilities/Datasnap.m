@@ -25,9 +25,15 @@ static NSString* appInstalledEventType = @"app_installed";
     return device;
 }
 
-+ (void)setFlushParamsWithDuration:(NSInteger)durationInMillis
+- (void)setFlushParamsWithDuration:(NSInteger)durationInSeconds
                    withMaxElements:(NSInteger)maxElements
 {
+    self.eventQueue = [[EventQueue alloc] initWithSize:maxElements andTime:durationInSeconds];
+    [NSTimer scheduledTimerWithTimeInterval:maxElements
+                                     target:self
+                                   selector:@selector(checkQueue)
+                                   userInfo:nil
+                                    repeats:YES];
 }
 
 - (NSString*)getDeviceName:(NSString*)deviceName
@@ -39,7 +45,7 @@ static NSString* appInstalledEventType = @"app_installed";
 
 - (NSString*)getCarrierName
 {
-    CTTelephonyNetworkInfo* netinfo = [[CTTelephonyNetworkInfo alloc] init];
+    CTTelephonyNetworkInfo* netinfo = [CTTelephonyNetworkInfo new];
     CTCarrier* carrier = [netinfo subscriberCellularProvider];
     return [carrier carrierName];
 }
@@ -77,45 +83,45 @@ static NSString* appInstalledEventType = @"app_installed";
         apiKeySecret:(NSString*)apiKeySecret
       organizationId:(NSString*)organizationId
            projectId:(NSString*)projectId
-      eventQueueSize:(NSInteger)eventNum
+           idfaOptIn:(bool)optIn
+               email:(NSString*)email
  andVendorProperties:(VendorProperties*)vendorProperties
 {
     self.vendorProperties = vendorProperties;
     if (self = [self init]) {
         self.organizationId = organizationId;
         self.projectId = projectId;
-        self.eventQueue = [[EventQueue alloc] initWithSize:eventNum];
         self.api = [[DatasnapAPI alloc] initWithKey:apiKey secret:apiKeySecret];
-        self.baseClient = [[BaseClient alloc] init];
+        self.baseClient = [BaseClient new];
         self.baseClient.projectId = projectId;
         self.baseClient.organizationId = organizationId;
+        self.optIn = optIn;
+        self.email = email;
     }
     [self initializeData];
     return self;
 }
-
 + (id)sharedClient
 {
     static Datasnap* sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedClient = [[self alloc] init];
+        sharedClient = [self new];
     });
     return sharedClient;
 }
-
 - (void)initializeData
 {
-    self.device = [[Device alloc] init];
+    self.device = [Device new];
     [self setDeviceAndReturn:self.device];
-    self.deviceInfo = [[DeviceInfo alloc] init];
+    self.deviceInfo = [DeviceInfo new];
     self.deviceInfo.device = self.device;
     self.baseClient.deviceInfo = self.deviceInfo;
-    self.user = [[User alloc] init];
+    self.user = [User new];
     [self.user initializeUser:self.user];
     self.baseClient.user = self.user;
-    self.identifier = [[Identifier alloc] init];
-    if ([[NSBundle mainBundle] objectForInfoDictionaryKey:@"SEND_ADVERTISER_ID"]) {
+    self.identifier = [Identifier new];
+    if (self.optIn == YES) {
         NSString* mobile_device_ios_idfa = [self identifierForAdvertising];
         self.identifier.mobileDeviceIosIdfa = mobile_device_ios_idfa;
         self.identifier.mobileDeviceGoogleAdvertisingIdOptIn = @"YES";
@@ -124,9 +130,16 @@ static NSString* appInstalledEventType = @"app_installed";
         self.identifier.mobileDeviceGoogleAdvertisingIdOptIn = @"NO";
     }
     self.identifier.globalDistinctId = [[NSUUID UUID] UUIDString];
+    self.identifier.hashedEmail = self.email;
     self.user.identifier = self.identifier;
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         [self checkQueue];
+        //ensure Gimbal is started if application is started offline. Gimbal cannot properly initialize if the app is offline during startup.
+        if (!self.gimbalClient && self.vendorProperties.vendor == GIMBAL) {
+            self.gimbalClient = [GimbalClient new];
+            self.gimbalClient.gimbalApiKey = self.vendorProperties.gimbalApiKey;
+            [self.gimbalClient startGimbal];
+        }
     }];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     [self onDataInitialized];
@@ -147,23 +160,23 @@ static NSString* appInstalledEventType = @"app_installed";
     }
     switch (self.vendorProperties.vendor) {
     case GIMBAL:
-        self.gimbalClient = [[GimbalClient alloc] init];
-        self.gimbalClient.gimbalApiKey = self.vendorProperties.gimbalApiKey;
-        [self.gimbalClient startGimbal];
+        if ([AFNetworkReachabilityManager sharedManager].reachable) {
+            self.gimbalClient = [GimbalClient new];
+            self.gimbalClient.gimbalApiKey = self.vendorProperties.gimbalApiKey;
+            [self.gimbalClient startGimbal];
+        }
         break;
     case ESTIMOTE:
         break;
     }
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isAppAlreadyLaunchedOnce"]) {
-    }
-    else {
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isAppAlreadyLaunchedOnce"]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isAppAlreadyLaunchedOnce"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         NSString* eventType = appInstalledEventType;
-        BaseEvent* event = [[BaseEvent alloc] init];
+        BaseEvent* event = [BaseEvent new];
         event.eventType = eventType;
-        [event.organizationIds addObject:self.organizationId];
-        [event.projectIds addObject:self.projectId];
+        event.organizationIds = @[ self.organizationId ];
+        event.projectIds = @[ self.projectId ];
         event.user = self.user;
         [self trackEvent:event];
     }
@@ -172,21 +185,20 @@ static NSString* appInstalledEventType = @"app_installed";
 - (void)trackEvent:(BaseEvent*)event
 {
     event.dataSnapVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter* dateFormatter = [NSDateFormatter new];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
     event.created = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]];
     event.deviceInfo = self.deviceInfo;
     event.user = self.user;
-    event.organizationIds = [[NSMutableArray alloc] init];
-    event.projectIds = [[NSMutableArray alloc] init];
-    [event.organizationIds addObject:self.organizationId];
-    [event.projectIds addObject:self.projectId];
+    event.organizationIds = @[ self.organizationId ];
+    event.projectIds = @[ self.projectId ];
     if (![event validate]) {
         NSLog(@"Mandatory event data missing. Please call Datasnap.initialize before using the library");
     }
     NSDictionary* eventJson = [event convertToDictionary];
-    [self.eventQueue recordEvent:eventJson];
-    [self checkQueue];
+    if (self.eventQueue.numberOfQueuedEvents <= self.eventQueue.maxQueueLength) {
+        [self.eventQueue recordEvent:eventJson];
+    }
 }
 
 + (void)debug:(BOOL)showDebugLogs
@@ -211,41 +223,26 @@ static NSString* appInstalledEventType = @"app_installed";
     }
 }
 
+- (NSString*)sha1:(NSString*)input
+{
+    const char* cstr = [input cStringUsingEncoding:NSUTF8StringEncoding];
+    NSData* data = [NSData dataWithBytes:cstr length:input.length];
+
+    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
+
+    CC_SHA1(data.bytes, data.length, digest);
+
+    NSMutableString* output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
+
+    for (int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+
+    return output;
+}
+
 - (void)flushEvents
 {
     [self.eventQueue flushQueue];
-}
-
-- (void)genericEvent:(NSMutableDictionary*)eventDetails
-{
-    [self eventHandler:eventDetails];
-}
-
-- (void)eventHandler:(NSMutableDictionary*)eventDetails
-{
-    NSMutableDictionary* eventDetailsCopy = [eventDetails mutableCopy];
-    NSDictionary* deviceInfo = [self deviceInfoDictionary];
-    [eventDetailsCopy addEntriesFromDictionary:@{ @"organization_ids" : @[ self.organizationId ],
-        @"project_ids" : @[ self.projectId ],
-        @"sdk_version" : @"1.0.4",
-        @"device_info" : @{
-            @"platform" : [deviceInfo objectForKey:@"platform"],
-            @"system_name" : [deviceInfo objectForKey:@"system_name"],
-            @"system_version" : [deviceInfo objectForKey:@"system_version"]
-        }
-    }];
-    [self.eventQueue recordEvent:eventDetailsCopy];
-    [self checkQueue];
-}
-
-- (NSDictionary*)deviceInfoDictionary
-{
-    NSMutableDictionary* info = [[NSMutableDictionary alloc] init];
-    [info setObject:[UIDevice currentDevice].model forKey:@"platform"];
-    [info setObject:[UIDevice currentDevice].systemName forKey:@"system_name"];
-    [info setObject:[UIDevice currentDevice].systemVersion forKey:@"system_version"];
-    [info setObject:[UIDevice currentDevice].name forKey:@"device_name"];
-    return info;
 }
 
 @end
