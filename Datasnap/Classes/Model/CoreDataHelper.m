@@ -20,18 +20,11 @@ NSString* storeFilename = @"dataSnapSample.sqlite";
 #pragma mark - PATHS
 - (NSString*)applicationDocumentsDirectory
 {
-    if (debug == 1) {
-        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
-    }
     return [NSSearchPathForDirectoriesInDomains(
         NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 - (NSURL*)applicationStoresDirectory
 {
-    if (debug == 1) {
-        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
-    }
-
     NSURL* storesDirectory =
         [[NSURL fileURLWithPath:[self applicationDocumentsDirectory]]
             URLByAppendingPathComponent:@"Stores"];
@@ -43,9 +36,6 @@ NSString* storeFilename = @"dataSnapSample.sqlite";
                   withIntermediateDirectories:YES
                                    attributes:nil
                                         error:&error]) {
-            if (debug == 1) {
-                NSLog(@"Successfully created Stores directory");
-            }
         }
         else {
             NSLog(@"FAILED to create Stores directory: %@", error);
@@ -55,9 +45,6 @@ NSString* storeFilename = @"dataSnapSample.sqlite";
 }
 - (NSURL*)storeURL
 {
-    if (debug == 1) {
-        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
-    }
     return [[self applicationStoresDirectory]
         URLByAppendingPathComponent:storeFilename];
 }
@@ -65,9 +52,6 @@ NSString* storeFilename = @"dataSnapSample.sqlite";
 #pragma mark - SETUP
 - (id)init
 {
-    if (debug == 1) {
-        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
-    }
     self = [super init];
     if (!self) {
         return nil;
@@ -93,9 +77,6 @@ NSString* storeFilename = @"dataSnapSample.sqlite";
 }
 - (void)loadStore
 {
-    if (debug == 1) {
-        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
-    }
     if (_store) {
         return;
     } // Don't load store if it's already loaded
@@ -109,11 +90,6 @@ NSString* storeFilename = @"dataSnapSample.sqlite";
         NSLog(@"Failed to add store. Error: %@", error);
         abort();
     }
-    else {
-        if (debug == 1) {
-            NSLog(@"Successfully added store: %@", _store);
-        }
-    }
 }
 
 #pragma mark - SAVING
@@ -123,9 +99,6 @@ NSString* storeFilename = @"dataSnapSample.sqlite";
 }
 - (void)saveInContext:(NSManagedObjectContext*)localContext
 {
-    if (debug == 1) {
-        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
-    }
     if (![NSThread isMainThread]) {
         NSLog(@"You are not in main thread");
     }
@@ -133,14 +106,10 @@ NSString* storeFilename = @"dataSnapSample.sqlite";
     if ([localContext hasChanges]) {
         NSError* error = nil;
         if ([localContext save:&error]) {
-            NSLog(@"context SAVED changes to persistent store");
         }
         else {
             NSLog(@"Failed to save _context: %@", error);
         }
-    }
-    else {
-        NSLog(@"SKIPPED _context save, there are no changes!");
     }
 }
 

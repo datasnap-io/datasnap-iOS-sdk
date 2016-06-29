@@ -9,10 +9,10 @@
 #import "NSString+Helpers.h"
 
 @implementation NSString (Helpers)
-- (NSString*)toSha1:(NSString*)input
+- (NSString*)toSha1
 {
-    const char* cstr = [input cStringUsingEncoding:NSUTF8StringEncoding];
-    NSData* data = [NSData dataWithBytes:cstr length:input.length];
+    const char* cstr = [self cStringUsingEncoding:NSUTF8StringEncoding];
+    NSData* data = [NSData dataWithBytes:cstr length:self.length];
 
     uint8_t digest[CC_SHA1_DIGEST_LENGTH];
 

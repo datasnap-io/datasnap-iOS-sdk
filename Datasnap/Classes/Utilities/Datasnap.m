@@ -62,7 +62,7 @@ NSString* googleAd = @"NO";
                                                   facebookUuid:nil
                                               globalDistinctId:[[NSUUID UUID] UUIDString]
                                            globalUserIpAddress:self.device.ipAddress
-                                                   hashedEmail:[self.email toSha1:self.email]
+                                                   hashedEmail:[self.email toSha1]
                                mobileDeviceBluetoothIdentifier:nil
                                            mobileDeviceIosIdfa:self.mobileDeviceIosIdfa
                                            mobileDeviceIosUdid:[[NSUUID UUID] UUIDString]

@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (Helpers)
-- (NSString*)toSha1:(NSString*)input;
+- (NSString*)toSha1;
 @end
