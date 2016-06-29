@@ -5,12 +5,13 @@
 //  Created by Alyssa McIntyre on 6/10/16.
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
-#import "DSIOConfig.h"
-#import "EventQueue.h"
-#import "Event+Management.h"
 #import "BaseClient.h"
+#import "BeaconEvent.h"
+#import "DSIOConfig.h"
 #import "DatasnapAPI.h"
 #import "Device.h"
+#import "Event+Management.h"
+#import "EventQueue.h"
 #import "GeofenceEvent.h"
 #import "GimbalClient.h"
 #import "NSString+Helpers.h"

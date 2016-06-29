@@ -36,7 +36,9 @@
 }
 - (IBAction)geofenceDepartButtonTouched:(id)sender
 {
-    GeoFenceEvent* geoFenceEvent = [[GeoFenceEvent alloc] initWithEventType:@"geofence_depart"];
+    GeoFenceEvent* geoFenceEvent = [[GeoFenceEvent alloc] initWithEventType:@"geofence_depart"
+                                                                   geoFence:nil
+                                                                andLocation:nil];
     [self.datasnap trackEvent:geoFenceEvent];
 }
 

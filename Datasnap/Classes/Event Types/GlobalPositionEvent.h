@@ -11,4 +11,7 @@
 
 @interface GlobalPositionEvent : BaseEvent
 @property GlobalPosition* globalPosition;
+- (GlobalPositionEvent*)initWithEventType:(NSString*)eventType
+                        andGlobalPosition:(GlobalPosition*)globalPosition;
+- (NSDictionary*)convertToDictionary;
 @end

@@ -13,4 +13,8 @@
 @interface UpdateEvent : BaseEvent
 @property Beacon* beacon;
 @property Place* place;
+- (UpdateEvent*)initWithEventType:(NSString*)eventType
+                           beacon:(Beacon*)beacon
+                         andPlace:(Place*)place;
+- (NSDictionary*)convertToDictionary;
 @end

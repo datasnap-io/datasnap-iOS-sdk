@@ -77,7 +77,8 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
                                                hardware:nil
                                                    tags:nil];
     BeaconEvent* event = [[BeaconEvent alloc] initWithEventType:eventType
-                                                         beacon:beacon];
+                                                         beacon:beacon
+                                                       andPlace:nil];
     Datasnap* datasnap = [Datasnap sharedClient];
     [datasnap trackEvent:event];
 }

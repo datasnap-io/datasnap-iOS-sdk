@@ -16,5 +16,6 @@
 @property Place* place;
 @property Beacon* beacon;
 - (BeaconEvent*)initWithEventType:(NSString*)eventType
-                           beacon:(Beacon*)beacon;
+                           beacon:(Beacon*)beacon
+                         andPlace:(Place*)place;
 @end

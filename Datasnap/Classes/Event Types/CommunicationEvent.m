@@ -28,4 +28,23 @@
     self.created = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]];
     return self;
 }
+- (NSDictionary*)convertToDictionary
+{
+    NSDictionary* dictionary = @{
+        @"created" : self.created,
+        @"dataSnap_Version" : self.dataSnapVersion,
+        @"event_type" : self.eventType,
+        @"organization_ids" : self.organizationIds,
+        @"project_ids" : self.projectIds,
+        @"customer_org_id" : self.customerOrgId ? self.customerOrgId : [NSNull null],
+        @"customer_venue_org_id" : self.customerVenueOrgId ? self.customerVenueOrgId : [NSNull null],
+        @"venue_org_id" : self.venueOrgId ? self.venueOrgId : [NSNull null],
+        @"user" : [self.user convertToDictionary],
+        @"device" : [self.device convertToDictionary],
+        @"additional_properties" : self.additionalProperties ? self.additionalProperties : [NSNull null],
+        @"communication" : self.communication ? [self.communication convertToDictionary] : [NSNull null],
+        @"campaign" : self.campaign ? [self.campaign convertToDictionary] : [NSNull null]
+    };
+    return dictionary;
+}
 @end

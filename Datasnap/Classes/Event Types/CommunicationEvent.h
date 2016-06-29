@@ -20,4 +20,5 @@
                                 campaign:(Campaign*)campaign
                                  venueId:(NSString*)venueId
                       customerVenueOrgId:(NSString*)customerVenueOrgId;
+- (NSDictionary*)convertToDictionary;
 @end

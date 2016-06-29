@@ -13,4 +13,8 @@
 @interface GeoFenceEvent : BaseEvent
 @property Geofence* geofence;
 @property Location* location;
+- (GeoFenceEvent*)initWithEventType:(NSString*)eventType
+                           geoFence:(Geofence*)geofence
+                        andLocation:(Location*)location;
+- (NSDictionary*)convertToDictionary;
 @end
