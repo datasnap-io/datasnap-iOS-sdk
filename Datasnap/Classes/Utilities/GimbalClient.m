@@ -44,16 +44,21 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
 }
 - (void)startGimbal
 {
-    [Gimbal setAPIKey:self.gimbalApiKey options:nil];
-    [Gimbal start];
-    self.beaconManager = [GMBLBeaconManager new];
-    self.beaconManager.delegate = self;
-    [self.beaconManager startListening];
-    self.communicationManager = [GMBLCommunicationManager new];
-    self.communicationManager.delegate = self;
-    [GMBLPlaceManager startMonitoring];
-    [GMBLCommunicationManager startReceivingCommunications];
-    BaseClient* baseClient = [[BaseClient alloc] init];
+    @try {
+        [Gimbal setAPIKey:self.gimbalApiKey options:nil];
+        [Gimbal start];
+        self.beaconManager = [GMBLBeaconManager new];
+        self.beaconManager.delegate = self;
+        [self.beaconManager startListening];
+        self.communicationManager = [GMBLCommunicationManager new];
+        self.communicationManager.delegate = self;
+        [GMBLPlaceManager startMonitoring];
+        [GMBLCommunicationManager startReceivingCommunications];
+        BaseClient* baseClient = [[BaseClient alloc] init];
+    }
+    @catch (NSException* classNotFoundException) {
+        NSLog(@"Gimbal class not found. Please add the Gimbal pod to your podfile and run pod install");
+    }
 }
 - (void)beaconManager:(GMBLBeaconManager*)manager didReceiveBeaconSighting:(GMBLBeaconSighting*)sighting
 {
