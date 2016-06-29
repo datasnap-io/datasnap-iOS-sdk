@@ -17,14 +17,13 @@
 @synthesize customerVenueOrgId;
 @synthesize venueOrgId;
 @synthesize user;
-@synthesize deviceInfo;
+@synthesize device;
 @synthesize additionalProperties;
 @synthesize created;
 - (BOOL)validate
 {
     return self.organizationIds.count > 0 && [self.organizationIds[0] length] > 0 && self.projectIds.count > 0 && [self.projectIds[0] length] > 0 && self.user;
 }
-
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{
@@ -37,9 +36,18 @@
         @"customer_venue_org_id" : self.customerVenueOrgId ? self.customerVenueOrgId : [NSNull null],
         @"venue_org_id" : self.venueOrgId ? self.venueOrgId : [NSNull null],
         @"user" : [self.user convertToDictionary],
-        @"device_info" : [self.deviceInfo convertToDictionary],
+        @"device" : [self.device convertToDictionary],
         @"additional_properties" : self.additionalProperties ? self.additionalProperties : [NSNull null]
     };
     return dictionary;
+}
+- (BaseEvent*)initWithEventType:(NSString*)eventType
+{
+    self.eventType = eventType;
+    self.dataSnapVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSDateFormatter* dateFormatter = [NSDateFormatter new];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
+    self.created = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]];
+    return self;
 }
 @end

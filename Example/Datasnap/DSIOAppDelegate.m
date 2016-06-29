@@ -25,8 +25,10 @@
                            apiKeySecret:@"KA0HdzrZzNjvUq8OnKQoxaReyUayZY0ckNYoMZURxK8"
                          organizationId:@"19CYxNMSQvfnnMf1QS4b3Z"
                               projectId:@"21213f8b-8341-4ef3-a6b8-ed0f84945186"
-                         eventQueueSize:1
+                              googleAdOptIn:YES
+                                  email:@"someemail@example.com"
                     andVendorProperties:vendorProperties];
+    [datasnap setFlushParamsWithDuration:100000 withMaxElements:5];
     return YES;
 }
 - (void)application:(UIApplication*)app

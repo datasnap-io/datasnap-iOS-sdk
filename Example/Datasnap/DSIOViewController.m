@@ -11,29 +11,32 @@
 - (void)viewDidLoad
 {
     self.datasnap = [Datasnap sharedClient];
+    [super viewDidLoad];
 }
 - (IBAction)beaconSightingButtonTouched:(id)sender
 {
-    BeaconEvent* beaconEvent = [[BeaconEvent alloc] init];
-    beaconEvent.eventType = @"beacon_sighting";
+    BeaconEvent* beaconEvent = [[BeaconEvent alloc] initWithEventType:@"beacon_sighting"
+                                                               beacon:nil
+                                                             andPlace:nil];
     [self.datasnap trackEvent:beaconEvent];
 }
 - (IBAction)beaconArrivalButtonTouched:(id)sender
 {
-    BeaconEvent* beaconEvent = [[BeaconEvent alloc] init];
-    beaconEvent.eventType = @"beacon_sighting";
+    BeaconEvent* beaconEvent = [[BeaconEvent alloc] initWithEventType:@"beacon_sighting"
+                                                               beacon:nil
+                                                             andPlace:nil];
     [self.datasnap trackEvent:beaconEvent];
 }
 - (IBAction)beaconDepartButtonTouched:(id)sender
 {
-    BeaconEvent* beaconEvent = [[BeaconEvent alloc] init];
-    beaconEvent.eventType = @"beacon_depart";
+    BeaconEvent* beaconEvent = [[BeaconEvent alloc] initWithEventType:@"beacon_depart"
+                                                               beacon:nil
+                                                             andPlace:nil];
     [self.datasnap trackEvent:beaconEvent];
 }
 - (IBAction)geofenceDepartButtonTouched:(id)sender
 {
-    GeoFenceEvent* geoFenceEvent = [[GeoFenceEvent alloc] init];
-    geoFenceEvent.eventType = @"geofence_depart";
+    GeoFenceEvent* geoFenceEvent = [[GeoFenceEvent alloc] initWithEventType:@"geofence_depart"];
     [self.datasnap trackEvent:geoFenceEvent];
 }
 

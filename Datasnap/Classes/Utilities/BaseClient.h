@@ -5,14 +5,17 @@
 //  Created by Alyssa McIntyre on 6/14/16.
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
-#import "DeviceInfo.h"
+#import "Device.h"
 #import "User.h"
 #import <Foundation/Foundation.h>
-@class Datasnap;
+
 @interface BaseClient : NSObject
+@property Device* device;
 @property User* user;
-@property DeviceInfo* deviceInfo;
 @property NSString* organizationId;
 @property NSString* projectId;
-- (void)dsioBaseClient;
+- (BaseClient*)initWithOrganizationId:(NSString*)organizationId
+                            projectId:(NSString*)projectId
+                               device:(Device*)device
+                              andUser:(User*)user;
 @end
