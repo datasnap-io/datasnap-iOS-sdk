@@ -13,4 +13,6 @@ typedef enum {
 @interface VendorProperties : NSObject
 @property Vendor vendor;
 @property NSString* gimbalApiKey;
+- (VendorProperties*)initWithVendor:(Vendor)vendor
+                    andgimbalApiKey:(NSString*)gimbalApiKey;
 @end

@@ -12,7 +12,7 @@
 @synthesize beacon;
 - (BOOL)validate
 {
-    return self.organizationIds.count > 0 && self.projectIds.count > 0 && self.user && self.device && self.beacon;
+    return self.organizationIds.count > 0 && self.projectIds.count > 0 && self.user && self.device;
 }
 - (BeaconEvent*)initWithEventType:(NSString*)eventType
                            beacon:(Beacon*)beacon

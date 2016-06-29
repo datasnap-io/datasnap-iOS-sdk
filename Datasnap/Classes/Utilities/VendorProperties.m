@@ -11,4 +11,10 @@
 @implementation VendorProperties
 @synthesize gimbalApiKey;
 @synthesize vendor;
+- (VendorProperties*)initWithVendor:(Vendor)vendor
+                    andgimbalApiKey:(NSString*)gimbalApiKey
+{
+    self.vendor = vendor;
+    self.gimbalApiKey = gimbalApiKey;
+}
 @end
