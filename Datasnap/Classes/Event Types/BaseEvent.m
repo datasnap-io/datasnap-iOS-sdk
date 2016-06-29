@@ -21,7 +21,7 @@
 @synthesize created;
 - (BOOL)validate
 {
-    return self.organizationIds.count > 0 && [self.organizationIds[0] length] > 0 && self.projectIds.count > 0 && [self.projectIds[0] length] > 0 && self.user;
+    return self.organizationIds.count > 0 && self.projectIds.count > 0 && self.user && self.device;
 }
 - (NSDictionary*)convertToDictionary
 {

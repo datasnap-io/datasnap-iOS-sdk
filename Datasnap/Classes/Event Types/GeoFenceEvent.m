@@ -43,4 +43,8 @@
     };
     return dictionary;
 }
+- (BOOL)validate
+{
+    return self.organizationIds.count > 0 && self.projectIds.count > 0 && self.user && self.device;
+}
 @end

@@ -28,6 +28,10 @@
     self.created = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]];
     return self;
 }
+- (BOOL)validate
+{
+    return self.organizationIds.count > 0 && self.projectIds.count > 0 && self.user && self.device && self.communication && self.campaign;
+}
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{

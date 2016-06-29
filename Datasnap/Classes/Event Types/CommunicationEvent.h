@@ -21,4 +21,5 @@
                                  venueId:(NSString*)venueId
                       customerVenueOrgId:(NSString*)customerVenueOrgId;
 - (NSDictionary*)convertToDictionary;
+- (BOOL)validate;
 @end

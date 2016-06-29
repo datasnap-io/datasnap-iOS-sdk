@@ -10,6 +10,10 @@
 @implementation BeaconEvent
 @synthesize place;
 @synthesize beacon;
+- (BOOL)validate
+{
+    return self.organizationIds.count > 0 && self.projectIds.count > 0 && self.user && self.device && self.beacon;
+}
 - (BeaconEvent*)initWithEventType:(NSString*)eventType
                            beacon:(Beacon*)beacon
                          andPlace:(Place*)place
