@@ -63,7 +63,7 @@ static NSString* const kDataSnapEventAPIURL = @"https://api-events-staging.datas
                                                 success = NO;
                                             }
                                             else if (resp.statusCode > 204) {
-                                                NSLog(@"Something went wrong with the request. Status Code %d", resp.statusCode);
+                                                NSLog(@"Received a failed response from the Datasnap server. Status Code %d", resp.statusCode);
                                                 NSLog(@"%@", response);
                                                 NSLog(@"%@", jsonStr);
                                                 success = NO;
