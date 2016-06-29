@@ -11,24 +11,24 @@
 @implementation User
 @synthesize tags;
 @synthesize identifier;
-@synthesize Audience;
+@synthesize audience;
 @synthesize userProperties;
-
-- (void)initializeUser:(User*)user
+- (User*)initWithIdentifier:(Identifier*)identifier
+                       tags:(Tags*)tags
+                   audience:(Audience*)audience
+          andUserProperties:(UserProperties*)userProperties
 {
-    self.user = user;
+    self.identifier = identifier;
+    self.tags = tags;
+    self.audience = audience;
+    self.userProperties = userProperties;
+    return self;
 }
-
-- (User*)getInstance
-{
-    return self.user;
-}
-
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{ @"tags" : [self.tags convertToDictionary] ? [self.tags convertToDictionary] : [NSNull null],
         @"id" : [self.identifier convertToDictionary] ? [self.identifier convertToDictionary] : [NSNull null],
-        @"Audience" : self.Audience ? self.Audience : [NSNull null],
+        @"Audience" : self.audience ? self.audience : [NSNull null],
         @"user_properties" : [self.userProperties convertToDictionary] ? [self.userProperties convertToDictionary] : [NSNull null]
     };
     return dictionary;

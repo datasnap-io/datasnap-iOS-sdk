@@ -29,4 +29,22 @@
 @property NSString* hardware;
 @property Tags* tags;
 - (NSDictionary*)convertToDictionary;
+- (Beacon*)initWithIdentifier:(NSString*)identifier
+                         uuid:(NSString*)uuid
+                         name:(NSString*)name
+                 batterylevel:(NSString*)batteryLevel
+                  temperature:(NSString*)temperature
+                bleVendorUuid:(NSString*)bleVendorUuid
+                  bleVendorId:(NSString*)bleVendorId
+                         rssi:(NSString*)rssi
+                     isMobile:(NSString*)isMobile
+                 previousRssi:(NSString*)previousRssi
+                    dwellTime:(NSString*)dwellTime
+                    startTime:(NSString*)startTime
+               lastUpdateTime:(NSString*)lastUpdateTime
+                     latitude:(NSString*)latitude
+                    longitude:(NSString*)longitude
+                   visibility:(NSString*)visibility
+                     hardware:(NSString*)hardware
+                         tags:(Tags*)tags;
 @end

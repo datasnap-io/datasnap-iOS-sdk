@@ -7,7 +7,6 @@
 //
 #import "BaseEvent.h"
 #import "Beacon.h"
-#import "DeviceInfo.h"
 #import "EventEntity.h"
 #import "Place.h"
 #import "User.h"
@@ -16,4 +15,6 @@
 @interface BeaconEvent : BaseEvent
 @property Place* place;
 @property Beacon* beacon;
+- (BeaconEvent*)initWithEventType:(NSString*)eventType
+                           beacon:(Beacon*)beacon;
 @end

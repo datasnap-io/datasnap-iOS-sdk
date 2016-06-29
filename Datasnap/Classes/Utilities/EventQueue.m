@@ -14,9 +14,12 @@
 @implementation EventQueue
 //TODO: add timer
 - (id)initWithSize:(NSInteger)queueLength
+           andTime:(NSInteger)queueTime
 {
     if (self = [self init]) {
         self.queueLength = queueLength;
+        self.queueTime = queueTime;
+        self.maxQueueLength = 10000;
     }
     return self;
 }
@@ -48,8 +51,8 @@
         NSDictionary* response;
         if (data != nil) {
             response = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
+            [eventJsonArray addObject:response];
         }
-        [eventJsonArray addObject:response];
     }
     return eventJsonArray;
 }

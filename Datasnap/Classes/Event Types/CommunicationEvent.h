@@ -8,7 +8,6 @@
 #import "BaseEvent.h"
 #import "Campaign.h"
 #import "Communication.h"
-#import "DeviceInfo.h"
 #import "Place.h"
 #import "User.h"
 #import <Foundation/Foundation.h>
@@ -16,4 +15,9 @@
 @interface CommunicationEvent : BaseEvent
 @property Communication* communication;
 @property Campaign* campaign;
+- (CommunicationEvent*)initWithEventType:(NSString*)eventType
+                           communication:(Communication*)communication
+                                campaign:(Campaign*)campaign
+                                 venueId:(NSString*)venueId
+                      customerVenueOrgId:(NSString*)customerVenueOrgId;
 @end

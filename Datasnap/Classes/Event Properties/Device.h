@@ -7,9 +7,12 @@
 //
 
 #import "EventProperty.h"
+#import <CoreTelephony/CTCarrier.h>
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
+#import <arpa/inet.h>
+#import <ifaddrs.h>
 
 @interface Device : EventProperty
-@property NSString* userAgent;
 @property NSString* ipAddress;
 @property NSString* platform;
 @property NSString* osVersion;
@@ -19,6 +22,7 @@
 @property NSString* vendorId;
 @property NSString* carrierName;
 @property NSString* countryCode;
-@property NSString* networkCode;
 - (NSDictionary*)convertToDictionary;
+- (Device*)init;
+
 @end

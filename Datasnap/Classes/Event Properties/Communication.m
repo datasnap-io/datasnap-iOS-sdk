@@ -31,4 +31,23 @@
     };
     return dictionary;
 }
+- (Communication*)initWithDescription:(NSString*)description
+                           identifier:(NSString*)identifier
+                                title:(NSString*)title
+                                types:(Types*)types
+                              content:(Content*)content
+                               status:(NSString*)status
+                communicationVendorId:(NSString*)communicationVendorId
+                              andTags:(Tags*)tags
+{
+    self.description = description;
+    self.identifier = identifier;
+    self.title = title;
+    self.types = types;
+    self.content = content;
+    self.status = status;
+    self.communicationVendorId = communicationVendorId;
+    self.tags = tags;
+    return self;
+}
 @end

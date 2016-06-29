@@ -14,10 +14,11 @@
 @interface User : EventProperty
 @property Tags* tags;
 @property Identifier* identifier;
-@property Audience* Audience;
+@property Audience* audience;
 @property UserProperties* userProperties;
-@property (nonatomic, strong) User* user;
-- (void)initializeUser:(User*)user;
-- (User*)getInstance;
+- (User*)initWithIdentifier:(Identifier*)identifier
+                       tags:(Tags*)tags
+                   audience:(Audience*)audience
+          andUserProperties:(UserProperties*)userProperties;
 - (NSDictionary*)convertToDictionary;
 @end

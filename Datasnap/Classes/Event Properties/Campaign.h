@@ -15,4 +15,8 @@
 @property (nonatomic) NSString* communicationIds;
 @property Tags* tags;
 - (NSDictionary*)convertToDictionary;
+- (Campaign*)initWithTitle:(NSString*)title
+                identifier:(NSString*)identifier
+          communicationIds:(NSString*)communicationIds
+                   andTags:(Tags*)tags;
 @end

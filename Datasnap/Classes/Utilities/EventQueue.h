@@ -10,11 +10,13 @@
  Number of events to batch
  */
 @property NSInteger queueLength;
-
+@property NSInteger queueTime;
+@property NSInteger maxQueueLength;
 /**
  Create event queue
  */
-- (id)initWithSize:(NSInteger)queueLength;
+- (id)initWithSize:(NSInteger)queueLength
+           andTime:(NSInteger)queueTime;
 
 /**
  Record an event
