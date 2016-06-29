@@ -5,14 +5,31 @@
 //  Created by Alyssa McIntyre on 6/10/16.
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
-#import "BaseEvent.h"
+
 #import "Datasnap.h"
 
 static Datasnap* sharedInstance = nil;
 static NSString* appInstalledEventType = @"app_installed";
 NSString* googleAd = @"NO";
+@interface Datasnap ()
+@property (nonatomic) EventEntity* event;
+@property (nonatomic) Device* device;
+@property (nonatomic, strong) User* user;
+@property (nonatomic, strong) Identifier* identifier;
+@property (nonatomic) VendorProperties* vendorProperties;
+@property (nonatomic) GimbalClient* gimbalClient;
+@property (nonatomic, strong) NSString* organizationId;
+@property (nonatomic, strong) NSString* projectId;
+@property (nonatomic) DatasnapAPI* api;
+@property (nonatomic) EventQueue* eventQueue;
+@property (nonatomic) GMBLBeaconManager* beaconManager;
+@property (nonatomic) BaseClient* baseClient;
+@property (nonatomic) NSTimer* timer;
+@property (nonatomic) bool googleAdOptIn;
+@property (nonatomic) NSString* email;
+@property (nonatomic) NSString* mobileDeviceIosIdfa;
+@end
 @implementation Datasnap
-
 - (void)setFlushParamsWithDuration:(NSInteger)durationInMillis
                    withMaxElements:(NSInteger)maxElements
 {
@@ -79,10 +96,6 @@ NSString* googleAd = @"NO";
                                             tags:nil
                                         audience:nil
                                andUserProperties:nil];
-    self.baseClient = [[BaseClient alloc] initWithOrganizationId:self.organizationId
-                                                       projectId:self.projectId
-                                                          device:self.device
-                                                         andUser:self.user];
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         [self checkQueue];
         //ensure Gimbal is started if application is started offline. Gimbal cannot properly initialize if the app is offline during startup.
@@ -106,7 +119,6 @@ NSString* googleAd = @"NO";
     }
     return nil;
 }
-
 - (void)onDataInitialized
 {
     if (!self.vendorProperties) {
@@ -125,7 +137,14 @@ NSString* googleAd = @"NO";
         break;
     case ESTIMOTE:
         break;
+    default:
+        self.baseClient = [[BaseClient alloc] initWithOrganizationId:self.organizationId
+                                                           projectId:self.projectId
+                                                              device:self.device
+                                                             andUser:self.user];
+        break;
     }
+
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isAppAlreadyLaunchedOnce"]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isAppAlreadyLaunchedOnce"];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -133,7 +152,6 @@ NSString* googleAd = @"NO";
         [self trackEvent:event];
     }
 }
-
 - (void)trackEvent:(BaseEvent*)event
 {
     event.organizationIds = @[ self.organizationId ];
@@ -148,17 +166,10 @@ NSString* googleAd = @"NO";
         [self.eventQueue recordEvent:eventJson];
     }
 }
-
-+ (void)debug:(BOOL)showDebugLogs
-{
-    DSIOSetShowDebugLogs(showDebugLogs);
-}
-
 - (BOOL)connected
 {
     return [AFNetworkReachabilityManager sharedManager].reachable;
 }
-
 - (void)checkQueue
 {
     if ([self connected]) {

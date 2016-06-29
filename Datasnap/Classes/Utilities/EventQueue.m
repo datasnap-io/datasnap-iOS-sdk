@@ -12,7 +12,6 @@
 @end
 
 @implementation EventQueue
-//TODO: add timer
 - (id)initWithSize:(NSInteger)queueLength
            andTime:(NSInteger)queueTime
 {

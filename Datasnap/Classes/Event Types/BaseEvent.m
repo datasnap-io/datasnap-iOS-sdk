@@ -6,7 +6,6 @@
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
 #import "BaseEvent.h"
-#import "Datasnap.h"
 
 @implementation BaseEvent
 @synthesize dataSnapVersion;

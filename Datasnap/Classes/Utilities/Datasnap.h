@@ -5,18 +5,45 @@
 //  Created by Alyssa McIntyre on 6/10/16.
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
-#import "BaseClient.h"
+#pragma mark event types
+#import "BaseEvent.h"
 #import "BeaconEvent.h"
+#import "CommunicationEvent.h"
+#import "GeofenceEvent.h"
+#import "GlobalPositionEvent.h"
+#import "InteractionEvent.h"
+#import "UpdateEvent.h"
+#pragma mark utilities
+#import "BaseClient.h"
 #import "DSIOConfig.h"
 #import "DatasnapAPI.h"
-#import "Device.h"
-#import "Event+Management.h"
 #import "EventQueue.h"
-#import "GeofenceEvent.h"
+#import "GZip.h"
 #import "GimbalClient.h"
 #import "NSString+Helpers.h"
-#import "User.h"
 #import "VendorProperties.h"
+#pragma mark event properties
+#import "Audience.h"
+#import "Beacon.h"
+#import "Campaign.h"
+#import "Communication.h"
+#import "Content.h"
+#import "DefaultProperties.h"
+#import "Device.h"
+#import "EventProperty.h"
+#import "Geofence.h"
+#import "GeofenceCircle.h"
+#import "GlobalPosition.h"
+#import "Identifier.h"
+#import "Location.h"
+#import "Place.h"
+#import "Tags.h"
+#import "Types.h"
+#import "User.h"
+#import "UserProperties.h"
+#pragma mark model
+#import "Event+Management.h"
+#pragma mark frameworks
 #import <AFNetworking/AFNetworking.h>
 #import <AdSupport/ASIdentifierManager.h>
 #import <Foundation/Foundation.h>
@@ -24,25 +51,8 @@
 
 @class BaseEvent;
 @interface Datasnap : NSObject
-@property (nonatomic) EventEntity* event;
-@property (nonatomic) Device* device;
-@property (nonatomic, strong) User* user;
-@property (nonatomic, strong) Identifier* identifier;
-@property (nonatomic) VendorProperties* vendorProperties;
-@property (nonatomic) GimbalClient* gimbalClient;
-@property (nonatomic, strong) NSString* organizationId;
-@property (nonatomic, strong) NSString* projectId;
-@property (nonatomic) DatasnapAPI* api;
-@property (nonatomic) EventQueue* eventQueue;
-@property (nonatomic) GMBLBeaconManager* beaconManager;
-@property (nonatomic) BaseClient* baseClient;
-@property (nonatomic) NSTimer* timer;
-@property (nonatomic) bool googleAdOptIn;
-@property (nonatomic) NSString* email;
-@property (nonatomic) NSString* mobileDeviceIosIdfa;
 - (void)trackEvent:(BaseEvent*)event;
 + (id)sharedClient;
-- (void)genericEvent:(NSDictionary*)eventDetails;
 - (id)initWithApiKey:(NSString*)apiKey
         apiKeySecret:(NSString*)apiKeySecret
       organizationId:(NSString*)organizationId

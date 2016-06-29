@@ -9,7 +9,6 @@
 #import "GZip.h"
 
 @implementation GZip
-
 + (NSData*)gzipData:(NSData*)pUncompressedData
 {
     if (!pUncompressedData || [pUncompressedData length] == 0) {
