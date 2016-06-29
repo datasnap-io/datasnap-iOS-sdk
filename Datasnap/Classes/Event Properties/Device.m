@@ -40,18 +40,12 @@
     self.model = [UIDevice currentDevice].model;
     self.platform = [UIDevice currentDevice].systemName;
     self.osVersion = [UIDevice currentDevice].systemVersion;
-    self.name = [self getDeviceName:[UIDevice currentDevice].name];
+    self.name = [UIDevice currentDevice].name;
     self.vendorId = [NSString stringWithFormat:@"%@", [UIDevice currentDevice].identifierForVendor];
     self.carrierName = [self getCarrierName];
     self.ipAddress = [self getIPAddress];
     self.countryCode = [self getCountyCode];
     return self;
-}
-- (NSString*)getDeviceName:(NSString*)deviceName
-{
-    NSCharacterSet* charactersToRemove = [[NSCharacterSet alphanumericCharacterSet] invertedSet];
-    NSString* strippedReplacement = [[deviceName componentsSeparatedByCharactersInSet:charactersToRemove] componentsJoinedByString:@""];
-    return strippedReplacement;
 }
 - (NSString*)getCarrierName
 {
