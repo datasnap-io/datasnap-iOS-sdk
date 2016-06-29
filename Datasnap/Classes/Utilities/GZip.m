@@ -83,6 +83,7 @@
     }
     deflateEnd(&zlibStreamStruct);
     [compressedData setLength:zlibStreamStruct.total_out];
+    NSLog(@"Payload size of request: %d KB", [compressedData length] / 1024);
     return compressedData;
 }
 

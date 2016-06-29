@@ -99,7 +99,7 @@ NSString* googleAd = @"NO";
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         [self checkQueue];
         //ensure Gimbal is started if application is started offline. Gimbal cannot properly initialize if the app is offline during startup.
-        if (!self.gimbalClient && self.vendorProperties.vendor == GIMBAL) {
+        if (!self.gimbalClient && self.vendorProperties.vendor == GIMBAL && [AFNetworkReachabilityManager sharedManager].reachable) {
             self.gimbalClient = [[GimbalClient alloc] initWithGimbalApiKey:self.vendorProperties.gimbalApiKey
                                                                     device:self.device
                                                             organizationId:self.organizationId
@@ -175,7 +175,7 @@ NSString* googleAd = @"NO";
     if ([self connected]) {
         if (self.eventQueue.numberOfQueuedEvents >= self.eventQueue.queueLength) {
             if ([self.api sendEvents:self.eventQueue.getEvents]) {
-                DSIOLog(@"Queue is full. %d will be sent to service and flushed.", (int)self.eventQueue.numberOfQueuedEvents);
+                NSLog(@"Queue is full. %d events will be sent to service and flushed.", (int)self.eventQueue.numberOfQueuedEvents);
                 [self.eventQueue flushQueue];
             }
         }

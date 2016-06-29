@@ -99,7 +99,7 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
                                                   identifier:self.projectId
                                             communicationIds:communication.identifier
                                                      andTags:nil];
-        CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:@"communicationSentEventType"
+        CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:communicationSentEventType
                                                                     communication:dataSnapCommunication
                                                                          campaign:campaign
                                                                           venueId:visit.visitID
@@ -126,7 +126,7 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
                                               identifier:self.projectId
                                         communicationIds:communication.identifier
                                                  andTags:nil];
-    CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:@"communicationSentEventType"
+    CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:communicationSentEventType
                                                                 communication:dataSnapCommunication
                                                                      campaign:campaign
                                                                       venueId:nil
