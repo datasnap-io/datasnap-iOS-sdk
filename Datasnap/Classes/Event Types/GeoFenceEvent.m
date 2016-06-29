@@ -27,7 +27,6 @@
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{
-        @"created" : self.created,
         @"dataSnap_Version" : self.dataSnapVersion,
         @"event_type" : self.eventType,
         @"organization_ids" : self.organizationIds,
@@ -36,7 +35,8 @@
         @"customer_venue_org_id" : self.customerVenueOrgId ? self.customerVenueOrgId : [NSNull null],
         @"venue_org_id" : self.venueOrgId ? self.venueOrgId : [NSNull null],
         @"user" : [self.user convertToDictionary],
-        @"device" : [self.device convertToDictionary],
+        @"datasnap" : @{ @"device" : [self.device convertToDictionary],
+            @"created" : self.created },
         @"additional_properties" : self.additionalProperties ? self.additionalProperties : [NSNull null],
         @"geofence" : self.geofence ? [self.geofence convertToDictionary] : [NSNull null],
         @"location" : self.location ? [self.location convertToDictionary] : [NSNull null]

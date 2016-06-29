@@ -47,21 +47,18 @@
     self.countryCode = [self getCountyCode];
     return self;
 }
-
 - (NSString*)getDeviceName:(NSString*)deviceName
 {
     NSCharacterSet* charactersToRemove = [[NSCharacterSet alphanumericCharacterSet] invertedSet];
     NSString* strippedReplacement = [[deviceName componentsSeparatedByCharactersInSet:charactersToRemove] componentsJoinedByString:@""];
     return strippedReplacement;
 }
-
 - (NSString*)getCarrierName
 {
     CTTelephonyNetworkInfo* netinfo = [CTTelephonyNetworkInfo new];
     CTCarrier* carrier = [netinfo subscriberCellularProvider];
     return [carrier carrierName];
 }
-
 - (NSString*)getIPAddress
 {
     NSString* address = @"error";
@@ -83,7 +80,6 @@
     freeifaddrs(interfaces);
     return address;
 }
-
 - (NSString*)getCountyCode
 {
     NSLocale* currentLocale = [NSLocale currentLocale];
