@@ -8,5 +8,6 @@ target 'Datasnap_Example' do
         
         pod 'Kiwi'
         pod 'Gimbal'
+        pod 'AFNetworking'
     end
 end
