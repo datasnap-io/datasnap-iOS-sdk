@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 Layne McIntyre. All rights reserved.
 //
 #import <Datasnap/Datasnap.h>
+#import <Gimbal/Gimbal.h>
 #import <UIKit/UIKit.h>
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate>
 

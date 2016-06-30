@@ -13,10 +13,10 @@
 @property GMBLCommunicationManager* communicationManager;
 @property NSDictionary* sighting;
 @property NSString* gimbalApiKey;
-- (GimbalClient*)initWithGimbalApiKey:(NSString*)gimbalApiKey
-                               device:(Device*)device
-                       organizationId:(NSString*)organizationId
-                            projectId:(NSString*)projectId
-                              andUser:(User*)user;
+- (GimbalClient*)initWithVendorProperties:(VendorProperties*)vendorProperties
+                                   device:(Device*)device
+                           organizationId:(NSString*)organizationId
+                                projectId:(NSString*)projectId
+                                  andUser:(User*)user;
 - (void)startGimbal;
 @end

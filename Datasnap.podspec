@@ -30,7 +30,7 @@ s.source           = { :git => 'https://github.com/datasnap-io/datasnap-ios-sdk.
 
 s.ios.deployment_target = '8.0'
 
-s.source_files = 'Datasnap/Classes/**/*.{c,h,hh,m,mm}'
+s.source_files = 'Datasnap/Classes/{Event Properties,Event Types,Model,Utilities}/*.{c,h,hh,m,mm}'
 
 # s.resource_bundles = {
 #   'Datasnap' => ['Datasnap/Assets/*.png']
@@ -39,6 +39,13 @@ s.source_files = 'Datasnap/Classes/**/*.{c,h,hh,m,mm}'
 # s.public_header_files = 'Pod/Classes/**/*.h'
 s.frameworks = 'CoreData'
 s.resources      = 'Datasnap/Classes/**/*.{xcdatamodeld,xcdatamodel}'
-s.dependency 'Gimbal'
 s.dependency 'AFNetworking'
+s.default_subspec = 'Gimbal'
+s.subspec 'Generic' do |generic|
+# subspec for users who don't want the third party Gimbal bloat
+end
+s.subspec 'Gimbal' do |gimbal|
+gimbal.dependency 'Gimbal'
+gimbal.source_files = 'Datasnap/Classes/Gimbal/*.{h,m}'
+end
 end

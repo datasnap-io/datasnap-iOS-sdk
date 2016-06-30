@@ -7,7 +7,7 @@
 //
 
 #import "Datasnap.h"
-
+//TODO: move file to root
 static Datasnap* sharedInstance = nil;
 static NSString* appInstalledEventType = @"app_installed";
 NSString* googleAd = @"NO";
@@ -16,13 +16,13 @@ NSString* googleAd = @"NO";
 @property (nonatomic) Device* device;
 @property (nonatomic, strong) User* user;
 @property (nonatomic, strong) Identifier* identifier;
+@property (nonatomic) SEL gimbalInit;
 @property (nonatomic) VendorProperties* vendorProperties;
-@property (nonatomic) GimbalClient* gimbalClient;
+@property (nonatomic) id gimbalClient;
 @property (nonatomic, strong) NSString* organizationId;
 @property (nonatomic, strong) NSString* projectId;
 @property (nonatomic) DatasnapAPI* api;
 @property (nonatomic) EventQueue* eventQueue;
-@property (nonatomic) GMBLBeaconManager* beaconManager;
 @property (nonatomic) BaseClient* baseClient;
 @property (nonatomic) NSTimer* timer;
 @property (nonatomic) bool googleAdOptIn;
@@ -100,12 +100,19 @@ NSString* googleAd = @"NO";
         [self checkQueue];
         //ensure Gimbal is started if application is started offline. Gimbal cannot properly initialize if the app is offline during startup.
         if (self.vendorProperties && !self.gimbalClient && self.vendorProperties.vendor == GIMBAL && [AFNetworkReachabilityManager sharedManager].reachable) {
-            self.gimbalClient = [[GimbalClient alloc] initWithGimbalApiKey:self.vendorProperties.gimbalApiKey
-                                                                    device:self.device
-                                                            organizationId:self.organizationId
-                                                                 projectId:self.projectId
-                                                                   andUser:self.user];
-            [self.gimbalClient startGimbal];
+            self.gimbalInit = NSSelectorFromString(@"initWithVendorProperties:device:organizationId:projectId:andUser:");
+            self.gimbalClient = [[NSClassFromString(@"GimbalClient") alloc] init];
+            if ([self.gimbalClient respondsToSelector:self.gimbalInit]) {
+                NSInvocation* inv = [NSInvocation invocationWithMethodSignature:[self.gimbalClient methodSignatureForSelector:self.gimbalInit]];
+                [inv setSelector:self.gimbalInit];
+                [inv setTarget:self.gimbalClient];
+                [inv setArgument:&self->_vendorProperties atIndex:2];
+                [inv setArgument:&self->_device atIndex:3];
+                [inv setArgument:&self->_organizationId atIndex:4];
+                [inv setArgument:&self->_projectId atIndex:5];
+                [inv setArgument:&self->_user atIndex:6];
+                [inv invoke];
+            }
         }
     }];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
@@ -127,12 +134,19 @@ NSString* googleAd = @"NO";
     switch (self.vendorProperties.vendor) {
     case GIMBAL:
         if ([AFNetworkReachabilityManager sharedManager].reachable) {
-            self.gimbalClient = [[GimbalClient alloc] initWithGimbalApiKey:self.vendorProperties.gimbalApiKey
-                                                                    device:self.device
-                                                            organizationId:self.organizationId
-                                                                 projectId:self.projectId
-                                                                   andUser:self.user];
-            [self.gimbalClient startGimbal];
+            self.gimbalInit = NSSelectorFromString(@"initWithVendorProperties:device:organizationId:projectId:andUser:");
+            self.gimbalClient = [[NSClassFromString(@"GimbalClient") alloc] init];
+            if ([self.gimbalClient respondsToSelector:self.gimbalInit]) {
+                NSInvocation* inv = [NSInvocation invocationWithMethodSignature:[self.gimbalClient methodSignatureForSelector:self.gimbalInit]];
+                [inv setSelector:self.gimbalInit];
+                [inv setTarget:self.gimbalClient];
+                [inv setArgument:&self->_vendorProperties atIndex:2];
+                [inv setArgument:&self->_device atIndex:3];
+                [inv setArgument:&self->_organizationId atIndex:4];
+                [inv setArgument:&self->_projectId atIndex:5];
+                [inv setArgument:&self->_user atIndex:6];
+                [inv invoke];
+            }
         }
         break;
     case ESTIMOTE:

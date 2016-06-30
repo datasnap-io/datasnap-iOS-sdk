@@ -29,17 +29,18 @@ static NSString* beaconSightingEventType = @"beacon_sighting";
 static NSString* communicationSentEventType = @"ds_communication_sent";
 static NSString* communicationOpenEventType = @"ds_communication_open";
 @implementation GimbalClient
-- (GimbalClient*)initWithGimbalApiKey:(NSString*)gimbalApiKey
-                               device:(Device*)device
-                       organizationId:(NSString*)organizationId
-                            projectId:(NSString*)projectId
-                              andUser:(User*)user
+- (GimbalClient*)initWithVendorProperties:(VendorProperties*)vendorProperties
+                                   device:(Device*)device
+                           organizationId:(NSString*)organizationId
+                                projectId:(NSString*)projectId
+                                  andUser:(User*)user
 {
-    self.gimbalApiKey = gimbalApiKey;
-    self.organizationId = organizationId;
-    self.projectId = projectId;
-    self.user = user;
-    self.device = device;
+    self.gimbalApiKey = (NSString*)vendorProperties.gimbalApiKey;
+    self.organizationId = (NSString*)organizationId;
+    self.projectId = (NSString*)projectId;
+    self.user = (NSString*)user;
+    self.device = (NSString*)device;
+    [self startGimbal];
     return self;
 }
 - (void)startGimbal
@@ -104,7 +105,7 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
                                                   identifier:self.projectId
                                             communicationIds:communication.identifier
                                                      andTags:nil];
-        CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:communicationSentEventType
+        CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:(NSString*)communicationSentEventType
                                                                     communication:dataSnapCommunication
                                                                          campaign:campaign
                                                                           venueId:visit.visitID

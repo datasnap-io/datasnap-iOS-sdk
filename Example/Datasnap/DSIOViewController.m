@@ -13,6 +13,7 @@
     self.datasnap = [Datasnap sharedClient];
     [super viewDidLoad];
 }
+//TODO: add enum for event types, add comments
 - (IBAction)beaconSightingButtonTouched:(id)sender
 {
     BeaconEvent* beaconEvent = [[BeaconEvent alloc] initWithEventType:@"beacon_sighting"
