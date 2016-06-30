@@ -16,5 +16,6 @@
 {
     self.vendor = vendor;
     self.gimbalApiKey = gimbalApiKey;
+    return self;
 }
 @end
