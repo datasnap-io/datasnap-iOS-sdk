@@ -19,7 +19,6 @@
 #import "DatasnapAPI.h"
 #import "EventQueue.h"
 #import "GZip.h"
-#import "GimbalClient.h"
 #import "NSString+Helpers.h"
 #import "VendorProperties.h"
 #pragma mark event properties
