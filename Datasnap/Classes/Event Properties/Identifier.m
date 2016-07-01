@@ -50,19 +50,29 @@
 }
 
 - (Identifier *)initWithGlobalUserIpAddress:(NSString*)globalUserIpAddress
-                               hashedEmail:(NSString*)hashedEmail
-                       mobileDeviceIosIdfa:(NSString*)mobileDeviceIosIdfa
-      mobileDeviceGoogleAdvertisingIdOptIn:(NSString*)mobileDeviceGoogleAdvertisingIdOptIn
+                                hashedEmail:(NSString*)hashedEmail
+                         advertisingOptedIn:(BOOL)advertisingOptedIn
 {
     self.globalUserIpAddress = globalUserIpAddress;
     self.hashedEmail = hashedEmail;
-    self.mobileDeviceIosIdfa = mobileDeviceIosIdfa;
-    self.mobileDeviceGoogleAdvertisingIdOptIn = mobileDeviceGoogleAdvertisingIdOptIn;
-
     self.globalDistinctId = [[NSUUID UUID] UUIDString];
     self.mobileDeviceIosUdid = [[NSUUID UUID] UUIDString];
 
+    self.mobileDeviceGoogleAdvertisingIdOptIn = advertisingOptedIn ? @"YES" : @"NO";
+    if (advertisingOptedIn) {
+        self.mobileDeviceIosIdfa = [self identifierForAdvertising];
+    }
+
     return self;
+}
+
+- (NSString*)identifierForAdvertising
+{
+    if ([[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled]) {
+        NSUUID* IDFA = [[ASIdentifierManager sharedManager] advertisingIdentifier];
+        return [IDFA UUIDString];
+    }
+    return nil;
 }
 
 @end

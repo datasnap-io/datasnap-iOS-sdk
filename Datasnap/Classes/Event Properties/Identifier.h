@@ -6,6 +6,7 @@
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
 #import "EventProperty.h"
+#import <AdSupport/ASIdentifierManager.h>
 
 @interface Identifier : EventProperty
 @property NSString* datasnapUuid;
@@ -29,6 +30,6 @@
 - (NSDictionary*)convertToDictionary;
 - (Identifier *)initWithGlobalUserIpAddress:(NSString *)globalUserIpAddress
                                 hashedEmail:(NSString *)hashedEmail
-                        mobileDeviceIosIdfa:(NSString *)mobileDeviceIosIdfa
-       mobileDeviceGoogleAdvertisingIdOptIn:(NSString *)mobileDeviceGoogleAdvertisingIdOptIn;
+                         advertisingOptedIn:(BOOL)advertisingOptedIn;
+
 @end

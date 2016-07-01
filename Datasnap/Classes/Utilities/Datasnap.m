@@ -74,17 +74,11 @@ NSString *const GimbalClientInitializerMethod = @"initWithVendorProperties:devic
 
 - (void)initializeData
 {
-    NSString *googleAdOptIn = self.googleAdOptIn ? @"YES" : @"NO";
-
-    if (self.googleAdOptIn) {
-        self.mobileDeviceIosIdfa = [self identifierForAdvertising];
-    }
+    self.device = [[Device alloc] init];
     self.identifier = [[Identifier alloc] initWithGlobalUserIpAddress:self.device.ipAddress
                                                           hashedEmail:[self.email toSha1]
-                                                  mobileDeviceIosIdfa:self.mobileDeviceIosIdfa
-                                 mobileDeviceGoogleAdvertisingIdOptIn:googleAdOptIn];
+                                                   advertisingOptedIn:self.googleAdOptIn];
 
-    self.device = [[Device alloc] init];
     self.user = [[User alloc] initWithIdentifier:self.identifier
                                             tags:nil
                                         audience:nil
@@ -102,14 +96,6 @@ NSString *const GimbalClientInitializerMethod = @"initWithVendorProperties:devic
 
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     [self onDataInitialized];
-}
-- (NSString*)identifierForAdvertising
-{
-    if ([[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled]) {
-        NSUUID* IDFA = [[ASIdentifierManager sharedManager] advertisingIdentifier];
-        return [IDFA UUIDString];
-    }
-    return nil;
 }
 
 - (void)startGimbal
