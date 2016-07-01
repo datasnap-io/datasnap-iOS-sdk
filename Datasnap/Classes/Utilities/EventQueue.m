@@ -28,6 +28,8 @@
 {
     if (self = [super init]) {
         self.eventQueue = [NSMutableArray new];
+        CoreDataHelper* coreDataHelper = [CoreDataHelper sharedManager];
+        self.context = coreDataHelper.context;
     }
     return self;
 }
@@ -37,7 +39,7 @@
     NSError* err;
     NSData* jsonData = [NSJSONSerialization dataWithJSONObject:details options:0 error:&err];
     NSString* myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    self.event = [EventEntity createEventEntity];
+    self.event = [EventEntity createEventEntityInContext:self.context];
     self.event.json = myString;
 }
 

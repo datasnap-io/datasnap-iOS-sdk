@@ -13,6 +13,9 @@
 + (EventEntity*)createEventEntity;
 + (NSMutableArray*)returnAllEvents;
 + (NSMutableArray*)returnAllEventsInContext:(NSManagedObjectContext*)context;
++ (void)deleteEvent:(EventEntity*)event
+          inContext:(NSManagedObjectContext*)context;
++ (void)deleteEvent:(EventEntity*)event;
 + (void)deleteAllEvents:(NSMutableArray*)eventsArray;
 + (void)deleteAllEvents:(NSMutableArray*)eventsArray inContext:(NSManagedObjectContext*)context;
 @end

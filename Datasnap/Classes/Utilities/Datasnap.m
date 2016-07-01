@@ -21,7 +21,6 @@ NSString* googleAd = @"NO";
 @property (nonatomic) id gimbalClient;
 @property (nonatomic, strong) NSString* organizationId;
 @property (nonatomic, strong) NSString* projectId;
-@property (nonatomic) DatasnapAPI* api;
 @property (nonatomic) EventQueue* eventQueue;
 @property (nonatomic) BaseClient* baseClient;
 @property (nonatomic) NSTimer* timer;

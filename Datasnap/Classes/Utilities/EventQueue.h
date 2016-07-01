@@ -12,6 +12,7 @@
 @property NSInteger queueLength;
 @property NSInteger queueTime;
 @property NSInteger maxQueueLength;
+@property NSManagedObjectContext* context;
 /**
  Create event queue
  */

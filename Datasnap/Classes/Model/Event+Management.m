@@ -12,7 +12,7 @@
 + (EventEntity*)createEventEntityInContext:(NSManagedObjectContext*)context
 {
     EventEntity* event = [NSEntityDescription insertNewObjectForEntityForName:@"EventEntity"
-                                                 inManagedObjectContext:context];
+                                                       inManagedObjectContext:context];
     CoreDataHelper* coreDataHelper = [CoreDataHelper sharedManager];
     [coreDataHelper saveInContext:coreDataHelper.context];
     return event;
@@ -43,6 +43,16 @@
 {
     CoreDataHelper* coreDataHelper = [CoreDataHelper sharedManager];
     [[self class] deleteAllEvents:eventsArray inContext:coreDataHelper.context];
+}
++ (void)deleteEvent:(EventEntity*)event
+          inContext:(NSManagedObjectContext*)context
+{
+    [context deleteObject:event];
+}
++ (void)deleteEvent:(EventEntity*)event
+{
+    CoreDataHelper* coreDataHelper = [CoreDataHelper sharedManager];
+    [coreDataHelper.context deleteObject:event];
 }
 + (void)deleteAllEvents:(NSMutableArray*)eventsArray inContext:(NSManagedObjectContext*)context
 {

@@ -2,12 +2,12 @@
 
 target 'Datasnap_Example' do
     pod 'Datasnap', :path => '../'
-    
+    pod 'Gimbal'
+    pod 'AFNetworking'
     target 'Datasnap_Tests' do
         inherit! :search_paths
         
         pod 'Kiwi'
-        pod 'Gimbal'
-        pod 'AFNetworking'
+        pod 'MagicalRecord'
     end
 end

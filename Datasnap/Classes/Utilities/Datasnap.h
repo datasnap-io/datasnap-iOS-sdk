@@ -50,6 +50,7 @@
 
 @class BaseEvent;
 @interface Datasnap : NSObject
+@property (nonatomic) DatasnapAPI* api;
 - (void)trackEvent:(BaseEvent*)event;
 + (id)sharedClient;
 - (id)initWithApiKey:(NSString*)apiKey
@@ -61,4 +62,6 @@
  andVendorProperties:(VendorProperties*)vendorProperties;
 - (void)setFlushParamsWithDuration:(NSInteger)durationInMillis
                    withMaxElements:(NSInteger)maxElements;
+- (void)checkQueue;
+- (BOOL)connected;
 @end
