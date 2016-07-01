@@ -10,12 +10,15 @@
 //TODO: move file to root
 static Datasnap* sharedInstance = nil;
 static NSString* appInstalledEventType = @"app_installed";
+
+NSString *const GimbalClientClassName = @"GimbalClient";
+NSString *const GimbalClientInitializerMethod = @"initWithVendorProperties:device:organizationId:projectId:andUser:";
+
 @interface Datasnap ()
 @property (nonatomic) EventEntity* event;
 @property (nonatomic) Device* device;
 @property (nonatomic, strong) User* user;
 @property (nonatomic, strong) Identifier* identifier;
-@property (nonatomic) SEL gimbalInit;
 @property (nonatomic) VendorProperties* vendorProperties;
 @property (nonatomic) id gimbalClient;
 @property (nonatomic, strong) NSString* organizationId;
@@ -77,34 +80,26 @@ static NSString* appInstalledEventType = @"app_installed";
         self.mobileDeviceIosIdfa = [self identifierForAdvertising];
     }
     self.identifier = [[Identifier alloc] initWithGlobalUserIpAddress:self.device.ipAddress
-                                                   hashedEmail:[self.email toSha1]
-                                           mobileDeviceIosIdfa:self.mobileDeviceIosIdfa
-                          mobileDeviceGoogleAdvertisingIdOptIn:googleAdOptIn];
+                                                          hashedEmail:[self.email toSha1]
+                                                  mobileDeviceIosIdfa:self.mobileDeviceIosIdfa
+                                 mobileDeviceGoogleAdvertisingIdOptIn:googleAdOptIn];
 
     self.device = [[Device alloc] init];
     self.user = [[User alloc] initWithIdentifier:self.identifier
                                             tags:nil
                                         audience:nil
                                andUserProperties:nil];
+
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         [self checkQueue];
-        //ensure Gimbal is started if application is started offline. Gimbal cannot properly initialize if the app is offline during startup.
+
+        // Ensure Gimbal is started if application is started offline.
+        // Gimbal cannot properly initialize if the app is offline during startup.
         if (self.vendorProperties && !self.gimbalClient && self.vendorProperties.vendor == GIMBAL && [AFNetworkReachabilityManager sharedManager].reachable) {
-            self.gimbalInit = NSSelectorFromString(@"initWithVendorProperties:device:organizationId:projectId:andUser:");
-            self.gimbalClient = [[NSClassFromString(@"GimbalClient") alloc] init];
-            if ([self.gimbalClient respondsToSelector:self.gimbalInit]) {
-                NSInvocation* inv = [NSInvocation invocationWithMethodSignature:[self.gimbalClient methodSignatureForSelector:self.gimbalInit]];
-                [inv setSelector:self.gimbalInit];
-                [inv setTarget:self.gimbalClient];
-                [inv setArgument:&self->_vendorProperties atIndex:2];
-                [inv setArgument:&self->_device atIndex:3];
-                [inv setArgument:&self->_organizationId atIndex:4];
-                [inv setArgument:&self->_projectId atIndex:5];
-                [inv setArgument:&self->_user atIndex:6];
-                [inv invoke];
-            }
+            [self startGimbal];
         }
     }];
+
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     [self onDataInitialized];
 }
@@ -116,6 +111,24 @@ static NSString* appInstalledEventType = @"app_installed";
     }
     return nil;
 }
+
+- (void)startGimbal
+{
+    SEL gimbalInit = NSSelectorFromString(GimbalClientInitializerMethod);
+    self.gimbalClient = [[NSClassFromString(GimbalClientClassName) alloc] init];
+    if ([self.gimbalClient respondsToSelector:gimbalInit]) {
+        NSInvocation* inv = [NSInvocation invocationWithMethodSignature:[self.gimbalClient methodSignatureForSelector:gimbalInit]];
+        [inv setSelector:gimbalInit];
+        [inv setTarget:self.gimbalClient];
+        [inv setArgument:&self->_vendorProperties atIndex:2];
+        [inv setArgument:&self->_device atIndex:3];
+        [inv setArgument:&self->_organizationId atIndex:4];
+        [inv setArgument:&self->_projectId atIndex:5];
+        [inv setArgument:&self->_user atIndex:6];
+        [inv invoke];
+    }
+}
+
 - (void)onDataInitialized
 {
     if (!self.vendorProperties) {
@@ -124,19 +137,7 @@ static NSString* appInstalledEventType = @"app_installed";
     switch (self.vendorProperties.vendor) {
     case GIMBAL:
         if ([AFNetworkReachabilityManager sharedManager].reachable) {
-            self.gimbalInit = NSSelectorFromString(@"initWithVendorProperties:device:organizationId:projectId:andUser:");
-            self.gimbalClient = [[NSClassFromString(@"GimbalClient") alloc] init];
-            if ([self.gimbalClient respondsToSelector:self.gimbalInit]) {
-                NSInvocation* inv = [NSInvocation invocationWithMethodSignature:[self.gimbalClient methodSignatureForSelector:self.gimbalInit]];
-                [inv setSelector:self.gimbalInit];
-                [inv setTarget:self.gimbalClient];
-                [inv setArgument:&self->_vendorProperties atIndex:2];
-                [inv setArgument:&self->_device atIndex:3];
-                [inv setArgument:&self->_organizationId atIndex:4];
-                [inv setArgument:&self->_projectId atIndex:5];
-                [inv setArgument:&self->_user atIndex:6];
-                [inv invoke];
-            }
+            [self startGimbal];
         }
         break;
     case ESTIMOTE:
