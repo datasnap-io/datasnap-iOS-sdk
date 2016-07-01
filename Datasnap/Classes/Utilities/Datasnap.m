@@ -10,7 +10,6 @@
 //TODO: move file to root
 static Datasnap* sharedInstance = nil;
 static NSString* appInstalledEventType = @"app_installed";
-NSString* googleAd = @"NO";
 @interface Datasnap ()
 @property (nonatomic) EventEntity* event;
 @property (nonatomic) Device* device;
@@ -59,6 +58,7 @@ NSString* googleAd = @"NO";
     [self initializeData];
     return self;
 }
+
 + (id)sharedClient
 {
     static Datasnap* sharedClient = nil;
@@ -68,29 +68,19 @@ NSString* googleAd = @"NO";
     });
     return sharedClient;
 }
+
 - (void)initializeData
 {
+    NSString *googleAdOptIn = self.googleAdOptIn ? @"YES" : @"NO";
+
     if (self.googleAdOptIn) {
-        googleAd = @"YES";
         self.mobileDeviceIosIdfa = [self identifierForAdvertising];
     }
-    self.identifier = [[Identifier alloc] initWithDatasnapUuid:[NSNull null]
-                                               domainSessionId:NULL
-                                                  facebookUuid:nil
-                                              globalDistinctId:[[NSUUID UUID] UUIDString]
-                                           globalUserIpAddress:self.device.ipAddress
+    self.identifier = [[Identifier alloc] initWithGlobalUserIpAddress:self.device.ipAddress
                                                    hashedEmail:[self.email toSha1]
-                               mobileDeviceBluetoothIdentifier:nil
                                            mobileDeviceIosIdfa:self.mobileDeviceIosIdfa
-                                           mobileDeviceIosUdid:[[NSUUID UUID] UUIDString]
-                                       mobileDeviceFingerprint:nil
-                          mobileDeviceGoogleAdvertisingIdOptIn:googleAd
-                                               webDomainUserId:nil
-                                                     webCookie:nil
-                                              webNetworkUserId:nil
-                                            webUserFingerPrint:nil
-                                    webAnalyticsCompanyZCookie:nil
-                                                    andUnknown:nil];
+                          mobileDeviceGoogleAdvertisingIdOptIn:googleAdOptIn];
+
     self.device = [[Device alloc] init];
     self.user = [[User alloc] initWithIdentifier:self.identifier
                                             tags:nil

@@ -20,7 +20,7 @@
 @synthesize webUserFingerprint;
 @synthesize webAnalyticsCompanyZCookie;
 @synthesize globalDistinctId;
-@synthesize globalUserIpaddress;
+@synthesize globalUserIpAddress;
 @synthesize mobileDeviceFingerprint;
 @synthesize facebookUuid;
 @synthesize mobileDeviceGoogleAdvertisingIdOptIn;
@@ -33,7 +33,7 @@
         @"domain_session_id" : self.domainSessionid ? self.domainSessionid : [NSNull null],
         @"facebook_uuid" : self.facebookUuid ? self.facebookUuid : [NSNull null],
         @"global_distinct_id" : self.globalDistinctId ? self.globalDistinctId : [NSNull null],
-        @"global_user_id_address" : self.globalUserIpaddress ? self.globalUserIpaddress : [NSNull null],
+        @"global_user_id_address" : self.globalUserIpAddress ? self.globalUserIpAddress : [NSNull null],
         @"hashed_email" : self.hashedEmail ? self.hashedEmail : [NSNull null],
         @"mobile_device_bluetooth_identifier" : self.mobileDeviceBluetoothIdentifier ? self.mobileDeviceBluetoothIdentifier : [NSNull null],
         @"mobile_device_ios_idfa" : self.mobileDeviceIosIdfa ? self.mobileDeviceIosIdfa : [NSNull null],
@@ -48,41 +48,21 @@
     };
     return dictionary;
 }
-- (Identifier*)initWithDatasnapUuid:(NSString*)datasnapUuid
-                         domainSessionId:(NSString*)domainSessionId
-                            facebookUuid:(NSString*)facebookUuid
-                        globalDistinctId:(NSString*)globalDistinctId
-                     globalUserIpAddress:(NSString*)globalUserIpAddress
-                             hashedEmail:(NSString*)hashedEmail
-         mobileDeviceBluetoothIdentifier:(NSString*)mobileDeviceBluetoothIdentifier
-                     mobileDeviceIosIdfa:(NSString*)mobileDeviceIosIdfa
-                     mobileDeviceIosUdid:(NSString*)mobileDeviceIosUuid
-                 mobileDeviceFingerprint:(NSString*)mobileDeviceFingerprint
-    mobileDeviceGoogleAdvertisingIdOptIn:(NSString*)mobileDeviceGoogleAdvertisingIdOptIn
-                         webDomainUserId:(NSString*)webDomainUserId
-                               webCookie:(NSString*)webCookie
-                        webNetworkUserId:(NSString*)webNetworkUserId
-                      webUserFingerPrint:(NSString*)webUserFingerPrint
-              webAnalyticsCompanyZCookie:(NSString*)webAnalyticsCompanyZCookie
-                              andUnknown:(NSString*)unknown
+
+- (Identifier *)initWithGlobalUserIpAddress:(NSString*)globalUserIpAddress
+                               hashedEmail:(NSString*)hashedEmail
+                       mobileDeviceIosIdfa:(NSString*)mobileDeviceIosIdfa
+      mobileDeviceGoogleAdvertisingIdOptIn:(NSString*)mobileDeviceGoogleAdvertisingIdOptIn
 {
-    self.datasnapUuid = datasnapUuid;
-    self.domainSessionid = domainSessionId;
-    self.facebookUuid = facebookUuid;
-    self.globalDistinctId = globalDistinctId;
-    self.globalUserIpaddress = globalUserIpaddress;
+    self.globalUserIpAddress = globalUserIpAddress;
     self.hashedEmail = hashedEmail;
-    self.mobileDeviceBluetoothIdentifier = mobileDeviceBluetoothIdentifier;
     self.mobileDeviceIosIdfa = mobileDeviceIosIdfa;
-    self.mobileDeviceIosUdid = mobileDeviceIosUdid;
-    self.mobileDeviceFingerprint = mobileDeviceFingerprint;
     self.mobileDeviceGoogleAdvertisingIdOptIn = mobileDeviceGoogleAdvertisingIdOptIn;
-    self.webDomainUserid = webDomainUserid;
-    self.webCookie = webCookie;
-    self.webNetworkUserid = webNetworkUserid;
-    self.webUserFingerprint = webUserFingerprint;
-    self.webAnalyticsCompanyZCookie = webAnalyticsCompanyZCookie;
-    self.unknown = unknown;
+
+    self.globalDistinctId = [[NSUUID UUID] UUIDString];
+    self.mobileDeviceIosUdid = [[NSUUID UUID] UUIDString];
+
     return self;
 }
+
 @end
