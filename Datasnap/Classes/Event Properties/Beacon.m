@@ -60,6 +60,8 @@
     self.temperature = [NSString stringWithFormat:@"%d", sighting.beacon.temperature];
     self.rssi = [NSString stringWithFormat:@"%d", sighting.RSSI];
     self.bleVendorId = @"Gimbal";
+    
+    return self;
 }
 
 @end
