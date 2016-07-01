@@ -14,6 +14,9 @@ static NSString* appInstalledEventType = @"app_installed";
 NSString *const GimbalClientClassName = @"GimbalClient";
 NSString *const GimbalClientInitializerMethod = @"initWithVendorProperties:device:organizationId:projectId:andUser:";
 
+NSString *const IsAppAlreadyLaunchedOnceKey = @"isAppAlreadyLaunchedOnce";
+NSString *const AppInstalledEventType = @"appInstalledEventType";
+
 @interface Datasnap ()
 @property (nonatomic) EventEntity* event;
 @property (nonatomic) Device* device;
@@ -78,11 +81,7 @@ NSString *const GimbalClientInitializerMethod = @"initWithVendorProperties:devic
     self.identifier = [[Identifier alloc] initWithGlobalUserIpAddress:self.device.ipAddress
                                                           hashedEmail:[self.email toSha1]
                                                    advertisingOptedIn:self.googleAdOptIn];
-
-    self.user = [[User alloc] initWithIdentifier:self.identifier
-                                            tags:nil
-                                        audience:nil
-                               andUserProperties:nil];
+    self.user = [[User alloc] initWithIdentifier:self.identifier];
 
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         [self checkQueue];
@@ -136,10 +135,10 @@ NSString *const GimbalClientInitializerMethod = @"initWithVendorProperties:devic
         break;
     }
 
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isAppAlreadyLaunchedOnce"]) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isAppAlreadyLaunchedOnce"];
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:IsAppAlreadyLaunchedOnceKey]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IsAppAlreadyLaunchedOnceKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        BaseEvent* event = [[BaseEvent alloc] initWithEventType:@"appInstalledEventType"];
+        BaseEvent* event = [[BaseEvent alloc] initWithEventType:AppInstalledEventType];
         [self trackEvent:event];
     }
 }
