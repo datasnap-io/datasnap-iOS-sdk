@@ -46,7 +46,7 @@
 - (NSArray*)getEvents
 {
     NSMutableArray* eventJsonArray = [NSMutableArray new];
-    NSArray* eventsArray = [EventEntity returnAllEvents];
+    NSArray* eventsArray = [EventEntity returnEventsInBatchSize:100];
     for (EventEntity* event in eventsArray) {
         NSError* err;
         NSData* data = [event.json dataUsingEncoding:NSUTF8StringEncoding];
@@ -59,10 +59,12 @@
     return eventJsonArray;
 }
 
-- (void)flushQueue
+- (void)flushQueue:(NSMutableArray*)queue
 {
-    NSMutableArray* eventsArray = [EventEntity returnAllEvents];
-    [EventEntity deleteAllEvents:eventsArray];
+    for (EventEntity* event in queue) {
+        [EventEntity deleteEvent:event];
+        [queue removeObject:event];
+    }
 }
 
 - (NSInteger)numberOfQueuedEvents

@@ -39,6 +39,25 @@
     CoreDataHelper* coreDataHelper = [CoreDataHelper sharedManager];
     return [[self class] returnAllEventsInContext:coreDataHelper.context];
 }
++ (NSMutableArray*)returnEventsInBatchSize:(NSInteger)batchSize
+{
+    CoreDataHelper* coreDataHelper = [CoreDataHelper sharedManager];
+    [self returnEventsInBatchSize:batchSize andContext:coreDataHelper.context];
+}
++ (NSMutableArray*)returnEventsInBatchSize:(NSInteger)batchSize
+                                andContext:(NSManagedObjectContext*)context
+{
+    NSMutableArray* eventsArray;
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"EventEntity"
+                                              inManagedObjectContext:context];
+
+    NSFetchRequest* request = [NSFetchRequest new];
+    [request setEntity:entity];
+    [request setFetchLimit:batchSize];
+    NSError* error;
+    eventsArray = [[context executeFetchRequest:request error:&error] mutableCopy];
+    return eventsArray;
+}
 + (void)deleteAllEvents:(NSMutableArray*)eventsArray
 {
     CoreDataHelper* coreDataHelper = [CoreDataHelper sharedManager];

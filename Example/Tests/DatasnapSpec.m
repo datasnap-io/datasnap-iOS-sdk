@@ -102,6 +102,21 @@ describe(@"Datasnap API",
             [datasnap checkQueue];
             [[theValue(isAPICalled) should] equal:theValue(YES)];
         });
+        it(@"Should not call checkQueue unless timer is up", ^{
+            [datasnap setFlushParamsWithDuration:100000 withMaxElements:50];
+            [NSTimer scheduledTimerWithTimeInterval:1
+                                             target:self
+                                           selector:@selector(checkQueue)
+                                           userInfo:nil
+                                            repeats:NO];
+            __block BOOL isCheckQueueCalled = NO;
+            [datasnap stub:@selector(checkQueue)
+                 withBlock:^id(NSArray* params){
+                     isCheckQueueCalled = YES;
+                     return nil;
+                 }];
+            [[theValue(isCheckQueueCalled) should] equal:theValue(NO)];
+        });
 
     });
 

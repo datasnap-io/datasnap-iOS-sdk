@@ -27,7 +27,7 @@
 /**
  Flush all events
  */
-- (void)flushQueue;
+- (void)flushQueue:(NSMutableArray*)queue;
 
 /**
  Return events in queue (have not been sent)
