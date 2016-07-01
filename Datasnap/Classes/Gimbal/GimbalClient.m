@@ -84,10 +84,9 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
                                                                                    status:nil
                                                                     communicationVendorId:nil
                                                                                   andTags:nil];
-        Campaign* campaign = [[Campaign alloc] initWithTitle:nil
-                                                  identifier:self.projectId
-                                            communicationIds:communication.identifier
-                                                     andTags:nil];
+        Campaign* campaign = [[Campaign alloc] initWithIdentifier:self.projectId
+                                                 communicationIds:communication.identifier];
+
         CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:(NSString*)communicationSentEventType
                                                                     communication:dataSnapCommunication
                                                                          campaign:campaign
@@ -111,10 +110,9 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
                                                                                status:nil
                                                                 communicationVendorId:nil
                                                                               andTags:nil];
-    Campaign* campaign = [[Campaign alloc] initWithTitle:nil
-                                              identifier:self.projectId
-                                        communicationIds:communication.identifier
-                                                 andTags:nil];
+    Campaign* campaign = [[Campaign alloc] initWithIdentifier:self.projectId
+                                             communicationIds:communication.identifier];
+
     CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:communicationSentEventType
                                                                 communication:dataSnapCommunication
                                                                      campaign:campaign

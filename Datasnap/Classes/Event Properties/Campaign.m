@@ -23,15 +23,14 @@
     };
     return dictionary;
 }
-- (Campaign*)initWithTitle:(NSString*)title
-                identifier:(NSString*)identifier
-          communicationIds:(NSString*)communicationIds
-                   andTags:(Tags*)tags
+
+- (Campaign*)initWithIdentifier:(NSString*)identifier
+              communicationIds:(NSString *)communicationIds
 {
-    self.title = title;
     self.identifier = identifier;
     self.communicationIds = communicationIds;
-    self.tags = tags;
+
     return self;
 }
+
 @end
