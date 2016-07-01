@@ -76,14 +76,8 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
                                       forVisit:(GMBLVisit*)visit
 {
     for (Communication* communication in communications) {
-        Communication* dataSnapCommunication = [[Communication alloc] initWithDescription:communication.description
-                                                                               identifier:communication.identifier
-                                                                                    title:communication.title
-                                                                                    types:nil
-                                                                                  content:nil
-                                                                                   status:nil
-                                                                    communicationVendorId:nil
-                                                                                  andTags:nil];
+        Communication* dataSnapCommunication = [[Communication alloc] initWithCommunication:communication];
+
         Campaign* campaign = [[Campaign alloc] initWithIdentifier:self.projectId
                                                  communicationIds:communication.identifier];
 
@@ -102,14 +96,7 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
                             forCommunication:(GMBLCommunication*)communication
 
 {
-    Communication* dataSnapCommunication = [[Communication alloc] initWithDescription:communication.description
-                                                                           identifier:communication.identifier
-                                                                                title:communication.title
-                                                                                types:nil
-                                                                              content:nil
-                                                                               status:nil
-                                                                communicationVendorId:nil
-                                                                              andTags:nil];
+    Communication* dataSnapCommunication = [[Communication alloc] initWithCommunication:communication];
     Campaign* campaign = [[Campaign alloc] initWithIdentifier:self.projectId
                                              communicationIds:communication.identifier];
 

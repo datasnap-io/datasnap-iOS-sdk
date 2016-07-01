@@ -31,23 +31,14 @@
     };
     return dictionary;
 }
-- (Communication*)initWithDescription:(NSString*)description
-                           identifier:(NSString*)identifier
-                                title:(NSString*)title
-                                types:(Types*)types
-                              content:(Content*)content
-                               status:(NSString*)status
-                communicationVendorId:(NSString*)communicationVendorId
-                              andTags:(Tags*)tags
+
+- (Communication*)initWithCommunication:(Communication*)communication
 {
-    self.description = description;
-    self.identifier = identifier;
-    self.title = title;
-    self.types = types;
-    self.content = content;
-    self.status = status;
-    self.communicationVendorId = communicationVendorId;
-    self.tags = tags;
+    self.description = communication.description;
+    self.identifier = communication.identifier;
+    self.title = communication.title;
+
     return self;
 }
+
 @end
