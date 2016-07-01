@@ -35,16 +35,19 @@ NSString *const AppInstalledEventType = @"appInstalledEventType";
 @property (nonatomic) NSString* mobileDeviceIosIdfa;
 @end
 @implementation Datasnap
-- (void)setFlushParamsWithDuration:(NSInteger)durationInMillis
-                   withMaxElements:(NSInteger)maxElements
+
++ (id)sharedClient
 {
-    self.eventQueue = [[EventQueue alloc] initWithSize:maxElements andTime:durationInMillis];
-    [NSTimer scheduledTimerWithTimeInterval:maxElements
-                                     target:self
-                                   selector:@selector(checkQueue)
-                                   userInfo:nil
-                                    repeats:YES];
+    static Datasnap* sharedClient = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedClient = [self new];
+    });
+    return sharedClient;
 }
+
+#pragma mark Datasnap Initialization
+
 - (id)initWithApiKey:(NSString*)apiKey
         apiKeySecret:(NSString*)apiKeySecret
       organizationId:(NSString*)organizationId
@@ -63,16 +66,6 @@ NSString *const AppInstalledEventType = @"appInstalledEventType";
     }
     [self initializeData];
     return self;
-}
-
-+ (id)sharedClient
-{
-    static Datasnap* sharedClient = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedClient = [self new];
-    });
-    return sharedClient;
 }
 
 - (void)initializeData
@@ -95,23 +88,6 @@ NSString *const AppInstalledEventType = @"appInstalledEventType";
 
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     [self onDataInitialized];
-}
-
-- (void)startGimbal
-{
-    SEL gimbalInit = NSSelectorFromString(GimbalClientInitializerMethod);
-    self.gimbalClient = [[NSClassFromString(GimbalClientClassName) alloc] init];
-    if ([self.gimbalClient respondsToSelector:gimbalInit]) {
-        NSInvocation* inv = [NSInvocation invocationWithMethodSignature:[self.gimbalClient methodSignatureForSelector:gimbalInit]];
-        [inv setSelector:gimbalInit];
-        [inv setTarget:self.gimbalClient];
-        [inv setArgument:&self->_vendorProperties atIndex:2];
-        [inv setArgument:&self->_device atIndex:3];
-        [inv setArgument:&self->_organizationId atIndex:4];
-        [inv setArgument:&self->_projectId atIndex:5];
-        [inv setArgument:&self->_user atIndex:6];
-        [inv invoke];
-    }
 }
 
 - (void)onDataInitialized
@@ -142,6 +118,28 @@ NSString *const AppInstalledEventType = @"appInstalledEventType";
         [self trackEvent:event];
     }
 }
+
+#pragma mark Gimbal startup
+
+- (void)startGimbal
+{
+    SEL gimbalInit = NSSelectorFromString(GimbalClientInitializerMethod);
+    self.gimbalClient = [[NSClassFromString(GimbalClientClassName) alloc] init];
+    if ([self.gimbalClient respondsToSelector:gimbalInit]) {
+        NSInvocation* inv = [NSInvocation invocationWithMethodSignature:[self.gimbalClient methodSignatureForSelector:gimbalInit]];
+        [inv setSelector:gimbalInit];
+        [inv setTarget:self.gimbalClient];
+        [inv setArgument:&self->_vendorProperties atIndex:2];
+        [inv setArgument:&self->_device atIndex:3];
+        [inv setArgument:&self->_organizationId atIndex:4];
+        [inv setArgument:&self->_projectId atIndex:5];
+        [inv setArgument:&self->_user atIndex:6];
+        [inv invoke];
+    }
+}
+
+#pragma mark Event Tracking
+
 - (void)trackEvent:(BaseEvent*)event
 {
     event.organizationIds = @[ self.organizationId ];
@@ -156,10 +154,20 @@ NSString *const AppInstalledEventType = @"appInstalledEventType";
         [self.eventQueue recordEvent:eventJson];
     }
 }
-- (BOOL)connected
+
+#pragma mark Event Queue Handling
+
+- (void)setFlushParamsWithDuration:(NSInteger)durationInMillis
+                   withMaxElements:(NSInteger)maxElements
 {
-    return [AFNetworkReachabilityManager sharedManager].reachable;
+    self.eventQueue = [[EventQueue alloc] initWithSize:maxElements andTime:durationInMillis];
+    [NSTimer scheduledTimerWithTimeInterval:maxElements
+                                     target:self
+                                   selector:@selector(checkQueue)
+                                   userInfo:nil
+                                    repeats:YES];
 }
+
 - (void)checkQueue
 {
     if ([self connected]) {
@@ -170,6 +178,13 @@ NSString *const AppInstalledEventType = @"appInstalledEventType";
             }
         }
     }
+}
+
+#pragma mark Network Reachability
+
+- (BOOL)connected
+{
+    return [AFNetworkReachabilityManager sharedManager].reachable;
 }
 
 @end
