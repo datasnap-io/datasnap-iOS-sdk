@@ -172,6 +172,7 @@ NSString *const AppInstalledEventType = @"appInstalledEventType";
 {
     if ([self connected]) {
         if (self.eventQueue.numberOfQueuedEvents >= self.eventQueue.queueLength) {
+            //TODO: flush in chunks after timer ends, rather than checking if the queue is full
             if ([self.api sendEvents:self.eventQueue.getEvents]) {
                 NSLog(@"Queue is full. %d events will be sent to service and flushed.", (int)self.eventQueue.numberOfQueuedEvents);
                 [self.eventQueue flushQueue];
