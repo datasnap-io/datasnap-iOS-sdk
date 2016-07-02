@@ -6,6 +6,7 @@
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
 #import "EventProperty.h"
+#import "GimbalClient.h"
 #import "Tags.h"
 #import <objc/runtime.h>
 
@@ -29,22 +30,5 @@
 @property NSString* hardware;
 @property Tags* tags;
 - (NSDictionary*)convertToDictionary;
-- (Beacon*)initWithIdentifier:(NSString*)identifier
-                         uuid:(NSString*)uuid
-                         name:(NSString*)name
-                 batterylevel:(NSString*)batteryLevel
-                  temperature:(NSString*)temperature
-                bleVendorUuid:(NSString*)bleVendorUuid
-                  bleVendorId:(NSString*)bleVendorId
-                         rssi:(NSString*)rssi
-                     isMobile:(NSString*)isMobile
-                 previousRssi:(NSString*)previousRssi
-                    dwellTime:(NSString*)dwellTime
-                    startTime:(NSString*)startTime
-               lastUpdateTime:(NSString*)lastUpdateTime
-                     latitude:(NSString*)latitude
-                    longitude:(NSString*)longitude
-                   visibility:(NSString*)visibility
-                     hardware:(NSString*)hardware
-                         tags:(Tags*)tags;
+- (Beacon*)initWithSighting:(GMBLBeaconSighting*)sighting;
 @end

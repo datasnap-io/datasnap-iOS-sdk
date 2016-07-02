@@ -16,9 +16,6 @@
 @property Identifier* identifier;
 @property Audience* audience;
 @property UserProperties* userProperties;
-- (User*)initWithIdentifier:(Identifier*)identifier
-                       tags:(Tags*)tags
-                   audience:(Audience*)audience
-          andUserProperties:(UserProperties*)userProperties;
+- (User*)initWithIdentifier:(Identifier*)identifier;
 - (NSDictionary*)convertToDictionary;
 @end

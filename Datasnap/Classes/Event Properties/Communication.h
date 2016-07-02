@@ -21,12 +21,6 @@
 @property NSString* communicationVendorId;
 @property Tags* tags;
 - (NSDictionary*)convertToDictionary;
-- (Communication*)initWithDescription:(NSString*)description
-                           identifier:(NSString*)identifier
-                                title:(NSString*)title
-                                types:(Types*)types
-                              content:(Content*)content
-                               status:(NSString*)status
-                communicationVendorId:(NSString*)communicationVendorId
-                              andTags:(Tags*)tags;
+- (Communication*)initWithCommunication:(Communication*)communication;
+
 @end

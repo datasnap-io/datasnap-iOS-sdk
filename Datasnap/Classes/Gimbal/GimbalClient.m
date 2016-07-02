@@ -20,7 +20,6 @@
 #import "EventEntity.h"
 #import "EventQueue.h"
 #import "GimbalClient.h"
-#import "GimbalClient.h"
 #import "Location.h"
 #import "Place.h"
 #import "User.h"
@@ -64,24 +63,8 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
 - (void)beaconManager:(GMBLBeaconManager*)manager didReceiveBeaconSighting:(GMBLBeaconSighting*)sighting
 {
     NSString* eventType = beaconSightingEventType;
-    Beacon* beacon = [[Beacon alloc] initWithIdentifier:sighting.beacon.identifier
-                                                   uuid:sighting.beacon.uuid
-                                                   name:sighting.beacon.name
-                                           batterylevel:[NSString stringWithFormat:@"%ld", (long)sighting.beacon.batteryLevel]
-                                            temperature:[NSString stringWithFormat:@"%d", sighting.beacon.temperature]
-                                          bleVendorUuid:nil
-                                            bleVendorId:@"Gimbal"
-                                                   rssi:[NSString stringWithFormat:@"%d", sighting.RSSI]
-                                               isMobile:nil
-                                           previousRssi:nil
-                                              dwellTime:nil
-                                              startTime:nil
-                                         lastUpdateTime:nil
-                                               latitude:nil
-                                              longitude:nil
-                                             visibility:nil
-                                               hardware:nil
-                                                   tags:nil];
+    Beacon* beacon = [[Beacon alloc] initWithSighting:sighting];
+
     BeaconEvent* event = [[BeaconEvent alloc] initWithEventType:eventType
                                                          beacon:beacon
                                                        andPlace:nil];
@@ -93,18 +76,11 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
                                       forVisit:(GMBLVisit*)visit
 {
     for (Communication* communication in communications) {
-        Communication* dataSnapCommunication = [[Communication alloc] initWithDescription:communication.description
-                                                                               identifier:communication.identifier
-                                                                                    title:communication.title
-                                                                                    types:nil
-                                                                                  content:nil
-                                                                                   status:nil
-                                                                    communicationVendorId:nil
-                                                                                  andTags:nil];
-        Campaign* campaign = [[Campaign alloc] initWithTitle:nil
-                                                  identifier:self.projectId
-                                            communicationIds:communication.identifier
-                                                     andTags:nil];
+        Communication* dataSnapCommunication = [[Communication alloc] initWithCommunication:communication];
+
+        Campaign* campaign = [[Campaign alloc] initWithIdentifier:self.projectId
+                                                 communicationIds:communication.identifier];
+
         CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:(NSString*)communicationSentEventType
                                                                     communication:dataSnapCommunication
                                                                          campaign:campaign
@@ -120,18 +96,10 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
                             forCommunication:(GMBLCommunication*)communication
 
 {
-    Communication* dataSnapCommunication = [[Communication alloc] initWithDescription:communication.description
-                                                                           identifier:communication.identifier
-                                                                                title:communication.title
-                                                                                types:nil
-                                                                              content:nil
-                                                                               status:nil
-                                                                communicationVendorId:nil
-                                                                              andTags:nil];
-    Campaign* campaign = [[Campaign alloc] initWithTitle:nil
-                                              identifier:self.projectId
-                                        communicationIds:communication.identifier
-                                                 andTags:nil];
+    Communication* dataSnapCommunication = [[Communication alloc] initWithCommunication:communication];
+    Campaign* campaign = [[Campaign alloc] initWithIdentifier:self.projectId
+                                             communicationIds:communication.identifier];
+
     CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:communicationSentEventType
                                                                 communication:dataSnapCommunication
                                                                      campaign:campaign

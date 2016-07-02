@@ -44,7 +44,6 @@
 #import "Event+Management.h"
 #pragma mark frameworks
 #import <AFNetworking/AFNetworking.h>
-#import <AdSupport/ASIdentifierManager.h>
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
