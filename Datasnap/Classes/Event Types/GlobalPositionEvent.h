@@ -14,5 +14,5 @@
 - (GlobalPositionEvent*)initWithEventType:(NSString*)eventType
                         andGlobalPosition:(GlobalPosition*)globalPosition;
 - (NSDictionary*)convertToDictionary;
-- (BOOL)validate;
+- (BOOL)isValid;
 @end

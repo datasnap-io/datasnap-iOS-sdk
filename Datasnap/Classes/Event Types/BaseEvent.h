@@ -21,7 +21,7 @@
 @property NSString* venueOrgId;
 @property User* user;
 @property NSDictionary* additionalProperties;
-- (BOOL)validate;
+- (BOOL)isValid;
 - (NSDictionary*)convertToDictionary;
 - (BaseEvent*)initWithEventType:(NSString*)eventType;
 @end

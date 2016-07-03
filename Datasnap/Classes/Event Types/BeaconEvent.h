@@ -15,7 +15,7 @@
 @interface BeaconEvent : BaseEvent
 @property Place* place;
 @property Beacon* beacon;
-- (BOOL)validate;
+- (BOOL)isValid;
 - (BeaconEvent*)initWithEventType:(NSString*)eventType
                            beacon:(Beacon*)beacon
                          andPlace:(Place*)place;

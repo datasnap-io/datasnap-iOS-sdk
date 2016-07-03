@@ -19,7 +19,7 @@
 @synthesize device;
 @synthesize additionalProperties;
 @synthesize created;
-- (BOOL)validate
+- (BOOL)isValid
 {
     return self.organizationIds.count > 0 && self.projectIds.count > 0 && self.user && self.device;
 }

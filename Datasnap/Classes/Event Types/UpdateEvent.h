@@ -17,5 +17,5 @@
                            beacon:(Beacon*)beacon
                          andPlace:(Place*)place;
 - (NSDictionary*)convertToDictionary;
-- (BOOL)validate;
+- (BOOL)isValid;
 @end

@@ -39,8 +39,8 @@
     };
     return dictionary;
 }
-- (BOOL)validate
+- (BOOL)isValid
 {
-    return self.organizationIds.count > 0 && self.projectIds.count > 0 && self.user && self.device && self.globalPosition;
+    return [super isValid] && self.globalPosition;
 }
 @end

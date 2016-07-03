@@ -201,7 +201,7 @@ NSString *const AppInstalledEventType = @"appInstalledEventType";
     event.projectIds = @[ self.projectId ];
     event.user = self.user;
     event.device = self.device;
-    if (![event validate]) {
+    if (![event isValid]) {
         NSLog(@"Mandatory event data missing. Please call Datasnap.initialize before using the library");
     }
     NSDictionary* eventJson = [event convertToDictionary];
