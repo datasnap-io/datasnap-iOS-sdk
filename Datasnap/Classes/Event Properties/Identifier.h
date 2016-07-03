@@ -6,13 +6,14 @@
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
 #import "EventProperty.h"
+#import <AdSupport/ASIdentifierManager.h>
 
 @interface Identifier : EventProperty
 @property NSString* datasnapUuid;
 @property NSString* domainSessionid;
 @property NSString* facebookUuid;
 @property NSString* globalDistinctId;
-@property NSString* globalUserIpaddress;
+@property NSString* globalUserIpAddress;
 @property NSString* hashedEmail;
 @property NSString* mobileDeviceBluetoothIdentifier;
 @property NSString* mobileDeviceIosIdfa;
@@ -25,6 +26,7 @@
 @property NSString* webUserFingerprint;
 @property NSString* webAnalyticsCompanyZCookie;
 @property NSString* unknown;
+
 - (NSDictionary*)convertToDictionary;
 - (Identifier*)initWithDatasnapUuid:(NSString*)datasnapUuid
                          domainSessionId:(NSString*)domainSessionId

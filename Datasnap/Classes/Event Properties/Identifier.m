@@ -20,7 +20,7 @@
 @synthesize webUserFingerprint;
 @synthesize webAnalyticsCompanyZCookie;
 @synthesize globalDistinctId;
-@synthesize globalUserIpaddress;
+@synthesize globalUserIpAddress;
 @synthesize mobileDeviceFingerprint;
 @synthesize facebookUuid;
 @synthesize mobileDeviceGoogleAdvertisingIdOptIn;
@@ -33,7 +33,7 @@
         @"domain_session_id" : self.domainSessionid ? self.domainSessionid : [NSNull null],
         @"facebook_uuid" : self.facebookUuid ? self.facebookUuid : [NSNull null],
         @"global_distinct_id" : self.globalDistinctId ? self.globalDistinctId : [NSNull null],
-        @"global_user_id_address" : self.globalUserIpaddress ? self.globalUserIpaddress : [NSNull null],
+        @"global_user_id_address" : self.globalUserIpAddress ? self.globalUserIpAddress : [NSNull null],
         @"hashed_email" : self.hashedEmail ? self.hashedEmail : [NSNull null],
         @"mobile_device_bluetooth_identifier" : self.mobileDeviceBluetoothIdentifier ? self.mobileDeviceBluetoothIdentifier : [NSNull null],
         @"mobile_device_ios_idfa" : self.mobileDeviceIosIdfa ? self.mobileDeviceIosIdfa : [NSNull null],
@@ -70,10 +70,9 @@
     self.domainSessionid = domainSessionId;
     self.facebookUuid = facebookUuid;
     self.globalDistinctId = globalDistinctId;
-    self.globalUserIpaddress = globalUserIpaddress;
+    self.globalUserIpAddress = globalUserIpAddress;
     self.hashedEmail = hashedEmail;
     self.mobileDeviceBluetoothIdentifier = mobileDeviceBluetoothIdentifier;
-    self.mobileDeviceIosIdfa = mobileDeviceIosIdfa;
     self.mobileDeviceIosUdid = mobileDeviceIosUdid;
     self.mobileDeviceFingerprint = mobileDeviceFingerprint;
     self.mobileDeviceGoogleAdvertisingIdOptIn = mobileDeviceGoogleAdvertisingIdOptIn;
@@ -83,6 +82,23 @@
     self.webUserFingerprint = webUserFingerprint;
     self.webAnalyticsCompanyZCookie = webAnalyticsCompanyZCookie;
     self.unknown = unknown;
+
+    if ([self.mobileDeviceGoogleAdvertisingIdOptIn boolValue] && !mobileDeviceIosIdfa) {
+      self.mobileDeviceIosIdfa = [self identifierForAdvertising];
+    } else {
+      self.mobileDeviceIosIdfa = mobileDeviceIosIdfa;
+    }
+
     return self;
 }
+
+- (NSString*)identifierForAdvertising
+{
+    if ([[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled]) {
+        NSUUID* IDFA = [[ASIdentifierManager sharedManager] advertisingIdentifier];
+        return [IDFA UUIDString];
+    }
+    return nil;
+}
+
 @end
