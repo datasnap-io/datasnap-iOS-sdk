@@ -9,7 +9,7 @@
 #import "Place.h"
 
 @implementation Place
-@synthesize id;
+@synthesize identifier;
 @synthesize name;
 @synthesize address;
 @synthesize lastPlace;
@@ -18,7 +18,7 @@
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{
-        @"id" : self.id ? self.id : [NSNull null],
+        @"id" : self.identifier ? self.identifier : [NSNull null],
         @"name" : self.name ? self.name : [NSNull null],
         @"address" : self.address ? self.address : [NSNull null],
         @"last_place" : self.lastPlace ? self.lastPlace : [NSNull null],
