@@ -33,7 +33,7 @@
                             facebookUuid:(NSString*)facebookUuid
                         globalDistinctId:(NSString*)globalDistinctId
                      globalUserIpAddress:(NSString*)globalUserIpAddress
-                              hashedEmail:(NSString*)hashedEmail
+                             hashedEmail:(NSString*)hashedEmail
          mobileDeviceBluetoothIdentifier:(NSString*)mobileDeviceBluetoothIdentifier
                      mobileDeviceIosIdfa:(NSString*)mobileDeviceIosIdfa
                      mobileDeviceIosUdid:(NSString*)mobileDeviceIosUuid
@@ -42,7 +42,7 @@
                          webDomainUserId:(NSString*)webDomainUserId
                                webCookie:(NSString*)webCookie
                         webNetworkUserId:(NSString*)webNetworkUserId
-                      webUserFingerPrint:(NSString*)webUserFingerPrint
+                      webUserFingerPrint:(NSString*)webUserFingerprint
               webAnalyticsCompanyZCookie:(NSString*)webAnalyticsCompanyZCookie
                               andUnknown:(NSString*)unknown;
 @end

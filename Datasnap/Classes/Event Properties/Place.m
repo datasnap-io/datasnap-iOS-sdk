@@ -9,12 +9,6 @@
 #import "Place.h"
 
 @implementation Place
-@synthesize identifier;
-@synthesize name;
-@synthesize address;
-@synthesize lastPlace;
-@synthesize beacons;
-@synthesize geofences;
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{

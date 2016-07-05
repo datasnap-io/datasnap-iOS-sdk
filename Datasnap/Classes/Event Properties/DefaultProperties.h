@@ -8,7 +8,7 @@
 
 #import "EventProperty.h"
 
-@interface DefaultProperties : EventProperty
+@interface DefaultProperties : NSObject
 @property NSInteger* maxQueueSize;
 @property NSInteger* timeout;
 @property NSInteger* retries;

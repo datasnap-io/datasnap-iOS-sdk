@@ -12,7 +12,7 @@
 @synthesize beacon;
 - (BOOL)isValid
 {
-    return [super isValid];
+    return [super isValid] && self.beacon;
 }
 - (BeaconEvent*)initWithEventType:(NSString*)eventType
                            beacon:(Beacon*)beacon

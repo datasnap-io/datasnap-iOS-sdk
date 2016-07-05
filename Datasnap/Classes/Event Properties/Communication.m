@@ -9,14 +9,6 @@
 #import "Communication.h"
 
 @implementation Communication
-@synthesize description;
-@synthesize identifier;
-@synthesize title;
-@synthesize types;
-@synthesize content;
-@synthesize status;
-@synthesize communicationVendorId;
-@synthesize tags;
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{
@@ -40,7 +32,7 @@
                 communicationVendorId:(NSString*)communicationVendorId
                               andTags:(Tags*)tags
 {
-    self.description = description;
+    self.description = (NSString*)description;
     self.identifier = identifier;
     self.title = title;
     self.types = types;

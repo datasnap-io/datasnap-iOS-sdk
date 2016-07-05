@@ -9,14 +9,6 @@
 #import "Audience.h"
 
 @implementation Audience
-@synthesize education;
-@synthesize college;
-@synthesize age;
-@synthesize ethnicity;
-@synthesize kids;
-@synthesize gender;
-@synthesize interests;
-@synthesize income;
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{

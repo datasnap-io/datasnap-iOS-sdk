@@ -8,6 +8,7 @@
 #import "Device.h"
 #import "User.h"
 #import <Foundation/Foundation.h>
+
 @class Datasnap;
 @interface BaseEvent : NSObject
 @property NSString* created;

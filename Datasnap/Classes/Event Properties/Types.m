@@ -9,8 +9,6 @@
 #import "Types.h"
 
 @implementation Types
-@synthesize identifier;
-@synthesize name;
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{

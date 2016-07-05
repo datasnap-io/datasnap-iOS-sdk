@@ -11,11 +11,11 @@
 static Datasnap* sharedInstance = nil;
 static NSString* appInstalledEventType = @"app_installed";
 
-NSString *const GimbalClientClassName = @"GimbalClient";
-NSString *const GimbalClientInitializerMethod = @"initWithVendorProperties:device:organizationId:projectId:andUser:";
+NSString* const GimbalClientClassName = @"GimbalClient";
+NSString* const GimbalClientInitializerMethod = @"initWithVendorProperties:device:organizationId:projectId:andUser:";
 
-NSString *const IsAppAlreadyLaunchedOnceKey = @"isAppAlreadyLaunchedOnceKey";
-NSString *const AppInstalledEventType = @"appInstalledEventType";
+NSString* const IsAppAlreadyLaunchedOnceKey = @"isAppAlreadyLaunchedOnceKey";
+NSString* const AppInstalledEventType = @"appInstalledEventType";
 
 @interface Datasnap ()
 @property (nonatomic) EventEntity* event;
@@ -72,19 +72,17 @@ NSString *const AppInstalledEventType = @"appInstalledEventType";
 - (void)initializeData
 {
     self.device = [[Device alloc] init];
-    NSString *adOptedIn = self.googleAdOptIn ? @"YES" : @"NO";
-
     self.identifier = [[Identifier alloc] initWithDatasnapUuid:[NSNull null]
                                                domainSessionId:NULL
                                                   facebookUuid:nil
                                               globalDistinctId:[[NSUUID UUID] UUIDString]
                                            globalUserIpAddress:self.device.ipAddress
-                                                   hashedEmail:[self.email toSha1]
+                                                   hashedEmail:self.email ? [self.email toSha1] : nil
                                mobileDeviceBluetoothIdentifier:nil
                                            mobileDeviceIosIdfa:self.mobileDeviceIosIdfa
                                            mobileDeviceIosUdid:[[NSUUID UUID] UUIDString]
                                        mobileDeviceFingerprint:nil
-                          mobileDeviceGoogleAdvertisingIdOptIn:adOptedIn
+                          mobileDeviceGoogleAdvertisingIdOptIn:self.googleAdOptIn ? @"YES" : @"NO"
                                                webDomainUserId:nil
                                                      webCookie:nil
                                               webNetworkUserId:nil
@@ -101,8 +99,7 @@ NSString *const AppInstalledEventType = @"appInstalledEventType";
         [self checkQueue];
         // Ensure Gimbal is started if application is started offline.
         // Gimbal cannot properly initialize if the app is offline during startup.
-        if (!self.gimbalClient && self.vendorProperties &&
-            self.vendorProperties.vendor == GIMBAL && [self connected]) {
+        if (!self.gimbalClient && self.vendorProperties && self.vendorProperties.vendor == GIMBAL && [self connected]) {
             [self initializeGimbal];
         }
     }];
@@ -117,20 +114,20 @@ NSString *const AppInstalledEventType = @"appInstalledEventType";
         return;
     }
     switch (self.vendorProperties.vendor) {
-        case GIMBAL:
-            if ([self connected]) {
-                // Dynamically call GimbalClient's initialization method
-                [self initializeGimbal];
-            }
-            break;
-        case ESTIMOTE:
-            break;
-        default:
-            self.baseClient = [[BaseClient alloc] initWithOrganizationId:self.organizationId
-                                                               projectId:self.projectId
-                                                                  device:self.device
-                                                                 andUser:self.user];
-            break;
+    case GIMBAL:
+        if ([self connected]) {
+            // Dynamically call GimbalClient's initialization method
+            [self initializeGimbal];
+        }
+        break;
+    case ESTIMOTE:
+        break;
+    default:
+        self.baseClient = [[BaseClient alloc] initWithOrganizationId:self.organizationId
+                                                           projectId:self.projectId
+                                                              device:self.device
+                                                             andUser:self.user];
+        break;
     }
 
     if (![[NSUserDefaults standardUserDefaults] boolForKey:IsAppAlreadyLaunchedOnceKey]) {
@@ -148,7 +145,7 @@ NSString *const AppInstalledEventType = @"appInstalledEventType";
     SEL gimbalInit = NSSelectorFromString(GimbalClientInitializerMethod);
     self.gimbalClient = [[NSClassFromString(GimbalClientClassName) alloc] init];
     if ([self.gimbalClient respondsToSelector:gimbalInit]) {
-        NSInvocation *inv = [NSInvocation invocationWithMethodSignature:[self.gimbalClient methodSignatureForSelector:gimbalInit]];
+        NSInvocation* inv = [NSInvocation invocationWithMethodSignature:[self.gimbalClient methodSignatureForSelector:gimbalInit]];
         [inv setSelector:gimbalInit];
         [inv setTarget:self.gimbalClient];
         [inv setArgument:&self->_vendorProperties atIndex:2];

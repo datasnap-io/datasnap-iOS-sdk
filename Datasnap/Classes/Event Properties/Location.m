@@ -9,7 +9,6 @@
 #import "Location.h"
 
 @implementation Location
-@synthesize coordinates;
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{

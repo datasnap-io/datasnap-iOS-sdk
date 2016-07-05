@@ -9,11 +9,6 @@
 #import "Geofence.h"
 
 @implementation Geofence
-@synthesize identifier;
-@synthesize name;
-@synthesize visibility;
-@synthesize tags;
-@synthesize geofenceCircle;
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{

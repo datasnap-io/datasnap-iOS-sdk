@@ -9,24 +9,6 @@
 #import "Beacon.h"
 
 @implementation Beacon
-@synthesize identifier;
-@synthesize uuid;
-@synthesize name;
-@synthesize batteryLevel;
-@synthesize temperature;
-@synthesize bleVendorUuid;
-@synthesize bleVendorId;
-@synthesize rssi;
-@synthesize isMobile;
-@synthesize previousRssi;
-@synthesize dwellTime;
-@synthesize startTime;
-@synthesize lastUpdateTime;
-@synthesize latitude;
-@synthesize longitude;
-@synthesize visibility;
-@synthesize hardware;
-@synthesize tags;
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{

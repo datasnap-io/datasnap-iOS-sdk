@@ -9,23 +9,6 @@
 #import "Identifier.h"
 
 @implementation Identifier
-@synthesize mobileDeviceBluetoothIdentifier;
-@synthesize mobileDeviceIosIdfa;
-@synthesize mobileDeviceIosUdid;
-@synthesize datasnapUuid;
-@synthesize webDomainUserid;
-@synthesize webCookie;
-@synthesize domainSessionid;
-@synthesize webNetworkUserid;
-@synthesize webUserFingerprint;
-@synthesize webAnalyticsCompanyZCookie;
-@synthesize globalDistinctId;
-@synthesize globalUserIpAddress;
-@synthesize mobileDeviceFingerprint;
-@synthesize facebookUuid;
-@synthesize mobileDeviceGoogleAdvertisingIdOptIn;
-@synthesize hashedEmail;
-@synthesize unknown;
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{
@@ -62,7 +45,7 @@
                          webDomainUserId:(NSString*)webDomainUserId
                                webCookie:(NSString*)webCookie
                         webNetworkUserId:(NSString*)webNetworkUserId
-                      webUserFingerPrint:(NSString*)webUserFingerPrint
+                      webUserFingerPrint:(NSString*)webUserFingerprint
               webAnalyticsCompanyZCookie:(NSString*)webAnalyticsCompanyZCookie
                               andUnknown:(NSString*)unknown
 {
@@ -73,20 +56,21 @@
     self.globalUserIpAddress = globalUserIpAddress;
     self.hashedEmail = hashedEmail;
     self.mobileDeviceBluetoothIdentifier = mobileDeviceBluetoothIdentifier;
-    self.mobileDeviceIosUdid = mobileDeviceIosUdid;
+    self.mobileDeviceIosUdid = mobileDeviceIosUuid;
     self.mobileDeviceFingerprint = mobileDeviceFingerprint;
     self.mobileDeviceGoogleAdvertisingIdOptIn = mobileDeviceGoogleAdvertisingIdOptIn;
-    self.webDomainUserid = webDomainUserid;
+    self.webDomainUserid = webDomainUserId;
     self.webCookie = webCookie;
-    self.webNetworkUserid = webNetworkUserid;
+    self.webNetworkUserid = webNetworkUserId;
     self.webUserFingerprint = webUserFingerprint;
     self.webAnalyticsCompanyZCookie = webAnalyticsCompanyZCookie;
     self.unknown = unknown;
 
     if ([self.mobileDeviceGoogleAdvertisingIdOptIn boolValue] && !mobileDeviceIosIdfa) {
-      self.mobileDeviceIosIdfa = [self identifierForAdvertising];
-    } else {
-      self.mobileDeviceIosIdfa = mobileDeviceIosIdfa;
+        self.mobileDeviceIosIdfa = [self identifierForAdvertising];
+    }
+    else {
+        self.mobileDeviceIosIdfa = mobileDeviceIosIdfa;
     }
 
     return self;

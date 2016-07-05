@@ -9,7 +9,6 @@
 #import "EventProperty.h"
 
 @interface Types : EventProperty
-@property NSString* identifier;
 @property NSString* name;
 - (NSDictionary*)convertToDictionary;
 @end

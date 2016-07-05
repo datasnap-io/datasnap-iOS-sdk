@@ -9,7 +9,6 @@
 #import "Tags.h"
 
 @implementation Tags
-@synthesize tags;
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{

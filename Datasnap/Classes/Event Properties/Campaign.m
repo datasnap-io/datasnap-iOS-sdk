@@ -9,10 +9,6 @@
 #import "Campaign.h"
 
 @implementation Campaign
-@synthesize title;
-@synthesize identifier;
-@synthesize communicationIds;
-@synthesize tags;
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{

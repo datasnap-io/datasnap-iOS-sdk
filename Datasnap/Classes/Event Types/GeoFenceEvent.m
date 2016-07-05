@@ -45,6 +45,6 @@
 }
 - (BOOL)isValid
 {
-    return [super isValid];
+    return [super isValid] && self.geofence && self.location;
 }
 @end

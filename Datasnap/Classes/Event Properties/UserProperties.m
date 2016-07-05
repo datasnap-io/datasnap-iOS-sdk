@@ -9,9 +9,6 @@
 #import "UserProperties.h"
 
 @implementation UserProperties
-@synthesize userType;
-@synthesize high;
-@synthesize engagementTime;
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{ @"user_type" : self.userType ? self.userType : [NSNull null],
