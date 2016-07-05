@@ -9,11 +9,6 @@
 #import "GlobalPosition.h"
 
 @implementation GlobalPosition
-@synthesize location;
-@synthesize altitude;
-@synthesize accuracy;
-@synthesize course;
-@synthesize speed;
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{

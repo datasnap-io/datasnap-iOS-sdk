@@ -13,7 +13,6 @@
 
 @interface Communication : EventProperty
 @property NSString* description;
-@property NSString* identifier;
 @property NSString* title;
 @property Types* types;
 @property Content* content;

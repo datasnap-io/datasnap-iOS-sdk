@@ -8,6 +8,7 @@
 #import "Device.h"
 #import "User.h"
 #import <Foundation/Foundation.h>
+
 @class Datasnap;
 @interface BaseEvent : NSObject
 @property NSString* created;
@@ -21,7 +22,7 @@
 @property NSString* venueOrgId;
 @property User* user;
 @property NSDictionary* additionalProperties;
-- (BOOL)validate;
+- (BOOL)isValid;
 - (NSDictionary*)convertToDictionary;
 - (BaseEvent*)initWithEventType:(NSString*)eventType;
 @end

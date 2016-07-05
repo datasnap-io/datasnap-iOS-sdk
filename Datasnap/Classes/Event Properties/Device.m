@@ -9,16 +9,6 @@
 #import "Device.h"
 
 @implementation Device
-@synthesize ipAddress;
-@synthesize platform;
-@synthesize osVersion;
-@synthesize model;
-@synthesize manufacturer;
-@synthesize name;
-@synthesize vendorId;
-@synthesize carrierName;
-@synthesize countryCode;
-
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{

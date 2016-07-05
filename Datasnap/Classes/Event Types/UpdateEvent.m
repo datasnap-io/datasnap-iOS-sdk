@@ -42,8 +42,8 @@
     };
     return dictionary;
 }
-- (BOOL)validate
+- (BOOL)isValid
 {
-    return self.organizationIds.count > 0 && self.projectIds.count > 0 && self.user && self.device && self.beacon;
+    return [super isValid] && self.beacon;
 }
 @end

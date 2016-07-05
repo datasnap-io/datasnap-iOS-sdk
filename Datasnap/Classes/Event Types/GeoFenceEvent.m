@@ -43,8 +43,8 @@
     };
     return dictionary;
 }
-- (BOOL)validate
+- (BOOL)isValid
 {
-    return self.organizationIds.count > 0 && self.projectIds.count > 0 && self.user && self.device;
+    return [super isValid] && self.geofence && self.location;
 }
 @end

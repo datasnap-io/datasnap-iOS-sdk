@@ -9,9 +9,4 @@
 #import "DefaultProperties.h"
 
 @implementation DefaultProperties
-@synthesize maxQueueSize;
-@synthesize timeout;
-@synthesize retries;
-@synthesize backoff;
-@synthesize batchIncrement;
 @end

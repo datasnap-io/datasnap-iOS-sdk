@@ -17,5 +17,5 @@
                            geoFence:(Geofence*)geofence
                         andLocation:(Location*)location;
 - (NSDictionary*)convertToDictionary;
-- (BOOL)validate;
+- (BOOL)isValid;
 @end

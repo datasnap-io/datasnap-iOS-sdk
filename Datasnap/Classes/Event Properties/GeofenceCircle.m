@@ -9,8 +9,6 @@
 #import "GeofenceCircle.h"
 
 @implementation GeofenceCircle
-@synthesize radius;
-@synthesize location;
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{

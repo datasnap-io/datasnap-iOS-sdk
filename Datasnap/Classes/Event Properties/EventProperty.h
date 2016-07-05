@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface EventProperty : NSObject
-//TODO: add protocol
+@property NSString* identifier;
 @end

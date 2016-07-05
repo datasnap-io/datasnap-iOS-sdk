@@ -9,7 +9,6 @@
 #import "EventProperty.h"
 
 @interface Place : EventProperty
-@property NSString* id;
 @property NSString* name;
 @property NSString* address;
 @property NSString* lastPlace;

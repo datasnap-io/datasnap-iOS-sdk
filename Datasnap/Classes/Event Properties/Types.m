@@ -9,12 +9,10 @@
 #import "Types.h"
 
 @implementation Types
-@synthesize id;
-@synthesize name;
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{
-        @"id" : self.id ? self.id : [NSNull null],
+        @"id" : self.identifier ? self.identifier : [NSNull null],
         @"name" : self.name ? self.name : [NSNull null]
     };
     return dictionary;

@@ -10,7 +10,6 @@
 #import <objc/runtime.h>
 
 @interface Beacon : EventProperty
-@property NSString* identifier;
 @property NSString* uuid;
 @property NSString* name;
 @property NSString* batteryLevel;

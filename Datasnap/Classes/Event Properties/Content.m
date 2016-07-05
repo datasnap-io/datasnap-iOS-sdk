@@ -9,11 +9,6 @@
 #import "Content.h"
 
 @implementation Content
-@synthesize text;
-@synthesize description;
-@synthesize image;
-@synthesize html;
-@synthesize url;
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{

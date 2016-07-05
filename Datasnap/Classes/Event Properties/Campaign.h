@@ -11,7 +11,6 @@
 
 @interface Campaign : EventProperty
 @property (nonatomic) NSString* title;
-@property (nonatomic) NSString* identifier;
 @property (nonatomic) NSString* communicationIds;
 @property Tags* tags;
 - (NSDictionary*)convertToDictionary;
