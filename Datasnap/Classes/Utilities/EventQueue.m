@@ -18,8 +18,6 @@
     if (self = [self init]) {
         self.queueLength = queueLength;
         self.queueTime = queueTime;
-        //stop accepting events after queue reaches this size
-        self.maxQueueLength = 10000;
     }
     return self;
 }
@@ -46,7 +44,8 @@
 - (NSArray*)getEvents
 {
     NSMutableArray* eventJsonArray = [NSMutableArray new];
-    NSArray* eventsArray = [EventEntity returnEventsInBatchSize:100];
+    NSArray* eventsArray = [EventEntity returnEventsInBatchSize:self.queueLength
+                                                     andContext:self.context];
     for (EventEntity* event in eventsArray) {
         NSError* err;
         NSData* data = [event.json dataUsingEncoding:NSUTF8StringEncoding];
@@ -62,8 +61,8 @@
 - (void)flushQueue:(NSMutableArray*)queue
 {
     for (EventEntity* event in queue) {
-        [EventEntity deleteEvent:event];
-        [queue removeObject:event];
+        [EventEntity deleteEvent:event
+                       inContext:self.context];
     }
 }
 

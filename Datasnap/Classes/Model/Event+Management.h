@@ -14,9 +14,10 @@
 + (NSMutableArray*)returnAllEvents;
 + (NSMutableArray*)returnAllEventsInContext:(NSManagedObjectContext*)context;
 + (NSMutableArray*)returnEventsInBatchSize:(NSInteger)batchSize;
-+ (void)
-deleteEvent:(EventEntity*)event
-  inContext:(NSManagedObjectContext*)context;
++ (NSMutableArray*)returnEventsInBatchSize:(NSInteger)batchSize
+                                andContext:(NSManagedObjectContext*)context;
++ (void)deleteEvent:(EventEntity*)event
+          inContext:(NSManagedObjectContext*)context;
 + (void)deleteEvent:(EventEntity*)event;
 + (void)deleteAllEvents:(NSMutableArray*)eventsArray;
 + (void)deleteAllEvents:(NSMutableArray*)eventsArray inContext:(NSManagedObjectContext*)context;

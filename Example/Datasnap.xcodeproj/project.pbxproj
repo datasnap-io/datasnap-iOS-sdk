@@ -23,6 +23,8 @@
 		B24A051C1D1DE51200A2822F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B24A051B1D1DE51200A2822F /* Main.storyboard */; };
 		B2DACBFA1D26DFB50013321B /* DatasnapSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DACBF91D26DFB50013321B /* DatasnapSpec.m */; };
 		B2DACBFC1D26DFE00013321B /* EventEntitySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DACBFB1D26DFE00013321B /* EventEntitySpec.m */; };
+		B2DACC011D2714100013321B /* EventQueueSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DACC001D2714100013321B /* EventQueueSpec.m */; };
+		B2DACC031D2724050013321B /* DatasnapAPISpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DACC021D2724050013321B /* DatasnapAPISpec.m */; };
 		F24BEE05012B4BF6B9879F30 /* libPods-Datasnap_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A310A45B210F8C74D575EB64 /* libPods-Datasnap_Tests.a */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,8 @@
 		B2DACBF91D26DFB50013321B /* DatasnapSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatasnapSpec.m; sourceTree = "<group>"; };
 		B2DACBFB1D26DFE00013321B /* EventEntitySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventEntitySpec.m; sourceTree = "<group>"; };
 		B2DACBFD1D26E1F30013321B /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKiwi.a; path = "../../Library/Developer/Xcode/DerivedData/Datasnap-ehelrgaqltpzmeeivywbbqmctltu/Build/Products/Debug-iphonesimulator/Kiwi/libKiwi.a"; sourceTree = "<group>"; };
+		B2DACC001D2714100013321B /* EventQueueSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventQueueSpec.m; sourceTree = "<group>"; };
+		B2DACC021D2724050013321B /* DatasnapAPISpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatasnapAPISpec.m; sourceTree = "<group>"; };
 		C3E59CF681C17A43CA9F710E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		E4701B10EE18C6C8A141A47A /* Pods-Datasnap_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Datasnap_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Datasnap_Tests/Pods-Datasnap_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E548272B59B99E68F85E8CAC /* libPods-Datasnap_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Datasnap_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +170,8 @@
 			children = (
 				6003F5B6195388D20070C39A /* Supporting Files */,
 				B2DACBF91D26DFB50013321B /* DatasnapSpec.m */,
+				B2DACC021D2724050013321B /* DatasnapAPISpec.m */,
+				B2DACC001D2714100013321B /* EventQueueSpec.m */,
 				B2DACBFB1D26DFE00013321B /* EventEntitySpec.m */,
 			);
 			path = Tests;
@@ -412,6 +418,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2DACC011D2714100013321B /* EventQueueSpec.m in Sources */,
+				B2DACC031D2724050013321B /* DatasnapAPISpec.m in Sources */,
 				B2DACBFC1D26DFE00013321B /* EventEntitySpec.m in Sources */,
 				B2DACBFA1D26DFB50013321B /* DatasnapSpec.m in Sources */,
 			);
@@ -577,7 +585,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
@@ -601,7 +608,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);

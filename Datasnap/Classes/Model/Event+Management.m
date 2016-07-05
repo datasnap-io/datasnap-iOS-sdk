@@ -42,7 +42,7 @@
 + (NSMutableArray*)returnEventsInBatchSize:(NSInteger)batchSize
 {
     CoreDataHelper* coreDataHelper = [CoreDataHelper sharedManager];
-    [self returnEventsInBatchSize:batchSize andContext:coreDataHelper.context];
+    return [self returnEventsInBatchSize:batchSize andContext:coreDataHelper.context];
 }
 + (NSMutableArray*)returnEventsInBatchSize:(NSInteger)batchSize
                                 andContext:(NSManagedObjectContext*)context
