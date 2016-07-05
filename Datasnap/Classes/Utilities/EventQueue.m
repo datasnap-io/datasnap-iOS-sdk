@@ -39,6 +39,7 @@
     NSString* myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     self.event = [EventEntity createEventEntity];
     self.event.json = myString;
+    NSLog(@"Event recorded");
 }
 
 - (NSArray*)getEvents
