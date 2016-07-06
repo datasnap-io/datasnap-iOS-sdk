@@ -62,8 +62,7 @@
 - (void)flushQueue:(NSMutableArray*)queue
 {
     for (EventEntity* event in queue) {
-        [EventEntity deleteEvent:event
-                       inContext:self.context];
+        [EventEntity deleteEvent:event];
     }
 }
 

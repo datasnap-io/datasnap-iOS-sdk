@@ -61,17 +61,20 @@
 + (void)deleteAllEvents:(NSMutableArray*)eventsArray
 {
     CoreDataHelper* coreDataHelper = [CoreDataHelper sharedManager];
-    [self  deleteAllEvents:eventsArray inContext:coreDataHelper.context];
+    [self deleteAllEvents:eventsArray inContext:coreDataHelper.context];
 }
 + (void)deleteEvent:(EventEntity*)event
           inContext:(NSManagedObjectContext*)context
 {
     [context deleteObject:event];
+    CoreDataHelper* coreDataHelper = [CoreDataHelper sharedManager];
+    [coreDataHelper saveInContext:context];
 }
 + (void)deleteEvent:(EventEntity*)event
 {
     CoreDataHelper* coreDataHelper = [CoreDataHelper sharedManager];
     [coreDataHelper.context deleteObject:event];
+    [coreDataHelper saveInMainContext];
 }
 + (void)deleteAllEvents:(NSMutableArray*)eventsArray inContext:(NSManagedObjectContext*)context
 {

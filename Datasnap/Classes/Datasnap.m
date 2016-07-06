@@ -181,7 +181,7 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
     if ([self connected]) {
         NSMutableArray* events = self.eventQueue.getEvents;
         if ([self.api sendEvents:events]) {
-            NSLog(@"Queue is full. %d events will be sent to service and flushed.", (int)self.eventQueue.numberOfQueuedEvents);
+            NSLog(@"Queue is full. %d events will be sent to service and flushed.", events.count);
             [self.eventQueue flushQueue:events];
             if ([EventEntity returnAllEvents].count > 0) {
                 [self checkQueue];
@@ -202,9 +202,7 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
         NSLog(@"Mandatory event data missing. Please call Datasnap.initialize before using the library");
     }
     NSDictionary* eventJson = [event convertToDictionary];
-    if (self.eventQueue.numberOfQueuedEvents <= self.eventQueue.maxQueueLength) {
-        [self.eventQueue recordEvent:eventJson];
-    }
+    [self.eventQueue recordEvent:eventJson];
 }
 
 @end
