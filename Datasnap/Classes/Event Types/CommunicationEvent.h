@@ -18,8 +18,8 @@
 - (CommunicationEvent*)initWithEventType:(NSString*)eventType
                            communication:(Communication*)communication
                                 campaign:(Campaign*)campaign
-                                 venueId:(NSString*)venueId
-                      customerVenueOrgId:(NSString*)customerVenueOrgId;
+                              venueOrgId:(NSString*)venueId
+                           customerOrgId:(NSString*)customerOrgId;
 - (NSDictionary*)convertToDictionary;
 - (BOOL)isValid;
 @end

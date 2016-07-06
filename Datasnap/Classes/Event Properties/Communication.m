@@ -13,12 +13,12 @@
 {
     NSDictionary* dictionary = @{
         @"description" : self.description,
-        @"id" : self.identifier,
-        @"title" : self.title,
+        @"identifier" : self.identifier,
+        @"name" : self.title,
         @"types" : [self.types convertToDictionary] ? [self.types convertToDictionary] : [NSNull null],
         @"content" : [self.content convertToDictionary] ? [self.content convertToDictionary] : [NSNull null],
         @"status" : self.status ? self.status : [NSNull null],
-        @"communication_vendor_id" : self.communicationVendorId,
+        @"communication_vendor_id" : self.communicationVendorId ? self.communicationVendorId : [NSNull null],
         @"tags" : [self.tags convertToDictionary] ? [self.tags convertToDictionary] : [NSNull null]
     };
     return dictionary;
@@ -32,7 +32,7 @@
                 communicationVendorId:(NSString*)communicationVendorId
                               andTags:(Tags*)tags
 {
-    self.description = (NSString*)description;
+    self.descriptionText = description;
     self.identifier = identifier;
     self.title = title;
     self.types = types;

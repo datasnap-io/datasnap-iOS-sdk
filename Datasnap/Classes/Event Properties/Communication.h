@@ -12,7 +12,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Communication : EventProperty
-@property NSString* description;
+@property NSString* descriptionText;
 @property NSString* title;
 @property Types* types;
 @property Content* content;
