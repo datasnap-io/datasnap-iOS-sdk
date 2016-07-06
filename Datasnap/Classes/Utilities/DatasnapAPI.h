@@ -2,6 +2,8 @@
 //  Copyright (c) 2015 Datasnap.io. All rights reserved.
 //
 
+#import "Event+Management.h"
+#import "EventQueue.h"
 #import "Gzip.h"
 #import <Foundation/Foundation.h>
 
@@ -11,7 +13,7 @@ typedef void (^DataSnapAPIRequestCompleted)(NSData* data, NSURLResponse* respons
 @property BOOL success;
 - (instancetype)initWithKey:(NSString*)apiKey secret:(NSString*)apiSecret;
 
-- (BOOL)sendEvents:(NSObject*)events;
+- (BOOL)sendEvents:(NSArray*)events;
 
 - (void)performAuthenticatedPOSTRequestWithURL:(NSURL*)requestURL body:(NSData*)data onCompletion:(DataSnapAPIRequestCompleted)completitionHandler;
 - (void)performAuthenticatedGETRequestWithURL:(NSURL*)requestURL parameters:(NSDictionary*)params onCompletion:(DataSnapAPIRequestCompleted)completitionHandler;

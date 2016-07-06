@@ -56,7 +56,7 @@
         apiKeySecret:(NSString*)apiKeySecret
       organizationId:(NSString*)organizationId
            projectId:(NSString*)projectId
-       googleAdOptIn:(bool)googleAdOptIn
+           IDFAOptIn:(bool)googleAdOptIn
                email:(NSString*)email
  andVendorProperties:(VendorProperties*)vendorProperties;
 - (void)setFlushParamsWithDuration:(NSInteger)durationInMillis

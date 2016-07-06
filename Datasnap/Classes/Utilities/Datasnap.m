@@ -52,7 +52,7 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
         apiKeySecret:(NSString*)apiKeySecret
       organizationId:(NSString*)organizationId
            projectId:(NSString*)projectId
-       googleAdOptIn:(bool)googleAdOptIn
+           IDFAOptIn:(bool)googleAdOptIn
                email:(NSString*)email
  andVendorProperties:(VendorProperties*)vendorProperties
 {
@@ -182,8 +182,8 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
         NSMutableArray* events = self.eventQueue.getEvents;
         if (events.count > 0) {
             if ([self.api sendEvents:events]) {
-                NSLog(@"Queue is full. %d events will be sent to service and flushed.", events.count);
-                [self.eventQueue flushQueue:events];
+                //NSLog(@"Queue is full. %d events will be sent to service and flushed.", events.count);
+                //[self.eventQueue flushQueue:events];
                 if ([EventEntity returnAllEvents].count > 0) {
                     [self checkQueue];
                 }
