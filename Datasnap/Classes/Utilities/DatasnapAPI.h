@@ -8,7 +8,7 @@
 typedef void (^DataSnapAPIRequestCompleted)(NSData* data, NSURLResponse* response, NSError* error);
 
 @interface DatasnapAPI : NSObject
-@property bool success;
+@property BOOL success;
 - (instancetype)initWithKey:(NSString*)apiKey secret:(NSString*)apiSecret;
 
 - (BOOL)sendEvents:(NSObject*)events;

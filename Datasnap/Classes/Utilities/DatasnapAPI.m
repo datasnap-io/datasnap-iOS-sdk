@@ -34,7 +34,6 @@ static NSString* const kDataSnapEventAPIURL = @"https://api-events-staging.datas
 
 - (BOOL)sendEvents:(NSObject*)events
 {
-    __block BOOL success;
     NSError* error;
     NSData* json = [NSJSONSerialization dataWithJSONObject:events
                                                    options:NSJSONWritingPrettyPrinted

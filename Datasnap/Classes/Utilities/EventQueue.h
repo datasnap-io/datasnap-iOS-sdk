@@ -1,6 +1,7 @@
 //
 // Copyright (c) 2015 Datasnapio. All rights reserved.
 //
+#import "CoreDataHelper.h"
 #import "Event+Management.h"
 #import <Foundation/Foundation.h>
 

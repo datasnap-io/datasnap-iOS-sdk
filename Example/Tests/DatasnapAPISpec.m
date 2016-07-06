@@ -29,6 +29,7 @@ describe(@"Datasnap API",
 
             // Mock the API server
             apiServer = [DatasnapAPI new];
+            apiServer.success = NO;
             [DatasnapAPI stub:@selector(init) andReturn:apiServer];
 
             //mock json for an event
@@ -37,11 +38,13 @@ describe(@"Datasnap API",
                 @"user" : @{ @"id" : @{ @"global_distinct_id" : @"1" } },
                 @"organization_ids" : @[ @"19CYxNMSQvfnnMf1QS4b3Z" ],
                 @"project_ids" : @[ @"21213f8b-8341-4ef3-a6b8-ed0f84945186" ] };
-            event.json = [NSString stringWithFormat:@"%@", json];
+            NSError* err;
+            NSData* jsonData = [NSJSONSerialization dataWithJSONObject:json options:0 error:&err];
+            event.json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
             // Mock the datasnap server response
             [apiServer stub:@selector(performAuthenticatedRequest:onCompletion:)
                   withBlock:^id(NSArray* params) {
-                      DataSnapAPIRequestCompleted completionBlock = params[0];
+                      DataSnapAPIRequestCompleted completionBlock = params[1];
                       NSURL* url = [[NSURL alloc] initWithString:@"https://api-events-staging.datasnap.io/v1.0/events"];
                       NSURLResponse* response = [[NSHTTPURLResponse alloc] initWithURL:url statusCode:200 HTTPVersion:nil
                                                                           headerFields:@{ @"Accept-Encoding" : @"gzip",
@@ -69,7 +72,8 @@ describe(@"Datasnap API",
         it(@"Should receive a success message from server", ^{
             NSData* data = [event.json dataUsingEncoding:NSUTF8StringEncoding];
             NSMutableArray* eventJsonArray = [NSMutableArray new];
-            NSDictionary* response = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            NSError* err = nil;
+            NSDictionary* response = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
             [eventJsonArray addObject:response];
             [apiServer sendEvents:eventJsonArray];
             [[theValue(apiServer.success) should] equal:theValue(YES)];
