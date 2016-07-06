@@ -5,9 +5,7 @@
 //  Created by Alyssa McIntyre on 6/20/16.
 //  Copyright © 2016 DataSnap. All rights reserved.
 //
-#import "Datasnap.h"
-#import "Event+Management.h"
-#import "VendorProperties.h"
+#import <Datasnap/Datasnap.h>
 #import <Kiwi/Kiwi.h>
 #import <MagicalRecord/MagicalRecord.h>
 

@@ -62,6 +62,7 @@
 		7BE0349C476899E057AAD285 /* Pods-Datasnap_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Datasnap_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Datasnap_Example/Pods-Datasnap_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A310A45B210F8C74D575EB64 /* libPods-Datasnap_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Datasnap_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A46C4913D9529A1FBC1C363F /* Pods-Datasnap_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Datasnap_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Datasnap_Tests/Pods-Datasnap_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		B20766531D2D85DF000D8CEA /* libDatasnap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDatasnap.a; path = "../../Library/Developer/Xcode/DerivedData/Datasnap-ehelrgaqltpzmeeivywbbqmctltu/Build/Products/Debug-iphonesimulator/Datasnap/libDatasnap.a"; sourceTree = "<group>"; };
 		B24A05151D1DE1C500A2822F /* libDatasnap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDatasnap.a; path = "Pods/../build/Debug-iphoneos/Datasnap/libDatasnap.a"; sourceTree = "<group>"; };
 		B24A05171D1DE3BB00A2822F /* libDatasnap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDatasnap.a; path = "Pods/../build/Debug-iphoneos/Datasnap/libDatasnap.a"; sourceTree = "<group>"; };
 		B24A051B1D1DE51200A2822F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -126,6 +127,7 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B20766531D2D85DF000D8CEA /* libDatasnap.a */,
 				B2DACBFD1D26E1F30013321B /* libKiwi.a */,
 				B24A05171D1DE3BB00A2822F /* libDatasnap.a */,
 				B24A05151D1DE1C500A2822F /* libDatasnap.a */,

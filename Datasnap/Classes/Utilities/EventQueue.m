@@ -6,9 +6,6 @@
 
 @interface EventQueue ()
 
-@property NSMutableArray* eventQueue;
-@property EventEntity* event;
-
 @end
 
 @implementation EventQueue
@@ -25,7 +22,6 @@
 - (instancetype)init
 {
     if (self = [super init]) {
-        self.eventQueue = [NSMutableArray new];
         CoreDataHelper* coreDataHelper = [CoreDataHelper sharedManager];
         self.context = coreDataHelper.context;
     }
@@ -37,17 +33,17 @@
     NSError* err;
     NSData* jsonData = [NSJSONSerialization dataWithJSONObject:details options:0 error:&err];
     NSString* myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    self.event = [EventEntity createEventEntityInContext:self.context];
-    self.event.json = myString;
+    EventEntity* event = [EventEntity createEventEntityInContext:self.context];
+    event.json = myString;
     NSLog(@"Event recorded");
 }
 
 - (NSArray*)getEvents
 {
     NSMutableArray* eventJsonArray = [NSMutableArray new];
-    NSArray* eventsArray = [EventEntity returnEventsInBatchSize:self.queueLength
-                                                     andContext:self.context];
-    for (EventEntity* event in eventsArray) {
+    self.eventsArray = [EventEntity returnEventsInBatchSize:self.queueLength
+                                                 andContext:self.context];
+    for (EventEntity* event in self.eventsArray) {
         NSError* err;
         NSData* data = [event.json dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary* response;
@@ -61,9 +57,10 @@
 
 - (void)flushQueue:(NSMutableArray*)queue
 {
-    for (EventEntity* event in queue) {
-        [EventEntity deleteEvent:event];
+    for (EventEntity* event in self.eventsArray) {
+        [EventEntity deleteEvent:event inContext:self.context];
     }
+    [self.eventsArray removeAllObjects];
 }
 
 - (NSInteger)numberOfQueuedEvents

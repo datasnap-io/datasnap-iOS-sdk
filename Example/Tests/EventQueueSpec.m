@@ -52,10 +52,9 @@ describe(@"Datasnap API",
         });
         it(@"Should flush two events", ^{
             [EventEntity createEventEntityInContext:context];
-            NSMutableArray* eventArray = [EventEntity returnAllEventsInContext:context];
-            [eventQueue flushQueue:eventArray];
-            eventArray = [EventEntity returnAllEventsInContext:context];
-            [[theValue(eventArray.count) should] equal:theValue(0)];
+            eventQueue.eventsArray = [EventEntity returnAllEventsInContext:context];
+            [eventQueue flushQueue:eventQueue.eventsArray];
+            [[theValue(eventQueue.eventsArray.count) should] equal:theValue(0)];
         });
     });
 
