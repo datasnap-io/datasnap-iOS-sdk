@@ -17,4 +17,13 @@
     };
     return dictionary;
 }
+- (UserProperties*)initWithUserType:(NSString*)userType
+                               high:(NSString*)high
+                  andEngagementType:(NSString*)engagementType
+{
+    self.userType = userType;
+    self.high = high;
+    self.engagementTime = engagementType;
+    return self;
+}
 @end

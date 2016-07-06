@@ -20,4 +20,15 @@
     };
     return dictionary;
 }
+- (Geofence*)initWithName:(NSString*)name
+               visibility:(NSString*)visibility
+                     tags:(Tags*)tags
+        andGeofenceCircle:(GeofenceCircle*)geofenceCircle
+{
+    self.name = name;
+    self.visibility = visibility;
+    self.tags = tags;
+    self.geofenceCircle = geofenceCircle;
+    return self;
+}
 @end

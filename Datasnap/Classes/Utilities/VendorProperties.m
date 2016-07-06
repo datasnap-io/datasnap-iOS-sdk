@@ -9,8 +9,6 @@
 #import "VendorProperties.h"
 
 @implementation VendorProperties
-@synthesize gimbalApiKey;
-@synthesize vendor;
 - (VendorProperties*)initWithVendor:(Vendor)vendor
                     andgimbalApiKey:(NSString*)gimbalApiKey
 {

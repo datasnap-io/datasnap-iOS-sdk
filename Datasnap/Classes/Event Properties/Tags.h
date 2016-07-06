@@ -11,4 +11,5 @@
 @interface Tags : EventProperty
 @property NSArray* tags;
 - (NSDictionary*)convertToDictionary;
+- (Tags*)initWithArray:(NSArray*)tags;
 @end

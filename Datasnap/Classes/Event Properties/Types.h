@@ -11,4 +11,5 @@
 @interface Types : EventProperty
 @property NSString* name;
 - (NSDictionary*)convertToDictionary;
+- (Types*)initWithName:(NSString*)name;
 @end

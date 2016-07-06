@@ -16,4 +16,9 @@
     };
     return dictionary;
 }
+- (Tags*)initWithArray:(NSArray*)tags
+{
+    self.tags = tags;
+    return self;
+}
 @end

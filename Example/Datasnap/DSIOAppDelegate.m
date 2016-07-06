@@ -28,7 +28,7 @@
                               IDFAOptIn:YES
                                   email:@"someemail@example.com"
                     andVendorProperties:vendorProperties];
-    [datasnap setFlushParamsWithDuration:100000 withMaxElements:50];
+    [datasnap setFlushParamsWithDuration:100 withMaxElements:10];
     return YES;
 }
 - (void)application:(UIApplication*)app

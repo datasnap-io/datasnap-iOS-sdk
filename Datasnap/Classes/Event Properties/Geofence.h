@@ -15,4 +15,8 @@
 @property Tags* tags;
 @property GeofenceCircle* geofenceCircle;
 - (NSDictionary*)convertToDictionary;
+- (Geofence*)initWithName:(NSString*)name
+               visibility:(NSString*)visibility
+                     tags:(Tags*)tags
+        andGeofenceCircle:(GeofenceCircle*)geofenceCircle;
 @end

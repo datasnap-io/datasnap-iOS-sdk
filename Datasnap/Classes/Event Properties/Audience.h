@@ -18,4 +18,12 @@
 @property NSString* interests;
 @property NSString* income;
 - (NSDictionary*)convertToDictionary;
+- (Audience*)initWithEducation:(NSString*)education
+                       college:(NSString*)college
+                           age:(NSString*)age
+                     ethnicity:(NSString*)ethnicity
+                          kids:(NSString*)kids
+                        gender:(NSString*)gender
+                     interests:(NSString*)interests
+                     andIncome:(NSString*)income;
 @end

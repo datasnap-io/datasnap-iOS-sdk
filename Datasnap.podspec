@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'Datasnap'
-s.version          = '1.0.4'
+s.version          = '2.0.0'
 s.summary          = 'The new Datasnap iOS SDK.'
 
 # This description is used to generate tags and improve search results.

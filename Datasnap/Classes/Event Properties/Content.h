@@ -10,9 +10,12 @@
 
 @interface Content : EventProperty
 @property NSString* text;
-@property NSString* description;
 @property NSString* image;
 @property NSString* html;
 @property NSString* url;
 - (NSDictionary*)convertToDictionary;
+- (Content*)initWithText:(NSString*)text
+                   image:(NSString*)image
+                    html:(NSString*)html
+                  andUrl:(NSString*)url;
 @end

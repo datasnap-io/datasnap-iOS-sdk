@@ -16,4 +16,9 @@
     };
     return dictionary;
 }
+- (Location*)initWithCoordinates:(NSArray*)coordinates
+{
+    self.coordinates = coordinates;
+    return self;
+}
 @end

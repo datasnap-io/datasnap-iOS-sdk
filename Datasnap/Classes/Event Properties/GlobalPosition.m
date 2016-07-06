@@ -20,4 +20,17 @@
     };
     return dictionary;
 }
+- (GlobalPosition*)initWithLocation:(Location*)location
+                           altitude:(NSString*)altitude
+                           accuracy:(NSString*)accuracy
+                             course:(NSString*)course
+                           andSpeed:(NSString*)speed
+{
+    self.location = location;
+    self.altitude = altitude;
+    self.accuracy = accuracy;
+    self.course = course;
+    self.speed = speed;
+    return self;
+}
 @end

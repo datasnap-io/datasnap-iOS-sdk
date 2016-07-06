@@ -17,4 +17,11 @@
     };
     return dictionary;
 }
+- (GeofenceCircle*)initWithRadius:(NSString*)radius
+                      andLocation:(Location*)location
+{
+    self.radius = radius;
+    self.location = location;
+    return self;
+}
 @end

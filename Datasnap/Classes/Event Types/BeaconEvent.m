@@ -8,8 +8,6 @@
 #import "BeaconEvent.h"
 
 @implementation BeaconEvent
-@synthesize place;
-@synthesize beacon;
 - (BOOL)isValid
 {
     return [super isValid] && self.beacon;

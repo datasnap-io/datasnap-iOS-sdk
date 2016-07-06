@@ -9,5 +9,9 @@
 #import "EventProperty.h"
 
 @implementation EventProperty
-
+- (EventProperty*)initWithIdentifier:(NSString*)identifier
+{
+    self.identifier = identifier;
+    return self;
+}
 @end

@@ -9,8 +9,6 @@
 #import "UpdateEvent.h"
 
 @implementation UpdateEvent
-@synthesize beacon;
-@synthesize place;
 - (UpdateEvent*)initWithEventType:(NSString*)eventType
                            beacon:(Beacon*)beacon
                          andPlace:(Place*)place
@@ -18,6 +16,7 @@
     self.eventType = eventType;
     self.beacon = beacon;
     self.place = place;
+    self.dataSnapVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     NSDateFormatter* dateFormatter = [NSDateFormatter new];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
     self.created = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]];

@@ -9,7 +9,6 @@
 #import "GlobalPositionEvent.h"
 
 @implementation GlobalPositionEvent
-@synthesize globalPosition;
 - (GlobalPositionEvent*)initWithEventType:(NSString*)eventType
                         andGlobalPosition:(GlobalPosition*)globalPosition
 {
@@ -35,7 +34,7 @@
         @"datasnap" : @{ @"device" : [self.device convertToDictionary],
             @"created" : self.created },
         @"additional_properties" : self.additionalProperties ? self.additionalProperties : [NSNull null],
-        @"global_position" : self.globalPosition ? [self.globalPosition convertToDictionary] : [NSNull null]
+        @"global-position" : self.globalPosition ? [self.globalPosition convertToDictionary] : [NSNull null]
     };
     return dictionary;
 }

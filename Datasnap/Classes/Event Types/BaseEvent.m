@@ -8,17 +8,6 @@
 #import "BaseEvent.h"
 
 @implementation BaseEvent
-@synthesize dataSnapVersion;
-@synthesize eventType;
-@synthesize organizationIds;
-@synthesize projectIds;
-@synthesize customerOrgId;
-@synthesize customerVenueOrgId;
-@synthesize venueOrgId;
-@synthesize user;
-@synthesize device;
-@synthesize additionalProperties;
-@synthesize created;
 - (BOOL)isValid
 {
     return self.organizationIds.count > 0 && self.projectIds.count > 0 && self.user && self.device;
@@ -34,8 +23,8 @@
         @"customer_venue_org_id" : self.customerVenueOrgId ? self.customerVenueOrgId : [NSNull null],
         @"venue_org_id" : self.venueOrgId ? self.venueOrgId : [NSNull null],
         @"user" : [self.user convertToDictionary],
-        @"datasnap": @{@"device" : [self.device convertToDictionary],
-                        @"created" : self.created},
+        @"datasnap" : @{ @"device" : [self.device convertToDictionary],
+            @"created" : self.created },
         @"additional_properties" : self.additionalProperties ? self.additionalProperties : [NSNull null]
     };
     return dictionary;

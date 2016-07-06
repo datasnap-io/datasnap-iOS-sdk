@@ -13,4 +13,7 @@
 @property NSString* high;
 @property NSString* engagementTime;
 - (NSDictionary*)convertToDictionary;
+- (UserProperties*)initWithUserType:(NSString*)userType
+                               high:(NSString*)high
+                  andEngagementType:(NSString*)engagementType;
 @end

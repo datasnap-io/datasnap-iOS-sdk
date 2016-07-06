@@ -17,4 +17,9 @@
     };
     return dictionary;
 }
+- (Types*)initWithName:(NSString*)name
+{
+    self.name = name;
+    return self;
+}
 @end

@@ -12,14 +12,14 @@
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{
-        @"id" : self.identifier,
-        @"uuid" : self.uuid,
-        @"name" : self.name,
+        @"id" : self.identifier ? self.identifier : [NSNull null],
+        @"uuid" : self.uuid ? self.uuid : [NSNull null],
+        @"name" : self.name ? self.name : [NSNull null],
         @"battery_level" : self.batteryLevel ? self.batteryLevel : [NSNull null],
         @"temperature" : self.temperature ? self.temperature : [NSNull null],
         @"ble_vendor_id" : self.bleVendorId ? self.bleVendorId : [NSNull null],
         @"ble_vendor_uuid" : self.bleVendorUuid ? self.bleVendorUuid : [NSNull null],
-        @"rssi" : self.rssi,
+        @"rssi" : self.rssi ? self.rssi : [NSNull null],
         @"is_mobile" : self.isMobile ? self.isMobile : [NSNull null],
         @"previous_rssi" : self.previousRssi ? self.previousRssi : [NSNull null],
         @"dwell_time" : self.dwellTime ? self.dwellTime : [NSNull null],
