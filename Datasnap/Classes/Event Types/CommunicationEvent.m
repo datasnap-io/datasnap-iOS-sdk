@@ -9,8 +9,6 @@
 #import "CommunicationEvent.h"
 
 @implementation CommunicationEvent
-@synthesize communication;
-@synthesize campaign;
 - (CommunicationEvent*)initWithEventType:(NSString*)eventType
                            communication:(Communication*)communication
                                 campaign:(Campaign*)campaign

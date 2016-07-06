@@ -12,8 +12,8 @@
 - (NSDictionary*)convertToDictionary
 {
     NSDictionary* dictionary = @{
-        @"title" : self.title,
-        @"id" : self.identifier,
+        @"name" : self.title ? self.title : [NSNull null],
+        @"identifier" : self.identifier,
         @"communication_ids" : self.communicationIds,
         @"tags" : [self.tags convertToDictionary] ? [self.tags convertToDictionary] : [NSNull null]
     };

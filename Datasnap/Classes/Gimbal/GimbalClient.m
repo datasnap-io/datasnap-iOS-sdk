@@ -93,7 +93,7 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
                                       forVisit:(GMBLVisit*)visit
 {
     for (Communication* communication in communications) {
-        Communication* dataSnapCommunication = [[Communication alloc] initWithDescription:communication.description
+        Communication* dataSnapCommunication = [[Communication alloc] initWithDescription:communication.descriptionText
                                                                                identifier:communication.identifier
                                                                                     title:communication.title
                                                                                     types:nil
@@ -105,11 +105,11 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
                                                   identifier:self.projectId
                                             communicationIds:communication.identifier
                                                      andTags:nil];
-        CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:(NSString*)communicationSentEventType
+        CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:communicationSentEventType
                                                                     communication:dataSnapCommunication
                                                                          campaign:campaign
-                                                                          venueId:visit.visitID
-                                                               customerVenueOrgId:visit.visitID];
+                                                                       venueOrgId:visit.visitID
+                                                                    customerOrgId:visit.visitID];
         Datasnap* datasnap = [Datasnap sharedClient];
         [datasnap trackEvent:event];
     }
@@ -120,7 +120,7 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
                             forCommunication:(GMBLCommunication*)communication
 
 {
-    Communication* dataSnapCommunication = [[Communication alloc] initWithDescription:communication.description
+    Communication* dataSnapCommunication = [[Communication alloc] initWithDescription:communication.descriptionText
                                                                            identifier:communication.identifier
                                                                                 title:communication.title
                                                                                 types:nil
@@ -135,8 +135,8 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
     CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:communicationSentEventType
                                                                 communication:dataSnapCommunication
                                                                      campaign:campaign
-                                                                      venueId:nil
-                                                           customerVenueOrgId:nil];
+                                                                   venueOrgId:nil
+                                                                customerOrgId:nil];
     Datasnap* datasnap = [Datasnap sharedClient];
     [datasnap trackEvent:event];
     return notification;

@@ -61,7 +61,7 @@
 + (void)deleteAllEvents:(NSMutableArray*)eventsArray
 {
     CoreDataHelper* coreDataHelper = [CoreDataHelper sharedManager];
-    [[self class] deleteAllEvents:eventsArray inContext:coreDataHelper.context];
+    [self  deleteAllEvents:eventsArray inContext:coreDataHelper.context];
 }
 + (void)deleteEvent:(EventEntity*)event
           inContext:(NSManagedObjectContext*)context
