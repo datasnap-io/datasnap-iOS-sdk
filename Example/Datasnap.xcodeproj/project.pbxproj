@@ -20,12 +20,12 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
+		ADD9A3A6F800EB8FA0FFC1D5 /* libPods-Datasnap_Example-Datasnap_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2941608EA39DF64F8A83DFF9 /* libPods-Datasnap_Example-Datasnap_Tests.a */; };
 		B24A051C1D1DE51200A2822F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B24A051B1D1DE51200A2822F /* Main.storyboard */; };
 		B2DACBFA1D26DFB50013321B /* DatasnapSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DACBF91D26DFB50013321B /* DatasnapSpec.m */; };
 		B2DACBFC1D26DFE00013321B /* EventEntitySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DACBFB1D26DFE00013321B /* EventEntitySpec.m */; };
 		B2DACC011D2714100013321B /* EventQueueSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DACC001D2714100013321B /* EventQueueSpec.m */; };
 		B2DACC031D2724050013321B /* DatasnapAPISpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B2DACC021D2724050013321B /* DatasnapAPISpec.m */; };
-		F24BEE05012B4BF6B9879F30 /* libPods-Datasnap_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A310A45B210F8C74D575EB64 /* libPods-Datasnap_Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +41,8 @@
 /* Begin PBXFileReference section */
 		2389400F6F4013E2377D73E9 /* Datasnap.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Datasnap.podspec; path = ../Datasnap.podspec; sourceTree = "<group>"; };
 		25F7AEFB4F52A0475956CF6F /* Pods-Datasnap_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Datasnap_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Datasnap_Example/Pods-Datasnap_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		2941608EA39DF64F8A83DFF9 /* libPods-Datasnap_Example-Datasnap_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Datasnap_Example-Datasnap_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D3D300D33D141BC5E3C4BD8 /* Pods-Datasnap_Example-Datasnap_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Datasnap_Example-Datasnap_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Datasnap_Example-Datasnap_Tests/Pods-Datasnap_Example-Datasnap_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* Datasnap_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Datasnap_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,6 +62,7 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		7BE0349C476899E057AAD285 /* Pods-Datasnap_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Datasnap_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Datasnap_Example/Pods-Datasnap_Example.release.xcconfig"; sourceTree = "<group>"; };
+		987BC945CC68E853CA365AB4 /* Pods-Datasnap_Example-Datasnap_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Datasnap_Example-Datasnap_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Datasnap_Example-Datasnap_Tests/Pods-Datasnap_Example-Datasnap_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		A310A45B210F8C74D575EB64 /* libPods-Datasnap_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Datasnap_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A46C4913D9529A1FBC1C363F /* Pods-Datasnap_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Datasnap_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Datasnap_Tests/Pods-Datasnap_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B20766531D2D85DF000D8CEA /* libDatasnap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDatasnap.a; path = "../../Library/Developer/Xcode/DerivedData/Datasnap-ehelrgaqltpzmeeivywbbqmctltu/Build/Products/Debug-iphonesimulator/Datasnap/libDatasnap.a"; sourceTree = "<group>"; };
@@ -96,7 +99,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				F24BEE05012B4BF6B9879F30 /* libPods-Datasnap_Tests.a in Frameworks */,
+				ADD9A3A6F800EB8FA0FFC1D5 /* libPods-Datasnap_Example-Datasnap_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +140,7 @@
 				6003F5AF195388D20070C39A /* XCTest.framework */,
 				E548272B59B99E68F85E8CAC /* libPods-Datasnap_Example.a */,
 				A310A45B210F8C74D575EB64 /* libPods-Datasnap_Tests.a */,
+				2941608EA39DF64F8A83DFF9 /* libPods-Datasnap_Example-Datasnap_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -206,6 +210,8 @@
 				7BE0349C476899E057AAD285 /* Pods-Datasnap_Example.release.xcconfig */,
 				E4701B10EE18C6C8A141A47A /* Pods-Datasnap_Tests.debug.xcconfig */,
 				A46C4913D9529A1FBC1C363F /* Pods-Datasnap_Tests.release.xcconfig */,
+				4D3D300D33D141BC5E3C4BD8 /* Pods-Datasnap_Example-Datasnap_Tests.debug.xcconfig */,
+				987BC945CC68E853CA365AB4 /* Pods-Datasnap_Example-Datasnap_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -340,7 +346,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Datasnap_Tests/Pods-Datasnap_Tests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Datasnap_Example-Datasnap_Tests/Pods-Datasnap_Example-Datasnap_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		84F0324C2DABFA1B813F992A /* [CP] Copy Pods Resources */ = {
@@ -370,7 +376,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Datasnap_Tests/Pods-Datasnap_Tests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Datasnap_Example-Datasnap_Tests/Pods-Datasnap_Example-Datasnap_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B48A13A41CDB1B857E3F982D /* [CP] Check Pods Manifest.lock */ = {
@@ -587,7 +593,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4701B10EE18C6C8A141A47A /* Pods-Datasnap_Tests.debug.xcconfig */;
+			baseConfigurationReference = 4D3D300D33D141BC5E3C4BD8 /* Pods-Datasnap_Example-Datasnap_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -610,7 +616,7 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A46C4913D9529A1FBC1C363F /* Pods-Datasnap_Tests.release.xcconfig */;
+			baseConfigurationReference = 987BC945CC68E853CA365AB4 /* Pods-Datasnap_Example-Datasnap_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

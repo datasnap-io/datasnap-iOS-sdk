@@ -50,6 +50,7 @@
 @class BaseEvent;
 @interface Datasnap : NSObject
 @property (nonatomic) DatasnapAPI* api;
+@property (nonatomic) EventQueue* eventQueue;
 - (void)trackEvent:(BaseEvent*)event;
 + (id)sharedClient;
 - (id)initWithApiKey:(NSString*)apiKey

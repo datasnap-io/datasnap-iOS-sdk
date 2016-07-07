@@ -35,29 +35,11 @@ describe(@"Datasnap API",
                 @"project_ids" : @[ @"21213f8b-8341-4ef3-a6b8-ed0f84945186" ]
             };
 
-            // Mock the datasnap server response
-            [apiServer stub:@selector(performAuthenticatedRequest:onCompletion:)
-                  withBlock:^id(NSArray* params) {
-                      DataSnapAPIRequestCompleted completionBlock = params[0];
-                      NSURL* url = [[NSURL alloc] initWithString:@"https://api-events-staging.datasnap.io/v1.0/events"];
-                      NSURLResponse* response = [[NSHTTPURLResponse alloc] initWithURL:url statusCode:200 HTTPVersion:nil
-                                                                          headerFields:@{ @"Accept-Encoding" : @"gzip",
-                                                                              @"Connection" : @"keep-alive",
-                                                                              @"Content-Length" : @"4",
-                                                                              @"Content-Type" : @"text/plain;charset=UTF-8",
-                                                                              @"Date" : @"Tue, 21 Jun 2016 16:48:44 GMT",
-                                                                              @"Server" : @"Apache-Coyote/1.1" }];
-                      NSError* error;
-                      NSData* data = [NSJSONSerialization dataWithJSONObject:json
-                                                                     options:NSJSONWritingPrettyPrinted
-                                                                       error:&error];
-                      completionBlock(data, response, nil);
-                      return nil;
-                  }];
             datasnap = [Datasnap new];
             datasnap.api = apiServer;
             eventQueue = [EventQueue new];
             [eventQueue stub:@selector(init) andReturn:eventQueue];
+            datasnap.eventQueue = eventQueue;
             eventQueue.context = context;
         });
         afterEach(^{

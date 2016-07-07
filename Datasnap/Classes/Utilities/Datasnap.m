@@ -26,7 +26,6 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
 @property (nonatomic) id gimbalClient;
 @property (nonatomic, strong) NSString* organizationId;
 @property (nonatomic, strong) NSString* projectId;
-@property (nonatomic) EventQueue* eventQueue;
 @property (nonatomic) BaseClient* baseClient;
 @property (nonatomic) NSTimer* timer;
 @property (nonatomic) bool googleAdOptIn;
@@ -154,6 +153,9 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
         [inv setArgument:&self->_user atIndex:6];
         [inv invoke];
     }
+    else {
+        NSLog(@"Gimbal library not found, please add Gimbal to podfile using pod 'Gimbal' and run pod install");
+    }
 }
 
 #pragma mark Network Reachability
@@ -179,7 +181,7 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
 - (void)checkQueue
 {
     if ([self connected]) {
-        NSMutableArray* events = self.eventQueue.getEvents;
+        NSMutableArray* events = [self.eventQueue getEvents];
         if (events.count > 0) {
             if ([self.api sendEvents:events]) {
                 NSLog(@"Queue is full. %d events will be sent to service and flushed.", events.count);
