@@ -1,0 +1,7 @@
+machine:
+  xcode:
+    version: "7.0"
+
+test:
+  override:
+    - ./bin/Example/tests
