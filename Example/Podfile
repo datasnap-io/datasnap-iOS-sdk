@@ -5,7 +5,7 @@ target 'Datasnap_Example' do
     pod 'Gimbal'
     pod 'AFNetworking'
     target 'Datasnap_Tests' do
-        #inherit! :search_paths
+        inherit! :search_paths
         
         pod 'Kiwi'
         pod 'MagicalRecord'
