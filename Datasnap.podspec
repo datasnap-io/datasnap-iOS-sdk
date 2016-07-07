@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'Datasnap'
-s.version          = 'v2.0.0'
+s.version          = '2.0.0'
 s.summary          = 'The new Datasnap iOS SDK.'
 
 s.description      = <<-DESC
