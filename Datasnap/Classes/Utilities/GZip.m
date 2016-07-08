@@ -98,7 +98,7 @@
     // Free data structures that were dynamically created for the stream.
     deflateEnd(&zlibStreamStruct);
     [compressedData setLength:zlibStreamStruct.total_out];
-    NSLog(@"Payload size of request: %d KB", [(int)compressedData length] / 1024);
+    NSLog(@"Payload size of request: %d KB", [compressedData length] / 1024);
     return compressedData;
 }
 
