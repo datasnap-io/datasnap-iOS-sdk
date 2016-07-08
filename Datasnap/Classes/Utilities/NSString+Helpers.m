@@ -14,7 +14,7 @@
     const char* cstr = [self cStringUsingEncoding:NSUTF8StringEncoding];
     NSData* data = [NSData dataWithBytes:cstr length:self.length];
 
-    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
+    uint8_t digest[(CC_LONG)CC_SHA1_DIGEST_LENGTH];
 
     CC_SHA1(data.bytes, data.length, digest);
 

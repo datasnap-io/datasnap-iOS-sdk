@@ -181,10 +181,10 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
 - (void)checkQueue
 {
     if ([self connected]) {
-        NSMutableArray* events = [self.eventQueue getEvents];
+        NSArray* events = [self.eventQueue getEvents];
         if (events.count > 0) {
             if ([self.api sendEvents:events]) {
-                NSLog(@"Queue is full. %d events will be sent to service and flushed.", events.count);
+                NSLog(@"Queue is full. %d events will be sent to service and flushed.", (unsigned long)events.count);
                 [self.eventQueue flushQueue:events];
                 if ([EventEntity returnAllEvents].count > 0) {
                     [self checkQueue];
