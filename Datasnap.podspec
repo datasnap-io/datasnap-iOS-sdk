@@ -24,6 +24,6 @@ s.subspec 'Generic' do |generic|
 end
 s.subspec 'Gimbal' do |gimbal|
 gimbal.dependency 'Gimbal'
-gimbal.source_files = 'Datasnap/Classes/Gimbal/*.{h,m}'
+gimbal.source_files = 'Datasnap/Classes/{Gimbal,Event Properties,Event Types,Model,Utilities}/*.{h,m}'
 end
 end
