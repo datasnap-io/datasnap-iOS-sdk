@@ -5,6 +5,7 @@
 //  Created by Alyssa McIntyre on 6/1/16.
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
+#import "BaseClient.h"
 #import "BaseEvent.h"
 #import "Beacon.h"
 #import "BeaconEvent.h"
@@ -37,8 +38,8 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
     self.gimbalApiKey = (NSString*)vendorProperties.gimbalApiKey;
     self.organizationId = (NSString*)organizationId;
     self.projectId = (NSString*)projectId;
-    self.user = user;
-    self.device = device;
+    self.user = (NSString*)user;
+    self.device = (NSString*)device;
     [self startGimbal];
     return self;
 }
@@ -54,6 +55,7 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
         self.communicationManager.delegate = self;
         [GMBLPlaceManager startMonitoring];
         [GMBLCommunicationManager startReceivingCommunications];
+        BaseClient* baseClient = [[BaseClient alloc] init];
     }
     @catch (NSException* classNotFoundException) {
         NSLog(@"Gimbal class not found. Please add the Gimbal pod to your podfile and run pod install");
@@ -66,10 +68,10 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
                                                    uuid:sighting.beacon.uuid
                                                    name:sighting.beacon.name
                                            batterylevel:[NSString stringWithFormat:@"%ld", (long)sighting.beacon.batteryLevel]
-                                            temperature:[NSString stringWithFormat:@"%d", (long)sighting.beacon.temperature]
+                                            temperature:[NSString stringWithFormat:@"%d", sighting.beacon.temperature]
                                           bleVendorUuid:nil
                                             bleVendorId:@"Gimbal"
-                                                   rssi:[NSString stringWithFormat:@"%d", (long)sighting.RSSI]
+                                                   rssi:[NSString stringWithFormat:@"%d", sighting.RSSI]
                                                isMobile:nil
                                            previousRssi:nil
                                               dwellTime:nil

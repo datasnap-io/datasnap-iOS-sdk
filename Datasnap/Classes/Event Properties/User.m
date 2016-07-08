@@ -9,7 +9,6 @@
 #import "User.h"
 
 @implementation User
-@dynamic identifier;
 - (User*)initWithIdentifier:(Identifier*)identifier
                        tags:(Tags*)tags
                    audience:(Audience*)audience
