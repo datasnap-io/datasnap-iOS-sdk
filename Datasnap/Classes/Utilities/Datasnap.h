@@ -43,12 +43,9 @@
 #pragma mark model
 #import "Event+Management.h"
 #pragma mark frameworks
-#import "zlib.h"
 #import <AFNetworking/AFNetworking.h>
-#import <CommonCrypto/CommonCrypto.h>
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <ifaddrs.h>
 
 @class BaseEvent;
 @interface Datasnap : NSObject
