@@ -63,6 +63,22 @@ datasnap = [datasnap initWithApiKey:@"3F34FXD78PCINFR99IYW950W4"
 [datasnap setFlushParamsWithDuration:100000 withMaxElements:50];
 ```
 
+#### Integrating with Swift
+
+```Swift
+let datasnap = Datasnap.sharedClient()
+let vendorProperties = VendorProperties(vendor:GIMBAL,
+gimbalApiKey:”Enter your Gimbal API key”)
+let datasnap = Datasnap(apiKey:”Enter your Datasnap API key here",
+                         apiKeySecret:”Enter your Datasnap API secret here",
+                       organizationId:”Enter your organization ID here",
+                            projectId:”Enter your project ID here”,
+                            IDFAOptIn:true,
+                                email:"someemail@example.com”,
+                  andVendorProperties:vendorProperties)
+```
+
+
 ### Sending Events Programatically
 Instead of allowing the Datasnap SDK to automatically send events, you can send them manually.  You might do this for testing purposes or if you needed to modify the event content in some way.
 
@@ -131,4 +147,4 @@ http://status.datasnap.io/
 
 ## License
 
-The Datasnap SDK is available under the Apache license. See the LICENSE file for more info.
+The Datasnap SDK is available under the Apache 2 license. See the LICENSE file for more info.
