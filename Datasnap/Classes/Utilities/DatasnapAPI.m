@@ -11,7 +11,7 @@ static NSString* const kQueryDivider = @"=";
 static NSString* const kQueryBegin = @"?";
 static NSString* const kFragmentBegin = @"#";
 
-static NSString* const kDataSnapEventAPIURL = @"https://api-events-staging.datasnap.io/v1.0/events";
+static NSString* const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v1.0/events";
 
 @interface DatasnapAPI () <NSURLSessionDataDelegate, NSURLSessionDelegate, NSURLSessionTaskDelegate>
 

@@ -10,7 +10,7 @@ DESC
 s.homepage         = 'https://github.com/datasnap-io/datasnap-ios-sdk'
 s.license          = { :type => 'APACHE, version 2.0', :file => 'LICENSE' }
 s.author           = { 'Layne McIntyre' => 'amcintyre@grio.com' }
-s.source           = { :git => 'https://github.com/datasnap-io/datasnap-ios-sdk.git', :tag => s.version.to_s }
+s.source           = { :git => 'https://github.com/datasnap-io/datasnap-ios-sdk.git', :tag => s.version }
 
 s.ios.deployment_target = '8.0'
 
