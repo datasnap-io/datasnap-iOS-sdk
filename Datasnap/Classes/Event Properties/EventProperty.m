@@ -14,8 +14,5 @@
     self.identifier = identifier;
     return self;
 }
-- (NSDictionary*)convertToDictionary
-{
-    return [self dictionary];
-}
+
 @end

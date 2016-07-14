@@ -13,7 +13,7 @@
 @property NSString* address;
 @property NSString* lastPlace;
 @property NSArray* geofences;
-- (NSDictionary*)convertToDictionary;
+
 - (Place*)initWithName:(NSString*)name
                address:(NSString*)address
              lastPlace:(NSString*)lastPlace

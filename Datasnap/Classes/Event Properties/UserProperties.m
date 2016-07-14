@@ -9,14 +9,7 @@
 #import "UserProperties.h"
 
 @implementation UserProperties
-- (NSDictionary*)convertToDictionary
-{
-    NSDictionary* dictionary = @{ @"user_type" : self.userType ? self.userType : [NSNull null],
-        @"high" : self.high ? self.high : [NSNull null],
-        @"engagement_type" : self.engagementTime ? self.engagementTime : [NSNull null]
-    };
-    return dictionary;
-}
+
 - (UserProperties*)initWithUserType:(NSString*)userType
                                high:(NSString*)high
                   andEngagementType:(NSString*)engagementType

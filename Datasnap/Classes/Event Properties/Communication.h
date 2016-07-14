@@ -19,7 +19,7 @@
 @property NSString* status;
 @property NSString* communicationVendorId;
 @property Tags* tags;
-- (NSDictionary*)convertToDictionary;
+
 - (Communication*)initWithDescription:(NSString*)description
                            identifier:(NSString*)identifier
                                 title:(NSString*)title

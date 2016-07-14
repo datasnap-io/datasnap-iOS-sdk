@@ -9,13 +9,7 @@
 #import "Tags.h"
 
 @implementation Tags
-- (NSDictionary*)convertToDictionary
-{
-    NSDictionary* dictionary = @{
-        @"tags" : self.tags ? self.tags : [NSNull null]
-    };
-    return dictionary;
-}
+
 - (Tags*)initWithArray:(NSArray*)tags
 {
     self.tags = tags;

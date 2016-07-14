@@ -10,6 +10,6 @@
 
 @interface Location : EventProperty
 @property NSArray* coordinates;
-- (NSDictionary*)convertToDictionary;
+
 - (Location*)initWithCoordinates:(NSArray*)coordinates;
 @end

@@ -20,5 +20,5 @@
                        tags:(Tags*)tags
                    audience:(Audience*)audience
           andUserProperties:(UserProperties*)userProperties;
-- (NSDictionary*)convertToDictionary;
+
 @end

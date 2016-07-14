@@ -11,5 +11,5 @@
 @interface EventProperty : NSObject
 @property NSString* identifier;
 - (EventProperty*)initWithIdentifier:(NSString*)identifier;
-- (NSDictionary*)convertToDictionary;
+
 @end

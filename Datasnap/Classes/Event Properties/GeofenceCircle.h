@@ -11,7 +11,7 @@
 @interface GeofenceCircle : EventProperty
 @property NSString* radius;
 @property Location* location;
-- (NSDictionary*)convertToDictionary;
+
 - (GeofenceCircle*)initWithRadius:(NSString*)radius
                       andLocation:(Location*)location;
 @end

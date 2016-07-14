@@ -9,16 +9,7 @@
 #import "Content.h"
 
 @implementation Content
-- (NSDictionary*)convertToDictionary
-{
-    NSDictionary* dictionary = @{
-        @"text" : self.text ? self.text : [NSNull null],
-        @"image" : self.image ? self.image : [NSNull null],
-        @"html" : self.html ? self.html : [NSNull null],
-        @"url" : self.url ? self.url : [NSNull null]
-    };
-    return dictionary;
-}
+
 - (Content*)initWithText:(NSString*)text
                    image:(NSString*)image
                     html:(NSString*)html

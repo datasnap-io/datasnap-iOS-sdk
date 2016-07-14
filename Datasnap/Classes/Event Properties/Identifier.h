@@ -12,7 +12,7 @@
 @property NSString* datasnapUuid;
 @property NSString* domainSessionid;
 @property NSString* facebookUuid;
-@property NSString* globalDistinctId;
+@property NSString* global_Distinct_Id;
 @property NSString* globalUserIpAddress;
 @property NSString* hashedEmail;
 @property NSString* mobileDeviceBluetoothIdentifier;
@@ -27,7 +27,6 @@
 @property NSString* webAnalyticsCompanyZCookie;
 @property NSString* unknown;
 
-- (NSDictionary*)convertToDictionary;
 - (Identifier*)initWithDatasnapUuid:(NSString*)datasnapUuid
                          domainSessionId:(NSString*)domainSessionId
                             facebookUuid:(NSString*)facebookUuid

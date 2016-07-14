@@ -13,6 +13,6 @@
 @property GlobalPosition* globalPosition;
 - (GlobalPositionEvent*)initWithEventType:(NSString*)eventType
                         andGlobalPosition:(GlobalPosition*)globalPosition;
-- (NSDictionary*)convertToDictionary;
+
 - (BOOL)isValid;
 @end

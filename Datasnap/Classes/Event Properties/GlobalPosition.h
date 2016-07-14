@@ -14,7 +14,7 @@
 @property NSString* accuracy;
 @property NSString* course;
 @property NSString* speed;
-- (NSDictionary*)convertToDictionary;
+
 - (GlobalPosition*)initWithLocation:(Location*)location
                            altitude:(NSString*)altitude
                            accuracy:(NSString*)accuracy

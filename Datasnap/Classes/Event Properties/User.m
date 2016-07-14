@@ -20,13 +20,5 @@
     self.userProperties = userProperties;
     return self;
 }
-- (NSDictionary*)convertToDictionary
-{
-    NSDictionary* dictionary = @{ @"tags" : [self.tags convertToDictionary] ? [self.tags convertToDictionary] : [NSNull null],
-        @"id" : [self.identifier convertToDictionary] ? [self.identifier convertToDictionary] : [NSNull null],
-        @"Audience" : self.audience ? self.audience : [NSNull null],
-        @"user_properties" : [self.userProperties convertToDictionary] ? [self.userProperties convertToDictionary] : [NSNull null]
-    };
-    return dictionary;
-}
+
 @end

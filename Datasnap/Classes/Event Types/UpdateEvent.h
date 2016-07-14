@@ -16,6 +16,6 @@
 - (UpdateEvent*)initWithEventType:(NSString*)eventType
                            beacon:(Beacon*)beacon
                          andPlace:(Place*)place;
-- (NSDictionary*)convertToDictionary;
+
 - (BOOL)isValid;
 @end

@@ -9,30 +9,7 @@
 #import "Beacon.h"
 
 @implementation Beacon
-- (NSDictionary*)convertToDictionary
-{
-    NSDictionary* dictionary = @{
-        @"id" : self.identifier ? self.identifier : [NSNull null],
-        @"uuid" : self.uuid ? self.uuid : [NSNull null],
-        @"name" : self.name ? self.name : [NSNull null],
-        @"battery_level" : self.batteryLevel ? self.batteryLevel : [NSNull null],
-        @"temperature" : self.temperature ? self.temperature : [NSNull null],
-        @"ble_vendor_id" : self.bleVendorId ? self.bleVendorId : [NSNull null],
-        @"ble_vendor_uuid" : self.bleVendorUuid ? self.bleVendorUuid : [NSNull null],
-        @"rssi" : self.rssi ? self.rssi : [NSNull null],
-        @"is_mobile" : self.isMobile ? self.isMobile : [NSNull null],
-        @"previous_rssi" : self.previousRssi ? self.previousRssi : [NSNull null],
-        @"dwell_time" : self.dwellTime ? self.dwellTime : [NSNull null],
-        @"start_time" : self.startTime ? self.startTime : [NSNull null],
-        @"last_update_time" : self.lastUpdateTime ? self.lastUpdateTime : [NSNull null],
-        @"latitude" : self.latitude ? self.latitude : [NSNull null],
-        @"longitude" : self.longitude ? self.longitude : [NSNull null],
-        @"visibility" : self.visibility ? self.visibility : [NSNull null],
-        @"hardware" : self.hardware ? self.hardware : [NSNull null],
-        @"tags" : [self.tags convertToDictionary] ? [self.tags convertToDictionary] : [NSNull null]
-    };
-    return dictionary;
-}
+
 - (Beacon*)initWithIdentifier:(NSString*)identifier
                          uuid:(NSString*)uuid
                          name:(NSString*)name

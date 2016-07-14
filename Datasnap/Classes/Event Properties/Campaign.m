@@ -9,16 +9,7 @@
 #import "Campaign.h"
 
 @implementation Campaign
-- (NSDictionary*)convertToDictionary
-{
-    NSDictionary* dictionary = @{
-        @"name" : self.title ? self.title : [NSNull null],
-        @"identifier" : self.identifier,
-        @"communication_ids" : self.communicationIds,
-        @"tags" : [self.tags convertToDictionary] ? [self.tags convertToDictionary] : [NSNull null]
-    };
-    return dictionary;
-}
+
 - (Campaign*)initWithTitle:(NSString*)title
                 identifier:(NSString*)identifier
           communicationIds:(NSString*)communicationIds

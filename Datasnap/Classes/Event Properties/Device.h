@@ -22,7 +22,7 @@
 @property NSString* vendorId;
 @property NSString* carrierName;
 @property NSString* countryCode;
-- (NSDictionary*)convertToDictionary;
+
 - (Device*)init;
 
 @end

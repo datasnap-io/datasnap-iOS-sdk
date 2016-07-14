@@ -16,6 +16,6 @@
 - (GeoFenceEvent*)initWithEventType:(NSString*)eventType
                            geoFence:(Geofence*)geofence
                         andLocation:(Location*)location;
-- (NSDictionary*)convertToDictionary;
+
 - (BOOL)isValid;
 @end

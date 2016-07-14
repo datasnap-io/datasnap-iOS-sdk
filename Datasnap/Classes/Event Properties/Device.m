@@ -9,21 +9,7 @@
 #import "Device.h"
 
 @implementation Device
-- (NSDictionary*)convertToDictionary
-{
-    NSDictionary* dictionary = @{
-        @"carrier_name" : self.carrierName ? self.carrierName : [NSNull null],
-        @"country_code" : self.countryCode,
-        @"ip_address" : self.ipAddress,
-        @"platform" : self.platform,
-        @"os_version" : self.osVersion,
-        @"model" : self.model,
-        @"manufacturer" : self.manufacturer,
-        @"name" : self.name,
-        @"vendor_id" : self.vendorId
-    };
-    return dictionary;
-}
+
 - (Device*)init
 {
     self.manufacturer = @"Apple";

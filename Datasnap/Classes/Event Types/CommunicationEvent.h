@@ -20,6 +20,6 @@
                                 campaign:(Campaign*)campaign
                               venueOrgId:(NSString*)venueId
                            customerOrgId:(NSString*)customerOrgId;
-- (NSDictionary*)convertToDictionary;
+
 - (BOOL)isValid;
 @end

@@ -27,7 +27,6 @@
 @property NSString* visibility;
 @property NSString* hardware;
 @property Tags* tags;
-- (NSDictionary*)convertToDictionary;
 - (Beacon*)initWithIdentifier:(NSString*)identifier
                          uuid:(NSString*)uuid
                          name:(NSString*)name

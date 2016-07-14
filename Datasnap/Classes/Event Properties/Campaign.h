@@ -13,7 +13,7 @@
 @property (nonatomic) NSString* title;
 @property (nonatomic) NSString* communicationIds;
 @property Tags* tags;
-- (NSDictionary*)convertToDictionary;
+
 - (Campaign*)initWithTitle:(NSString*)title
                 identifier:(NSString*)identifier
           communicationIds:(NSString*)communicationIds

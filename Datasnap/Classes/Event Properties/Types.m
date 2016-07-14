@@ -9,14 +9,7 @@
 #import "Types.h"
 
 @implementation Types
-- (NSDictionary*)convertToDictionary
-{
-    NSDictionary* dictionary = @{
-        @"id" : self.identifier ? self.identifier : [NSNull null],
-        @"name" : self.name ? self.name : [NSNull null]
-    };
-    return dictionary;
-}
+
 - (Types*)initWithName:(NSString*)name
 {
     self.name = name;

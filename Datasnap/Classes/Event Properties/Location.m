@@ -9,13 +9,7 @@
 #import "Location.h"
 
 @implementation Location
-- (NSDictionary*)convertToDictionary
-{
-    NSDictionary* dictionary = @{
-        @"coordinates" : self.coordinates ? self.coordinates : [NSNull null]
-    };
-    return dictionary;
-}
+
 - (Location*)initWithCoordinates:(NSArray*)coordinates
 {
     self.coordinates = coordinates;
