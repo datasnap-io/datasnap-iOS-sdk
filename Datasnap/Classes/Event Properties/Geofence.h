@@ -14,9 +14,10 @@
 @property NSString* visibility;
 @property Tags* tags;
 @property GeofenceCircle* geofenceCircle;
-
+@property NSString* identifier;
 - (Geofence*)initWithName:(NSString*)name
                visibility:(NSString*)visibility
                      tags:(Tags*)tags
+               identifier:(NSString*)identifier
         andGeofenceCircle:(GeofenceCircle*)geofenceCircle;
 @end

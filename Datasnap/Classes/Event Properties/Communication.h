@@ -13,16 +13,16 @@
 
 @interface Communication : EventProperty
 @property NSString* descriptionText;
-@property NSString* title;
+@property NSString* name;
 @property Types* types;
 @property Content* content;
 @property NSString* status;
 @property NSString* communicationVendorId;
 @property Tags* tags;
-
+@property NSString* identifier;
 - (Communication*)initWithDescription:(NSString*)description
                            identifier:(NSString*)identifier
-                                title:(NSString*)title
+                                 name:(NSString*)name
                                 types:(Types*)types
                               content:(Content*)content
                                status:(NSString*)status

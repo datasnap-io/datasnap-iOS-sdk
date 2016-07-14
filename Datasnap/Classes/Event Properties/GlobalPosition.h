@@ -14,10 +14,11 @@
 @property NSString* accuracy;
 @property NSString* course;
 @property NSString* speed;
-
+@property NSString* identifier;
 - (GlobalPosition*)initWithLocation:(Location*)location
                            altitude:(NSString*)altitude
                            accuracy:(NSString*)accuracy
                              course:(NSString*)course
+                         identifier:(NSString*)identifier
                            andSpeed:(NSString*)speed;
 @end

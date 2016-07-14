@@ -26,6 +26,7 @@
 @property NSString* longitude;
 @property NSString* visibility;
 @property NSString* hardware;
+@property NSString* identifier;
 @property Tags* tags;
 - (Beacon*)initWithIdentifier:(NSString*)identifier
                          uuid:(NSString*)uuid

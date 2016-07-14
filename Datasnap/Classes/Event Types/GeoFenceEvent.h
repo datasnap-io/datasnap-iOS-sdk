@@ -13,6 +13,17 @@
 @interface GeoFenceEvent : BaseEvent
 @property Geofence* geofence;
 @property Location* location;
+@property NSString* created;
+@property Device* device;
+@property NSString* dataSnapVersion;
+@property NSString* eventType;
+@property NSArray* organization_Ids;
+@property NSArray* project_Ids;
+@property NSString* customerOrgId;
+@property NSString* customerVenueOrgId;
+@property NSString* venueOrgId;
+@property User* user;
+@property NSDictionary* additionalProperties;
 - (GeoFenceEvent*)initWithEventType:(NSString*)eventType
                            geoFence:(Geofence*)geofence
                         andLocation:(Location*)location;

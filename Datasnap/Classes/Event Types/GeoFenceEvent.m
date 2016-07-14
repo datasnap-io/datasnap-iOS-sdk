@@ -9,6 +9,7 @@
 #import "GeoFenceEvent.h"
 
 @implementation GeoFenceEvent
+
 - (GeoFenceEvent*)initWithEventType:(NSString*)eventType
                            geoFence:(Geofence*)geofence
                         andLocation:(Location*)location

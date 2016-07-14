@@ -14,12 +14,14 @@
                            altitude:(NSString*)altitude
                            accuracy:(NSString*)accuracy
                              course:(NSString*)course
+                         identifier:(NSString*)identifier
                            andSpeed:(NSString*)speed
 {
     self.location = location;
     self.altitude = altitude;
     self.accuracy = accuracy;
     self.course = course;
+    self.identifier = identifier;
     self.speed = speed;
     return self;
 }

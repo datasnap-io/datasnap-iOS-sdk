@@ -119,6 +119,7 @@
     Geofence* geofence = [[Geofence alloc] initWithName:@"Home"
                                              visibility:nil
                                                    tags:nil
+                                             identifier:@"example identifier"
                                       andGeofenceCircle:geofenceCircle];
     //initialize geofence event
     GeoFenceEvent* geoFenceEvent = [[GeoFenceEvent alloc] initWithEventType:@"geofence_depart"
@@ -167,17 +168,17 @@
     //initialize communication
     Communication* communication = [[Communication alloc] initWithDescription:@"example communication"
                                                                    identifier:@"example identifier"
-                                                                        title:@"Title"
+                                                                         name:@"Title"
                                                                         types:types
                                                                       content:content
                                                                        status:@"example status"
                                                         communicationVendorId:@"example vendor id"
                                                                       andTags:nil];
     //initialize campaign
-    Campaign* campaign = [[Campaign alloc] initWithTitle:@"Advertising campaign"
-                                              identifier:@"example identifier"
-                                        communicationIds:@"example communication id"
-                                                 andTags:nil];
+    Campaign* campaign = [[Campaign alloc] initWithName:@"Advertising campaign"
+                                             identifier:@"example identifier"
+                                       communicationIds:@"example communication id"
+                                                andTags:nil];
     //initialize communication event
     CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:@"ds_communication_open"
                                                                 communication:communication
@@ -197,17 +198,17 @@
     //initialize communication
     Communication* communication = [[Communication alloc] initWithDescription:@"example communication"
                                                                    identifier:@"example identifier"
-                                                                        title:@"Title"
+                                                                         name:@"Title"
                                                                         types:nil
                                                                       content:content
                                                                        status:@"example status"
                                                         communicationVendorId:@"example vendor id"
                                                                       andTags:nil];
     //initialize campaign
-    Campaign* campaign = [[Campaign alloc] initWithTitle:@"Advertising campaign"
-                                              identifier:@"example identifier"
-                                        communicationIds:@"example communication id"
-                                                 andTags:nil];
+    Campaign* campaign = [[Campaign alloc] initWithName:@"Advertising campaign"
+                                             identifier:@"example identifier"
+                                       communicationIds:@"example communication id"
+                                                andTags:nil];
     //initialize communication event
     CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:@"ds_communication_sent"
                                                                 communication:communication
@@ -259,6 +260,7 @@
                                                                      altitude:@"10,000 ft"
                                                                      accuracy:@"sample accuracy"
                                                                        course:@"sample course"
+                                                                   identifier:@"Example identifier"
                                                                      andSpeed:@"sample speed"];
     //initialize global position event
     GlobalPositionEvent* event = [[GlobalPositionEvent alloc] initWithEventType:@"global_position_sighting"

@@ -12,7 +12,7 @@
 
 - (Communication*)initWithDescription:(NSString*)description
                            identifier:(NSString*)identifier
-                                title:(NSString*)title
+                                 name:(NSString*)name
                                 types:(Types*)types
                               content:(Content*)content
                                status:(NSString*)status
@@ -21,7 +21,7 @@
 {
     self.descriptionText = description;
     self.identifier = identifier;
-    self.title = title;
+    self.name = name;
     self.types = types;
     self.content = content;
     self.status = status;

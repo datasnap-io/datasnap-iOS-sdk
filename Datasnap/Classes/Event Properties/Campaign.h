@@ -10,12 +10,12 @@
 #import <Foundation/Foundation.h>
 
 @interface Campaign : EventProperty
-@property (nonatomic) NSString* title;
+@property (nonatomic) NSString* name;
 @property (nonatomic) NSString* communicationIds;
 @property Tags* tags;
-
-- (Campaign*)initWithTitle:(NSString*)title
-                identifier:(NSString*)identifier
-          communicationIds:(NSString*)communicationIds
-                   andTags:(Tags*)tags;
+@property NSString* identifier;
+- (Campaign*)initWithName:(NSString*)name
+               identifier:(NSString*)identifier
+         communicationIds:(NSString*)communicationIds
+                  andTags:(Tags*)tags;
 @end

@@ -11,6 +11,17 @@
 
 @interface GlobalPositionEvent : BaseEvent
 @property GlobalPosition* globalPosition;
+@property NSString* created;
+@property Device* device;
+@property NSString* dataSnapVersion;
+@property NSString* eventType;
+@property NSArray* organization_Ids;
+@property NSArray* project_Ids;
+@property NSString* customerOrgId;
+@property NSString* customerVenueOrgId;
+@property NSString* venueOrgId;
+@property User* user;
+@property NSDictionary* additionalProperties;
 - (GlobalPositionEvent*)initWithEventType:(NSString*)eventType
                         andGlobalPosition:(GlobalPosition*)globalPosition;
 

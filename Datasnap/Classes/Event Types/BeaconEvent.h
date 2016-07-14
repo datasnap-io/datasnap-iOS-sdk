@@ -17,8 +17,8 @@
 @property Device* device;
 @property NSString* dataSnapVersion;
 @property NSString* eventType;
-@property NSArray* organizationIds;
-@property NSArray* projectIds;
+@property NSArray* organization_Ids;
+@property NSArray* project_Ids;
 @property NSString* customerOrgId;
 @property NSString* customerVenueOrgId;
 @property NSString* venueOrgId;
