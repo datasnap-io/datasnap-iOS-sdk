@@ -5,7 +5,6 @@
 //  Created by Alyssa McIntyre on 6/8/16.
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
-
 #import "EventProperty.h"
 
 @interface Audience : EventProperty
@@ -17,7 +16,6 @@
 @property NSString* gender;
 @property NSString* interests;
 @property NSString* income;
-- (NSDictionary*)convertToDictionary;
 - (Audience*)initWithEducation:(NSString*)education
                        college:(NSString*)college
                            age:(NSString*)age

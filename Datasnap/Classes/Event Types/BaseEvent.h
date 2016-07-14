@@ -6,6 +6,7 @@
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
 #import "Device.h"
+#import "NSObject+Helpers.h"
 #import "User.h"
 #import <Foundation/Foundation.h>
 

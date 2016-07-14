@@ -13,6 +13,17 @@
 #import <Foundation/Foundation.h>
 
 @interface BeaconEvent : BaseEvent
+@property NSString* created;
+@property Device* device;
+@property NSString* dataSnapVersion;
+@property NSString* eventType;
+@property NSArray* organizationIds;
+@property NSArray* projectIds;
+@property NSString* customerOrgId;
+@property NSString* customerVenueOrgId;
+@property NSString* venueOrgId;
+@property User* user;
+@property NSDictionary* additionalProperties;
 @property Place* place;
 @property Beacon* beacon;
 - (BOOL)isValid;

@@ -31,7 +31,7 @@
     self.platform = [UIDevice currentDevice].systemName;
     self.osVersion = [UIDevice currentDevice].systemVersion;
     self.name = [UIDevice currentDevice].name;
-    self.vendorId = [NSString stringWithFormat:@"%@", [UIDevice currentDevice].identifierForVendor];
+    self.vendorId = [[UIDevice currentDevice].identifierForVendor UUIDString];
     self.carrierName = [self getCarrierName];
     self.ipAddress = [self getIPAddress];
     self.countryCode = [self getCountyCode];

@@ -9,20 +9,7 @@
 #import "Audience.h"
 
 @implementation Audience
-- (NSDictionary*)convertToDictionary
-{
-    NSDictionary* dictionary = @{
-        @"education" : self.education ? self.education : [NSNull null],
-        @"college" : self.college ? self.college : [NSNull null],
-        @"age" : self.age ? self.age : [NSNull null],
-        @"ethnicity" : self.ethnicity ? self.ethnicity : [NSNull null],
-        @"kids" : self.kids ? self.kids : [NSNull null],
-        @"gender" : self.gender ? self.gender : [NSNull null],
-        @"interests" : self.interests ? self.interests : [NSNull null],
-        @"income" : self.income ? self.income : [NSNull null]
-    };
-    return dictionary;
-}
+
 - (Audience*)initWithEducation:(NSString*)education
                        college:(NSString*)college
                            age:(NSString*)age
