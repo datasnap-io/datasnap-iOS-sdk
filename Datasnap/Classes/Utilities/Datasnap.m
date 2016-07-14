@@ -70,23 +70,9 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
 - (void)initializeData
 {
     self.device = [[Device alloc] init];
-    self.identifier = [[Identifier alloc] initWithDatasnapUuid:[NSNull null]
-                                               domainSessionId:NULL
-                                                  facebookUuid:nil
-                                              globalDistinctId:[[NSUUID UUID] UUIDString]
-                                           globalUserIpAddress:self.device.ipAddress
-                                                   hashedEmail:self.email ? [self.email toSha1] : nil
-                               mobileDeviceBluetoothIdentifier:nil
-                                           mobileDeviceIosIdfa:self.mobileDeviceIosIdfa
-                                           mobileDeviceIosUdid:[[NSUUID UUID] UUIDString]
-                                       mobileDeviceFingerprint:nil
-                          mobileDeviceGoogleAdvertisingIdOptIn:self.googleAdOptIn ? @"YES" : @"NO"
-                                               webDomainUserId:nil
-                                                     webCookie:nil
-                                              webNetworkUserId:nil
-                                            webUserFingerPrint:nil
-                                    webAnalyticsCompanyZCookie:nil
-                                                    andUnknown:nil];
+    self.identifier = [[Identifier alloc] initWithGlobalDistinctId:[[NSUUID UUID] UUIDString]
+                                                   opt_in_location:self.googleAdOptIn ? @"YES" : @"NO"
+                                           andSha1_lowercase_email:self.email ? [self.email toSha1] : nil];
 
     self.user = [[User alloc] initWithIdentifier:self.identifier
                                             tags:nil

@@ -10,48 +10,16 @@
 
 @implementation Identifier
 
-- (Identifier*)initWithDatasnapUuid:(NSString*)datasnapUuid
-                         domainSessionId:(NSString*)domainSessionId
-                            facebookUuid:(NSString*)facebookUuid
-                        globalDistinctId:(NSString*)globalDistinctId
-                     globalUserIpAddress:(NSString*)globalUserIpAddress
-                             hashedEmail:(NSString*)hashedEmail
-         mobileDeviceBluetoothIdentifier:(NSString*)mobileDeviceBluetoothIdentifier
-                     mobileDeviceIosIdfa:(NSString*)mobileDeviceIosIdfa
-                     mobileDeviceIosUdid:(NSString*)mobileDeviceIosUuid
-                 mobileDeviceFingerprint:(NSString*)mobileDeviceFingerprint
-    mobileDeviceGoogleAdvertisingIdOptIn:(NSString*)mobileDeviceGoogleAdvertisingIdOptIn
-                         webDomainUserId:(NSString*)webDomainUserId
-                               webCookie:(NSString*)webCookie
-                        webNetworkUserId:(NSString*)webNetworkUserId
-                      webUserFingerPrint:(NSString*)webUserFingerprint
-              webAnalyticsCompanyZCookie:(NSString*)webAnalyticsCompanyZCookie
-                              andUnknown:(NSString*)unknown
+- (Identifier*)initWithGlobalDistinctId:(NSString*)global_distinct_id
+                        opt_in_location:(NSString*)optIn
+                andSha1_lowercase_email:(NSString*)sha1Email
 {
-    self.datasnapUuid = datasnapUuid;
-    self.domainSessionid = domainSessionId;
-    self.facebookUuid = facebookUuid;
-    self.global_Distinct_Id = globalDistinctId;
-    self.globalUserIpAddress = globalUserIpAddress;
-    self.hashedEmail = hashedEmail;
-    self.mobileDeviceBluetoothIdentifier = mobileDeviceBluetoothIdentifier;
-    self.mobileDeviceIosUdid = mobileDeviceIosUuid;
-    self.mobileDeviceFingerprint = mobileDeviceFingerprint;
-    self.mobileDeviceGoogleAdvertisingIdOptIn = mobileDeviceGoogleAdvertisingIdOptIn;
-    self.webDomainUserid = webDomainUserId;
-    self.webCookie = webCookie;
-    self.webNetworkUserid = webNetworkUserId;
-    self.webUserFingerprint = webUserFingerprint;
-    self.webAnalyticsCompanyZCookie = webAnalyticsCompanyZCookie;
-    self.unknown = unknown;
-
-    if ([self.mobileDeviceGoogleAdvertisingIdOptIn boolValue] && !mobileDeviceIosIdfa) {
-        self.mobileDeviceIosIdfa = [self identifierForAdvertising];
+    self.global_Distinct_id = global_distinct_id;
+    self.opt_in_location = optIn;
+    if ([optIn isEqualToString:@"YES"]) {
+        self.mobile_device_ios_idfa = [self identifierForAdvertising];
     }
-    else {
-        self.mobileDeviceIosIdfa = mobileDeviceIosIdfa;
-    }
-
+    self.sha1_lowercase_email = sha1Email;
     return self;
 }
 
