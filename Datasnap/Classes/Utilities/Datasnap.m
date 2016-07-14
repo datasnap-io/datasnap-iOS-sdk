@@ -31,6 +31,7 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
 @property (nonatomic) bool googleAdOptIn;
 @property (nonatomic) NSString* email;
 @property (nonatomic) NSString* mobileDeviceIosIdfa;
+@property (nonatomic) NSInteger maxElements;
 @end
 
 @implementation Datasnap
@@ -156,12 +157,13 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
 - (void)setFlushParamsWithDuration:(NSInteger)durationInMillis
                    withMaxElements:(NSInteger)maxElements
 {
+    self.maxElements = maxElements;
     self.eventQueue = [[EventQueue alloc] initWithSize:maxElements andTime:durationInMillis];
-    [NSTimer scheduledTimerWithTimeInterval:maxElements
-                                     target:self
-                                   selector:@selector(checkQueue)
-                                   userInfo:nil
-                                    repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:maxElements
+                                                  target:self
+                                                selector:@selector(checkQueue)
+                                                userInfo:nil
+                                                 repeats:YES];
 }
 
 - (void)checkQueue
@@ -169,12 +171,21 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
     if ([self connected]) {
         NSMutableArray* events = [self.eventQueue getEvents];
         if (events.count > 0) {
-            if ([self.api sendEvents:events]) {
+            if ([[self.api sendEvents:events] isEqualToString:@"200"]) {
                 NSLog(@"Queue is full. %d events will be sent to service and flushed.", events.count);
                 [self.eventQueue flushQueue:events];
                 if ([EventEntity returnAllEvents].count > 0) {
                     [self checkQueue];
                 }
+            }
+            else {
+                [self.timer invalidate];
+                self.maxElements = self.maxElements * 2;
+                self.timer = [NSTimer scheduledTimerWithTimeInterval:self.maxElements
+                                                              target:self
+                                                            selector:@selector(checkQueue)
+                                                            userInfo:nil
+                                                             repeats:YES];
             }
         }
     }
@@ -184,8 +195,8 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
 
 - (void)trackEvent:(BaseEvent*)event
 {
-    event.organizationIds = @[ self.organizationId ];
-    event.projectIds = @[ self.projectId ];
+    event.organization_Ids = @[ self.organizationId ];
+    event.project_Ids = @[ self.projectId ];
     event.user = self.user;
     event.device = self.device;
     if (![event isValid]) {

@@ -29,7 +29,7 @@
                                   email:@"someone@example.com"
                     andVendorProperties:vendorProperties];
     //max elements property denotes the batch size, duration property denotes the amount of milliseconds the sdk will wait before making an api call
-    [datasnap setFlushParamsWithDuration:10000 withMaxElements:10];
+    [datasnap setFlushParamsWithDuration:100000 withMaxElements:10];
     return YES;
 }
 - (void)application:(UIApplication*)app

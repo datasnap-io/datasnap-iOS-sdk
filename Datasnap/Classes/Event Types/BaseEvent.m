@@ -10,7 +10,7 @@
 @implementation BaseEvent
 - (BOOL)isValid
 {
-    return self.organizationIds.count > 0 && self.projectIds.count > 0 && self.user && self.device;
+    return self.organization_Ids.count > 0 && self.project_Ids.count > 0 && self.user && self.device;
 }
 - (NSDictionary*)convertToDictionary
 {
