@@ -9,7 +9,7 @@
 #import <AdSupport/ASIdentifierManager.h>
 
 @interface Identifier : EventProperty
-@property NSString* global_Distinct_id;
+@property NSString* global_distinct_id;
 @property NSString* mobile_device_ios_idfa;
 @property NSString* sha1_lowercase_email;
 @property NSString* opt_in_location;

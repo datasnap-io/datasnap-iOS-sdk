@@ -10,7 +10,7 @@
 @implementation BaseEvent
 - (BOOL)isValid
 {
-    return self.organization_Ids.count > 0 && self.project_Ids.count > 0 && self.user && self.device;
+    return self.organization_ids.count > 0 && self.project_ids.count > 0 && self.user && self.device;
 }
 - (NSDictionary*)convertToDictionary
 {
@@ -18,7 +18,7 @@
 }
 - (BaseEvent*)initWithEventType:(NSString*)eventType
 {
-    self.eventType = eventType;
+    self.event_type = eventType;
     self.dataSnapVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     NSDateFormatter* dateFormatter = [NSDateFormatter new];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];

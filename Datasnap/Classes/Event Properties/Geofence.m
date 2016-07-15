@@ -11,14 +11,10 @@
 @implementation Geofence
 
 - (Geofence*)initWithName:(NSString*)name
-               visibility:(NSString*)visibility
-                     tags:(Tags*)tags
                identifier:(NSString*)identifier
         andGeofenceCircle:(GeofenceCircle*)geofenceCircle
 {
     self.name = name;
-    self.visibility = visibility;
-    self.tags = tags;
     self.identifier = identifier;
     self.geofenceCircle = geofenceCircle;
     return self;

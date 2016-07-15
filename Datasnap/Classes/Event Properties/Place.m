@@ -12,12 +12,10 @@
 
 - (Place*)initWithName:(NSString*)name
                address:(NSString*)address
-             lastPlace:(NSString*)lastPlace
           andGeofences:(NSArray*)geoFences
 {
     self.name = name;
     self.address = address;
-    self.lastPlace = lastPlace;
     self.geofences = geoFences;
     return self;
 }

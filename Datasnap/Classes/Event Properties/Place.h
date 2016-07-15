@@ -11,11 +11,9 @@
 @interface Place : EventProperty
 @property NSString* name;
 @property NSString* address;
-@property NSString* lastPlace;
 @property NSArray* geofences;
 
 - (Place*)initWithName:(NSString*)name
                address:(NSString*)address
-             lastPlace:(NSString*)lastPlace
           andGeofences:(NSArray*)geoFences;
 @end

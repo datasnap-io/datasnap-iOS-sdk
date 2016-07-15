@@ -22,7 +22,6 @@
 #import "NSString+Helpers.h"
 #import "VendorProperties.h"
 #pragma mark event properties
-#import "Audience.h"
 #import "Beacon.h"
 #import "Campaign.h"
 #import "Communication.h"
@@ -36,10 +35,7 @@
 #import "Identifier.h"
 #import "Location.h"
 #import "Place.h"
-#import "Tags.h"
-#import "Types.h"
 #import "User.h"
-#import "UserProperties.h"
 #pragma mark model
 #import "Event+Management.h"
 #pragma mark frameworks

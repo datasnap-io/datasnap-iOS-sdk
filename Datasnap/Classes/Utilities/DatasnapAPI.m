@@ -32,7 +32,7 @@ static NSString* const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v
     return self;
 }
 
-- (NSString*)sendEvents:(NSObject*)events
+- (BOOL)sendEvents:(NSObject*)events
 {
     NSError* error;
     NSData* json = [NSJSONSerialization dataWithJSONObject:events
@@ -53,23 +53,23 @@ static NSString* const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v
                                             DSIOLog(@"Error sending request to %@.\n", url);
                                             DSIOLog(@"%@", jsonStr);
                                             DSIOLog(@"%@\n", error.description);
-                                            self.status = @"error";
+                                            self.status = NO;
                                         }
                                         else if (response && [response isKindOfClass:[NSHTTPURLResponse class]]) {
                                             NSHTTPURLResponse* resp = (NSHTTPURLResponse*)response;
                                             if (resp.statusCode == 401) {
                                                 DSIOLog(@"Datasnap Error: Please check network connection on the device and that the datasnap api keys have been entered correctly");
-                                                self.status = @"401";
+                                                self.status = NO;
                                             }
                                             else if (resp.statusCode > 204) {
                                                 NSLog(@"Received a failed response from the Datasnap server. Status Code %d", resp.statusCode);
                                                 NSLog(@"%@", response);
                                                 NSLog(@"%@", jsonStr);
-                                                self.status = @"400";
+                                                self.status = NO;
                                             }
                                             else {
                                                 NSLog(@"Request successfully sent to %@.\nStatus code: %d.\n", url, resp.statusCode);
-                                                self.status = @"200";
+                                                self.status = YES;
                                             }
                                         }
 

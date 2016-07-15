@@ -12,7 +12,7 @@
 - (GlobalPositionEvent*)initWithEventType:(NSString*)eventType
                         andGlobalPosition:(GlobalPosition*)globalPosition
 {
-    self.eventType = eventType;
+    self.event_type = eventType;
     self.globalPosition = globalPosition;
     self.dataSnapVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     NSDateFormatter* dateFormatter = [NSDateFormatter new];

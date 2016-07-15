@@ -16,7 +16,7 @@
     self.model = [UIDevice currentDevice].model;
     self.platform = [UIDevice currentDevice].systemName;
     self.osVersion = [UIDevice currentDevice].systemVersion;
-    self.name = [UIDevice currentDevice].name;
+    self.name = [self getName];
     self.vendorId = [[UIDevice currentDevice].identifierForVendor UUIDString];
     self.carrierName = [self getCarrierName];
     self.ipAddress = [self getIPAddress];
@@ -55,6 +55,11 @@
     NSLocale* currentLocale = [NSLocale currentLocale];
     NSString* countryCode = [currentLocale objectForKey:NSLocaleCountryCode];
     return countryCode;
+}
+- (NSString*)getName
+{
+    NSCharacterSet* charactersToRemove = [[NSCharacterSet alphanumericCharacterSet] invertedSet];
+    return [[[UIDevice currentDevice].name componentsSeparatedByCharactersInSet:charactersToRemove] componentsJoinedByString:@" "];
 }
 
 @end

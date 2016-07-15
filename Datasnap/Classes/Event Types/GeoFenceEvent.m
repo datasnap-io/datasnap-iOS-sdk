@@ -14,7 +14,7 @@
                            geoFence:(Geofence*)geofence
                         andLocation:(Location*)location
 {
-    self.eventType = eventType;
+    self.event_type = eventType;
     self.geofence = geofence;
     self.location = location;
     self.dataSnapVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];

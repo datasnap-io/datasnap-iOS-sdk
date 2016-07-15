@@ -13,12 +13,10 @@
 - (Campaign*)initWithName:(NSString*)name
                identifier:(NSString*)identifier
          communicationIds:(NSString*)communicationIds
-                  andTags:(Tags*)tags
 {
     self.name = name;
     self.identifier = identifier;
     self.communicationIds = communicationIds;
-    self.tags = tags;
     return self;
 }
 @end

@@ -18,14 +18,10 @@
 @property NSString* created;
 @property Device* device;
 @property NSString* dataSnapVersion;
-@property NSString* eventType;
-@property NSArray* organization_Ids;
-@property NSArray* project_Ids;
-@property NSString* customerOrgId;
-@property NSString* customerVenueOrgId;
-@property NSString* venueOrgId;
+@property NSString* event_type;
+@property NSArray* organization_ids;
+@property NSArray* project_ids;
 @property User* user;
-@property NSDictionary* additionalProperties;
 - (CommunicationEvent*)initWithEventType:(NSString*)eventType
                            communication:(Communication*)communication
                                 campaign:(Campaign*)campaign

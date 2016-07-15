@@ -16,7 +16,7 @@
                            beacon:(Beacon*)beacon
                          andPlace:(Place*)place
 {
-    self.eventType = eventType;
+    self.event_type = eventType;
     self.beacon = beacon;
     self.place = place;
     self.dataSnapVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];

@@ -75,10 +75,7 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
                                                    opt_in_location:self.googleAdOptIn ? @"YES" : @"NO"
                                            andSha1_lowercase_email:self.email ? [self.email toSha1] : nil];
 
-    self.user = [[User alloc] initWithIdentifier:self.identifier
-                                            tags:nil
-                                        audience:nil
-                               andUserProperties:nil];
+    self.user = [[User alloc] initWithIdentifier:self.identifier];
 
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         [self checkQueue];
@@ -172,7 +169,7 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
         NSMutableArray* events = [self.eventQueue getEvents];
         if (events.count > 0) {
             NSLog(@"Queue is full. %d events will be sent to service and flushed.", events.count);
-            if ([[self.api sendEvents:events] isEqualToString:@"200"]) {
+            if ([self.api sendEvents:events]) {
                 [self.eventQueue flushQueue:events];
                 if ([EventEntity returnAllEvents].count > 0) {
                     [self checkQueue];
@@ -196,8 +193,8 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
 
 - (void)trackEvent:(BaseEvent*)event
 {
-    event.organization_Ids = @[ self.organizationId ];
-    event.project_Ids = @[ self.projectId ];
+    event.organization_ids = @[ self.organizationId ];
+    event.project_ids = @[ self.projectId ];
     event.user = self.user;
     event.device = self.device;
     if (![event isValid]) {

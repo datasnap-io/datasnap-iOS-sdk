@@ -20,7 +20,10 @@
 
         id value = [self valueForKey:key];
 
-        if ([value isKindOfClass:[NSNumber class]]
+        if (!value) {
+        }
+
+        else if ([value isKindOfClass:[NSNumber class]]
             || [value isKindOfClass:[NSString class]]
             || [value isKindOfClass:[NSDictionary class]]
             || [value isKindOfClass:[NSArray class]]) {

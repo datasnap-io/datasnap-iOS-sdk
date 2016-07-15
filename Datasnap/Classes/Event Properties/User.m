@@ -10,14 +10,8 @@
 
 @implementation User
 - (User*)initWithIdentifier:(Identifier*)identifier
-                       tags:(Tags*)tags
-                   audience:(Audience*)audience
-          andUserProperties:(UserProperties*)userProperties
 {
     self.identifier = identifier;
-    self.tags = tags;
-    self.audience = audience;
-    self.userProperties = userProperties;
     return self;
 }
 

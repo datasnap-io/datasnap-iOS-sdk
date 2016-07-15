@@ -25,16 +25,8 @@
                                           bleVendorUuid:@"example vendor uuid"
                                             bleVendorId:@"example vendor ID"
                                                    rssi:@"example rssi"
-                                               isMobile:@"yes"
-                                           previousRssi:nil
-                                              dwellTime:@"2 hours"
-                                              startTime:@"2:40pm"
-                                         lastUpdateTime:@"1:20pm"
                                                latitude:@"70"
-                                              longitude:@"70"
-                                             visibility:@"high"
-                                               hardware:@"example hardware"
-                                                   tags:nil];
+                                              longitude:@"70"];
     //initialize beacon event
     BeaconEvent* beaconEvent = [[BeaconEvent alloc] initWithEventType:@"beacon_sighting"
                                                                beacon:beacon
@@ -53,20 +45,11 @@
                                           bleVendorUuid:@"example vendor uuid"
                                             bleVendorId:@"example vendor ID"
                                                    rssi:@"example rssi"
-                                               isMobile:@"yes"
-                                           previousRssi:nil
-                                              dwellTime:@"2 hours"
-                                              startTime:@"2:40pm"
-                                         lastUpdateTime:@"1:20pm"
                                                latitude:@"70"
-                                              longitude:@"70"
-                                             visibility:nil
-                                               hardware:@"example hardware"
-                                                   tags:nil];
+                                              longitude:@"70"];
     //initialize place
     Place* place = [[Place alloc] initWithName:@"Home"
                                        address:@"123 Fairy Tale Dr."
-                                     lastPlace:nil
                                   andGeofences:nil];
     //initialize beacon event
     BeaconEvent* beaconEvent = [[BeaconEvent alloc] initWithEventType:@"beacon_sighting"
@@ -86,20 +69,11 @@
                                           bleVendorUuid:@"example vendor uuid"
                                             bleVendorId:@"example vendor ID"
                                                    rssi:@"example rssi"
-                                               isMobile:@"yes"
-                                           previousRssi:nil
-                                              dwellTime:@"2 hours"
-                                              startTime:@"2:40pm"
-                                         lastUpdateTime:@"1:20pm"
                                                latitude:@"70"
-                                              longitude:@"70"
-                                             visibility:nil
-                                               hardware:@"example hardware"
-                                                   tags:nil];
+                                              longitude:@"70"];
     //initialize place
     Place* place = [[Place alloc] initWithName:@"Home"
                                        address:@"123 Fairy Tale Dr."
-                                     lastPlace:nil
                                   andGeofences:nil];
     //initialize beacon event
     BeaconEvent* beaconEvent = [[BeaconEvent alloc] initWithEventType:@"beacon_depart"
@@ -117,8 +91,6 @@
                                                                 andLocation:location];
     //initialize geofence
     Geofence* geofence = [[Geofence alloc] initWithName:@"Home"
-                                             visibility:nil
-                                                   tags:nil
                                              identifier:@"example identifier"
                                       andGeofenceCircle:geofenceCircle];
     //initialize geofence event
@@ -163,22 +135,17 @@
                                                image:@"sample image"
                                                 html:@"sample html"
                                               andUrl:@"google.com"];
-    //initialize type of communication
-    Types* types = [[Types alloc] initWithName:@"push notification"];
     //initialize communication
     Communication* communication = [[Communication alloc] initWithDescription:@"example communication"
                                                                    identifier:@"example identifier"
                                                                          name:@"Title"
-                                                                        types:types
                                                                       content:content
                                                                        status:@"example status"
-                                                        communicationVendorId:@"example vendor id"
-                                                                      andTags:nil];
+                                                        communicationVendorId:@"example vendor id"];
     //initialize campaign
     Campaign* campaign = [[Campaign alloc] initWithName:@"Advertising campaign"
                                              identifier:@"example identifier"
-                                       communicationIds:@"example communication id"
-                                                andTags:nil];
+                                       communicationIds:@"example communication id"];
     //initialize communication event
     CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:@"ds_communication_open"
                                                                 communication:communication
@@ -199,16 +166,13 @@
     Communication* communication = [[Communication alloc] initWithDescription:@"example communication"
                                                                    identifier:@"example identifier"
                                                                          name:@"Title"
-                                                                        types:nil
                                                                       content:content
                                                                        status:@"example status"
-                                                        communicationVendorId:@"example vendor id"
-                                                                      andTags:nil];
+                                                        communicationVendorId:@"example vendor id"];
     //initialize campaign
     Campaign* campaign = [[Campaign alloc] initWithName:@"Advertising campaign"
                                              identifier:@"example identifier"
-                                       communicationIds:@"example communication id"
-                                                andTags:nil];
+                                       communicationIds:@"example communication id"];
     //initialize communication event
     CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:@"ds_communication_sent"
                                                                 communication:communication
@@ -229,20 +193,11 @@
                                           bleVendorUuid:@"example vendor uuid"
                                             bleVendorId:@"example vendor ID"
                                                    rssi:@"example rssi"
-                                               isMobile:@"yes"
-                                           previousRssi:nil
-                                              dwellTime:@"2 hours"
-                                              startTime:@"2:40pm"
-                                         lastUpdateTime:@"1:20pm"
                                                latitude:@"70"
-                                              longitude:@"70"
-                                             visibility:nil
-                                               hardware:@"example hardware"
-                                                   tags:nil];
+                                              longitude:@"70"];
     //initialize place
     Place* place = [[Place alloc] initWithName:@"Home"
                                        address:@"123 Fairy Tale Dr."
-                                     lastPlace:nil
                                   andGeofences:nil];
     //initialize update event
     UpdateEvent* event = [[UpdateEvent alloc] initWithEventType:@"user_update"
@@ -258,10 +213,7 @@
     //initialize global position
     GlobalPosition* globalPosition = [[GlobalPosition alloc] initWithLocation:location
                                                                      altitude:@"10,000 ft"
-                                                                     accuracy:@"sample accuracy"
-                                                                       course:@"sample course"
-                                                                   identifier:@"Example identifier"
-                                                                     andSpeed:@"sample speed"];
+                                                                   identifier:@"Example identifier"];
     //initialize global position event
     GlobalPositionEvent* event = [[GlobalPositionEvent alloc] initWithEventType:@"global_position_sighting"
                                                               andGlobalPosition:globalPosition];

@@ -14,7 +14,7 @@
                         opt_in_location:(NSString*)optIn
                 andSha1_lowercase_email:(NSString*)sha1Email
 {
-    self.global_Distinct_id = global_distinct_id;
+    self.global_distinct_id = global_distinct_id;
     self.opt_in_location = optIn;
     if ([optIn isEqualToString:@"YES"]) {
         self.mobile_device_ios_idfa = [self identifierForAdvertising];

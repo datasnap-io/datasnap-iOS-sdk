@@ -10,10 +10,10 @@
 typedef void (^DataSnapAPIRequestCompleted)(NSData* data, NSURLResponse* response, NSError* error);
 
 @interface DatasnapAPI : NSObject
-@property NSString* status;
+@property BOOL status;
 - (instancetype)initWithKey:(NSString*)apiKey secret:(NSString*)apiSecret;
 
-- (NSString*)sendEvents:(NSArray*)events;
+- (BOOL)sendEvents:(NSArray*)events;
 
 - (void)performAuthenticatedPOSTRequestWithURL:(NSURL*)requestURL body:(NSData*)data onCompletion:(DataSnapAPIRequestCompleted)completitionHandler;
 - (void)performAuthenticatedGETRequestWithURL:(NSURL*)requestURL parameters:(NSDictionary*)params onCompletion:(DataSnapAPIRequestCompleted)completitionHandler;
