@@ -171,14 +171,15 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
     if ([self connected]) {
         NSMutableArray* events = [self.eventQueue getEvents];
         if (events.count > 0) {
+            NSLog(@"Queue is full. %d events will be sent to service and flushed.", events.count);
             if ([[self.api sendEvents:events] isEqualToString:@"200"]) {
-                NSLog(@"Queue is full. %d events will be sent to service and flushed.", events.count);
                 [self.eventQueue flushQueue:events];
                 if ([EventEntity returnAllEvents].count > 0) {
                     [self checkQueue];
                 }
             }
             else {
+                NSLog(@"API request unsuccessful. %d events will remain in queue.", events.count);
                 [self.timer invalidate];
                 self.maxElements = self.maxElements * 2;
                 self.timer = [NSTimer scheduledTimerWithTimeInterval:self.maxElements

@@ -31,7 +31,7 @@
                 [dict setObject:[value dictionary] forKey:@"id"];
             }
             else if ([key isEqualToString:@"globalPosition"]) {
-                [dict setObject:[value dictionary] forKey:@"global_position"];
+                [dict setObject:[value dictionary] forKey:@"global-position"];
             }
             else {
                 [dict setObject:[value dictionary] forKey:key];
