@@ -121,7 +121,6 @@ By default, the SDK collects a variety of data about the device to aid in statis
 - Device model
 - Device manufacturer
 - Device name
-- Device brand
 - Carrier name
 - IDFA (dependent on user settings)
 
