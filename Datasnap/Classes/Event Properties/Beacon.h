@@ -5,28 +5,18 @@
 //  Created by Alyssa McIntyre on 6/8/16.
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
-#import "EventProperty.h"
+
+// Where are we using runtime.h?
 #import <objc/runtime.h>
 
-@interface Beacon : EventProperty
-@property NSString* uuid;
+@interface Beacon
 @property NSString* name;
-@property NSString* batteryLevel;
-@property NSString* temperature;
-@property NSString* bleVendorUuid;
 @property NSString* bleVendorId;
-@property NSString* rssi;
-@property NSString* latitude;
-@property NSString* longitude;
 @property NSString* identifier;
+// Minimum needed to create a beacon
+- (Beacon*)initWithIdentifier:(NSString*)identifier;
+// Most we'd ever need to create a beacon
 - (Beacon*)initWithIdentifier:(NSString*)identifier
-                         uuid:(NSString*)uuid
                          name:(NSString*)name
-                 batterylevel:(NSString*)batteryLevel
-                  temperature:(NSString*)temperature
-                bleVendorUuid:(NSString*)bleVendorUuid
-                  bleVendorId:(NSString*)bleVendorId
-                         rssi:(NSString*)rssi
-                     latitude:(NSString*)latitude
-                    longitude:(NSString*)longitude;
+                  bleVendorId:(NSString*)bleVendorId;
 @end

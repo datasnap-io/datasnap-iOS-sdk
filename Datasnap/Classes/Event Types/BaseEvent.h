@@ -8,6 +8,8 @@
 #import "Device.h"
 #import "NSObject+Helpers.h"
 #import "User.h"
+
+// Why are we importing this in the header file?
 #import <Foundation/Foundation.h>
 
 @class Datasnap;
@@ -19,7 +21,13 @@
 @property NSArray* organization_ids;
 @property NSArray* project_ids;
 @property User* user;
-- (BOOL)isValid;
+
+/*
+	Instead of checking if an event is valid, do not allow invalid events to be created.
+
+	REMOVE:
+	- (BOOL)isValid;
+*/
 - (NSDictionary*)convertToDictionary;
 - (BaseEvent*)initWithEventType:(NSString*)eventType;
 @end

@@ -19,6 +19,15 @@
     self.event_type = eventType;
     self.beacon = beacon;
     self.place = place;
+
+    /*
+        Any time we get something for every event. Define it in BaseEvent and DO NOT define it in
+        ANY event that inherits from BaseEvent. For example:
+            * getting dataSnapVersion
+            * formatting dates
+            * getting datasnap.created
+    */
+
     self.dataSnapVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     NSDateFormatter* dateFormatter = [NSDateFormatter new];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];

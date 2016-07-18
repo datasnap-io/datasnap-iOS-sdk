@@ -8,7 +8,7 @@
 #import "EventProperty.h"
 #import <Foundation/Foundation.h>
 
-@interface Campaign : EventProperty
+@interface Campaign
 @property (nonatomic) NSString* name;
 @property (nonatomic) NSString* communicationIds;
 @property NSString* identifier;

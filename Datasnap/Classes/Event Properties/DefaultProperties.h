@@ -6,7 +6,11 @@
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
 
-#import "EventProperty.h"
+/*
+	These are client-level configurations.
+	These are NOT event properties. This interface needs to
+	move out of the Event Properties Directory
+*/
 
 @interface DefaultProperties : NSObject
 @property NSInteger* timeout;

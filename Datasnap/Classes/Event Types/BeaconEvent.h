@@ -7,23 +7,20 @@
 //
 #import "BaseEvent.h"
 #import "Beacon.h"
-#import "EventEntity.h"
-#import "Place.h"
-#import "User.h"
+
+// Why are we importing this in the header file?
 #import <Foundation/Foundation.h>
 
 @interface BeaconEvent : BaseEvent
-@property NSString* created;
-@property Device* device;
-@property NSString* dataSnapVersion;
-@property NSString* event_type;
-@property NSArray* organization_ids;
-@property NSArray* project_ids;
-@property User* user;
-@property Place* place;
+
+/*
+	All of the deleted properties are declared in BaseEvent.
+	Why are we including them in the BeaconEvent interface as well?
+*/
+
 @property Beacon* beacon;
-- (BOOL)isValid;
-- (BeaconEvent*)initWithEventType:(NSString*)eventType
-                           beacon:(Beacon*)beacon
-                         andPlace:(Place*)place;
+- (BeaconEvent*)beaconSighting:(Beacon*)beacon;
+- (BeaconEvent*)beaconDepart:(Beacon*)beacon;
+- (BeaconEvent*)beaconArrive:(Beacon*)beacon;
+
 @end

@@ -5,14 +5,8 @@
 //  Created by Alyssa McIntyre on 6/8/16.
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
-#import "EventProperty.h"
-#import "GeofenceCircle.h"
 
-@interface Geofence : EventProperty
-@property NSString* name;
-@property GeofenceCircle* geofenceCircle;
+@interface Geofence
 @property NSString* identifier;
-- (Geofence*)initWithName:(NSString*)name
-               identifier:(NSString*)identifier
-        andGeofenceCircle:(GeofenceCircle*)geofenceCircle;
+- (Geofence*)initWithIdentifier:(NSString*)identifier;
 @end

@@ -8,25 +8,15 @@
 #import "BaseEvent.h"
 #import "Campaign.h"
 #import "Communication.h"
-#import "Place.h"
-#import "User.h"
+
+// Why are we importing this in the header file?
 #import <Foundation/Foundation.h>
 
 @interface CommunicationEvent : BaseEvent
 @property Communication* communication;
 @property Campaign* campaign;
-@property NSString* created;
-@property Device* device;
-@property NSString* dataSnapVersion;
-@property NSString* event_type;
-@property NSArray* organization_ids;
-@property NSArray* project_ids;
-@property User* user;
-- (CommunicationEvent*)initWithEventType:(NSString*)eventType
-                           communication:(Communication*)communication
-                                campaign:(Campaign*)campaign
-                              venueOrgId:(NSString*)venueId
-                           customerOrgId:(NSString*)customerOrgId;
-
-- (BOOL)isValid;
+- (CommunicationEvent*)communicationOpenWithCommunication:(Communication*)communication
+                                                 campaign:(Campaign*)campaign;
+- (CommunicationEvent*)communicationentWithCommunication:(Communication*)communication
+                                                campaign:(Campaign*)campaign;
 @end
