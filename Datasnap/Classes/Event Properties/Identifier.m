@@ -11,25 +11,33 @@
 @implementation Identifier
 
 - (Identifier*)initWithGlobalDistinctId:(NSString*)global_distinct_id
-                        opt_in_location:(NSString*)optIn
                 andSha1_lowercase_email:(NSString*)sha1Email
+                                andIDFA:(NSString*)mobile_device_ios_idfa
 {
     self.global_distinct_id = global_distinct_id;
-    self.opt_in_location = optIn;
-    if ([optIn isEqualToString:@"YES"]) {
-        self.mobile_device_ios_idfa = [self identifierForAdvertising];
-    }
+    self.mobile_device_ios_idfa = mobile_device_ios_idfa;
+    self.sha1_lowercase_email = sha1Email;
+    return self;
+}
+- (Identifier*)initWithGlobalDistinctId:(NSString*)global_distinctId
+{
+    self.global_distinct_id = global_distinctId;
+    return self;
+}
+
+- (Identifier*)initWithGlobalDistinctId:(NSString*)global_distinctId
+                andSha1_lowercase_email:(NSString*)sha1Email
+{
+    self.global_distinct_id = global_distinctId;
     self.sha1_lowercase_email = sha1Email;
     return self;
 }
 
-- (NSString*)identifierForAdvertising
+- (Identifier*)initWithGlobalDistinctId:(NSString*)global_distinctId
+                                andIDFA:(NSString*)mobile_device_ios_idfa
 {
-    if ([[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled]) {
-        NSUUID* IDFA = [[ASIdentifierManager sharedManager] advertisingIdentifier];
-        return [IDFA UUIDString];
-    }
-    return nil;
+    self.global_distinct_id = global_distinctId;
+    self.mobile_device_ios_idfa = mobile_device_ios_idfa;
+    return self;
 }
-
 @end

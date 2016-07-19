@@ -21,8 +21,8 @@
     Datasnap* datasnap = [Datasnap sharedClient];
     //IDFAOptIn is a property that, when true, allows Datasnap to collect the IDFA for the device. If YES is passed for this parameter, ads must be served through the application. If not, the App Store will not accept the app.
     //Provided email will be hashed before being sent to Datasnap server.
-    datasnap = [datasnap initWithApiKey:@"Enter your Datasnap API key"
-                           apiKeySecret:@"Enter your Datasnap API secret"
+    datasnap = [datasnap initWithApiKey:@"5F3Y985XP779ONVYM174PKB1G"
+                           apiKeySecret:@"6hOLko53j35/IT5+aApquUv26vaB+9ndigD+iJJi9IQ"
                          organizationId:@"Enter your organization ID"
                               projectId:@"Enter your project ID"
                               IDFAOptIn:YES

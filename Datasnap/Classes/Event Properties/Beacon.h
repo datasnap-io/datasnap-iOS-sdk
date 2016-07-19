@@ -5,11 +5,9 @@
 //  Created by Alyssa McIntyre on 6/8/16.
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
+#import "EventProperty.h"
 
-// Where are we using runtime.h?
-#import <objc/runtime.h>
-
-@interface Beacon
+@interface Beacon : EventProperty
 @property NSString* name;
 @property NSString* bleVendorId;
 @property NSString* identifier;

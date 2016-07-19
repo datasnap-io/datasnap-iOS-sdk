@@ -9,5 +9,5 @@
 #import <objc/runtime.h>
 
 @interface NSObject (Helpers)
-- (NSDictionary*)dictionary;
+//- (NSDictionary*)dictionary;
 @end

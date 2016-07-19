@@ -9,23 +9,9 @@
 #import "GeoFenceEvent.h"
 
 @implementation GeoFenceEvent
-
-- (GeoFenceEvent*)initWithEventType:(NSString*)eventType
-                           geoFence:(Geofence*)geofence
-                        andLocation:(Location*)location
+- (GeoFenceEvent*)geofenceDepart:(Geofence*)geofence
 {
-    self.event_type = eventType;
     self.geofence = geofence;
-    self.location = location;
-    self.dataSnapVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    NSDateFormatter* dateFormatter = [NSDateFormatter new];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
-    self.created = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]];
     return self;
-}
-
-- (BOOL)isValid
-{
-    return [super isValid] && self.geofence && self.location;
 }
 @end

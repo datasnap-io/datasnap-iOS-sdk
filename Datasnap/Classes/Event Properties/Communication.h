@@ -5,10 +5,11 @@
 //  Created by Alyssa McIntyre on 6/6/16.
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
+#import "EventProperty.h"
 
-@interface Communication
+@interface Communication : EventProperty
 @property NSString* name;
 @property NSString* identifier;
 - (Communication*)initWithIdentifier:(NSString*)identifier
-                                 name:(NSString*)name;
+                                name:(NSString*)name;
 @end

@@ -11,11 +11,10 @@
 - (BaseClient*)initWithOrganizationId:(NSString*)organizationId
                             projectId:(NSString*)projectId
                                device:(Device*)device
-                              andUser:(User*)user
 {
     self.organizationId = organizationId;
     self.projectId = projectId;
     self.device = device;
-    self.user = user;
+    return self;
 }
 @end

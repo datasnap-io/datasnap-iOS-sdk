@@ -10,19 +10,11 @@
 
 @implementation Communication
 
-- (Communication*)initWithDescription:(NSString*)description
-                           identifier:(NSString*)identifier
-                                 name:(NSString*)name
-                              content:(Content*)content
-                               status:(NSString*)status
-                communicationVendorId:(NSString*)communicationVendorId
+- (Communication*)initWithIdentifier:(NSString*)identifier
+                                name:(NSString*)name
 {
-    self.descriptionText = description;
     self.identifier = identifier;
     self.name = name;
-    self.content = content;
-    self.status = status;
-    self.communicationVendorId = communicationVendorId;
     return self;
 }
 @end

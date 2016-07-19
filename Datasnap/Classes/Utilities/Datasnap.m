@@ -20,7 +20,6 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
 @interface Datasnap ()
 @property (nonatomic) EventEntity* event;
 @property (nonatomic) Device* device;
-@property (nonatomic, strong) User* user;
 @property (nonatomic, strong) Identifier* identifier;
 @property (nonatomic) VendorProperties* vendorProperties;
 @property (nonatomic) id gimbalClient;
@@ -72,11 +71,8 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
 {
     self.device = [[Device alloc] init];
     self.identifier = [[Identifier alloc] initWithGlobalDistinctId:[[NSUUID UUID] UUIDString]
-                                                   opt_in_location:self.googleAdOptIn ? @"YES" : @"NO"
-                                           andSha1_lowercase_email:self.email ? [self.email toSha1] : nil];
-
-    self.user = [[User alloc] initWithIdentifier:self.identifier];
-
+                                           andSha1_lowercase_email:self.googleAdOptIn ? @"YES" : @"NO"
+                                                           andIDFA:self.email ? [self.email toSha1] : nil];
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         [self checkQueue];
         // Ensure Gimbal is started if application is started offline.
@@ -107,8 +103,7 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
     default:
         self.baseClient = [[BaseClient alloc] initWithOrganizationId:self.organizationId
                                                            projectId:self.projectId
-                                                              device:self.device
-                                                             andUser:self.user];
+                                                              device:self.device];
         break;
     }
 
@@ -134,7 +129,6 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
         [inv setArgument:&self->_device atIndex:3];
         [inv setArgument:&self->_organizationId atIndex:4];
         [inv setArgument:&self->_projectId atIndex:5];
-        [inv setArgument:&self->_user atIndex:6];
         [inv invoke];
     }
     else {
@@ -195,12 +189,8 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
 {
     event.organization_ids = @[ self.organizationId ];
     event.project_ids = @[ self.projectId ];
-    event.user = self.user;
     event.device = self.device;
-    if (![event isValid]) {
-        NSLog(@"Mandatory event data missing. Please call Datasnap.initialize before using the library");
-    }
-    NSDictionary* eventJson = [event convertToDictionary];
+    NSDictionary* eventJson = [event dictionary];
     [self.eventQueue recordEvent:eventJson];
 }
 

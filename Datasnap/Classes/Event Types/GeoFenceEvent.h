@@ -8,9 +8,6 @@
 #import "BaseEvent.h"
 #import "Geofence.h"
 
-// Why are we importing this in the header file?
-#import <Foundation/Foundation.h>
-
 @interface GeoFenceEvent : BaseEvent
 @property Geofence* geofence;
 - (GeoFenceEvent*)geofenceDepart:(Geofence*)geofence;

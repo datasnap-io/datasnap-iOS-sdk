@@ -107,13 +107,6 @@
                                     <action selector="optInLocationButtonTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6ky-4b-gu8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcu-M2-1aQ">
-                                <rect key="frame" x="257" y="372" width="87" height="30"/>
-                                <state key="normal" title="User Update"/>
-                                <connections>
-                                    <action selector="userUpdateButtonTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="k9v-w5-gVO"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -122,7 +115,6 @@
                             <constraint firstItem="moM-uP-Q03" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Bwj-MF-2Hx"/>
                             <constraint firstItem="xl6-eN-IAX" firstAttribute="top" secondItem="g9C-PL-hNX" secondAttribute="bottom" constant="-5" id="EU7-p6-nJJ"/>
                             <constraint firstItem="vwK-yk-rA4" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Gwi-27-fVA"/>
-                            <constraint firstItem="pcu-M2-1aQ" firstAttribute="top" secondItem="yPt-Y4-WY5" secondAttribute="bottom" constant="-2" id="I0Z-NT-uAG"/>
                             <constraint firstItem="xl6-eN-IAX" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="IjL-Es-OvQ"/>
                             <constraint firstItem="Q02-oB-L7F" firstAttribute="top" secondItem="JVj-7B-OoF" secondAttribute="bottom" constant="-4" id="NJs-vZ-gDa"/>
                             <constraint firstItem="g9C-PL-hNX" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="NOi-1K-i7X"/>
@@ -143,7 +135,6 @@
                             <constraint firstItem="yPt-Y4-WY5" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="kvW-1V-r8u"/>
                             <constraint firstItem="JVj-7B-OoF" firstAttribute="top" secondItem="4Ru-X5-DiJ" secondAttribute="bottom" constant="23" id="pEo-B8-DfW"/>
                             <constraint firstItem="moM-uP-Q03" firstAttribute="top" secondItem="Dns-Et-Kxk" secondAttribute="bottom" constant="-3" id="rI1-Ha-lEW"/>
-                            <constraint firstItem="pcu-M2-1aQ" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="tPY-A3-mJJ"/>
                             <constraint firstItem="tkX-7n-O8n" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="wvU-Yf-n93"/>
                         </constraints>
                     </view>

@@ -10,13 +10,9 @@
 
 @implementation Geofence
 
-- (Geofence*)initWithName:(NSString*)name
-               identifier:(NSString*)identifier
-        andGeofenceCircle:(GeofenceCircle*)geofenceCircle
+- (Geofence*)initWithIdentifier:(NSString*)identifier
 {
-    self.name = name;
     self.identifier = identifier;
-    self.geofenceCircle = geofenceCircle;
     return self;
 }
 @end

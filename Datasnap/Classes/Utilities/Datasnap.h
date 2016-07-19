@@ -11,8 +11,6 @@
 #import "CommunicationEvent.h"
 #import "GeofenceEvent.h"
 #import "GlobalPositionEvent.h"
-#import "InteractionEvent.h"
-#import "UpdateEvent.h"
 #pragma mark utilities
 #import "BaseClient.h"
 #import "DSIOConfig.h"
@@ -25,17 +23,9 @@
 #import "Beacon.h"
 #import "Campaign.h"
 #import "Communication.h"
-#import "Content.h"
-#import "DefaultProperties.h"
 #import "Device.h"
-#import "EventProperty.h"
 #import "Geofence.h"
-#import "GeofenceCircle.h"
-#import "GlobalPosition.h"
 #import "Identifier.h"
-#import "Location.h"
-#import "Place.h"
-#import "User.h"
 #pragma mark model
 #import "Event+Management.h"
 #pragma mark frameworks

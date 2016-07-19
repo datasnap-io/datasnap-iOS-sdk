@@ -9,20 +9,10 @@
 #import "GlobalPositionEvent.h"
 
 @implementation GlobalPositionEvent
-- (GlobalPositionEvent*)initWithEventType:(NSString*)eventType
-                        andGlobalPosition:(GlobalPosition*)globalPosition
+- (GlobalPositionEvent*)globalPositionSighting:(NSArray*)coordinates
 {
-    self.event_type = eventType;
-    self.globalPosition = globalPosition;
-    self.dataSnapVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    NSDateFormatter* dateFormatter = [NSDateFormatter new];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
-    self.created = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]];
+    self.coordinates = coordinates;
     return self;
 }
 
-- (BOOL)isValid
-{
-    return [super isValid] && self.globalPosition;
-}
 @end

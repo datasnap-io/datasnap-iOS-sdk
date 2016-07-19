@@ -6,9 +6,8 @@
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
 #import "EventProperty.h"
-#import <Foundation/Foundation.h>
 
-@interface Campaign
+@interface Campaign : EventProperty
 @property (nonatomic) NSString* name;
 @property (nonatomic) NSString* communicationIds;
 @property NSString* identifier;
