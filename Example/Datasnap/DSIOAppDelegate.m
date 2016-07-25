@@ -17,12 +17,12 @@
     [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
     [[UIApplication sharedApplication] registerForRemoteNotifications];
 
-    VendorProperties* vendorProperties = [[VendorProperties alloc] initWithVendor:GIMBAL andgimbalApiKey:@"74e344e9-9625-4b9d-96cf-e7805479d33c"];
+    VendorProperties* vendorProperties = [[VendorProperties alloc] initWithVendor:GIMBAL andgimbalApiKey:@"Enter Gimbal API key"];
     Datasnap* datasnap = [Datasnap sharedClient];
     //IDFA is the advertising identifier for the device. Pass in nil for this property if advertising is not used in the app.
     //Provided email will be hashed before being sent to Datasnap server.
-    datasnap = [datasnap initWithApiKey:@"5F3Y985XP779ONVYM174PKB1G"
-                           apiKeySecret:@"6hOLko53j35/IT5+aApquUv26vaB+9ndigD+iJJi9IQ"
+    datasnap = [datasnap initWithApiKey:@"Enter Datasnap API Key"
+                           apiKeySecret:@"Enter Datasnap API Secret"
                          organizationId:@"Enter your organization ID"
                               projectId:@"Enter your project ID"
                                    IDFA:@"example idfa"
