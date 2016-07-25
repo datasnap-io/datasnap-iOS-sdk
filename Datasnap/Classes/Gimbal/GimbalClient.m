@@ -10,8 +10,6 @@
 #import "Beacon.h"
 #import "BeaconEvent.h"
 #import "Campaign.h"
-#import "Campaign.h"
-#import "Communication.h"
 #import "Communication.h"
 #import "CommunicationEvent.h"
 #import "Datasnap.h"
@@ -20,26 +18,17 @@
 #import "EventEntity.h"
 #import "EventQueue.h"
 #import "GimbalClient.h"
-#import "GimbalClient.h"
 #import "Location.h"
-#import "Place.h"
 #import "User.h"
 
-static NSString* beaconSightingEventType = @"beacon_sighting";
-static NSString* communicationSentEventType = @"ds_communication_sent";
-static NSString* communicationOpenEventType = @"ds_communication_open";
 @implementation GimbalClient
 - (GimbalClient*)initWithVendorProperties:(VendorProperties*)vendorProperties
-                                   device:(Device*)device
                            organizationId:(NSString*)organizationId
                                 projectId:(NSString*)projectId
-                                  andUser:(User*)user
 {
     self.gimbalApiKey = (NSString*)vendorProperties.gimbalApiKey;
     self.organizationId = (NSString*)organizationId;
     self.projectId = (NSString*)projectId;
-    self.user = (NSString*)user;
-    self.device = (NSString*)device;
     [self startGimbal];
     return self;
 }
@@ -63,28 +52,8 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
 }
 - (void)beaconManager:(GMBLBeaconManager*)manager didReceiveBeaconSighting:(GMBLBeaconSighting*)sighting
 {
-    NSString* eventType = beaconSightingEventType;
-    Beacon* beacon = [[Beacon alloc] initWithIdentifier:sighting.beacon.identifier
-                                                   uuid:sighting.beacon.uuid
-                                                   name:sighting.beacon.name
-                                           batterylevel:[NSString stringWithFormat:@"%ld", (long)sighting.beacon.batteryLevel]
-                                            temperature:[NSString stringWithFormat:@"%d", sighting.beacon.temperature]
-                                          bleVendorUuid:nil
-                                            bleVendorId:@"Gimbal"
-                                                   rssi:[NSString stringWithFormat:@"%d", sighting.RSSI]
-                                               isMobile:nil
-                                           previousRssi:nil
-                                              dwellTime:nil
-                                              startTime:nil
-                                         lastUpdateTime:nil
-                                               latitude:nil
-                                              longitude:nil
-                                             visibility:nil
-                                               hardware:nil
-                                                   tags:nil];
-    BeaconEvent* event = [[BeaconEvent alloc] initWithEventType:eventType
-                                                         beacon:beacon
-                                                       andPlace:nil];
+    Beacon* beacon = [[Beacon alloc] initWithIdentifier:sighting.beacon.identifier name:sighting.beacon.name bleVendorId:sighting.beacon.uuid];
+    BeaconEvent* event = [[BeaconEvent alloc] beaconSighting:beacon];
     Datasnap* datasnap = [Datasnap sharedClient];
     [datasnap trackEvent:event];
 }
@@ -93,23 +62,9 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
                                       forVisit:(GMBLVisit*)visit
 {
     for (Communication* communication in communications) {
-        Communication* dataSnapCommunication = [[Communication alloc] initWithDescription:communication.descriptionText
-                                                                               identifier:communication.identifier
-                                                                                    title:communication.title
-                                                                                    types:nil
-                                                                                  content:nil
-                                                                                   status:nil
-                                                                    communicationVendorId:nil
-                                                                                  andTags:nil];
-        Campaign* campaign = [[Campaign alloc] initWithTitle:nil
-                                                  identifier:self.projectId
-                                            communicationIds:communication.identifier
-                                                     andTags:nil];
-        CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:communicationSentEventType
-                                                                    communication:dataSnapCommunication
-                                                                         campaign:campaign
-                                                                       venueOrgId:visit.visitID
-                                                                    customerOrgId:visit.visitID];
+        Communication* dataSnapCommunication = [[Communication alloc] initWithIdentifier:communication.identifier name:communication.name];
+        Campaign* campaign = [[Campaign alloc] initWithName:campaign.name identifier:campaign.identifier communicationIds:communication.identifier];
+        CommunicationEvent* event = [[CommunicationEvent alloc] communicationSentWithCommunication:dataSnapCommunication campaign:campaign];
         Datasnap* datasnap = [Datasnap sharedClient];
         [datasnap trackEvent:event];
     }
@@ -120,23 +75,9 @@ static NSString* communicationOpenEventType = @"ds_communication_open";
                             forCommunication:(GMBLCommunication*)communication
 
 {
-    Communication* dataSnapCommunication = [[Communication alloc] initWithDescription:communication.descriptionText
-                                                                           identifier:communication.identifier
-                                                                                title:communication.title
-                                                                                types:nil
-                                                                              content:nil
-                                                                               status:nil
-                                                                communicationVendorId:nil
-                                                                              andTags:nil];
-    Campaign* campaign = [[Campaign alloc] initWithTitle:nil
-                                              identifier:self.projectId
-                                        communicationIds:communication.identifier
-                                                 andTags:nil];
-    CommunicationEvent* event = [[CommunicationEvent alloc] initWithEventType:communicationSentEventType
-                                                                communication:dataSnapCommunication
-                                                                     campaign:campaign
-                                                                   venueOrgId:nil
-                                                                customerOrgId:nil];
+    Communication* datasnapCommunication = [[Communication alloc] initWithIdentifier:communication.identifier name:communication.title];
+    Campaign* campaign = [[Campaign alloc] initWithName:campaign.name identifier:campaign.identifier communicationIds:communication.identifier];
+    CommunicationEvent* event = [[CommunicationEvent alloc] communicationOpenWithCommunication:datasnapCommunication campaign:campaign];
     Datasnap* datasnap = [Datasnap sharedClient];
     [datasnap trackEvent:event];
     return notification;

@@ -10,15 +10,6 @@
 
 @implementation Device
 
-/*
-    Many of these fields are NOT static. For example, IP Address could
-    change on every HTTP request. For this reason, we need to get
-    these fields on every reqest attempt. These fields include:
-        * osVersion
-        * ipAddress
-        * countryCode
-*/
-
 - (Device*)init
 {
     self.manufacturer = @"Apple";

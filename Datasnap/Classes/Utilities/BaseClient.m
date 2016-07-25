@@ -10,11 +10,9 @@
 @implementation BaseClient
 - (BaseClient*)initWithOrganizationId:(NSString*)organizationId
                             projectId:(NSString*)projectId
-                               device:(Device*)device
 {
     self.organizationId = organizationId;
     self.projectId = projectId;
-    self.device = device;
     return self;
 }
 @end

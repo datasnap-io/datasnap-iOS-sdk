@@ -12,21 +12,18 @@ static Datasnap* sharedInstance = nil;
 static NSString* appInstalledEventType = @"app_installed";
 
 NSString* const GimbalClientClassName = @"GimbalClient";
-NSString* const GimbalClientInitializerMethod = @"initWithVendorProperties:device:organizationId:projectId:andUser:";
+NSString* const GimbalClientInitializerMethod = @"initWithVendorProperties:organizationId:projectId:";
 
 NSString* const IsAppAlreadyLaunchedOnceKey = @"isAppAlreadyLaunchedOnceKey";
 NSString* const AppInstalledEventType = @"appInstalledEventType";
 
 @interface Datasnap ()
 @property (nonatomic) EventEntity* event;
-@property (nonatomic) Device* device;
-@property (nonatomic, strong) Identifier* identifier;
 @property (nonatomic) VendorProperties* vendorProperties;
 @property (nonatomic) id gimbalClient;
 @property (nonatomic, strong) NSString* organizationId;
 @property (nonatomic, strong) NSString* projectId;
 @property (nonatomic) BaseClient* baseClient;
-@property (nonatomic) User* user;
 @property (nonatomic) NSTimer* timer;
 @property (nonatomic) NSString* idfa;
 @property (nonatomic) NSString* email;
@@ -99,8 +96,7 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
         break;
     default:
         self.baseClient = [[BaseClient alloc] initWithOrganizationId:self.organizationId
-                                                           projectId:self.projectId
-                                                              device:self.device];
+                                                           projectId:self.projectId];
         break;
     }
 
@@ -123,9 +119,8 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
         [inv setSelector:gimbalInit];
         [inv setTarget:self.gimbalClient];
         [inv setArgument:&self->_vendorProperties atIndex:2];
-        [inv setArgument:&self->_device atIndex:3];
-        [inv setArgument:&self->_organizationId atIndex:4];
-        [inv setArgument:&self->_projectId atIndex:5];
+        [inv setArgument:&self->_organizationId atIndex:3];
+        [inv setArgument:&self->_projectId atIndex:4];
         [inv invoke];
     }
     else {
@@ -187,10 +182,10 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
     event.organization_ids = @[ self.organizationId ];
     event.project_ids = @[ self.projectId ];
     event.device = [[Device alloc] init];
-    event.user = [[User alloc] initWithIdentifier:self.identifier];
-    event.user.identifier = [[Identifier alloc] initWithGlobalDistinctId:[[[UIDevice currentDevice] identifierForVendor] UUIDString]
-                                                 andSha1_lowercase_email:self.email ? [self.email toSha1] : nil
-                                                                 andIDFA:self.idfa];
+    Identifier* identifier = [[Identifier alloc] initWithGlobalDistinctId:[[[UIDevice currentDevice] identifierForVendor] UUIDString]
+                                                  andSha1_lowercase_email:self.email ? [self.email toSha1] : nil
+                                                                  andIDFA:self.idfa];
+    event.user = [[User alloc] initWithIdentifier:identifier];
     NSDictionary* eventJson = [event dictionary];
     [self.eventQueue recordEvent:eventJson];
 }

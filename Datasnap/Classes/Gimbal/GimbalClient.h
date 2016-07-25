@@ -14,9 +14,7 @@
 @property NSDictionary* sighting;
 @property NSString* gimbalApiKey;
 - (GimbalClient*)initWithVendorProperties:(VendorProperties*)vendorProperties
-                                   device:(Device*)device
                            organizationId:(NSString*)organizationId
-                                projectId:(NSString*)projectId
-                                  andUser:(User*)user;
+                                projectId:(NSString*)projectId;
 - (void)startGimbal;
 @end

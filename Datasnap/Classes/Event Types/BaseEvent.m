@@ -13,16 +13,15 @@
 {
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
     unsigned count;
-    objc_property_t* properties = class_copyPropertyList([self class], &count);
-    NSDictionary* ownProperties = [self dictionaryFromProperties:properties withCount:count];
-    [dict addEntriesFromDictionary:ownProperties];
+    objc_property_t* currentClassPropertyList = class_copyPropertyList([self class], &count);
+    NSDictionary* currentClassPropertyValues = [self dictionaryFromProperties:currentClassPropertyList withCount:count];
+    [dict addEntriesFromDictionary:currentClassPropertyValues];
 
     if ([NSStringFromClass([self superclass]) isEqualToString:@"BaseEvent"]) {
-        objc_property_t* baseEventProperties;
-        unsigned baseEventCount;
-        baseEventProperties = class_copyPropertyList([self superclass], &baseEventCount);
-        NSDictionary* baseEventDict = [self dictionaryFromProperties:baseEventProperties withCount:baseEventCount];
-        [dict addEntriesFromDictionary:baseEventDict];
+        unsigned superClassCount;
+        objc_property_t* superClassPropertyList = class_copyPropertyList([self superclass], &superClassCount);
+        NSDictionary* superClassPropertyValues = [self dictionaryFromProperties:superClassPropertyList withCount:superClassCount];
+        [dict addEntriesFromDictionary:superClassPropertyValues];
     }
 
     return [NSDictionary dictionaryWithDictionary:dict];

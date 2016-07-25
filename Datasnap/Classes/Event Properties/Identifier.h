@@ -13,11 +13,6 @@
 @property NSString* mobile_device_ios_idfa;
 @property NSString* sha1_lowercase_email;
 
-/*
-	All of these are Not static. We need to grab them when
-	we generate the event. These can change over time.
- */
-
 - (Identifier*)initWithGlobalDistinctId:(NSString*)global_distinctId;
 
 - (Identifier*)initWithGlobalDistinctId:(NSString*)global_distinctId

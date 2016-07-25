@@ -11,16 +11,19 @@
 - (BeaconEvent*)beaconSighting:(Beacon*)beacon
 {
     self.beacon = beacon;
+    self.event_type = @"beacon_sighting";
     return self;
 }
 - (BeaconEvent*)beaconDepart:(Beacon*)beacon
 {
     self.beacon = beacon;
+    self.event_type = @"beacon_depart";
     return self;
 }
 - (BeaconEvent*)beaconArrive:(Beacon*)beacon
 {
     self.beacon = beacon;
+    self.event_type = @"beacon_sighting";
     return self;
 }
 @end

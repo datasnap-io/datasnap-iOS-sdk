@@ -11,14 +11,6 @@
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <arpa/inet.h>
 #import <ifaddrs.h>
-/*
- Many of these fields are NOT static. For example, IP Address could
- change on every HTTP request. For this reason, we need to get
- these fields on every reqest attempt. These fields include:
- * osVersion
- * ipAddress
- * countryCode
- */
 
 @interface Device : EventProperty
 @property NSString* ipAddress;

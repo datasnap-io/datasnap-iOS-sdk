@@ -14,6 +14,7 @@
 {
     self.communication = communication;
     self.campaign = campaign;
+    self.event_type = @"ds_communication_open";
     return self;
 }
 - (CommunicationEvent*)communicationSentWithCommunication:(Communication*)communication
@@ -21,6 +22,7 @@
 {
     self.communication = communication;
     self.campaign = campaign;
+    self.event_type = @"ds_communication_sent";
     return self;
 }
 @end

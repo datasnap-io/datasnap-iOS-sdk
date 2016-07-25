@@ -12,6 +12,7 @@
 - (GeoFenceEvent*)geofenceDepart:(Geofence*)geofence
 {
     self.geofence = geofence;
+    self.event_type = @"geofence_depart";
     return self;
 }
 @end

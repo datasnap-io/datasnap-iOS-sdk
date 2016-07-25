@@ -16,9 +16,10 @@ PODS:
     - AFNetworking/NSURLSession
   - Datasnap (2.0.0):
     - AFNetworking
-    - Datasnap/Generic (= 2.0.0)
-  - Datasnap/Generic (2.0.0):
+    - Datasnap/Gimbal (= 2.0.0)
+  - Datasnap/Gimbal (2.0.0):
     - AFNetworking
+    - Gimbal
   - Gimbal (2.43.1)
   - Kiwi (2.4.0)
   - MagicalRecord (2.3.2):
@@ -38,7 +39,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  Datasnap: 90f1ce9b9e6c8ef05c84b50617d5ff633ec1b31c
+  Datasnap: 52d2151df691ce58c4a4965b7363ad7097067dbb
   Gimbal: 96d9c56a5ab11ee934ae2622c0cb81c66680fd77
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755

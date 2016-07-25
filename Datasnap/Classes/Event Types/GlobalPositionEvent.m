@@ -11,7 +11,8 @@
 @implementation GlobalPositionEvent
 - (GlobalPositionEvent*)globalPositionSighting:(NSArray*)coordinates
 {
-    self.coordinates = coordinates;
+    self.globalPosition = [[GlobalPosition alloc] initWithCoordinates:coordinates];
+    self.event_type = @"global_position_sighting";
     return self;
 }
 
