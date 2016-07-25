@@ -6,7 +6,9 @@
 //  Copyright © 2016 Datasnapio. All rights reserved.
 //
 #import "Device.h"
+#import "Identifier.h"
 #import "NSObject+Helpers.h"
+#import "User.h"
 
 @class Datasnap;
 @interface BaseEvent : NSObject
@@ -16,6 +18,7 @@
 @property NSString* event_type;
 @property NSArray* organization_ids;
 @property NSArray* project_ids;
+@property User* user;
 - (NSDictionary*)convertToDictionary;
 - (BaseEvent*)initWithEventType:(NSString*)eventType;
 + (NSDictionary*)classPropsForClassHierarchy:(Class) class;

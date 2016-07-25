@@ -26,8 +26,9 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
 @property (nonatomic, strong) NSString* organizationId;
 @property (nonatomic, strong) NSString* projectId;
 @property (nonatomic) BaseClient* baseClient;
+@property (nonatomic) User* user;
 @property (nonatomic) NSTimer* timer;
-@property (nonatomic) bool googleAdOptIn;
+@property (nonatomic) NSString* idfa;
 @property (nonatomic) NSString* email;
 @property (nonatomic) NSString* mobileDeviceIosIdfa;
 @property (nonatomic) NSInteger maxElements;
@@ -51,7 +52,7 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
         apiKeySecret:(NSString*)apiKeySecret
       organizationId:(NSString*)organizationId
            projectId:(NSString*)projectId
-           IDFAOptIn:(bool)googleAdOptIn
+                IDFA:(NSString*)idfa
                email:(NSString*)email
  andVendorProperties:(VendorProperties*)vendorProperties
 {
@@ -59,7 +60,7 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
         self.organizationId = organizationId;
         self.projectId = projectId;
         self.api = [[DatasnapAPI alloc] initWithKey:apiKey secret:apiKeySecret];
-        self.googleAdOptIn = googleAdOptIn;
+        self.idfa = idfa;
         self.email = email;
         self.vendorProperties = vendorProperties;
     }
@@ -69,10 +70,6 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
 
 - (void)initializeData
 {
-    self.device = [[Device alloc] init];
-    self.identifier = [[Identifier alloc] initWithGlobalDistinctId:[[NSUUID UUID] UUIDString]
-                                           andSha1_lowercase_email:self.googleAdOptIn ? @"YES" : @"NO"
-                                                           andIDFA:self.email ? [self.email toSha1] : nil];
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         [self checkQueue];
         // Ensure Gimbal is started if application is started offline.
@@ -189,7 +186,11 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
 {
     event.organization_ids = @[ self.organizationId ];
     event.project_ids = @[ self.projectId ];
-    event.device = self.device;
+    event.device = [[Device alloc] init];
+    event.user = [[User alloc] initWithIdentifier:self.identifier];
+    event.user.identifier = [[Identifier alloc] initWithGlobalDistinctId:[[[UIDevice currentDevice] identifierForVendor] UUIDString]
+                                                 andSha1_lowercase_email:self.email ? [self.email toSha1] : nil
+                                                                 andIDFA:self.idfa];
     NSDictionary* eventJson = [event dictionary];
     [self.eventQueue recordEvent:eventJson];
 }

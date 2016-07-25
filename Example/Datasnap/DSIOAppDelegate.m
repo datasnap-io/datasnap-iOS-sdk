@@ -19,13 +19,13 @@
 
     VendorProperties* vendorProperties = [[VendorProperties alloc] initWithVendor:GIMBAL andgimbalApiKey:@"Enter your Gimbal API key"];
     Datasnap* datasnap = [Datasnap sharedClient];
-    //IDFAOptIn is a property that, when true, allows Datasnap to collect the IDFA for the device. If YES is passed for this parameter, ads must be served through the application. If not, the App Store will not accept the app.
+    //IDFA is the advertising identifier for the device. Pass in nil for this property if advertising is not used in the app.
     //Provided email will be hashed before being sent to Datasnap server.
     datasnap = [datasnap initWithApiKey:@"5F3Y985XP779ONVYM174PKB1G"
                            apiKeySecret:@"6hOLko53j35/IT5+aApquUv26vaB+9ndigD+iJJi9IQ"
                          organizationId:@"Enter your organization ID"
                               projectId:@"Enter your project ID"
-                              IDFAOptIn:YES
+                                   IDFA:@"example idfa"
                                   email:@"someone@example.com"
                     andVendorProperties:vendorProperties];
     //max elements property denotes the batch size, duration property denotes the amount of milliseconds the sdk will wait before making an api call

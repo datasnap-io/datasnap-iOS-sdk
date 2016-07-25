@@ -44,7 +44,7 @@
 - (IBAction)geofenceDepartButtonTouched:(id)sender
 {
     //initialize geofence
-    Geofence* geofence = [Geofence initWithIdentifier:@"example identifier"];
+    Geofence* geofence = [[Geofence alloc] initWithIdentifier:@"example identifier"];
     //initialize geofence event
     GeoFenceEvent* geoFenceEvent = [[GeoFenceEvent alloc] geofenceDepart:geofence];
     //track event
@@ -81,12 +81,12 @@
 - (IBAction)communicationOpenButtonTouched:(id)sender
 {
     //initialize communication
-    Communication* communication = [Communication initWithIdentifier:@"example identifier"
-                                                                name:@"Title"];
+    Communication* communication = [[Communication alloc] initWithIdentifier:@"example identifier"
+                                                                        name:@"Title"];
     //initialize campaign
-    Campaign* campaign = [Campaign initWithName:@"Advertising campaign"
-                                     identifier:@"example identifier"
-                               communicationIds:@"example communication id"];
+    Campaign* campaign = [[Campaign alloc] initWithName:@"Advertising campaign"
+                                             identifier:@"example identifier"
+                                       communicationIds:@"example communication id"];
     //initialize communication event
     CommunicationEvent* event = [[CommunicationEvent alloc] communicationOpenWithCommunication:communication campaign:campaign];
     //track event
@@ -95,12 +95,12 @@
 - (IBAction)communicationSentButtonTouched:(id)sender
 {
     //initialize communication
-    Communication* communication = [Communication initWithIdentifier:@"example identifier"
-                                                                name:@"Title"];
+    Communication* communication = [[Communication alloc] initWithIdentifier:@"example identifier"
+                                                                        name:@"Title"];
     //initialize campaign
-    Campaign* campaign = [Campaign initWithName:@"Advertising campaign"
-                                     identifier:@"example identifier"
-                               communicationIds:@"example communication id"];
+    Campaign* campaign = [[Campaign alloc] initWithName:@"Advertising campaign"
+                                             identifier:@"example identifier"
+                                       communicationIds:@"example communication id"];
     //initialize communication event
     CommunicationEvent* event = [[CommunicationEvent alloc] communicationOpenWithCommunication:communication campaign:campaign];
     //track event

@@ -2,10 +2,15 @@
 //  Copyright (c) 2015 Datasnap.io. All rights reserved.
 //
 
+#import "Device.h"
 #import "Event+Management.h"
 #import "EventQueue.h"
 #import "Gzip.h"
+#import <CoreTelephony/CTCarrier.h>
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <Foundation/Foundation.h>
+#import <arpa/inet.h>
+#import <ifaddrs.h>
 
 typedef void (^DataSnapAPIRequestCompleted)(NSData* data, NSURLResponse* response, NSError* error);
 

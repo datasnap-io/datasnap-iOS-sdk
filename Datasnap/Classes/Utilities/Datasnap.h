@@ -26,6 +26,7 @@
 #import "Device.h"
 #import "Geofence.h"
 #import "Identifier.h"
+#import "User.h"
 #pragma mark model
 #import "Event+Management.h"
 #pragma mark frameworks
@@ -43,7 +44,7 @@
         apiKeySecret:(NSString*)apiKeySecret
       organizationId:(NSString*)organizationId
            projectId:(NSString*)projectId
-           IDFAOptIn:(bool)googleAdOptIn
+                IDFA:(NSString*)idfa
                email:(NSString*)email
  andVendorProperties:(VendorProperties*)vendorProperties;
 - (void)setFlushParamsWithDuration:(NSInteger)durationInMillis

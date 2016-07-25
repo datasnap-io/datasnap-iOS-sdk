@@ -17,7 +17,7 @@ static NSString* const kDataSnapEventAPIURL = @"https://api-events.datasnap.io/v
 
 @property (nonatomic, strong) NSString* key;
 @property (nonatomic, strong) NSString* secret;
-
+@property Device* device;
 @end
 
 @implementation DatasnapAPI
