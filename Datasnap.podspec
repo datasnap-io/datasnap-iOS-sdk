@@ -18,7 +18,7 @@ s.source_files = 'Datasnap/Classes/{Event Properties,Event Types,Model,Utilities
 s.frameworks = 'CoreData'
 s.resources      = 'Datasnap/Classes/**/*.{xcdatamodeld,xcdatamodel}'
 s.dependency 'AFNetworking'
-s.default_subspec = 'Gimbal'
+s.default_subspec = 'Generic'
 s.subspec 'Generic' do |generic|
 # subspec for users who don't want the third party Gimbal bloat
 end
