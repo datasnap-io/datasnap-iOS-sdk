@@ -11,6 +11,7 @@
 #import "CommunicationEvent.h"
 #import "GeofenceEvent.h"
 #import "GlobalPositionEvent.h"
+#import "SDKErrorEvent.h"
 #pragma mark utilities
 #import "BaseClient.h"
 #import "DSIOConfig.h"

@@ -120,5 +120,11 @@
     //track event
     [self.datasnap trackEvent:event];
 }
+- (IBAction)sdkErrorButtonTouched:(id)sender {
+    //initialize event with the type sdk_error
+    SDKErrorEvent* event = [[SDKErrorEvent alloc]initWithErrorMessage:@"Sample error message"];
+    //track event
+    [self.datasnap trackEvent:event];
+}
 
 @end

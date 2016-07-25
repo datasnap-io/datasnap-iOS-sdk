@@ -107,11 +107,19 @@
                                     <action selector="optInLocationButtonTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6ky-4b-gu8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxb-Ve-t5t">
+                                <rect key="frame" x="266" y="372" width="68" height="30"/>
+                                <state key="normal" title="SDK Error"/>
+                                <connections>
+                                    <action selector="sdkErrorButtonTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="rwp-Of-TGX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ai9-8y-ZUH" firstAttribute="top" secondItem="tkX-7n-O8n" secondAttribute="bottom" constant="3" id="41I-uO-My3"/>
                             <constraint firstItem="yPt-Y4-WY5" firstAttribute="top" secondItem="HYG-cE-uj0" secondAttribute="bottom" constant="-1" id="4B7-zV-AuJ"/>
+                            <constraint firstItem="Qxb-Ve-t5t" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Arb-nh-Tw1"/>
                             <constraint firstItem="moM-uP-Q03" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Bwj-MF-2Hx"/>
                             <constraint firstItem="xl6-eN-IAX" firstAttribute="top" secondItem="g9C-PL-hNX" secondAttribute="bottom" constant="-5" id="EU7-p6-nJJ"/>
                             <constraint firstItem="vwK-yk-rA4" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Gwi-27-fVA"/>
@@ -130,6 +138,7 @@
                             <constraint firstItem="4Ru-X5-DiJ" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="clJ-hR-Jif"/>
                             <constraint firstItem="Q02-oB-L7F" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="ghh-Pq-r77"/>
                             <constraint firstItem="Dns-Et-Kxk" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="glT-BR-HT6"/>
+                            <constraint firstItem="Qxb-Ve-t5t" firstAttribute="top" secondItem="yPt-Y4-WY5" secondAttribute="bottom" constant="-2" id="h7W-fT-TK6"/>
                             <constraint firstItem="HYG-cE-uj0" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="hUB-eM-WKb"/>
                             <constraint firstItem="HYG-cE-uj0" firstAttribute="top" secondItem="Q02-oB-L7F" secondAttribute="bottom" id="kL2-0h-lC8"/>
                             <constraint firstItem="yPt-Y4-WY5" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="kvW-1V-r8u"/>
