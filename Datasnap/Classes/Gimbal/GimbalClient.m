@@ -52,7 +52,9 @@
 }
 - (void)beaconManager:(GMBLBeaconManager*)manager didReceiveBeaconSighting:(GMBLBeaconSighting*)sighting
 {
-    Beacon* beacon = [[Beacon alloc] initWithIdentifier:sighting.beacon.identifier name:sighting.beacon.name bleVendorId:sighting.beacon.uuid];
+    Beacon* beacon = [[Beacon alloc] initWithIdentifier:sighting.beacon.identifier name:sighting.beacon.name bleVendorId:@"Gimbal"];
+    beacon.rssi = [NSString stringWithFormat:@"%d", sighting.RSSI];
+    beacon.battery_level = [NSString stringWithFormat:@"%d", sighting.beacon.batteryLevel];
     BeaconEvent* event = [[BeaconEvent alloc] beaconSighting:beacon];
     Datasnap* datasnap = [Datasnap sharedClient];
     [datasnap trackEvent:event];

@@ -47,6 +47,9 @@
                 else if ([key isEqualToString:@"globalPosition"]) {
                     [dict setObject:[value dictionary] forKey:@"global-position"];
                 }
+                else if ([key isEqualToString:@"eventProperty"]) {
+                    [dict setObject:[value dictionary] forKey:@"datasnap"];
+                }
                 else {
                     [dict setObject:[value dictionary] forKey:key];
                 }

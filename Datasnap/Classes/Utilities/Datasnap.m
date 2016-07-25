@@ -181,7 +181,10 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
 {
     event.organization_ids = @[ self.organizationId ];
     event.project_ids = @[ self.projectId ];
-    event.device = [[Device alloc] init];
+    Device* device = [[Device alloc] init];
+    NSDateFormatter* dateFormatter = [NSDateFormatter new];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
+    event.eventProperty = [[EventProperty alloc] initWithDate:[NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]] andDevice:device];
     Identifier* identifier = [[Identifier alloc] initWithGlobalDistinctId:[[[UIDevice currentDevice] identifierForVendor] UUIDString]
                                                   andSha1_lowercase_email:self.email ? [self.email toSha1] : nil
                                                                   andIDFA:self.idfa];

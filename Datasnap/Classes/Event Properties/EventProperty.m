@@ -5,10 +5,17 @@
 //  Created by Alyssa McIntyre on 7/19/16.
 //
 //
-
+#import "Device.h"
 #import "EventProperty.h"
 
 @implementation EventProperty
+- (EventProperty*)initWithDate:(NSString*)created
+                     andDevice:(Device*)device
+{
+    self.created = created;
+    self.device = device;
+    return self;
+}
 - (NSDictionary*)dictionary
 {
     NSMutableDictionary* dict = [NSMutableDictionary new];
