@@ -21,9 +21,6 @@
     //initialize beacon event
     BeaconEvent* beaconEvent = [[BeaconEvent alloc] beaconSighting:beacon];
     //add the beacon event to the event queue
-    self.datasnap.email = @"example updated email";
-    self.datasnap.UUID = @"example updated UUID";
-    self.datasnap.idfa = @"example updated idfa";
     [self.datasnap trackEvent:beaconEvent];
 }
 - (IBAction)beaconArrivalButtonTouched:(id)sender
