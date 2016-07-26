@@ -21,6 +21,9 @@
     //initialize beacon event
     BeaconEvent* beaconEvent = [[BeaconEvent alloc] beaconSighting:beacon];
     //add the beacon event to the event queue
+    self.datasnap.email = @"example updated email";
+    self.datasnap.UUID = @"example updated UUID";
+    self.datasnap.idfa = @"example updated idfa";
     [self.datasnap trackEvent:beaconEvent];
 }
 - (IBAction)beaconArrivalButtonTouched:(id)sender
@@ -120,9 +123,10 @@
     //track event
     [self.datasnap trackEvent:event];
 }
-- (IBAction)sdkErrorButtonTouched:(id)sender {
+- (IBAction)sdkErrorButtonTouched:(id)sender
+{
     //initialize event with the type sdk_error
-    SDKErrorEvent* event = [[SDKErrorEvent alloc]initWithErrorMessage:@"Sample error message"];
+    SDKErrorEvent* event = [[SDKErrorEvent alloc] initWithErrorMessage:@"Sample error message"];
     //track event
     [self.datasnap trackEvent:event];
 }

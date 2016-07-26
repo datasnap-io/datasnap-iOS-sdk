@@ -39,6 +39,9 @@
 @interface Datasnap : NSObject
 @property (nonatomic) DatasnapAPI* api;
 @property (nonatomic) EventQueue* eventQueue;
+@property (nonatomic) NSString* email;
+@property (nonatomic) NSString* UUID;
+@property (nonatomic) NSString* idfa;
 - (void)trackEvent:(BaseEvent*)event;
 + (id)sharedClient;
 - (id)initWithApiKey:(NSString*)apiKey
