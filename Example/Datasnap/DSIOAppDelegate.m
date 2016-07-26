@@ -25,7 +25,6 @@
                            apiKeySecret:@"Enter Datasnap API Secret"
                          organizationId:@"Enter your organization ID"
                               projectId:@"Enter your project ID"
-                                   IDFA:[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString]
                                   email:@"someone@example.com"
                     andVendorProperties:vendorProperties];
     //max elements property denotes the batch size, duration property denotes the amount of milliseconds the sdk will wait before making an api call

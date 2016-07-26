@@ -43,12 +43,12 @@
 @property (nonatomic) NSString* UUID;
 @property (nonatomic) NSString* idfa;
 - (void)trackEvent:(BaseEvent*)event;
+- (void)trackEvent:(BaseEvent*)event withIDFA:(NSString*)idfa;
 + (id)sharedClient;
 - (id)initWithApiKey:(NSString*)apiKey
         apiKeySecret:(NSString*)apiKeySecret
       organizationId:(NSString*)organizationId
            projectId:(NSString*)projectId
-                IDFA:(NSString*)idfa
                email:(NSString*)email
  andVendorProperties:(VendorProperties*)vendorProperties;
 - (void)setFlushParamsWithDuration:(NSInteger)durationInMillis

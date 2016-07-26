@@ -30,7 +30,7 @@
     //initialize beacon event
     BeaconEvent* beaconEvent = [[BeaconEvent alloc] beaconArrive:beacon];
     //track event
-    [self.datasnap trackEvent:beaconEvent];
+    [self.datasnap trackEvent:beaconEvent withIDFA:[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString]];
 }
 - (IBAction)beaconDepartButtonTouched:(id)sender
 {
