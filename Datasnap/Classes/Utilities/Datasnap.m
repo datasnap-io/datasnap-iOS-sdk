@@ -26,7 +26,7 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
 @property (nonatomic) BaseClient* baseClient;
 @property (nonatomic) NSTimer* timer;
 @property (nonatomic) NSString* mobileDeviceIosIdfa;
-@property (nonatomic) NSInteger maxElements;
+@property (nonatomic) NSInteger durationInMillis;
 @end
 
 @implementation Datasnap
@@ -136,9 +136,9 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
 - (void)setFlushParamsWithDuration:(NSInteger)durationInMillis
                    withMaxElements:(NSInteger)maxElements
 {
-    self.maxElements = maxElements;
+    self.durationInMillis = durationInMillis;
     self.eventQueue = [[EventQueue alloc] initWithSize:maxElements andTime:durationInMillis];
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:maxElements
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:durationInMillis
                                                   target:self
                                                 selector:@selector(checkQueue)
                                                 userInfo:nil
@@ -160,8 +160,8 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
             else {
                 NSLog(@"API request unsuccessful. %d events will remain in queue.", events.count);
                 [self.timer invalidate];
-                self.maxElements = self.maxElements * 2;
-                self.timer = [NSTimer scheduledTimerWithTimeInterval:self.maxElements
+                self.durationInMillis = self.durationInMillis * 2;
+                self.timer = [NSTimer scheduledTimerWithTimeInterval:self.durationInMillis
                                                               target:self
                                                             selector:@selector(checkQueue)
                                                             userInfo:nil
