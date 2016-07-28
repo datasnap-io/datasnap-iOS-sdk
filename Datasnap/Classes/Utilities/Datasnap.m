@@ -147,26 +147,32 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
 
 - (void)checkQueue
 {
+    __block BOOL apiSuccess;
     if ([self connected]) {
         NSMutableArray* events = [self.eventQueue getEvents];
         if (events.count > 0) {
             NSLog(@"Queue is full. %d events will be sent to service and flushed.", events.count);
-            if ([self.api sendEvents:events]) {
-                [self.eventQueue flushQueue:events];
-                if ([EventEntity returnAllEvents].count > 0) {
-                    [self checkQueue];
+            [self.api sendEvents:events andBlock:^(BOOL success) {
+                if (success) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.eventQueue flushQueue:events];
+                        if ([EventEntity returnAllEvents].count > 0) {
+                            [self checkQueue];
+                        }
+                    });
+                    apiSuccess = YES;
                 }
-            }
-            else {
-                NSLog(@"API request unsuccessful. %d events will remain in queue.", events.count);
-                [self.timer invalidate];
-                self.durationInMillis = self.durationInMillis * 2;
-                self.timer = [NSTimer scheduledTimerWithTimeInterval:self.durationInMillis
-                                                              target:self
-                                                            selector:@selector(checkQueue)
-                                                            userInfo:nil
-                                                             repeats:YES];
-            }
+                else {
+                    NSLog(@"API request unsuccessful. %d events will remain in queue.", events.count);
+                    [self.timer invalidate];
+                    self.durationInMillis = self.durationInMillis * 2;
+                    self.timer = [NSTimer scheduledTimerWithTimeInterval:self.durationInMillis
+                                                                  target:self
+                                                                selector:@selector(checkQueue)
+                                                                userInfo:nil
+                                                                 repeats:YES];
+                }
+            }];
         }
     }
 }
