@@ -7,15 +7,13 @@
 //
 
 #import "Datasnap.h"
-//TODO: move file to root
 static Datasnap* sharedInstance = nil;
-static NSString* appInstalledEventType = @"app_installed";
 
 NSString* const GimbalClientClassName = @"GimbalClient";
 NSString* const GimbalClientInitializerMethod = @"initWithVendorProperties:organizationId:projectId:";
 
 NSString* const IsAppAlreadyLaunchedOnceKey = @"isAppAlreadyLaunchedOnceKey";
-NSString* const AppInstalledEventType = @"appInstalledEventType";
+NSString* const AppInstalledEventType = @"app_installed";
 
 @interface Datasnap ()
 @property (nonatomic) EventEntity* event;
@@ -196,7 +194,6 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
     Identifier* identifier = [[Identifier alloc] initWithGlobalDistinctId:self.UUID ? self.UUID : [[[UIDevice currentDevice] identifierForVendor] UUIDString]
                                                   andSha1_lowercase_email:self.email ? [self.email toSha1] : nil
                                                                   andIDFA:self.idfa ? self.idfa : nil];
-    self.idfa = nil;
     event.user = [[User alloc] initWithIdentifier:identifier];
     NSDictionary* eventJson = [event dictionary];
     [self.eventQueue recordEvent:eventJson];
