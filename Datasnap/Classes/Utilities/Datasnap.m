@@ -193,10 +193,10 @@ NSString* const AppInstalledEventType = @"appInstalledEventType";
     NSDateFormatter* dateFormatter = [NSDateFormatter new];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
     event.eventProperty = [[EventProperty alloc] initWithDate:[NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]] andDevice:device];
-    ASIdentifierManager *adIdentManager = [ASIdentifierManager sharedManager];
     Identifier* identifier = [[Identifier alloc] initWithGlobalDistinctId:self.UUID ? self.UUID : [[[UIDevice currentDevice] identifierForVendor] UUIDString]
                                                   andSha1_lowercase_email:self.email ? [self.email toSha1] : nil
-                                                                  andIDFA:adIdentManager.advertisingTrackingEnabled ? [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] : nil];
+                                                                  andIDFA:self.idfa ? self.idfa : nil];
+    self.idfa = nil;
     event.user = [[User alloc] initWithIdentifier:identifier];
     NSDictionary* eventJson = [event dictionary];
     [self.eventQueue recordEvent:eventJson];
