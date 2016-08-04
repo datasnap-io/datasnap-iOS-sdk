@@ -19,7 +19,6 @@
 
     VendorProperties* vendorProperties = [[VendorProperties alloc] initWithVendor:GIMBAL andgimbalApiKey:@"Enter your Gimbal API Key"];
     Datasnap* datasnap = [Datasnap sharedClient];
-    //IDFA is the advertising identifier for the device. Pass in nil for this property if advertising is not used in the app.
     //Provided email will be hashed before being sent to Datasnap server.
     datasnap = [datasnap initWithApiKey:@"Enter Datasnap API Key"
                            apiKeySecret:@"Enter Datasnap API Secret"
@@ -27,10 +26,6 @@
                               projectId:@"Enter your project ID"
                                   email:@"someone@example.com"
                     andVendorProperties:vendorProperties];
-    ASIdentifierManager* adIdentManager = [ASIdentifierManager sharedManager];
-    if (adIdentManager.advertisingTrackingEnabled) {
-        datasnap.idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-    }
     //max elements property denotes the batch size, duration property denotes the amount of milliseconds the sdk will wait before making an api call
     [datasnap setFlushParamsWithDuration:100000 withMaxElements:10];
     return YES;

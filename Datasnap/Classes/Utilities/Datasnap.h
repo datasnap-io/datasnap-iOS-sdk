@@ -41,9 +41,7 @@
 @property (nonatomic) EventQueue* eventQueue;
 @property (nonatomic) NSString* email;
 @property (nonatomic) NSString* UUID;
-@property (nonatomic) NSString* idfa;
 - (void)trackEvent:(BaseEvent*)event;
-- (void)trackEvent:(BaseEvent*)event withIDFA:(NSString*)idfa;
 + (id)sharedClient;
 - (id)initWithApiKey:(NSString*)apiKey
         apiKeySecret:(NSString*)apiKeySecret

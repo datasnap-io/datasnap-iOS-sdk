@@ -177,12 +177,6 @@ NSString* const AppInstalledEventType = @"app_installed";
 
 #pragma mark Event Tracking
 
-- (void)trackEvent:(BaseEvent*)event withIDFA:(NSString*)idfa
-{
-    self.idfa = idfa;
-    [self trackEvent:event];
-}
-
 - (void)trackEvent:(BaseEvent*)event
 {
     event.organization_ids = @[ self.organizationId ];
@@ -192,8 +186,7 @@ NSString* const AppInstalledEventType = @"app_installed";
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
     event.eventProperty = [[EventProperty alloc] initWithDate:[NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[NSDate date]]] andDevice:device];
     Identifier* identifier = [[Identifier alloc] initWithGlobalDistinctId:self.UUID ? self.UUID : [[[UIDevice currentDevice] identifierForVendor] UUIDString]
-                                                  andSha1_lowercase_email:self.email ? [self.email toSha1] : nil
-                                                                  andIDFA:self.idfa ? self.idfa : nil];
+                                                  andSha1_lowercase_email:self.email ? [self.email toSha1] : nil];
     event.user = [[User alloc] initWithIdentifier:identifier];
     NSDictionary* eventJson = [event dictionary];
     [self.eventQueue recordEvent:eventJson];
