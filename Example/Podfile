@@ -1,0 +1,11 @@
+
+
+target 'Datasnap_Example' do
+    pod 'Datasnap', :path => '../'
+    pod 'Gimbal'
+    pod 'AFNetworking'
+    target 'Datasnap_Tests' do
+        pod 'Kiwi'
+        pod 'MagicalRecord'
+    end
+end
