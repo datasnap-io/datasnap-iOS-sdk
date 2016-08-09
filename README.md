@@ -73,7 +73,6 @@ let datasnap = Datasnap(apiKey:”Enter your Datasnap API key here",
                          apiKeySecret:”Enter your Datasnap API secret here",
                        organizationId:”Enter your organization ID here",
                             projectId:”Enter your project ID here”,
-                            IDFAOptIn:true,
                                 email:"someemail@example.com”,
                   andVendorProperties:vendorProperties)
 ```
@@ -122,16 +121,13 @@ By default, the SDK collects a variety of data about the device to aid in statis
 - Device manufacturer
 - Device name
 - Carrier name
-- IDFA (dependent on user settings)
 
-# Identifying User Data (IDFA/email)
-The Datasnap analytics platform can be more useful when events are linked to a unique user identifier.  We can use either Apple's IDFA or the user's email to uniquely identify that user.
-
-The user can disable the use of the IDFA by turning on "Limit Ad Tracking" in Settings >> Privacy.  You, the developer, can also stop the IDFA from being sent to the Datasnap servers by initializing the Datasnap object with the parameter `googleAdOptIn:NO`.
+# Identifying User Data (email)
+The Datasnap analytics platform can be more useful when events are linked to a unique user identifier.  We can use the user's email to uniquely identify that user.
 
 If you wish to use an email, initialize the Datasnap object with `email:@"someemail@example.com"`. The email will be hashed to avoid specifically identifying the user. 
 
-We will only use an identifier, whether email or IDFA, as a means to tie together sequences of events.
+We will only use email to tie together sequences of events.
 
 ## Datasnap.io Backend 
 
